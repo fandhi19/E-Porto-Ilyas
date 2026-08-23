@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Mahasiswa | Ilyas Fandhi Anggara | E-Portofolio PPG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="Css/profil.css" />
+    <link rel="shortcut icon" href="Images/logo_uny.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </head>
+  <body>
+    <div class="cyber-cursor-dot" id="cursor-dot"></div>
+    <div class="cyber-cursor-ring" id="cursor-ring"></div>
+
+    <div class="scanlines"></div>
+
+    <div class="bg-grid-cyber"></div>
+    <div class="bg-gradient-wrapper">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+
+    <canvas id="neural-data-particle"></canvas>
+
+    <header>
+      <div class="container header-container">
+        <div class="logo-wrapper">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <span class="cyber-badge">JEJAK PPL</span>
+        </div>
+
+        <nav>
+          <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">E-Portofolio 1 <span class="arrow">&#9662;</span> </a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+                </li>
+                <li>
+                  <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+                </li>
+                <li>
+                  <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+                </li>
+                <li>
+                  <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+                </li>
+                <li>
+                  <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">E-Portofolio 2 <span class="arrow">&#9662;</span> </a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+                </li>
+                <li>
+                  <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="dokumentasi.html"> Dokumentasi</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section profil-hero" style="padding-top: 100px; padding-bottom: 70px">
+        <div class="container profil-grid-v2 reveal">
+          <div class="profil-info-panel">
+            <div class="system-status" style="margin-bottom: 20px"><span class="status-dot pulse-dot"></span> IDENTITY_VERIFIED</div>
+
+            <div class="badge-group" style="margin-bottom: 25px">
+              <span class="cyber-badge" style="font-size: 14px; padding: 5px 12px">2026</span>
+              <span class="cyber-badge" style="font-size: 14px; padding: 5px 12px; background: transparent; border-color: var(--primary)">PPG PRAJABATAN</span>
+            </div>
+
+            <h4 style="color: var(--text-muted); letter-spacing: 3px; font-weight: 500; font-size: 14px">[ PROFIL PROFESIONAL ]</h4>
+
+            <div class="name-wrapper">
+              <h1 class="typing-name">Ilyas Fandhi Anggara</h1>
+            </div>
+
+            <h3 style="color: var(--primary); font-family: monospace; font-size: 1.1rem; margin-bottom: 25px">>_ Sarjana Komputer & Calon Pendidik Informatika</h3>
+
+            <div class="info-divider"></div>
+
+            <p style="color: var(--text-main); font-size: 16px; line-height: 1.8; margin-bottom: 35px; max-width: 95%">Berdedikasi menciptakan pengalaman belajar digital yang transformatif, interaktif, dan berbasis TPACK.</p>
+
+            <a href="mailto:ilyasfandhianggara@gmail.com" class="cyber-btn-outline" style="font-size: 16px; padding: 12px 30px; display: inline-block">
+              <span class="btn-bracket">[</span> <i class="fa-solid fa-envelope"></i> KONTAK_SAYA <span class="btn-bracket">]</span>
+            </a>
+          </div>
+
+          <div class="profil-image-wrapper">
+            <div class="cyber-frame-v2">
+              <div class="hud-corner top-left"></div>
+              <div class="hud-corner top-right"></div>
+              <div class="hud-corner bottom-left"></div>
+              <div class="hud-corner bottom-right"></div>
+
+              <div class="image-inner">
+                <img src="Images/PAS_foto_ppg.png" alt="Ilyas Fandhi Anggara" class="profil-img-v2" />
+                <div class="frame-scanline"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about-section" style="padding: 70px 0">
+        <div class="container reveal">
+          <div class="section-header text-center" style="margin-bottom: 60px">
+            <h2 class="section-title glitch-text" data-text="JEJAK PENDIDIKAN" style="font-size: 2.5rem; text-transform: uppercase; margin: 0">MENGENAL LEBIH DEKAT</h2>
+            <div class="title-divider"></div>
+          </div>
+
+          <div class="about-terminal-wrapper">
+            <div class="terminal-header">
+              <div class="terminal-buttons">
+                <span class="t-btn close"></span>
+                <span class="t-btn min"></span>
+                <span class="t-btn max"></span>
+              </div>
+              <div class="terminal-title">USER_BIO_DATA.exe</div>
+              <div class="terminal-status"><span class="status-dot pulse-dot"></span> LIVE_FEED</div>
+            </div>
+
+            <div class="terminal-body">
+              <div class="about-grid-layout">
+                <div class="about-text-column">
+                  <p class="cyber-p">
+                    <span class="highlight-text">> Halo!</span> Saya <strong>Ilyas Fandhi Anggara</strong>, lahir dan tumbuh besar di Kabupaten Ogan Komering Ilir (OKI) Provinsi Sumatera Selatan. Daerah asal saya ini memiliki keunikan
+                    budaya seperti pempek dan songket, serta keindahan Sungai Musi. Masyarakatnya dikenal ramah, menjunjung tinggi kebersamaan, dan memiliki semangat gotong royong. Karakteristik lingkungan inilah yang turut membentuk
+                    karakter dan cara pandang saya dalam bersosialisasi hingga saat ini.
+                  </p>
+                  <p class="cyber-p delay-1">
+                    > Inspirasi saya untuk menjadi seorang guru berasal dari kakak saya. Melihat seseorang yang awalnya tidak bisa menjadi bisa memberikan kepuasan tersendiri. Melalui Pendidikan Profesi Guru (PPG) di UNY ini, tujuan utama
+                    saya adalah untuk bertransformasi menjadi <span class="neon-text">pendidik yang inovatif, inklusif, dan berpihak pada peserta didik.</span>
+                  </p>
+                </div>
+
+                <div class="about-quote-column">
+                  <div class="quote-hologram levitate-anim">
+                    <div class="hologram-scanline"></div>
+                    <div class="quote-icon">"</div>
+                    <blockquote class="cyber-quote-v2">
+                      Pendidikan adalah senjata paling mematikan di dunia, karena dengan pendidikan, Anda dapat mengubah dunia.
+                      <span class="quote-author-v2">_ Nelson Mandela</span>
+                    </blockquote>
+                    <div class="hologram-footer">
+                      <span>SYS.REQ: 89.2%</span>
+                      <span>ENCRYPT: FALSE</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section education-section" style="padding: 80px 0">
+        <div class="container reveal">
+          <div class="section-header text-center" style="margin-bottom: 60px">
+            <h2 class="section-title glitch-text" data-text="JEJAK PENDIDIKAN" style="font-size: 2.5rem; text-transform: uppercase; margin: 0">JEJAK PENDIDIKAN</h2>
+            <div class="title-divider"></div>
+          </div>
+
+          <div class="cyber-timeline-v2">
+            <div class="timeline-main-line">
+              <div class="data-packet"></div>
+            </div>
+
+            <div class="timeline-node left-node">
+              <div class="node-dot"></div>
+              <div class="node-content cyber-card-hover">
+                <div class="cyber-corner top-right"></div>
+                <div class="cyber-corner bottom-left"></div>
+
+                <div class="node-year"><span>[ 2026 - SEKARANG ]</span></div>
+                <h3 class="node-title">Pendidikan Profesi Guru (PPG) Prajabatan</h3>
+                <h4 class="node-subtitle">Universitas Negeri Yogyakarta</h4>
+                <div class="node-divider"></div>
+                <p>Saat ini menempuh pendidikan profesi untuk bertransformasi menjadi guru yang profesional, inovatif, dan inklusif bagi peserta didik.</p>
+              </div>
+            </div>
+
+            <div class="timeline-node right-node">
+              <div class="node-dot"></div>
+              <div class="node-content cyber-card-hover">
+                <div class="cyber-corner top-left"></div>
+                <div class="cyber-corner bottom-right"></div>
+
+                <div class="node-year"><span>[ 2021 - 2025 ]</span></div>
+                <h3 class="node-title">S1 Sistem Informasi</h3>
+                <h4 class="node-subtitle">Universitas Islam Negeri Raden Intan Lampung</h4>
+                <div class="node-divider"></div>
+                <p>Lulus dengan gelar Sarjana Komputer (S.Kom). Mempelajari dan mengembangkan berbagai proyek terkait teknologi dan pendidikan.</p>
+              </div>
+            </div>
+
+            <div class="timeline-node left-node">
+              <div class="node-dot"></div>
+              <div class="node-content cyber-card-hover">
+                <div class="cyber-corner top-right"></div>
+                <div class="cyber-corner bottom-left"></div>
+
+                <div class="node-year"><span>[ 2018 - 2021 ]</span></div>
+                <h3 class="node-title">SMAN 3 UNGGULAN KAYUAGUNG</h3>
+                <h4 class="node-subtitle">Kabupaten Ogan Komering Ilir (OKI)</h4>
+                <div class="node-divider"></div>
+                <p>Jurusan Ilmu Pengetahuan Alam. Membangun fondasi logika berpikir dan sains.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hobbies-section" style="padding: 80px 0 100px">
+        <div class="container reveal">
+          <div class="section-header text-center" style="margin-bottom: 50px">
+            <h2 class="section-title glitch-text" data-text="HOBI & MINAT" style="font-size: 2.5rem; text-transform: uppercase; margin: 0">HOBI & MINAT</h2>
+            <div class="title-divider"></div>
+          </div>
+
+          <div class="cyber-hobbies-grid">
+            <div class="cyber-hobby-card">
+              <div class="hobby-visual">
+                <img src="Images/fotografi.jpeg" alt="Fotografi" class="hobby-img" />
+                <div class="hobby-scanline"></div>
+                <div class="hobby-badge"><i class="fa-solid fa-camera"></i></div>
+              </div>
+              <div class="hobby-content">
+                <h3 class="hobby-title">Fotografi</h3>
+                <div class="hobby-divider"></div>
+                <p>Mengabadikan momen berharga dan keindahan sekitar melalui lensa kamera.</p>
+              </div>
+              <div class="card-corner top-right"></div>
+              <div class="card-corner bottom-left"></div>
+            </div>
+
+            <div class="cyber-hobby-card" style="animation-delay: 0.2s">
+              <div class="hobby-visual">
+                <img src="Images/foto_buku2.jpeg" alt="Membaca Buku" class="hobby-img" />
+                <div class="hobby-scanline"></div>
+                <div class="hobby-badge"><i class="fa-solid fa-book-open"></i></div>
+              </div>
+              <div class="hobby-content">
+                <h3 class="hobby-title">Membaca Buku</h3>
+                <div class="hobby-divider"></div>
+                <p>Membaca buku fiksi membantu saya meningkatkan empati dan meredakan stres.</p>
+              </div>
+              <div class="card-corner top-right"></div>
+              <div class="card-corner bottom-left"></div>
+            </div>
+
+            <div class="cyber-hobby-card" style="animation-delay: 0.4s">
+              <div class="hobby-visual">
+                <img src="Images/fotohiking.jpeg" alt="Traveling" class="hobby-img" />
+                <div class="hobby-scanline"></div>
+                <div class="hobby-badge"><i class="fa-solid fa-plane"></i></div>
+              </div>
+              <div class="hobby-content">
+                <h3 class="hobby-title">Traveling</h3>
+                <div class="hobby-divider"></div>
+                <p>Menjelajahi tempat baru, menikmati pantai dan gunung untuk menyegarkan pikiran.</p>
+              </div>
+              <div class="card-corner top-right"></div>
+              <div class="card-corner bottom-left"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="cyber-footer">
+      <div class="footer-glow-line"></div>
+
+      <div class="container footer-content reveal">
+        <div class="footer-brand">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <p class="cyber-desc">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 1. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
+          <div class="hologram-barcode">
+            <span>||| | || ||| || | |||| ||</span>
+            <p>ID: IFA-2026-SKOM</p>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>E-Portofolio 1</h4>
+          <ul>
+            <li>
+              <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+            </li>
+            <li>
+              <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+            </li>
+            <li>
+              <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+            </li>
+            <li>
+              <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+            </li>
+            <li>
+              <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>E-Portofolio 2</h4>
+          <ul>
+            <li>
+              <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+            </li>
+            <li>
+              <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h4>LOKASI & KONTAK</h4>
+
+          <div class="cyber-location">
+            <span><i class="fa-solid fa-location-dot"></i> LOKASI LPTK</span>
+            <strong>Universitas Negeri Yogyakarta</strong>
+
+            <div class="map-wrapper">
+              <iframe
+                src="https://maps.google.com/maps?q=Universitas+Negeri+Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="130"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+          </div>
+
+          <div class="social-grid">
+            <a href="mailto:ilyasfandhianggara@gmail.com" class="social-btn">
+              <i class="fa-solid fa-envelope"></i>
+              <span class="btn-label">Email</span>
+            </a>
+            <a href="https://www.instagram.com/fandhidk17/" target="_blank" class="social-btn">
+              <i class="fa-brands fa-instagram"></i>
+              <span class="btn-label">Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container bottom-flex">
+          <p>&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG.</p>
+          <div class="system-status"><span class="status-dot pulse-dot"></span> SYSTEM.ONLINE</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Hamburger Menu Mobile
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.getElementById("nav-links");
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Scroll Reveal Animasi (WOW! Effect)
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 100; // Mulai animasi ketika 100px elemen terlihat
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+      window.addEventListener("scroll", reveal);
+      reveal(); // Jalankan sekali saat halaman pertama load
+
+      // ==========================================
+      // CYBER CURSOR & RADAR LOGIC
+      // ==========================================
+      const cursorDot = document.getElementById("cursor-dot");
+      const cursorRing = document.getElementById("cursor-ring");
+
+      // Deteksi jika perangkat ini adalah Desktop (bukan HP)
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
+      if (isDesktop) {
+        // 1. Menggerakkan Kursor mengikuti Mouse
+        window.addEventListener("mousemove", (e) => {
+          // Titik inti bergerak instan
+          cursorDot.style.left = `${e.clientX}px`;
+          cursorDot.style.top = `${e.clientY}px`;
+
+          // Cincin radar mengikuti dengan efek "mengekor" yang sangat mulus
+          cursorRing.animate(
+            {
+              left: `${e.clientX}px`,
+              top: `${e.clientY}px`,
+            },
+            { duration: 150, fill: "forwards" },
+          );
+        });
+
+        // 2. Efek Interaktif saat menyentuh link/tombol
+        // Cari semua elemen yang bisa diklik
+        const interactables = document.querySelectorAll("a, button, .social-btn, .nav-links li");
+
+        interactables.forEach((el) => {
+          el.addEventListener("mouseenter", () => {
+            document.body.classList.add("cursor-hover-active");
+          });
+          el.addEventListener("mouseleave", () => {
+            document.body.classList.remove("cursor-hover-active");
+          });
+        });
+      }
+      // =============================================
+      // NEURAL DATA STREAM PARTICLE (DIGITAL RAIN)
+      // =============================================
+      (function () {
+        const canvas = document.getElementById("neural-data-particle");
+        if (!canvas) return; // Berhenti jika canvas tidak ada (fallback)
+        const ctx = canvas.getContext("2d");
+
+        let width, height;
+        let particles = [];
+
+        // Karakter acak ala Matrix / Data Stream
+        const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|?*#@%&";
+
+        // Konfigurasi partikel
+        const PARTICLE_COUNT = 80; // Jumlah titik/partikel
+        const FONT_SIZE = 14;
+        const SPEED_MIN = 0.4;
+        const SPEED_MAX = 1.2;
+
+        function resizeCanvas() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+          initParticles(); // Regenerasi partikel saat resize
+        }
+
+        class Particle {
+          constructor() {
+            this.reset(true);
+          }
+
+          // Reset posisi & properti (digunakan saat inisialisasi dan saat partikel keluar layar)
+          reset(initial = false) {
+            this.x = Math.random() * width;
+            // Jika partikel baru (inisialisasi), sebarkan secara vertikal agar tidak numpuk di atas
+            this.y = initial ? Math.random() * height : -10;
+            this.char = chars[Math.floor(Math.random() * chars.length)];
+            this.speed = Math.random() * (SPEED_MAX - SPEED_MIN) + SPEED_MIN;
+            this.fontSize = Math.random() * 14 + 10; // Variasi ukuran
+            this.opacity = Math.random() * 0.5 + 0.3;
+            // Warna kebiruan/ungu acak
+            const hue = Math.random() > 0.5 ? 185 : 270; // Cyan atau Ungu
+            this.color = `hsla(${hue}, 90%, 70%, ${this.opacity})`;
+          }
+
+          update() {
+            this.y += this.speed;
+            // Reset jika melewati layar
+            if (this.y > height + 20) {
+              this.reset();
+            }
+          }
+
+          draw() {
+            ctx.font = `${this.fontSize}px "Courier New", monospace`;
+            ctx.fillStyle = this.color;
+            ctx.fillText(this.char, this.x, this.y);
+          }
+        }
+
+        function initParticles() {
+          particles = [];
+          for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push(new Particle());
+          }
+        }
+
+        function animateParticles() {
+          ctx.clearRect(0, 0, width, height);
+
+          for (let p of particles) {
+            p.update();
+            p.draw();
+          }
+
+          requestAnimationFrame(animateParticles);
+        }
+
+        // Event Listener
+        window.addEventListener("resize", resizeCanvas);
+
+        // Inisialisasi Awal & Mulai Animasi
+        resizeCanvas();
+        animateParticles();
+      })();
+    </script>
+  </body>
+</html>

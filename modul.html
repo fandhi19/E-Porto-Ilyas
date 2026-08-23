@@ -1,0 +1,631 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modul Ajar | E-Portofolio PPG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="Css/modul.css" />
+    <link rel="shortcut icon" href="Images/logo_uny.png" type="Logo UNY" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </head>
+  <body>
+    <div class="cyber-cursor-dot" id="cursor-dot"></div>
+    <div class="cyber-cursor-ring" id="cursor-ring"></div>
+
+    <div class="scanlines"></div>
+
+    <div class="bg-grid-cyber"></div>
+    <div class="bg-gradient-wrapper">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+
+    <canvas id="neural-data-particle"></canvas>
+
+    <header>
+      <div class="container header-container">
+        <div class="logo-wrapper">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <span class="cyber-badge">JEJAK PPL</span>
+        </div>
+
+        <nav>
+          <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">E-Portofolio 1 <span class="arrow">&#9662;</span> </a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+                </li>
+                <li>
+                  <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+                </li>
+                <li>
+                  <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+                </li>
+                <li>
+                  <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+                </li>
+                <li>
+                  <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">E-Portofolio 2 <span class="arrow">&#9662;</span> </a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+                </li>
+                <li>
+                  <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="dokumentasi.html"> Dokumentasi</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section observasi-header" style="padding: 120px 0 50px">
+        <div class="container reveal">
+          <div class="section-header text-center" style="margin-bottom: 50px">
+            <h2 class="section-title glitch-text" data-text="OBSERVASI PPL 1">MODUL AJAR KURIKULUM MERDEKA</h2>
+            <div class="title-divider" style="width: 80px; height: 3px; background: var(--primary); margin: 20px auto; box-shadow: 0 0 15px var(--primary)"></div>
+            <p class="cyber-desc">Dokumen rancangan pembelajaran yang telah disusun dan diterapkan selama pelaksanaan PPL 1.</p>
+          </div>
+
+          <div class="meta-terminal">
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-laptop-code"></i></span>
+              <div class="meta-text">
+                <span class="meta-label">MATA PELAJARAN</span>
+                <span class="meta-value primary-glow">Informatika</span>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-school"></i></span>
+              <div class="meta-text">
+                <span class="meta-label">SEKOLAH</span>
+                <span class="meta-value">SMAN 4 Yogyakarta</span>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-users"></i></span>
+              <div class="meta-text">
+                <span class="meta-label">FASE / KELAS</span>
+                <span class="meta-value">E / Kelas X</span>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-book-open"></i></span>
+              <div class="meta-text">
+                <span class="meta-label">MATERI POKOK</span>
+                <span class="meta-value">Literasi Digital</span>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-project-diagram"></i></span>
+              <div class="meta-text">
+                <span class="meta-label">MODEL PEMBELAJARAN</span>
+                <span class="meta-value">Project-Based-learning</span>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-user-graduate"></i></span>
+              <div class="meta-text">
+                <span class="meta-label">PENYUSUN</span>
+                <span class="meta-value">Ilyas Fandhi Anggara, S.Kom</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ANALISIS MODUL AJAR ===== -->
+      <section class="section modul-analysis" style="padding: 0 0 100px">
+        <div class="container reveal">
+          <div class="section-header text-center" style="margin-bottom: 50px">
+            <h2 class="section-title glitch-text" data-text="ANALISIS MODUL AJAR">PENJELASAN MODUL AJAR</h2>
+            <div class="title-divider" style="width: 80px; height: 3px; background: var(--primary); margin: 20px auto; box-shadow: 0 0 15px var(--primary)"></div>
+            <p class="cyber-desc">Bedah struktur dan pendekatan modul ajar Informatika yang dirancang untuk membangun literasi digital sekaligus karakter Pelajar Pancasila.</p>
+          </div>
+
+          <div class="analysis-grid">
+            <!-- Kartu 1: Konteks Pengembangan -->
+            <div class="analysis-card">
+              <div class="card-header">
+                <i class="fa-solid fa-building-columns card-icon"></i>
+                <h3 class="card-title">Konteks Pengembangan</h3>
+              </div>
+              <ul class="analysis-list">
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Fase E (Kelas X)</strong> – dikembangkan untuk SMAN 4 Yogyakarta dengan fokus materi <strong>pemanfaatan media digital</strong>.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Karakteristik Peserta Didik:</strong> sudah memiliki pemahaman dasar media digital dan mampu bekerja sama dalam kelompok.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Relevansi Kurikulum:</strong> modul ini mendukung Kurikulum Merdeka dan pendekatan <em>deep learning</em> untuk membentuk Profil Pelajar Pancasila (kreativitas &amp; nalar kritis).</span>
+                </li>
+              </ul>
+              <div class="card-glow"></div>
+              <div class="card-scanline"></div>
+            </div>
+
+            <!-- Kartu 2: Tujuan Pembelajaran -->
+            <div class="analysis-card">
+              <div class="card-header">
+                <i class="fa-solid fa-bullseye card-icon"></i>
+                <h3 class="card-title">Tujuan Pembelajaran (TP)</h3>
+              </div>
+              <ul class="analysis-list">
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Produksi Kreatif:</strong> Murid mampu menciptakan konten digital edukatif (poster, video, artikel) melalui proyek kelompok.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Diseminasi Beretika:</strong> Menyajikan karya di media sosial (Instagram, TikTok, YouTube) dengan etika publikasi dan kejelasan pesan.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Kolaborasi Digital:</strong> Terampil menggunakan alat bantu digital untuk bekerja sama secara bertanggung jawab dalam tim.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Literasi Digital:</strong> Memahami keamanan data, perlindungan data pribadi, serta pencegahan konten hoaks.</span>
+                </li>
+              </ul>
+              <div class="card-glow"></div>
+              <div class="card-scanline"></div>
+            </div>
+
+            <!-- Kartu 3: Kelebihan Pendekatan -->
+            <div class="analysis-card">
+              <div class="card-header">
+                <i class="fa-solid fa-star card-icon"></i>
+                <h3 class="card-title">Kelebihan Pendekatan</h3>
+              </div>
+              <ul class="analysis-list">
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Project Based Learning (PjBL):</strong> Pengalaman belajar bermakna, murid langsung mempraktikkan pembuatan produk nyata.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Deep Learning:</strong> Pertanyaan pemantik dan refleksi mendorong kemampuan berpikir tingkat tinggi (HOTS).</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Teknologi Terkini:</strong> Canva, CapCut, Instagram, Quizizz/Kahoot! menjadikan pembelajaran kontekstual dan menarik.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Asesmen Terstruktur:</strong> Instrumen lengkap: diagnostik, formatif (observasi proses), sumatif (produk &amp; tes).</span>
+                </li>
+              </ul>
+              <div class="card-glow"></div>
+              <div class="card-scanline"></div>
+            </div>
+
+            <!-- Kartu 4: Tantangan Pelaksanaan -->
+            <div class="analysis-card">
+              <div class="card-header">
+                <i class="fa-solid fa-triangle-exclamation card-icon"></i>
+                <h3 class="card-title">Tantangan Pelaksanaan</h3>
+              </div>
+              <ul class="analysis-list">
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon" style="color: #ffbd2e"></i>
+                  <span><strong>Manajemen Waktu:</strong> Alokasi 4×45 menit sangat padat, perlu pengawasan ketat agar proyek selesai tepat waktu.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon" style="color: #ffbd2e"></i>
+                  <span><strong>Kesenjangan Keterampilan Teknis:</strong> Variasi kemampuan murid dalam aplikasi spesifik (editing video) memerlukan bimbingan teknis ekstra.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon" style="color: #ffbd2e"></i>
+                  <span><strong>Infrastruktur Digital:</strong> Ketergantungan pada perangkat &amp; koneksi internet untuk cloud storage dan media sosial rawan gangguan.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon" style="color: #ffbd2e"></i>
+                  <span><strong>Etika Publikasi:</strong> Diseminasi ke publik memiliki risiko jejak digital; guru harus memastikan etika komunikasi dan perlindungan data sebelum unggah.</span>
+                </li>
+              </ul>
+              <div class="card-glow"></div>
+              <div class="card-scanline"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section pdf-section" style="padding: 0 0 100px">
+        <div class="container reveal">
+          <div class="pdf-terminal-wrapper">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="terminal-title">Pertinjau Modul Ajar</div>
+              <div class="terminal-status pulse-dot">ONLINE</div>
+            </div>
+
+            <div class="pdf-container">
+              <iframe src="Dokumen/modul_ajar_ilyas.pdf" class="cyber-pdf-frame" title="Dokumen Hasil Observasi">
+                <p>Browser Anda tidak mendukung iframe PDF. <a href="Dokumen/modul_ajar_ilyas.pdf">Download PDF</a></p>
+              </iframe>
+            </div>
+
+            <div class="terminal-footer">
+              <a href="Dokumen/modul_ajar_ilyas.pdf" download="Hasil_Observasi_Manajemen_Sekolah_Ilyas.pdf" class="cyber-download-btn">
+                <span class="btn-bracket">[</span>
+                <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                <span class="btn-bracket">]</span>
+              </a>
+              <a href="Dokumen/modul_ajar_ilyas.pdf" target="_blank" class="cyber-download-btn">
+                <span class="btn-bracket">[</span>
+                <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                <span class="btn-bracket">]</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="refleksi-produk" class="artefak-section reveal">
+        <div class="section-header text-center" style="margin-bottom: 50px">
+          <h2 class="section-title glitch-text" data-text="ANALISIS MODUL AJAR">ANALISIS PRODUK PEMBELAJARAN</h2>
+          <div class="title-divider" style="width: 80px; height: 3px; background: var(--primary); margin: 20px auto; box-shadow: 0 0 15px var(--primary)"></div>
+          <p class="cyber-desc">Evaluasi mendalam terhadap proses perancangan, implementasi, hingga penyesuaian perangkat ajar Informatika SMA.</p>
+        </div>
+
+        <div class="zigzag-container">
+          <!-- A: Kendala Selama Proses Penyusunan -->
+          <div class="zigzag-row reveal">
+            <div class="zz-visual">
+              <div class="zz-card-3d bg-orange-glow">
+                <div class="zz-inner">
+                  <i class="fa-solid fa-link-slash floating-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="zz-content">
+              <div class="zz-number">A</div>
+              <h3>Kendala Selama Proses Penyusunan</h3>
+              <p>
+                Meskipun tidak tertulis secara eksplisit, kompleksitas instrumen modul ini menunjukkan beberapa tantangan. Pertama, <strong>penyelarasan alur Tujuan Pembelajaran (TP) dan asesmen</strong> menuntut ketelitian tinggi karena
+                kisi-kisi harus mencakup level kognitif <em>LOTS hingga HOTS</em> dan menghubungkannya dengan empat TP berbeda agar setiap aktivitas memiliki alat ukur yang valid. Kedua, <strong>integrasi antara aspek teknis</strong> (“cara
+                membuat”) <strong>dan aspek etis</strong> (“cara bersikap”) di dunia digital menjadi tantangan tersendiri. Ketiga, <strong>estimasi waktu yang ketat</strong> — sintaks <em>Project Based Learning</em> harus tuntas dalam 4 ×
+                45 menit — memerlukan pembagian durasi yang sangat presisi di setiap tahapannya.
+              </p>
+            </div>
+          </div>
+
+          <!-- B: Teori atau Konsep Pedagogi yang Diadopsi -->
+          <div class="zigzag-row reverse reveal">
+            <div class="zz-visual">
+              <div class="zz-card-3d bg-purple-glow">
+                <div class="zz-inner">
+                  <i class="fa-solid fa-lightbulb floating-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="zz-content">
+              <div class="zz-number">B</div>
+              <h3>Teori & Konsep Pedagogi</h3>
+              <p>
+                Modul ini mengadopsi beberapa konsep pendidikan modern yang saling terintegrasi. <strong>Pendekatan Deep Learning</strong> mendorong murid memahami makna mendalam dari produksi konten sebagai kontribusi informasi bermanfaat
+                bagi masyarakat, bukan sekadar tugas teknis. <strong>Model Project Based Learning (PjBL)</strong> melalui tahap pertanyaan mendasar, perencanaan, penjadwalan, hingga evaluasi pengalaman membuat murid belajar melalui proses
+                penciptaan produk nyata. Pengembangan karakter berdasarkan <strong>Profil Pelajar Pancasila</strong> terlihat dari fokus pada Kreativitas, Kolaborasi, Penalaran Kritis, dan Kemandirian yang diukur lewat lembar observasi
+                sikap. Landasan <strong>Konstruktivisme Sosial</strong> mendasari interaksi kelompok dan diskusi untuk memecahkan masalah praktis dalam pembuatan konten.
+              </p>
+            </div>
+          </div>
+
+          <!-- C: Faktor Keberhasilan Penerapan -->
+          <div class="zigzag-row reveal">
+            <div class="zz-visual">
+              <div class="zz-card-3d bg-blue-glow">
+                <div class="zz-inner">
+                  <i class="fa-solid fa-arrow-trend-up floating-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="zz-content">
+              <div class="zz-number">C</div>
+              <h3>Faktor Keberhasilan</h3>
+              <p>
+                Keberhasilan implementasi modul ini di kelas didukung oleh beberapa faktor. Pertama, <strong>kesiapan awal murid SMAN 4 Yogyakarta</strong> yang sudah memiliki pemahaman dasar media digital dan kemampuan bekerja sama,
+                sehingga guru tidak perlu memulai dari nol. Kedua, <strong>instrumen yang komprehensif</strong> dengan rubrik penilaian detail (Sangat Baik hingga Perlu Bimbingan) memberikan standar kualitas yang jelas bagi murid dalam
+                berkarya. Ketiga, <strong>kontekstualisasi materi</strong> melalui platform akrab sehari-hari (Canva, CapCut, Instagram, TikTok) meningkatkan motivasi dan relevansi pembelajaran. Keempat,
+                <strong>ketersediaan sarana pendukung</strong> seperti laptop, infocus, dan lingkungan sekolah yang memadai untuk eksplorasi konten menjadi kunci kelancaran proyek.
+              </p>
+            </div>
+          </div>
+
+          <!-- D: Perubahan Komponen untuk Situasi Kelas yang Berbeda -->
+          <div class="zigzag-row reverse reveal">
+            <div class="zz-visual">
+              <div class="zz-card-3d bg-cyan-glow">
+                <div class="zz-inner">
+                  <i class="fa-solid fa-sliders floating-icon"></i>
+                </div>
+              </div>
+            </div>
+            <div class="zz-content">
+              <div class="zz-number">D</div>
+              <h3>Perubahan & Penyesuaian</h3>
+              <p>
+                Untuk menyesuaikan dengan situasi kelas atau sekolah lain yang mungkin berbeda, beberapa komponen dapat dimodifikasi. <strong>Fleksibilitas platform:</strong> jika ada pembatasan media sosial, tahap Diseminasi Konten dapat
+                dialihkan ke platform internal, LMS, atau pameran luring di kelas. <strong>Pilihan produk:</strong> di kelas dengan keterbatasan perangkat keras, proyek video pendek dapat diganti dengan fokus pada poster digital atau
+                artikel blog yang lebih ringan. <strong>Tingkat perancangan (scaffolding):</strong> bagi kelas dengan kemampuan teknis rendah, guru dapat menambah sesi IHT Mikro atau tutorial aplikasi sebelum tahap produksi mandiri.
+                <strong>Diferensiasi proses:</strong> di kelas inklusi seperti KKO, pembagian peran dalam kelompok disesuaikan agar setiap siswa berkontribusi sesuai bakat unik mereka.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="cyber-footer">
+      <div class="footer-glow-line"></div>
+
+      <div class="container footer-content reveal">
+        <div class="footer-brand">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <p class="cyber-desc">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 1. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
+          <div class="hologram-barcode">
+            <span>||| | || ||| || | |||| ||</span>
+            <p>ID: IFA-2026-SKOM</p>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>E-Portofolio 1</h4>
+          <ul>
+            <li>
+              <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+            </li>
+            <li>
+              <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+            </li>
+            <li>
+              <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+            </li>
+            <li>
+              <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+            </li>
+            <li>
+              <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>E-Portofolio 2</h4>
+          <ul>
+            <li>
+              <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+            </li>
+            <li>
+              <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h4>LOKASI & KONTAK</h4>
+
+          <div class="cyber-location">
+            <span><i class="fa-solid fa-location-dot"></i> LOKASI LPTK</span>
+            <strong>Universitas Negeri Yogyakarta</strong>
+
+            <div class="map-wrapper">
+              <iframe
+                src="https://maps.google.com/maps?q=Universitas+Negeri+Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="130"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+          </div>
+
+          <div class="social-grid">
+            <a href="mailto:ilyasfandhianggara@gmail.com" class="social-btn">
+              <i class="fa-solid fa-envelope"></i>
+              <span class="btn-label">Email</span>
+            </a>
+            <a href="https://www.instagram.com/fandhidk17/" target="_blank" class="social-btn">
+              <i class="fa-brands fa-instagram"></i>
+              <span class="btn-label">Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container bottom-flex">
+          <p>&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG.</p>
+          <div class="system-status"><span class="status-dot pulse-dot"></span> SYSTEM.ONLINE</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Hamburger Menu Mobile
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.getElementById("nav-links");
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Scroll Reveal Animasi (WOW! Effect)
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 100; // Mulai animasi ketika 100px elemen terlihat
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+      window.addEventListener("scroll", reveal);
+      reveal(); // Jalankan sekali saat halaman pertama load
+
+      // ==========================================
+      // CYBER CURSOR & RADAR LOGIC
+      // ==========================================
+      const cursorDot = document.getElementById("cursor-dot");
+      const cursorRing = document.getElementById("cursor-ring");
+
+      // Deteksi jika perangkat ini adalah Desktop (bukan HP)
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
+      if (isDesktop) {
+        // 1. Menggerakkan Kursor mengikuti Mouse
+        window.addEventListener("mousemove", (e) => {
+          // Titik inti bergerak instan
+          cursorDot.style.left = `${e.clientX}px`;
+          cursorDot.style.top = `${e.clientY}px`;
+
+          // Cincin radar mengikuti dengan efek "mengekor" yang sangat mulus
+          cursorRing.animate(
+            {
+              left: `${e.clientX}px`,
+              top: `${e.clientY}px`,
+            },
+            { duration: 150, fill: "forwards" },
+          );
+        });
+
+        // 2. Efek Interaktif saat menyentuh link/tombol
+        // Cari semua elemen yang bisa diklik
+        const interactables = document.querySelectorAll("a, button, .social-btn, .nav-links li");
+
+        interactables.forEach((el) => {
+          el.addEventListener("mouseenter", () => {
+            document.body.classList.add("cursor-hover-active");
+          });
+          el.addEventListener("mouseleave", () => {
+            document.body.classList.remove("cursor-hover-active");
+          });
+        });
+      }
+      // =============================================
+      // NEURAL DATA STREAM PARTICLE (DIGITAL RAIN)
+      // =============================================
+      (function () {
+        const canvas = document.getElementById("neural-data-particle");
+        if (!canvas) return; // Berhenti jika canvas tidak ada (fallback)
+        const ctx = canvas.getContext("2d");
+
+        let width, height;
+        let particles = [];
+
+        // Karakter acak ala Matrix / Data Stream
+        const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|?*#@%&";
+
+        // Konfigurasi partikel
+        const PARTICLE_COUNT = 80; // Jumlah titik/partikel
+        const FONT_SIZE = 14;
+        const SPEED_MIN = 0.4;
+        const SPEED_MAX = 1.2;
+
+        function resizeCanvas() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+          initParticles(); // Regenerasi partikel saat resize
+        }
+
+        class Particle {
+          constructor() {
+            this.reset(true);
+          }
+
+          // Reset posisi & properti (digunakan saat inisialisasi dan saat partikel keluar layar)
+          reset(initial = false) {
+            this.x = Math.random() * width;
+            // Jika partikel baru (inisialisasi), sebarkan secara vertikal agar tidak numpuk di atas
+            this.y = initial ? Math.random() * height : -10;
+            this.char = chars[Math.floor(Math.random() * chars.length)];
+            this.speed = Math.random() * (SPEED_MAX - SPEED_MIN) + SPEED_MIN;
+            this.fontSize = Math.random() * 14 + 10; // Variasi ukuran
+            this.opacity = Math.random() * 0.5 + 0.3;
+            // Warna kebiruan/ungu acak
+            const hue = Math.random() > 0.5 ? 185 : 270; // Cyan atau Ungu
+            this.color = `hsla(${hue}, 90%, 70%, ${this.opacity})`;
+          }
+
+          update() {
+            this.y += this.speed;
+            // Reset jika melewati layar
+            if (this.y > height + 20) {
+              this.reset();
+            }
+          }
+
+          draw() {
+            ctx.font = `${this.fontSize}px "Courier New", monospace`;
+            ctx.fillStyle = this.color;
+            ctx.fillText(this.char, this.x, this.y);
+          }
+        }
+
+        function initParticles() {
+          particles = [];
+          for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push(new Particle());
+          }
+        }
+
+        function animateParticles() {
+          ctx.clearRect(0, 0, width, height);
+
+          for (let p of particles) {
+            p.update();
+            p.draw();
+          }
+
+          requestAnimationFrame(animateParticles);
+        }
+
+        // Event Listener
+        window.addEventListener("resize", resizeCanvas);
+
+        // Inisialisasi Awal & Mulai Animasi
+        resizeCanvas();
+        animateParticles();
+      })();
+    </script>
+  </body>
+</html>

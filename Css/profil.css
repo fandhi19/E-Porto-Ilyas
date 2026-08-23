@@ -1,0 +1,1757 @@
+/* =========================================
+   CUSTOM CYBER SCROLLBAR
+   ========================================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050511; /* Warna background gelap web-mu */
+  border-left: 1px solid rgba(0, 240, 255, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary); /* Warna Cyan Neon */
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-purple); /* Berubah ungu saat digeser */
+}
+
+/* =========================================
+   VARIABEL & RESET DASAR (ULTRA-CYBERPUNK)
+   ========================================= */
+:root {
+  --bg-dark: #050511; /* Deep Navy Black */
+  --card-bg: rgba(20, 20, 35, 0.7); /* Kaca Transparan */
+  --primary: #00f0ff; /* Cyan Neon Inten */
+  --accent: #ff003c; /* Cyberpunk Red/Magenta Inten */
+  --accent-purple: #a855f7; /* Ungu Neon Inten */
+  --text-main: #f1f5f9;
+  --text-muted: #8b949e;
+  --white: #ffffff;
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+  --transition-smooth: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Ultra-smooth transition */
+  --font-main: "Plus Jakarta Sans", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Canvas Partikel Neural, diletakkan di belakang semua konten */
+#neural-data-particle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -3; /* Di belakang grid, orbs, dan konten */
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* Animasi Kursor Berkedip */
+.cursor {
+  display: inline-block;
+  width: 12px;
+  background: #00ff66;
+  color: #00ff66;
+  animation: blinkCursor 0.8s infinite;
+  box-shadow: 0 0 10px #00ff66;
+}
+
+@keyframes blinkCursor {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Class untuk mengunci scroll saat loading */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Class untuk efek BOOM dan menghilang */
+.preloader-hidden {
+  opacity: 0;
+  pointer-events: none; /* Supaya tidak bisa diklik lagi */
+  transform: scale(1.1); /* Sedikit membesar saat hilang */
+  filter: blur(10px);
+}
+
+/* =========================================
+   CUSTOM CYBER CURSOR & RADAR
+   ========================================= */
+/* Sembunyikan kursor bawaan Windows/Mac di layar besar */
+@media (min-width: 768px) {
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  .glitch-hover,
+  .social-btn {
+    cursor: none !important;
+  }
+}
+
+/* Titik Inti (Neon Cyan) */
+.cyber-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary); /* Cyan Neon */
+  border-radius: 50%;
+  pointer-events: none; /* PENTING: Agar tidak menghalangi klik mouse */
+  z-index: 100000;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--primary);
+  transition:
+    background-color 0.3s,
+    box-shadow 0.3s;
+}
+
+/* Cincin Radar (Crosshair) */
+.cyber-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgba(0, 240, 255, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+  /* Efek delay / mengekor yang bikin mulus banget */
+  transition:
+    width 0.3s,
+    height 0.3s,
+    border-color 0.3s,
+    background-color 0.3s;
+}
+
+/* Garis Bidik (Kiri-Kanan & Atas-Bawah) di Cincin Radar */
+.cyber-cursor-ring::before,
+.cyber-cursor-ring::after {
+  content: "";
+  position: absolute;
+  background: rgba(0, 240, 255, 0.5);
+  transition: background 0.3s;
+}
+/* Garis Horizontal */
+.cyber-cursor-ring::before {
+  top: 50%;
+  left: -6px;
+  right: -6px;
+  height: 1px;
+  transform: translateY(-50%);
+}
+/* Garis Vertikal */
+.cyber-cursor-ring::after {
+  left: 50%;
+  top: -6px;
+  bottom: -6px;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+/* =========================================
+   EFEK SAAT KURSOR MENYENTUH TOMBOL / LINK
+   ========================================= */
+.cursor-hover-active .cyber-cursor-dot {
+  background-color: var(--accent-purple);
+  box-shadow: 0 0 10px var(--accent-purple);
+}
+
+.cursor-hover-active .cyber-cursor-ring {
+  width: 55px;
+  height: 55px;
+  border-color: var(--accent-purple);
+  background-color: rgba(184, 0, 255, 0.05); /* Sedikit nyala ungu di dalam cincin */
+  animation: rotateRadar 3s linear infinite; /* Radar berputar */
+}
+
+.cursor-hover-active .cyber-cursor-ring::before,
+.cursor-hover-active .cyber-cursor-ring::after {
+  background: var(--accent-purple);
+}
+
+@keyframes rotateRadar {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Sembunyikan Kursor Custom di HP/Tablet agar tidak error saat disentuh jari */
+@media (max-width: 767px) {
+  .cyber-cursor-dot,
+  .cyber-cursor-ring {
+    display: none !important;
+  }
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* =========================================
+   EFEK WOW: SCANLINES & SCROLL REVEAL AUTO
+   ========================================= */
+/* Efek monitor lama di seluruh layar (DIPERTJAM) */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.6;
+}
+
+/* Animasi Muncul Halus Saat Di-scroll (DIPERHALUS WOW) */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: var(--transition-smooth);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   BACKGROUND ANIMASI BERGERAK TOTAL (WOW! Effect)
+   ========================================= */
+/* Efek Cyber Grid & Data Streams Berjalan (DIPERBAIKI WOW) */
+.bg-grid-cyber {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 150vh;
+  background-image: linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px), radial-gradient(circle, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+  background-size:
+    40px 40px,
+    40px 40px,
+    80px 80px;
+  z-index: -2;
+  transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+  animation: gridMoveCyber 10s linear infinite;
+  opacity: 0.8;
+}
+@keyframes gridMoveCyber {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 40px;
+  }
+}
+
+/* Orbs Bercahaya Melayang di Belakang (DIPERBAIKI WOW) */
+.bg-gradient-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  filter: blur(100px);
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  animation: floatOrb 15s ease-in-out infinite alternate;
+}
+.orb-1 {
+  width: 400px;
+  height: 400px;
+  background: rgba(0, 240, 255, 0.15);
+  top: 10%;
+  left: -5%;
+}
+.orb-2 {
+  width: 500px;
+  height: 500px;
+  background: rgba(168, 85, 247, 0.1);
+  bottom: 10%;
+  right: -10%;
+  animation-delay: -5s;
+}
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(150px, 100px) scale(1.2);
+  }
+}
+
+/* =========================================
+   HEADER, NAVBAR, NEON TEXT & DROPDOWN (WOW! DIPERBAIKI)
+   ========================================= */
+header {
+  background: rgba(5, 5, 17, 0.85);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+}
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.logo {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--white);
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+.cyber-badge {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 1.5px;
+  margin-top: -3px;
+  text-transform: uppercase;
+  background: rgba(0, 240, 255, 0.1);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+/* Neon Text Global (DIPERTJAM) */
+.neon-text {
+  color: var(--primary);
+  text-shadow:
+    0 0 10px rgba(0, 240, 255, 0.4),
+    0 0 20px rgba(0, 240, 255, 0.2),
+    0 0 30px rgba(168, 85, 247, 0.15);
+}
+
+/* Teks Hanya Outline (Untuk Teks Belakang) */
+.outline-text {
+  -webkit-text-stroke: 1px var(--primary);
+  color: transparent;
+  text-shadow: none;
+}
+
+/* Animasi Kedip Neon (Korslet DIPERBAIKI WOW) */
+.flicker {
+  animation: flickerAnimWOW 4s infinite alternate;
+}
+@keyframes flickerAnimWOW {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    opacity: 1;
+    color: var(--primary);
+    text-shadow:
+      0 0 10px rgba(0, 240, 255, 0.4),
+      0 0 20px rgba(0, 240, 255, 0.2);
+  }
+  20%,
+  24%,
+  55% {
+    opacity: 0.5;
+    color: #1a5663;
+    text-shadow: none;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+.nav-links > li > a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px var(--primary);
+}
+.nav-links a:hover {
+  color: var(--white);
+}
+.nav-links > li > a:hover::after {
+  width: 100%;
+}
+
+/* CYBER DROPDOWN (WOW! Effekt slide & glow) */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropbtn .arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+/* Panah berputar saat di-hover */
+.dropdown:hover .arrow {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 120%;
+  left: -20px;
+  background: rgba(10, 10, 25, 0.95);
+  backdrop-filter: blur(15px);
+  min-width: 220px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.8),
+    0 0 20px rgba(0, 240, 255, 0.15);
+  padding: 10px 0;
+  z-index: 1000;
+  list-style: none;
+}
+/* Muncul Halus & Geser (Slide) */
+.dropdown:hover .dropdown-content {
+  display: block;
+  animation: dropSlideWOW 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+@keyframes dropSlideWOW {
+  from {
+    opacity: 0;
+    transform: translateY(-15px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.dropdown-content li a {
+  color: var(--text-muted);
+  padding: 12px 25px;
+  display: block;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+/* Ikon di dropdown */
+.dropdown .fa-solid,
+.dropdown-content .fa-solid {
+  margin-right: 8px;
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
+  font-weight: 900;
+  color: var(--primary);
+}
+.dropdown-content li a::after {
+  display: none;
+} /* Hilangkan garis bawah default nav */
+.dropdown-content li a:hover {
+  background: rgba(0, 240, 255, 0.08);
+  color: var(--primary);
+  padding-left: 30px;
+  border-left: 3px solid var(--primary);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--white);
+}
+
+/* ANIMASI MELAYANG HERO IMAGE TOTAL (WOW DIPERHALUS) */
+.levitate-anim {
+  animation: levitateWOW 6s ease-in-out infinite;
+}
+@keyframes levitateWOW {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  } /* Melayang ke atas 25px */
+}
+
+/* =========================================
+   FOOTER TERMINAL (WOW! CYBERPUNK EDITION)
+   ========================================= */
+.cyber-footer {
+  background: rgba(5, 5, 17, 0.95);
+  backdrop-filter: blur(20px);
+  position: relative;
+  margin-top: 100px;
+  border-top: 1px solid rgba(0, 240, 255, 0.15);
+  z-index: 10;
+  overflow: hidden;
+}
+
+/* Garis Cahaya di batas atas footer */
+.footer-glow-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), var(--accent-purple), transparent);
+  opacity: 0.5;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 90px;
+  padding: 70px 0 50px 0;
+}
+
+/* Branding Column */
+.cyber-desc {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin: 15px 0 25px;
+  line-height: 1.8;
+  max-width: 400px;
+}
+.hologram-barcode {
+  display: inline-block;
+  padding: 10px 15px;
+  border-left: 3px solid var(--primary);
+  background: rgba(0, 240, 255, 0.05);
+  color: var(--primary);
+}
+.hologram-barcode span {
+  font-family: monospace;
+  font-size: 18px;
+  letter-spacing: 2px;
+  opacity: 0.7;
+}
+.hologram-barcode p {
+  font-size: 10px;
+  margin-top: 5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+/* Headers di Footer */
+.footer-links h4,
+.footer-social h4 {
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.primary-color {
+  color: var(--primary);
+  margin-right: 5px;
+}
+
+/* Links Navigasi */
+.footer-links ul {
+  list-style: none;
+}
+.footer-links li {
+  margin-bottom: 15px;
+}
+.footer-links i {
+  margin-right: 8px;
+  color: var(--primary);
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands";
+  font-weight: 900;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  display: inline-block;
+}
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  position: relative;
+}
+.footer-links a:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+}
+
+/* Tombol Sosial Media Terminal Style */
+.social-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+}
+.social-btn {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-family: monospace;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  width: max-content;
+}
+.btn-bracket {
+  color: var(--text-muted);
+  margin: 0 5px;
+  transition: color 0.3s ease;
+}
+.btn-label {
+  font-family: var(--font-main);
+  margin-left: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.social-btn:hover {
+  background: rgba(0, 240, 255, 0.08);
+  border-color: rgba(0, 240, 255, 0.3);
+  transform: translateX(5px);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+}
+.social-btn:hover .btn-bracket {
+  color: var(--primary);
+}
+.social-btn:hover .btn-label {
+  color: var(--white);
+}
+
+/* Footer Bottom (Copyright & System Status) */
+.footer-bottom {
+  background: #020208;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+  padding: 20px 0;
+}
+.bottom-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.bottom-flex p {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+.system-status {
+  display: flex;
+  align-items: center;
+  font-family: monospace;
+  font-size: 13px;
+  color: #00ff66;
+  letter-spacing: 1px;
+}
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #00ff66;
+  border-radius: 50%;
+  margin-right: 10px;
+  box-shadow: 0 0 10px #00ff66;
+}
+.pulse-dot {
+  animation: pulseGreen 2s infinite;
+}
+
+/* =========================================
+   CYBER LOCATION & TACTICAL MAP
+   ========================================= */
+.cyber-location {
+  background: rgba(0, 240, 255, 0.03);
+  border-left: 3px solid var(--primary);
+  padding: 12px 15px;
+  margin-bottom: 25px;
+  font-size: 14px;
+  color: var(--white);
+  border-radius: 0 8px 8px 0;
+  transition: all 0.3s ease;
+}
+.cyber-location:hover {
+  background: rgba(0, 240, 255, 0.08);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+}
+.cyber-location span {
+  display: block;
+  font-size: 11px;
+  color: var(--primary);
+  margin-bottom: 5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.cyber-location strong {
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* Cyber Map Wrapper (WOW Effect) */
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* AJAIB: Ubah Google Maps menjadi Dark Cyber Radar */
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+.map-wrapper:hover iframe {
+  opacity: 1;
+}
+
+/* Garis Hologram Scan di atas Peta */
+.map-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(transparent 0px, rgba(0, 240, 255, 0.1) 2px, transparent 4px);
+  pointer-events: none; /* Supaya peta di bawahnya tetap bisa digeser/di-zoom pakai mouse */
+  z-index: 2;
+}
+
+@keyframes pulseGreen {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 255, 102, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
+  }
+}
+
+/* Responsive Footer */
+@media (max-width: 900px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-brand {
+    grid-column: 1 / span 2;
+    text-align: center;
+  }
+  .cyber-desc {
+    margin: 15px auto 25px;
+  }
+}
+@media (max-width: 600px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+    padding: 50px 0 30px 0;
+  }
+  .footer-brand {
+    grid-column: 1;
+  }
+  .social-grid {
+    align-items: center;
+  }
+  .bottom-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 50px;
+  }
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 50px;
+  }
+  .hero p {
+    margin: 0 auto 40px;
+  }
+  .hero-btns {
+    justify-content: center;
+  }
+  /* Responsive Teks Belakang Foto */
+  .hero-extreme-photo-bg-text-stack {
+    font-size: 40px;
+    left: 50%;
+  }
+  .main-portrait-photo {
+    height: 60vh;
+  }
+}
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+    z-index: 1001;
+  }
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: -100%;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(5, 5, 17, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+    padding: 30px 0;
+    transition: 0.4s ease;
+  }
+  .nav-links.active {
+    left: 0;
+  }
+  /* Responsive Dropdown Mobile */
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    display: none;
+    padding-left: 20px;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+    animation: none;
+  }
+
+  .hero {
+    padding: 40px 0;
+  }
+  .hero h1 {
+    font-size: 40px;
+  }
+  .hero-btns {
+    flex-direction: column;
+  }
+  /* Responsive Teks Belakang Foto Mobile */
+  .hero-extreme-photo-bg-text-stack {
+    font-size: 30px;
+    left: 50%;
+    letter-spacing: -1px;
+  }
+  .main-portrait-photo {
+    height: 50vh;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* =========================================
+   PROFIL HERO V2 (DOSSIER LAYOUT)
+   ========================================= */
+.profil-grid-v2 {
+  display: grid;
+  /* Teks lebih besar sedikit tempatnya (1.2), gambar (0.8) */
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Panel Hologram untuk Teks (Kiri) */
+.profil-info-panel {
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.05) 0%, transparent 100%);
+  border-left: 4px solid var(--primary);
+  padding: 40px 30px;
+  position: relative;
+}
+.profil-info-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+}
+.profil-info-panel::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+}
+
+.info-divider {
+  width: 50px;
+  height: 3px;
+  background: rgba(0, 240, 255, 0.4);
+  margin-bottom: 25px;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+/* Animasi Nama (Ketik & Kursor) */
+.name-wrapper {
+  display: inline-flex;
+  position: relative;
+  margin: 10px 0 15px;
+  padding-right: 15px; /* Ruang untuk kursor */
+}
+.typing-name {
+  font-size: 3rem;
+  color: var(--white);
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+  /* Animasi clip-path untuk efek mengetik yang mulus tanpa merusak layout */
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  animation: textRevealWipe 2.5s cubic-bezier(0.86, 0, 0.07, 1) forwards;
+  animation-delay: 0.3s;
+}
+/* Kursor Berkedip di akhir nama */
+.name-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 10%;
+  height: 80%;
+  width: 4px;
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+  animation: blinkCursorText 0.8s infinite;
+}
+
+@keyframes textRevealWipe {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+@keyframes blinkCursorText {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Frame Gambar Baru (Kanan) */
+.cyber-frame-v2 {
+  position: relative;
+  padding: 20px;
+  background: rgba(5, 5, 17, 0.8);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  box-shadow:
+    inset 0 0 30px rgba(0, 240, 255, 0.05),
+    0 10px 30px rgba(0, 0, 0, 0.5);
+}
+.cyber-frame-v2::before {
+  content: "[ IMG_DATA_LOADED ]";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: var(--bg-dark);
+  padding: 0 10px;
+  color: var(--primary);
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  z-index: 5;
+}
+.image-inner {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+.profil-img-v2 {
+  width: 100%;
+  display: block;
+  filter: grayscale(10%) contrast(110%);
+  transition: transform 0.5s ease;
+}
+.cyber-frame-v2:hover .profil-img-v2 {
+  transform: scale(1.05);
+  filter: grayscale(0%) contrast(100%);
+}
+
+/* Sudut Target HUD */
+.hud-corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-color: var(--primary);
+  border-style: solid;
+  z-index: 5;
+  transition: all 0.3s ease;
+}
+.hud-corner.top-left {
+  top: -2px;
+  left: -2px;
+  border-width: 2px 0 0 2px;
+}
+.hud-corner.top-right {
+  top: -2px;
+  right: -2px;
+  border-width: 2px 2px 0 0;
+}
+.hud-corner.bottom-left {
+  bottom: -2px;
+  left: -2px;
+  border-width: 0 0 2px 2px;
+}
+.hud-corner.bottom-right {
+  bottom: -2px;
+  right: -2px;
+  border-width: 0 2px 2px 0;
+}
+.cyber-frame-v2:hover .hud-corner {
+  width: 45px;
+  height: 45px;
+  border-color: var(--accent-purple);
+}
+
+/* Responsive Mobile V2 */
+@media (max-width: 900px) {
+  .profil-grid-v2 {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  /* Gambar di-stack ke atas pada mobile */
+  .profil-image-wrapper {
+    grid-row: 1;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .profil-info-panel {
+    grid-row: 2;
+    padding: 25px 20px;
+  }
+  .typing-name {
+    font-size: 2.2rem;
+  }
+}
+
+/* =========================================
+   TOMBOL CYBER (OUTLINE) UNTUK PROFIL
+   ========================================= */
+.cyber-btn-outline {
+  display: inline-block;
+  background: rgba(0, 240, 255, 0.05); /* Latar transparan sedikit cyan */
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-family: monospace;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  /* Cursor diset none agar menyatu dengan efek cursor radar buatan kita */
+  cursor: none;
+}
+
+/* Tanda Kurung Siku */
+.cyber-btn-outline .btn-bracket {
+  opacity: 0.6;
+  margin: 0 5px;
+  transition: opacity 0.3s ease;
+}
+
+/* Efek menyala terang saat di-hover */
+.cyber-btn-outline:hover {
+  background: var(--primary); /* Latar berubah jadi warna Cyan penuh */
+  color: #020208; /* Teks berubah jadi gelap/hitam */
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.6);
+  transform: translateY(-3px); /* Tombol sedikit naik */
+}
+
+/* Warna kurung siku ikut berubah saat di-hover */
+.cyber-btn-outline:hover .btn-bracket {
+  opacity: 1;
+  color: #020208;
+}
+
+/* =========================================
+   PROFIL: ABOUT TERMINAL WINDOW
+   ========================================= */
+.about-terminal-wrapper {
+  background: rgba(10, 10, 20, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 8px;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.6),
+    inset 0 0 20px rgba(0, 240, 255, 0.05);
+  overflow: hidden;
+  position: relative;
+  transition: var(--transition);
+}
+.about-terminal-wrapper:hover {
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.6),
+    inset 0 0 30px rgba(0, 240, 255, 0.1);
+  border-color: rgba(0, 240, 255, 0.6);
+}
+
+/* Header Terminal ala macOS/Linux tapi Cyberpunk */
+.terminal-header {
+  background: rgba(0, 240, 255, 0.1);
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+}
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+.t-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.t-btn.close {
+  background: #ff003c;
+  box-shadow: 0 0 5px #ff003c;
+}
+.t-btn.min {
+  background: #ffb800;
+  box-shadow: 0 0 5px #ffb800;
+}
+.t-btn.max {
+  background: #00ff66;
+  box-shadow: 0 0 5px #00ff66;
+}
+
+.terminal-title {
+  font-family: monospace;
+  color: var(--text-muted);
+  font-size: 13px;
+  letter-spacing: 2px;
+}
+.terminal-status {
+  font-family: monospace;
+  font-size: 12px;
+  color: #00ff66;
+  display: flex;
+  align-items: center;
+}
+
+/* Layout Dalam Terminal */
+.terminal-body {
+  padding: 40px;
+}
+.about-grid-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Teks Bio Effect */
+.cyber-p {
+  color: var(--text-main);
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 25px;
+  padding-left: 15px;
+  border-left: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+.cyber-p:hover {
+  border-left: 2px solid var(--primary);
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.05) 0%, transparent 100%);
+  transform: translateX(5px);
+}
+.highlight-text {
+  color: var(--primary);
+  font-family: monospace;
+  font-weight: bold;
+}
+
+/* Hologram Quote Kanan */
+.about-quote-column {
+  perspective: 1000px;
+}
+.quote-hologram {
+  position: relative;
+  background: rgba(0, 240, 255, 0.03);
+  border: 1px solid rgba(0, 240, 255, 0.2);
+  padding: 30px;
+  border-radius: 8px;
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+}
+/* Efek Garis Scan pada kotak Quote */
+.hologram-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  box-shadow: 0 0 15px var(--primary);
+  animation: scanPicture 3s linear infinite;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.quote-icon {
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: 60px;
+  color: var(--primary);
+  font-family: serif;
+  opacity: 0.3;
+}
+
+.cyber-quote-v2 {
+  font-size: 18px;
+  font-style: italic;
+  color: var(--white);
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+.quote-author-v2 {
+  display: block;
+  margin-top: 20px;
+  font-family: monospace;
+  font-size: 14px;
+  color: var(--accent-purple);
+  font-weight: bold;
+  text-align: right;
+  font-style: normal;
+}
+
+.hologram-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px dashed rgba(0, 240, 255, 0.2);
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Animasi Melayang untuk Kotak Hologram */
+.levitate-anim {
+  animation: levitateWOW 6s ease-in-out infinite;
+}
+
+/* Responsive Terminal */
+@media (max-width: 900px) {
+  .about-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .terminal-body {
+    padding: 30px 20px;
+  }
+  .quote-hologram {
+    margin-top: 20px;
+  }
+}
+
+/* =========================================
+   PROFIL: CYBER TIMELINE V2 (EDUCATION)
+   ========================================= */
+
+/* Pembatas Judul */
+.title-divider {
+  width: 80px;
+  height: 3px;
+  background: var(--primary);
+  margin: 20px auto;
+  box-shadow: 0 0 15px var(--primary);
+}
+
+.cyber-timeline-v2 {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Garis Tengah Cahaya */
+.timeline-main-line {
+  position: absolute;
+  width: 2px;
+  background: rgba(0, 240, 255, 0.2);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.section-header h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Animasi Paket Data Mengalir ke Bawah */
+.data-packet {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 4px;
+  height: 40px;
+  background: var(--primary);
+  box-shadow:
+    0 0 15px var(--primary),
+    0 0 30px var(--primary);
+  border-radius: 4px;
+  animation: dataStreamDown 4s linear infinite;
+}
+@keyframes dataStreamDown {
+  0% {
+    top: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+/* Struktur Node (Kiri & Kanan) */
+.timeline-node {
+  position: relative;
+  width: 50%;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+.left-node {
+  left: 0;
+  text-align: right;
+}
+.right-node {
+  left: 50%;
+  text-align: left;
+}
+
+/* Titik Pusat Node (Konektor) */
+.node-dot {
+  position: absolute;
+  top: 35px;
+  width: 16px;
+  height: 16px;
+  background: var(--bg-dark);
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary);
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+.left-node .node-dot {
+  right: -8px;
+}
+.right-node .node-dot {
+  left: -8px;
+}
+
+/* Desain Kartu Konten */
+.node-content {
+  position: relative;
+  background: rgba(10, 10, 20, 0.6);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  padding: 30px;
+  backdrop-filter: blur(5px);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.cyber-card-hover:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(0, 240, 255, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 240, 255, 0.1);
+  background: rgba(0, 240, 255, 0.05);
+}
+.cyber-card-hover:hover ~ .node-dot,
+.timeline-node:hover .node-dot {
+  background: var(--primary);
+  transform: scale(1.3);
+  box-shadow: 0 0 20px var(--primary);
+}
+
+/* Ornamen Kartu (Sudut) */
+.cyber-corner {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-color: rgba(0, 240, 255, 0.5);
+  border-style: solid;
+  transition: all 0.3s ease;
+}
+.top-right {
+  top: -1px;
+  right: -1px;
+  border-width: 2px 2px 0 0;
+}
+.top-left {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+.bottom-left {
+  bottom: -1px;
+  left: -1px;
+  border-width: 0 0 2px 2px;
+}
+.bottom-right {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+.cyber-card-hover:hover .cyber-corner {
+  width: 25px;
+  height: 25px;
+  border-color: var(--primary);
+}
+
+/* Tipografi di dalam Kartu */
+.node-year {
+  font-family: monospace;
+  color: var(--accent-purple);
+  font-size: 14px;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.node-title {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}
+.node-subtitle {
+  color: var(--primary);
+  font-size: 1rem;
+  font-weight: 500;
+}
+.node-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.5), transparent);
+  margin: 15px 0;
+}
+.left-node .node-divider {
+  background: linear-gradient(270deg, rgba(0, 240, 255, 0.5), transparent);
+}
+
+.node-content p {
+  color: var(--text-main);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Responsif Mobile (Garis geser ke kiri) */
+@media (max-width: 768px) {
+  .timeline-main-line {
+    left: 20px;
+    transform: none;
+  }
+  .timeline-node {
+    width: 100%;
+    padding: 20px 0 20px 50px;
+  }
+  .left-node,
+  .right-node {
+    left: 0;
+    text-align: left;
+  }
+  .left-node .node-dot,
+  .right-node .node-dot {
+    left: 12px;
+    right: auto;
+  }
+  .left-node .node-divider {
+    background: linear-gradient(90deg, rgba(0, 240, 255, 0.5), transparent);
+  }
+  .node-content {
+    padding: 20px;
+  }
+}
+
+/* =========================================
+   PROFIL: HOBBIES & INTERESTS MODULES
+   ========================================= */
+.cyber-hobbies-grid {
+  display: grid;
+  /* Akan otomatis membuat 3 kolom di layar lebar, dan 1 kolom di HP */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  perspective: 1000px;
+}
+
+/* Kartu Utama */
+.cyber-hobby-card {
+  background: rgba(10, 10, 20, 0.6);
+  border: 1px solid rgba(0, 240, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(5px);
+}
+.cyber-hobby-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(0, 240, 255, 0.8);
+  box-shadow:
+    0 15px 30px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(0, 240, 255, 0.2);
+}
+
+/* Area Gambar (Visual) */
+.hobby-visual {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  border-bottom: 2px solid rgba(0, 240, 255, 0.3);
+}
+.hobby-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Gambar diberi filter cyber/pudar secara default */
+  filter: grayscale(80%) sepia(20%) hue-rotate(180deg) brightness(0.8);
+  transition: all 0.5s ease;
+}
+.cyber-hobby-card:hover .hobby-img {
+  /* Saat di-hover, warna asli kembali dan gambar sedikit membesar */
+  filter: grayscale(0%) sepia(0%) hue-rotate(0deg) brightness(1.1);
+  transform: scale(1.1);
+}
+
+/* Garis Scanline pada Gambar */
+.hobby-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(0, 240, 255, 0.5);
+  box-shadow: 0 0 10px var(--primary);
+  animation: scanPicture 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Ikon/Badge Mengapung */
+.hobby-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(5, 5, 17, 0.8);
+  border: 1px solid var(--primary);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+.cyber-hobby-card:hover .hobby-badge {
+  background: var(--primary);
+  color: #020208;
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Area Konten Teks */
+.hobby-content {
+  padding: 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.hobby-title {
+  color: var(--white);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.hobby-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--primary);
+  margin-bottom: 15px;
+  transition: width 0.3s ease;
+}
+.cyber-hobby-card:hover .hobby-divider {
+  width: 80px;
+  box-shadow: 0 0 10px var(--primary);
+}
+.hobby-content p {
+  color: var(--text-main);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Ornamen Sudut Kartu */
+.card-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: rgba(0, 240, 255, 0.5);
+  border-style: solid;
+  z-index: 5;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+.card-corner.top-right {
+  top: 0;
+  right: 0;
+  border-width: 2px 2px 0 0;
+}
+.card-corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-width: 0 0 2px 2px;
+}
+
+.cyber-hobby-card:hover .card-corner {
+  width: 30px;
+  height: 30px;
+  border-color: var(--primary);
+}
+
+/* =========================================
+   RESPONSIVE UNTUK PROFIL
+   ========================================= */
+@media (max-width: 900px) {
+  .profil-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+  .profil-image-container {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .hobbies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .about-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .profil-info h1 {
+    font-size: 2.2rem !important;
+  }
+  .hobbies-grid {
+    grid-template-columns: 1fr;
+  }
+  .cyber-timeline::before {
+    left: 15px;
+  }
+  .timeline-item {
+    padding-left: 45px;
+  }
+  .timeline-dot {
+    left: 7px;
+    width: 15px;
+    height: 15px;
+  }
+  .timeline-content {
+    padding: 20px 15px;
+  }
+}

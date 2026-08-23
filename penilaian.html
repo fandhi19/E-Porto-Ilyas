@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Penilaian | E-Portofolio PPG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="shortcut icon" href="Images/logo_uny.png" type="Logo UNY" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="Css/penilaian.css" />
+  </head>
+  <body>
+    <div class="cyber-cursor-dot" id="cursor-dot"></div>
+    <div class="cyber-cursor-ring" id="cursor-ring"></div>
+    <div class="scanlines"></div>
+    <div class="bg-grid-cyber"></div>
+    <div class="bg-gradient-wrapper">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+    <canvas id="neural-data-particle"></canvas>
+
+    <header>
+      <div class="container header-container">
+        <div class="logo-wrapper">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <span class="cyber-badge">JEJAK PPL</span>
+        </div>
+
+        <nav>
+          <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">E-Portofolio 1 <span class="arrow">&#9662;</span> </a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+                </li>
+                <li>
+                  <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+                </li>
+                <li>
+                  <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+                </li>
+                <li>
+                  <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+                </li>
+                <li>
+                  <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">E-Portofolio 2 <span class="arrow">&#9662;</span> </a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+                </li>
+                <li>
+                  <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="dokumentasi.html"> Dokumentasi</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Section Judul -->
+      <section class="section observasi-header" style="padding: 120px 0 50px">
+        <div class="container reveal">
+          <div class="section-header" style="margin-bottom: 40px">
+            <h2 class="section-title glitch-text" data-text="PENILAIAN GURU PAMONG">PENILAIAN GURU PAMONG</h2>
+            <div class="title-divider" style="width: 80px; height: 3px; background: var(--primary); margin: 20px auto; box-shadow: 0 0 15px var(--primary)"></div>
+            <p class="cyber-desc">Rekapitulasi evaluasi kompetensi pedagogik dan profesional selama pelaksanaan Praktik Pengalaman Lapangan (PPL 1) di SMAN 4 Yogyakarta.</p>
+          </div>
+
+          <!-- Kartu info -->
+          <div class="meta-terminal">
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-user-graduate"></i></span>
+              <div class="meta-text"><span class="meta-label">MAHASISWA PPL</span><span class="meta-value primary-glow">Ilyas Fandhi Anggara</span></div>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-chalkboard-user"></i></span>
+              <div class="meta-text"><span class="meta-label">GURU PAMONG</span><span class="meta-value">Titis Widowati, ST</span></div>
+            </div>
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-school"></i></span>
+              <div class="meta-text"><span class="meta-label">SEKOLAH MITRA</span><span class="meta-value">SMAN 4 Yogyakarta</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid PDF Penilaian -->
+      <section class="section pdf-section" style="padding: 0 0 100px">
+        <div class="container reveal">
+          <div class="pdf-grid">
+            <!-- Penilaian Perancangan Perangkat Ajar -->
+            <div class="pdf-terminal-wrapper">
+              <div class="terminal-header">
+                <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <div class="terminal-title">📄 Penilaian Penyusunan Perangkat Ajar</div>
+                <div class="terminal-status pulse-dot">ONLINE</div>
+              </div>
+              <div class="pdf-container">
+                <iframe src="Dokumen/Lampiran 7.pdf" class="cyber-pdf-frame" title="Penilaian Penyusunan Perangkat Pembelajaran"
+                  ><p>Browser tidak mendukung iframe. <a href="Dokumen/Lampiran 7.pdf">Download PDF</a></p></iframe
+                >
+              </div>
+              <div class="terminal-footer">
+                <a href="Dokumen/Lampiran 7.pdf" download="Penilaian_Penyusunan_Perangkat_Pembelajaran.pdf" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                  <span class="btn-bracket">]</span>
+                </a>
+                <a href="Dokumen/Lampiran 7.pdf" target="_blank" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                  <span class="btn-bracket">]</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Penilaian Praktik Mengajar 1 -->
+            <div class="pdf-terminal-wrapper">
+              <div class="terminal-header">
+                <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <div class="terminal-title">📄 Praktik Mengajar Siklus 1</div>
+                <div class="terminal-status pulse-dot">ONLINE</div>
+              </div>
+              <div class="pdf-container">
+                <iframe src="Dokumen/Lampiran 8 Siklus 1.pdf" class="cyber-pdf-frame" title="Praktik Mengajar Siklus 1"
+                  ><p>Browser tidak mendukung iframe. <a href="Dokumen/Lampiran 8 Siklus 1.pdf">Download PDF</a></p></iframe
+                >
+              </div>
+              <div class="terminal-footer">
+                <a href="Dokumen/Lampiran 8 Siklus 1.pdf" download="Penilaian_Praktik_Mengajar_Siklus_1.pdf" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                  <span class="btn-bracket">]</span>
+                </a>
+                <a href="Dokumen/Lampiran 8 Siklus 1.pdf" target="_blank" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                  <span class="btn-bracket">]</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Penilaian Praktik Mengajar 2 -->
+            <div class="pdf-terminal-wrapper">
+              <div class="terminal-header">
+                <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <div class="terminal-title">📄 Praktik Mengajar Siklus 2</div>
+                <div class="terminal-status pulse-dot">ONLINE</div>
+              </div>
+              <div class="pdf-container">
+                <iframe src="Dokumen/Lampiran 8 Siklus 2.pdf" class="cyber-pdf-frame" title="Praktik Mengajar Siklus 2"
+                  ><p>Browser tidak mendukung iframe. <a href="Dokumen/Lampiran 8 Siklus 2.pdf">Download PDF</a></p></iframe
+                >
+              </div>
+              <div class="terminal-footer">
+                <a href="Dokumen/Lampiran 8 Siklus 2.pdf" download="Penilaian_Praktik_Mengajar_Siklus_2.pdf" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                  <span class="btn-bracket">]</span>
+                </a>
+                <a href="Dokumen/Lampiran 8 Siklus 2.pdf" target="_blank" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                  <span class="btn-bracket">]</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Penilaian Praktik Mengajar 3 -->
+            <div class="pdf-terminal-wrapper">
+              <div class="terminal-header">
+                <div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                <div class="terminal-title">📄 Praktik Mengajar Siklus 3</div>
+                <div class="terminal-status pulse-dot">ONLINE</div>
+              </div>
+              <div class="pdf-container">
+                <iframe src="Dokumen/Lampiran 8 Siklus 3.pdf" class="cyber-pdf-frame" title="Praktik Mengajar Siklus 3"
+                  ><p>Browser tidak mendukung iframe. <a href="Dokumen/Lampiran 8 Siklus 3.pdf">Download PDF</a></p></iframe
+                >
+              </div>
+              <div class="terminal-footer">
+                <a href="Dokumen/Lampiran 8 Siklus 3.pdf" download="Penilaian_Praktik_Mengajar_Siklus_3.pdf" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                  <span class="btn-bracket">]</span>
+                </a>
+                <a href="Dokumen/Lampiran 8 Siklus 3.pdf" target="_blank" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                  <span class="btn-bracket">]</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="cyber-footer">
+      <div class="footer-glow-line"></div>
+
+      <div class="container footer-content reveal">
+        <div class="footer-brand">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <p class="cyber-desc">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 1. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
+          <div class="hologram-barcode">
+            <span>||| | || ||| || | |||| ||</span>
+            <p>ID: IFA-2026-SKOM</p>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>E-Portofolio 1</h4>
+          <ul>
+            <li>
+              <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+            </li>
+            <li>
+              <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+            </li>
+            <li>
+              <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+            </li>
+            <li>
+              <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+            </li>
+            <li>
+              <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>E-Portofolio 2</h4>
+          <ul>
+            <li>
+              <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+            </li>
+            <li>
+              <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h4>LOKASI & KONTAK</h4>
+
+          <div class="cyber-location">
+            <span><i class="fa-solid fa-location-dot"></i> LOKASI LPTK</span>
+            <strong>Universitas Negeri Yogyakarta</strong>
+
+            <div class="map-wrapper">
+              <iframe
+                src="https://maps.google.com/maps?q=Universitas+Negeri+Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="130"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+          </div>
+
+          <div class="social-grid">
+            <a href="mailto:ilyasfandhianggara@gmail.com" class="social-btn">
+              <i class="fa-solid fa-envelope"></i>
+              <span class="btn-label">Email</span>
+            </a>
+            <a href="https://www.instagram.com/fandhidk17/" target="_blank" class="social-btn">
+              <i class="fa-brands fa-instagram"></i>
+              <span class="btn-label">Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container bottom-flex">
+          <p>&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG.</p>
+          <div class="system-status"><span class="status-dot pulse-dot"></span> SYSTEM.ONLINE</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.getElementById("nav-links");
+      mobileMenu.addEventListener("click", () => navLinks.classList.toggle("active"));
+
+      // Scroll reveal
+      function reveal() {
+        document.querySelectorAll(".reveal").forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active");
+        });
+      }
+      window.addEventListener("scroll", reveal);
+      reveal();
+
+      // Cyber cursor
+      const cursorDot = document.getElementById("cursor-dot");
+      const cursorRing = document.getElementById("cursor-ring");
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+      if (isDesktop) {
+        window.addEventListener("mousemove", (e) => {
+          cursorDot.style.left = `${e.clientX}px`;
+          cursorDot.style.top = `${e.clientY}px`;
+          cursorRing.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 150, fill: "forwards" });
+        });
+        document.querySelectorAll("a, button, .social-btn, .nav-links li").forEach((el) => {
+          el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover-active"));
+          el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover-active"));
+        });
+      }
+
+      // Neural particle (sama seperti modul)
+      (function () {
+        const canvas = document.getElementById("neural-data-particle");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        let width,
+          height,
+          particles = [];
+        const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|?*#@%&";
+        const PARTICLE_COUNT = 80;
+        function resizeCanvas() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+          initParticles();
+        }
+        class Particle {
+          reset(initial = false) {
+            this.x = Math.random() * width;
+            this.y = initial ? Math.random() * height : -10;
+            this.char = chars[Math.floor(Math.random() * chars.length)];
+            this.speed = Math.random() * 0.8 + 0.4;
+            this.fontSize = Math.random() * 14 + 10;
+            this.opacity = Math.random() * 0.5 + 0.3;
+            this.color = `hsla(${Math.random() > 0.5 ? 185 : 270}, 90%, 70%, ${this.opacity})`;
+          }
+          update() {
+            this.y += this.speed;
+            if (this.y > height + 20) this.reset();
+          }
+          draw() {
+            ctx.font = `${this.fontSize}px "Courier New", monospace`;
+            ctx.fillStyle = this.color;
+            ctx.fillText(this.char, this.x, this.y);
+          }
+        }
+        function initParticles() {
+          particles = [];
+          for (let i = 0; i < PARTICLE_COUNT; i++) {
+            let p = new Particle();
+            p.reset(true);
+            particles.push(p);
+          }
+        }
+        function animate() {
+          ctx.clearRect(0, 0, width, height);
+          particles.forEach((p) => {
+            p.update();
+            p.draw();
+          });
+          requestAnimationFrame(animate);
+        }
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+        animate();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LKPD | E-Portofolio PPG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="Css/lkpd.css" />
+    <link rel="shortcut icon" href="Images/logo_uny.png" type="Logo UNY" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  </head>
+  <body>
+    <div class="cyber-cursor-dot" id="cursor-dot"></div>
+    <div class="cyber-cursor-ring" id="cursor-ring"></div>
+
+    <div class="scanlines"></div>
+
+    <div class="bg-grid-cyber"></div>
+    <div class="bg-gradient-wrapper">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+
+    <canvas id="neural-data-particle"></canvas>
+
+    <header>
+      <div class="container header-container">
+        <div class="logo-wrapper">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <span class="cyber-badge">JEJAK PPL</span>
+        </div>
+
+        <nav>
+          <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">E-Portofolio 1 <span class="arrow">&#9662;</span> </a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+                </li>
+                <li>
+                  <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+                </li>
+                <li>
+                  <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+                </li>
+                <li>
+                  <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+                </li>
+                <li>
+                  <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">E-Portofolio 2 <span class="arrow">&#9662;</span> </a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+                </li>
+                <li>
+                  <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="dokumentasi.html"> Dokumentasi</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section observasi-header" style="padding: 120px 0 50px">
+        <div class="container reveal">
+          <div class="section-header text-center" style="margin-bottom: 50px">
+            <h2 class="section-title glitch-text" data-text="OBSERVASI PPL 1">Lembar Kerja Peserta Didik (LKPD)</h2>
+            <div class="title-divider" style="width: 80px; height: 3px; background: var(--primary); margin: 20px auto; box-shadow: 0 0 15px var(--primary)"></div>
+            <p class="cyber-desc">Dokumen LKPD yang dirancang untuk memandu peserta didik dalam memahami materi dan menyelesaikan tugas secara terstruktur.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" style="padding: 0 0 40px">
+        <div class="container reveal">
+          <div class="meta-terminal">
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-laptop-code"></i></span>
+              <div class="meta-text">
+                <span class="meta-label">MATA PELAJARAN</span>
+                <span class="meta-value primary-glow">Informatika</span>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-users"></i></span>
+              <div class="meta-text">
+                <span class="meta-label">FASE / KELAS</span>
+                <span class="meta-value">E / Kelas X</span>
+              </div>
+            </div>
+
+            <div class="meta-item">
+              <span class="meta-icon"><i class="fa-solid fa-book-open"></i></span>
+              <div class="meta-text">
+                <span class="meta-label">TOPIK MATERI</span>
+                <span class="meta-value primary-glow">Produksi Konten Digital</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ANALISIS LKPD ===== -->
+      <section class="section lkpd-analysis" style="padding: 0 0 60px">
+        <div class="container reveal">
+          <div class="section-header text-center" style="margin-bottom: 50px">
+            <h2 class="section-title glitch-text" data-text="ANALISIS LKPD">ANALISIS LKPD</h2>
+            <div class="title-divider" style="width: 80px; height: 3px; background: var(--primary); margin: 20px auto; box-shadow: 0 0 15px var(--primary)"></div>
+            <p class="cyber-desc">Bedah mendalam LKPD Informatika yang memandu siswa memproduksi konten digital secara kreatif, etis, dan kolaboratif.</p>
+          </div>
+
+          <div class="lkpd-analysis-grid">
+            <!-- Kartu 1: Konteks, Tujuan, Struktur Kolaborasi -->
+            <div class="lkpd-card">
+              <div class="card-header">
+                <i class="fa-solid fa-bullseye card-icon"></i>
+                <h3 class="card-title">Konteks, Tujuan & Kolaborasi</h3>
+              </div>
+              <ul class="lkpd-detail-list">
+                <li class="list-subtitle"><i class="fa-regular fa-compass"></i> Konteks & Tujuan</li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Pertemuan pertama</strong> semester genap, fokus “Pemanfaatan Media Digital & Kolaborasi Awal”.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Tujuan komprehensif:</strong> aspek teknis (merancang konten kreatif), sosial (kerja tim), alat digital, dan tanggung jawab penyebarluasan via media sosial.</span>
+                </li>
+                <li class="list-subtitle"><i class="fa-regular fa-user-group"></i> Manajemen Proyek Kelompok</li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span>Setiap kelompok 4 orang dengan peran <strong>terdefinisi jelas</strong>:</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-user-tie list-icon" style="margin-left: 24px"></i>
+                  <span><strong>Ketua Proyek</strong> – koordinasi keseluruhan.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-magnifying-glass list-icon" style="margin-left: 24px"></i>
+                  <span><strong>Pencari Materi</strong> – riset dan kurasi informasi.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-paint-brush list-icon" style="margin-left: 24px"></i>
+                  <span><strong>Desainer/Editor</strong> – eksekusi visual/audio.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-pen-fancy list-icon" style="margin-left: 24px"></i>
+                  <span><strong>Copywriter</strong> – penulisan teks dan narasi.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span>Pembagian peran melatih tanggung jawab spesialisasi dalam kerja sama tim.</span>
+                </li>
+              </ul>
+              <div class="card-glow"></div>
+              <div class="card-scanline"></div>
+            </div>
+
+            <!-- Kartu 2: Brainstorming, Desain, Etika & Keamanan -->
+            <div class="lkpd-card">
+              <div class="card-header">
+                <i class="fa-solid fa-brain card-icon"></i>
+                <h3 class="card-title">Brainstorming, Desain & Etika Digital</h3>
+              </div>
+              <ul class="lkpd-detail-list">
+                <li class="list-subtitle"><i class="fa-regular fa-lightbulb"></i> Perencanaan Sebelum Produksi</li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Penentuan Medium:</strong> poster, video pendek, atau artikel.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Analisis Audiens:</strong> target (misal remaja Instagram) → pesan disesuaikan.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Pesan Utama:</strong> nilai edukasi/informasi agar konten bermakna, bukan sekadar estetik.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Pemilihan Alat:</strong> Canva, CapCut, WordPress, dsb.</span>
+                </li>
+                <li class="list-subtitle"><i class="fa-solid fa-shield-halved"></i> Ceklis Etika & Keamanan Digital</li>
+                <li>
+                  <i class="fa-solid fa-circle-check list-icon" style="color: #00ff66"></i>
+                  <span><strong>Validitas Informasi:</strong> hindari hoaks, cantumkan sumber.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check list-icon" style="color: #00ff66"></i>
+                  <span><strong>Etika Komunikasi:</strong> bahasa sopan, tanpa SARA/cyberbullying.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check list-icon" style="color: #00ff66"></i>
+                  <span><strong>Privasi:</strong> larangan sebar data pribadi (NIK, alamat).</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check list-icon" style="color: #00ff66"></i>
+                  <span><strong>Hak Cipta:</strong> aset bebas hak cipta atau beri kredit yang sesuai.</span>
+                </li>
+              </ul>
+              <div class="card-glow"></div>
+              <div class="card-scanline"></div>
+            </div>
+
+            <!-- Kartu 3: Rancangan Isi, Publikasi, Refleksi & Kesimpulan -->
+            <div class="lkpd-card">
+              <div class="card-header">
+                <i class="fa-solid fa-rocket card-icon"></i>
+                <h3 class="card-title">Publikasi, Refleksi & Kesimpulan</h3>
+              </div>
+              <ul class="lkpd-detail-list">
+                <li class="list-subtitle"><i class="fa-regular fa-file-lines"></i> Rancangan Isi & Publikasi</li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span>Membuat <strong>storyboard / poin per slide</strong> atau per detik video.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span><strong>Strategi publikasi:</strong> pilih platform (IG, TikTok, YT), susun draf caption & tagar relevan.</span>
+                </li>
+                <li class="list-subtitle"><i class="fa-solid fa-rotate-left"></i> Refleksi Pembelajaran</li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span>Siswa mengevaluasi: apa yang dipelajari, kesulitan & solusinya, rencana perbaikan ke depan.</span>
+                </li>
+                <li class="list-subtitle"><i class="fa-solid fa-check-double"></i> Kesimpulan Analisis</li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span>LKPD ini <strong>sangat terstruktur</strong> dan berorientasi proses (PjBL).</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span>Mengintegrasikan <strong>literasi digital, etika internet, dan kolaborasi</strong> yang relevan dengan era digital.</span>
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-chevron-right list-icon"></i>
+                  <span>Bukan sekadar membuat konten, tetapi membangun tanggung jawab digital.</span>
+                </li>
+              </ul>
+              <div class="card-glow"></div>
+              <div class="card-scanline"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section pdf-section" style="padding: 0 0 100px">
+        <div class="container reveal">
+          <div class="pdf-terminal-wrapper">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="terminal-title">Pertinjau LKPD</div>
+              <div class="terminal-status pulse-dot">ONLINE</div>
+            </div>
+
+            <div class="pdf-container">
+              <iframe src="Dokumen/LKPD.pdf" class="cyber-pdf-frame" title="Dokumen Hasil Observasi">
+                <p>Browser Anda tidak mendukung iframe PDF. <a href="Dokumen/LKPD.pdf">Download PDF</a></p>
+              </iframe>
+            </div>
+
+            <div class="terminal-footer">
+              <a href="Dokumen/LKPD.pdf" download="Hasil_Observasi_Lingkungan_Belajar_Ilyas.pdf" class="cyber-download-btn">
+                <span class="btn-bracket">[</span>
+                <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                <span class="btn-bracket">]</span>
+              </a>
+              <a href="Dokumen/LKPD.pdf" target="_blank" class="cyber-download-btn" style="margin-left: 15px">
+                <span class="btn-bracket">[</span>
+                <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                <span class="btn-bracket">]</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="cyber-footer">
+      <div class="footer-glow-line"></div>
+
+      <div class="container footer-content reveal">
+        <div class="footer-brand">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <p class="cyber-desc">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 1. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
+          <div class="hologram-barcode">
+            <span>||| | || ||| || | |||| ||</span>
+            <p>ID: IFA-2026-SKOM</p>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>E-Portofolio 1</h4>
+          <ul>
+            <li>
+              <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+            </li>
+            <li>
+              <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+            </li>
+            <li>
+              <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+            </li>
+            <li>
+              <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+            </li>
+            <li>
+              <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>E-Portofolio 2</h4>
+          <ul>
+            <li>
+              <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+            </li>
+            <li>
+              <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h4>LOKASI & KONTAK</h4>
+
+          <div class="cyber-location">
+            <span><i class="fa-solid fa-location-dot"></i> LOKASI LPTK</span>
+            <strong>Universitas Negeri Yogyakarta</strong>
+
+            <div class="map-wrapper">
+              <iframe
+                src="https://maps.google.com/maps?q=Universitas+Negeri+Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="130"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+          </div>
+
+          <div class="social-grid">
+            <a href="mailto:ilyasfandhianggara@gmail.com" class="social-btn">
+              <i class="fa-solid fa-envelope"></i>
+              <span class="btn-label">Email</span>
+            </a>
+            <a href="https://www.instagram.com/fandhidk17/" target="_blank" class="social-btn">
+              <i class="fa-brands fa-instagram"></i>
+              <span class="btn-label">Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container bottom-flex">
+          <p>&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG.</p>
+          <div class="system-status"><span class="status-dot pulse-dot"></span> SYSTEM.ONLINE</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Hamburger Menu Mobile
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.getElementById("nav-links");
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Scroll Reveal Animasi (WOW! Effect)
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 100; // Mulai animasi ketika 100px elemen terlihat
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+      window.addEventListener("scroll", reveal);
+      reveal(); // Jalankan sekali saat halaman pertama load
+
+      // ==========================================
+      // CYBER CURSOR & RADAR LOGIC
+      // ==========================================
+      const cursorDot = document.getElementById("cursor-dot");
+      const cursorRing = document.getElementById("cursor-ring");
+
+      // Deteksi jika perangkat ini adalah Desktop (bukan HP)
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
+      if (isDesktop) {
+        // 1. Menggerakkan Kursor mengikuti Mouse
+        window.addEventListener("mousemove", (e) => {
+          // Titik inti bergerak instan
+          cursorDot.style.left = `${e.clientX}px`;
+          cursorDot.style.top = `${e.clientY}px`;
+
+          // Cincin radar mengikuti dengan efek "mengekor" yang sangat mulus
+          cursorRing.animate(
+            {
+              left: `${e.clientX}px`,
+              top: `${e.clientY}px`,
+            },
+            { duration: 150, fill: "forwards" },
+          );
+        });
+
+        // 2. Efek Interaktif saat menyentuh link/tombol
+        // Cari semua elemen yang bisa diklik
+        const interactables = document.querySelectorAll("a, button, .social-btn, .nav-links li");
+
+        interactables.forEach((el) => {
+          el.addEventListener("mouseenter", () => {
+            document.body.classList.add("cursor-hover-active");
+          });
+          el.addEventListener("mouseleave", () => {
+            document.body.classList.remove("cursor-hover-active");
+          });
+        });
+      }
+      // =============================================
+      // NEURAL DATA STREAM PARTICLE (DIGITAL RAIN)
+      // =============================================
+      (function () {
+        const canvas = document.getElementById("neural-data-particle");
+        if (!canvas) return; // Berhenti jika canvas tidak ada (fallback)
+        const ctx = canvas.getContext("2d");
+
+        let width, height;
+        let particles = [];
+
+        // Karakter acak ala Matrix / Data Stream
+        const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|?*#@%&";
+
+        // Konfigurasi partikel
+        const PARTICLE_COUNT = 80; // Jumlah titik/partikel
+        const FONT_SIZE = 14;
+        const SPEED_MIN = 0.4;
+        const SPEED_MAX = 1.2;
+
+        function resizeCanvas() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+          initParticles(); // Regenerasi partikel saat resize
+        }
+
+        class Particle {
+          constructor() {
+            this.reset(true);
+          }
+
+          // Reset posisi & properti (digunakan saat inisialisasi dan saat partikel keluar layar)
+          reset(initial = false) {
+            this.x = Math.random() * width;
+            // Jika partikel baru (inisialisasi), sebarkan secara vertikal agar tidak numpuk di atas
+            this.y = initial ? Math.random() * height : -10;
+            this.char = chars[Math.floor(Math.random() * chars.length)];
+            this.speed = Math.random() * (SPEED_MAX - SPEED_MIN) + SPEED_MIN;
+            this.fontSize = Math.random() * 14 + 10; // Variasi ukuran
+            this.opacity = Math.random() * 0.5 + 0.3;
+            // Warna kebiruan/ungu acak
+            const hue = Math.random() > 0.5 ? 185 : 270; // Cyan atau Ungu
+            this.color = `hsla(${hue}, 90%, 70%, ${this.opacity})`;
+          }
+
+          update() {
+            this.y += this.speed;
+            // Reset jika melewati layar
+            if (this.y > height + 20) {
+              this.reset();
+            }
+          }
+
+          draw() {
+            ctx.font = `${this.fontSize}px "Courier New", monospace`;
+            ctx.fillStyle = this.color;
+            ctx.fillText(this.char, this.x, this.y);
+          }
+        }
+
+        function initParticles() {
+          particles = [];
+          for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push(new Particle());
+          }
+        }
+
+        function animateParticles() {
+          ctx.clearRect(0, 0, width, height);
+
+          for (let p of particles) {
+            p.update();
+            p.draw();
+          }
+
+          requestAnimationFrame(animateParticles);
+        }
+
+        // Event Listener
+        window.addEventListener("resize", resizeCanvas);
+
+        // Inisialisasi Awal & Mulai Animasi
+        resizeCanvas();
+        animateParticles();
+      })();
+    </script>
+  </body>
+</html>

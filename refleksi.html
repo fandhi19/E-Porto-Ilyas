@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Refleksi | E-Portofolio PPG</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="Css/refleksi.css" />
+    <link rel="shortcut icon" href="Images/logo_uny.png" type="image/x-icon" />
+  </head>
+  <body>
+    <div class="cyber-cursor-dot" id="cursor-dot"></div>
+    <div class="cyber-cursor-ring" id="cursor-ring"></div>
+
+    <div class="scanlines"></div>
+
+    <div class="bg-grid-cyber"></div>
+    <div class="bg-gradient-wrapper">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+
+    <canvas id="neural-data-particle"></canvas>
+
+    <header>
+      <div class="container header-container">
+        <div class="logo-wrapper">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <span class="cyber-badge">JEJAK PPL</span>
+        </div>
+
+        <nav>
+          <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">E-Portofolio 1 <span class="arrow">&#9662;</span></a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+                </li>
+                <li>
+                  <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+                </li>
+                <li>
+                  <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+                </li>
+                <li>
+                  <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+                </li>
+                <li>
+                  <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">E-Portofolio 2 <span class="arrow">&#9662;</span></a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+                </li>
+                <li>
+                  <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="dokumentasi.html">Dokumentasi</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-wrapper">
+      <!-- HERO SECTION -->
+      <section class="hero-section fade-up">
+        <div class="badge-modern"><i class="fa-solid fa-sparkles"></i> Analisis & Evaluasi PPL Terbimbing</div>
+        <h1 class="page-title">
+          Refleksi <br />
+          <span class="text-gradient">Praktik Pengalaman Lapangan</span>
+        </h1>
+        <p class="page-subtitle">Sintesis pengalaman belajar dari seluruh tahapan PPL Terbimbing di SMAN 4 Yogyakarta</p>
+      </section>
+
+      <!-- 1. APA YANG TELAH SAYA PELAJARI? (TIMELINE) -->
+      <section class="refleksi-bento">
+        <div class="bento-card full-width tilt-glass reveal" id="card-learn">
+          <div class="glare"></div>
+          <div class="card-header-flex">
+            <div class="icon-ring blue-ring"><i class="fa-solid fa-brain"></i></div>
+            <div>
+              <h2 class="card-title">Apa yang Telah Saya Pelajari?</h2>
+              <p class="card-desc">Esensi penting menjadi guru profesional dari setiap tahapan PPL Terbimbing.</p>
+            </div>
+          </div>
+
+          <div class="timeline-interactive">
+            <div class="timeline-progress"></div>
+
+            <div class="time-step">
+              <div class="step-dot"><i class="fa-solid fa-eye"></i></div>
+              <h4>Tahap Observasi</h4>
+              <p>Memahami bahwa karakteristik dan gaya belajar murid di kelas sangat heterogen, sehingga pengajaran tidak bisa disama-ratakan.</p>
+            </div>
+
+            <div class="time-step">
+              <div class="step-dot"><i class="fa-solid fa-handshake-angle"></i></div>
+              <h4>Tahap Asistensi</h4>
+              <p>Mempelajari manajemen kelas yang efektif dari guru pamong, khususnya dalam pengelolaan waktu dan aspek K3 di laboratorium/kelas.</p>
+            </div>
+
+            <div class="time-step">
+              <div class="step-dot"><i class="fa-solid fa-chalkboard-user"></i></div>
+              <h4>Tahap Praktik Terbimbing</h4>
+              <p>Menyadari bahwa rancangan Modul Ajar bersifat dinamis; harus siap disesuaikan dengan situasi riil saat mengajar pertama kali.</p>
+            </div>
+
+            <div class="time-step">
+              <div class="step-dot"><i class="fa-solid fa-rotate"></i></div>
+              <h4>Tahap Evaluasi</h4>
+              <p>Menyadari pentingnya refleksi berkelanjutan. Setiap sesi mengajar memberi insight baru untuk perbaikan pengajaran berikutnya.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. PENGALAMAN MENANTANG DAN SOLUSI (4 FLIP CARDS) -->
+      <section class="refleksi-bento">
+        <div class="bento-card full-width reveal" id="card-challenges">
+          <div class="card-header-flex">
+            <div class="icon-ring orange-ring"><i class="fa-solid fa-bolt"></i></div>
+            <div>
+              <h2 class="card-title">Pengalaman Menantang dan Solusi</h2>
+              <p class="card-desc">Empat tantangan utama yang dihadapi selama PPL Terbimbing dan solusi konkret yang diterapkan.</p>
+            </div>
+          </div>
+
+          <div class="grid-4">
+            <!-- Tantangan 1 -->
+            <div class="flip-card-container">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front card-orange-front">
+                    <div class="flip-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="flip-badge">Tantangan 1</div>
+                    <h3>Media Monoton & Siswa Main HP</h3>
+                    <p>Murid kurang fokus dan bermain HP karena media pembelajaran kurang menarik.</p>
+                    <span class="hover-hint"><i class="fa-solid fa-arrow-rotate-right"></i> Hover untuk Solusi</span>
+                  </div>
+                  <div class="flip-card-back card-cyan-back">
+                    <div class="flip-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div class="flip-badge success">Solusi</div>
+                    <h3>Media Interaktif & Gamifikasi</h3>
+                    <p>Mengintegrasikan media pembelajaran interaktif seperti video edukasi dan aturan penggunaan HP yang produktif.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tantangan 2 -->
+            <div class="flip-card-container">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front card-orange-front">
+                    <div class="flip-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="flip-badge">Tantangan 2</div>
+                    <h3>Manajemen Waktu Buruk</h3>
+                    <p>Tahapan Modul Ajar sering terlewat karena alokasi waktu kurang disiplin.</p>
+                    <span class="hover-hint"><i class="fa-solid fa-arrow-rotate-right"></i> Hover untuk Solusi</span>
+                  </div>
+                  <div class="flip-card-back card-cyan-back">
+                    <div class="flip-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                    <div class="flip-badge success">Solusi</div>
+                    <h3>Micro-Timeline & Kontrol Tempo</h3>
+                    <p>Menyusun alokasi mendetail per aktivitas, mengurangi ceramah bertele-tele, dan mengatur tempo bicara.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tantangan 3 -->
+            <div class="flip-card-container">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front card-orange-front">
+                    <div class="flip-icon"><i class="fa-solid fa-user-group"></i></div>
+                    <div class="flip-badge">Tantangan 3</div>
+                    <h3>Bimbingan Tidak Merata</h3>
+                    <p>Fokus hanya pada kelompok aktif, sementara kelompok pasif kurang terbimbing.</p>
+                    <span class="hover-hint"><i class="fa-solid fa-arrow-rotate-right"></i> Hover untuk Solusi</span>
+                  </div>
+                  <div class="flip-card-back card-cyan-back">
+                    <div class="flip-icon"><i class="fa-solid fa-rotate"></i></div>
+                    <div class="flip-badge success">Solusi</div>
+                    <h3>Monitoring Proaktif (Rolling)</h3>
+                    <p>Secara sengaja mendampingi kelompok pasif lebih intensif agar seluruh murid terlibat dalam proyek.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tantangan 4 -->
+            <div class="flip-card-container">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front card-orange-front">
+                    <div class="flip-icon"><i class="fa-solid fa-display"></i></div>
+                    <div class="flip-badge">Tantangan 4</div>
+                    <h3>Kesiapan Teknis Kurang</h3>
+                    <p>Infocus/proyektor tidak mengeluarkan suara, menghambat penyampaian materi.</p>
+                    <span class="hover-hint"><i class="fa-solid fa-arrow-rotate-right"></i> Hover untuk Solusi</span>
+                  </div>
+                  <div class="flip-card-back card-cyan-back">
+                    <div class="flip-icon"><i class="fa-solid fa-gear"></i></div>
+                    <div class="flip-badge success">Solusi</div>
+                    <h3>Technical Check & Plan B</h3>
+                    <p>Melakukan pengecekkan kesiapan mengajar baik itu sarana dan prasarana dalam kelas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. UMPAN BALIK & RENCANA TINDAK LANJUT -->
+      <section class="refleksi-bento">
+        <div class="bento-card full-width spotlight-card reveal" id="card-feedback">
+          <div class="card-border-glow"></div>
+          <div class="spotlight-content split-card-inner">
+            <div class="feedback-section">
+              <div class="icon-ring purple-ring"><i class="fa-solid fa-bullhorn"></i></div>
+              <h2 class="card-title">Umpan Balik & Rencana Tindak Lanjut</h2>
+              <p class="card-desc">Sintesis umpan balik Guru Pamong selama Siklus 1–3 serta fokus untuk PPL Mandiri.</p>
+
+              <div class="feedback-box">
+                <i class="fa-solid fa-quote-left quote-mark"></i>
+                <div class="siklus-list">
+                  <div class="siklus-item"><strong>Siklus 1 – Komunikasi & Media:</strong> Tempo penjelasan diperlambat, nada bicara lebih rendah, media ditingkatkan dari PPT statis ke multimedia variatif.</div>
+                  <div class="siklus-item"><strong>Siklus 2 – Pengelolaan Kelompok:</strong> Fokus perhatian lebih merata, monitoring seluruh siswa, tidak ada murid pasif yang tertinggal.</div>
+                  <div class="siklus-item"><strong>Siklus 3 – Manajemen Waktu & Persiapan:</strong> Interaksi kelas dan presentasi aktif, namun regulasi waktu asesmen sumatif perlu diperketat.</div>
+                </div>
+                <span class="feedback-author">- Hasil Refleksi Bersama Guru Pamong</span>
+              </div>
+            </div>
+
+            <div class="action-plan-section">
+              <div class="action-plan-box">
+                <h4><i class="fa-solid fa-rocket"></i> Fokus PPL Mandiri</h4>
+                <div class="action-list">
+                  <div class="action-item">
+                    <div class="action-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div>
+                      <strong>Disiplin Alokasi Waktu</strong>
+                      <p>Mematangkan persiapan teknis dan menaati timeline Modul Ajar tanpa mengorbankan interaksi.</p>
+                    </div>
+                  </div>
+                  <div class="action-item">
+                    <div class="action-icon"><i class="fa-solid fa-users"></i></div>
+                    <div>
+                      <strong>Pemerataan Partisipasi</strong>
+                      <p>Mempertahankan strategi monitoring proaktif agar siswa pasif tetap terlibat.</p>
+                    </div>
+                  </div>
+                  <div class="action-item">
+                    <div class="action-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div>
+                      <strong>Refleksi Berkelanjutan</strong>
+                      <p>Melanjutkan kebiasaan refleksi tiap sesi untuk perbaikan kualitas pembelajaran.</p>
+                    </div>
+                  </div>
+                </div>
+                <p class="kesimpulan-text">Kesimpulan: Fokus utama PPL Mandiri adalah mematangkan persiapan teknis dan disiplin waktu, tanpa mengorbankan kualitas interaksi dengan siswa pasif.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="cyber-footer">
+      <div class="footer-glow-line"></div>
+      <div class="container footer-content reveal">
+        <div class="footer-brand">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <p class="cyber-desc">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 1. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
+          <div class="hologram-barcode">
+            <span>||| | || ||| || | |||| ||</span>
+            <p>ID: IFA-2026-SKOM</p>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>E-Portofolio 1</h4>
+          <ul>
+            <li>
+              <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+            </li>
+            <li>
+              <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+            </li>
+            <li>
+              <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+            </li>
+            <li>
+              <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+            </li>
+            <li>
+              <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>E-Portofolio 2</h4>
+          <ul>
+            <li>
+              <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+            </li>
+            <li>
+              <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+            </li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <h4>LOKASI & KONTAK</h4>
+          <div class="cyber-location">
+            <span><i class="fa-solid fa-location-dot"></i> LOKASI LPTK</span>
+            <strong>Universitas Negeri Yogyakarta</strong>
+            <div class="map-wrapper">
+              <iframe
+                src="https://maps.google.com/maps?q=Universitas+Negeri+Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="130"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+          <div class="social-grid">
+            <a href="mailto:ilyasfandhianggara@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i><span class="btn-label">Email</span></a>
+            <a href="https://www.instagram.com/fandhidk17/" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i><span class="btn-label">Instagram</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container bottom-flex">
+          <p>&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG.</p>
+          <div class="system-status"><span class="status-dot pulse-dot"></span> SYSTEM.ONLINE</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Hamburger Menu
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.getElementById("nav-links");
+      mobileMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Scroll Reveal
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 100;
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+      window.addEventListener("scroll", reveal);
+      reveal();
+
+      // Cyber cursor (desktop only)
+      const cursorDot = document.getElementById("cursor-dot");
+      const cursorRing = document.getElementById("cursor-ring");
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+      if (isDesktop) {
+        window.addEventListener("mousemove", (e) => {
+          cursorDot.style.left = `${e.clientX}px`;
+          cursorDot.style.top = `${e.clientY}px`;
+          cursorRing.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 150, fill: "forwards" });
+        });
+        document.querySelectorAll("a, button, .social-btn, .nav-links li").forEach((el) => {
+          el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover-active"));
+          el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover-active"));
+        });
+      }
+
+      // Neural particles
+      (function () {
+        const canvas = document.getElementById("neural-data-particle");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        let width,
+          height,
+          particles = [];
+        const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|?*#@%&";
+        function resizeCanvas() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+          initParticles();
+        }
+        class Particle {
+          constructor() {
+            this.reset(true);
+          }
+          reset(init = false) {
+            this.x = Math.random() * width;
+            this.y = init ? Math.random() * height : -10;
+            this.char = chars[Math.floor(Math.random() * chars.length)];
+            this.speed = Math.random() * 0.8 + 0.4;
+            this.fontSize = Math.random() * 14 + 10;
+            this.opacity = Math.random() * 0.5 + 0.3;
+            const hue = Math.random() > 0.5 ? 185 : 270;
+            this.color = `hsla(${hue}, 90%, 70%, ${this.opacity})`;
+          }
+          update() {
+            this.y += this.speed;
+            if (this.y > height + 20) this.reset();
+          }
+          draw() {
+            ctx.font = `${this.fontSize}px "Courier New", monospace`;
+            ctx.fillStyle = this.color;
+            ctx.fillText(this.char, this.x, this.y);
+          }
+        }
+        function initParticles() {
+          particles = [];
+          for (let i = 0; i < 80; i++) particles.push(new Particle());
+        }
+        function animate() {
+          ctx.clearRect(0, 0, width, height);
+          particles.forEach((p) => {
+            p.update();
+            p.draw();
+          });
+          requestAnimationFrame(animate);
+        }
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+        animate();
+      })();
+    </script>
+  </body>
+</html>

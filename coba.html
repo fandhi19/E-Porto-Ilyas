@@ -1,0 +1,2604 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Portofolio PPG | Ilyas Fandhi Anggara, S.Kom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+      /* ─── RESET ───────────────────────────────────── */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+
+      /* ─── VARIABLES ───────────────────────────────── */
+      :root {
+        --bg: #080810;
+        --bg2: #0e0e1a;
+        --bg3: #13131f;
+        --surface: rgba(255, 255, 255, 0.03);
+        --border: rgba(255, 255, 255, 0.07);
+        --border2: rgba(255, 255, 255, 0.12);
+        --gold: #c9a96e;
+        --gold2: #e8c98a;
+        --gold-dim: rgba(201, 169, 110, 0.12);
+        --gold-glow: rgba(201, 169, 110, 0.25);
+        --white: #f5f0ea;
+        --muted: #7a7570;
+        --muted2: #5a5550;
+        --red: #e05b5b;
+        --ff-disp: "Poppins", sans-serif;
+        --ff-sans: "Poppins", sans-serif;
+        --ff-mono: "Poppins", sans-serif;
+        --ease: cubic-bezier(0.16, 1, 0.3, 1);
+        --ease2: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* ─── GLOBAL ─────────────────────────────────── */
+      body {
+        background: var(--bg);
+        color: var(--white);
+        font-family: var(--ff-sans);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+      body.locked {
+        overflow: hidden;
+      }
+
+      /* ─── CUSTOM SCROLLBAR ──────────────────────── */
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--gold);
+        border-radius: 99px;
+        opacity: 0.5;
+      }
+
+      /* ─── NOISE TEXTURE OVERLAY ─────────────────── */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+        opacity: 0.03;
+        pointer-events: none;
+        z-index: 9998;
+      }
+
+      /* ─── CURSOR ─────────────────────────────────── */
+      .cursor {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: var(--gold);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99999;
+        transform: translate(-50%, -50%);
+        transition:
+          width 0.2s var(--ease),
+          height 0.2s var(--ease),
+          opacity 0.2s;
+        mix-blend-mode: difference;
+      }
+      .cursor-ring {
+        position: fixed;
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(201, 169, 110, 0.5);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99998;
+        transform: translate(-50%, -50%);
+        transition:
+          transform 0.12s var(--ease2),
+          width 0.3s var(--ease),
+          height 0.3s var(--ease),
+          opacity 0.3s;
+      }
+      .cursor.hovered {
+        width: 6px;
+        height: 6px;
+        opacity: 0.6;
+      }
+      .cursor-ring.hovered {
+        width: 56px;
+        height: 56px;
+        border-color: var(--gold);
+      }
+      @media (max-width: 768px) {
+        .cursor,
+        .cursor-ring {
+          display: none;
+        }
+      }
+
+      /* ─── PRELOADER ──────────────────────────────── */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background: var(--bg);
+        z-index: 99997;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 24px;
+        transition:
+          opacity 0.8s var(--ease),
+          transform 0.8s var(--ease);
+      }
+      #preloader.out {
+        opacity: 0;
+        transform: scale(1.04);
+        pointer-events: none;
+      }
+      .pre-logo {
+        font-family: var(--ff-disp);
+        font-size: clamp(28px, 5vw, 48px);
+        font-weight: 800;
+        color: var(--gold);
+        letter-spacing: 0.02em;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.3s var(--ease) forwards;
+      }
+      .pre-bar-wrap {
+        width: 200px;
+        height: 1px;
+        background: var(--border2);
+        overflow: hidden;
+      }
+      .pre-bar {
+        height: 100%;
+        background: var(--gold);
+        width: 0%;
+        transition: width 0.05s linear;
+      }
+      .pre-label {
+        font-family: var(--ff-mono);
+        font-size: 11px;
+        color: var(--muted);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        opacity: 0;
+        animation: fadeUp 0.8s 0.5s var(--ease) forwards;
+      }
+
+      /* ─── ANIMATIONS ─────────────────────────────── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes spinSlow {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-16px);
+        }
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 200% center;
+        }
+        100% {
+          background-position: -200% center;
+        }
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      @keyframes pulseGold {
+        0%,
+        100% {
+          box-shadow: 0 0 0 0 var(--gold-glow);
+        }
+        50% {
+          box-shadow: 0 0 0 8px transparent;
+        }
+      }
+      @keyframes borderGlow {
+        0%,
+        100% {
+          border-color: rgba(201, 169, 110, 0.2);
+        }
+        50% {
+          border-color: rgba(201, 169, 110, 0.6);
+        }
+      }
+
+      /* ─── SCROLL REVEAL ──────────────────────────── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 0.9s var(--ease),
+          transform 0.9s var(--ease);
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal[data-delay="1"] {
+        transition-delay: 0.1s;
+      }
+      .reveal[data-delay="2"] {
+        transition-delay: 0.2s;
+      }
+      .reveal[data-delay="3"] {
+        transition-delay: 0.3s;
+      }
+      .reveal[data-delay="4"] {
+        transition-delay: 0.4s;
+      }
+
+      /* ─── CONTAINER ──────────────────────────────── */
+      .container {
+        width: 92%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* ─── HEADER ─────────────────────────────────── */
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 20px 0;
+        transition:
+          background 0.4s,
+          border 0.4s,
+          padding 0.4s;
+      }
+      header.scrolled {
+        background: rgba(8, 8, 16, 0.92);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        padding: 14px 0;
+      }
+      .header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .logo-mark {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+        border: 1px solid var(--gold);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--ff-disp);
+        color: var(--gold);
+        font-size: 18px;
+        transition: all 0.3s var(--ease);
+      }
+      .logo-icon:hover {
+        background: var(--gold);
+        color: var(--bg);
+      }
+      .logo-text {
+        font-family: var(--ff-sans);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+      .logo-text span {
+        color: var(--gold);
+      }
+
+      nav ul {
+        display: flex;
+        align-items: center;
+        gap: 36px;
+      }
+      nav a {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+        position: relative;
+        transition: color 0.3s;
+      }
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--gold);
+        transition: width 0.3s var(--ease);
+      }
+      nav a:hover {
+        color: var(--white);
+      }
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      /* DROPDOWN */
+      .has-dd {
+        position: relative;
+      }
+      .dd-menu {
+        position: absolute;
+        top: calc(100% + 16px);
+        left: -20px;
+        background: var(--bg2);
+        border: 1px solid var(--border2);
+        border-radius: 12px;
+        padding: 8px;
+        min-width: 220px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: all 0.3s var(--ease);
+        box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6);
+      }
+      .has-dd:hover .dd-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+      .dd-menu a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: none;
+        transition: all 0.2s;
+      }
+      .dd-menu a::after {
+        display: none;
+      }
+      .dd-menu a i {
+        color: var(--gold);
+        width: 16px;
+        font-size: 12px;
+      }
+      .dd-menu a:hover {
+        background: var(--surface);
+        color: var(--white);
+      }
+
+      .nav-cta {
+        padding: 9px 22px;
+        background: transparent;
+        border: 1px solid var(--gold);
+        border-radius: 8px;
+        color: var(--gold) !important;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: all 0.3s var(--ease);
+      }
+      .nav-cta::after {
+        display: none !important;
+      }
+      .nav-cta:hover {
+        background: var(--gold);
+        color: var(--bg) !important;
+      }
+
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        padding: 4px;
+      }
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background: var(--white);
+        border-radius: 2px;
+        transition: all 0.3s var(--ease);
+        display: block;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .nav-mobile {
+        display: none;
+        position: fixed;
+        inset: 0;
+        top: 70px;
+        background: rgba(8, 8, 16, 0.97);
+        backdrop-filter: blur(20px);
+        z-index: 999;
+        padding: 40px;
+        flex-direction: column;
+        gap: 24px;
+        overflow-y: auto;
+      }
+      .nav-mobile.open {
+        display: flex;
+      }
+      .nav-mobile a {
+        font-size: 18px;
+        color: var(--white);
+        font-weight: 600;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 20px;
+      }
+
+      /* ─── HERO ────────────────────────────────────── */
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        gap: 60px;
+        padding: 100px 0 60px;
+        position: relative;
+        overflow: hidden;
+      }
+      /* Radial ambient */
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -200px;
+        right: -200px;
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(circle, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .hero-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--ff-mono);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 28px;
+      }
+      .hero-label::before {
+        content: "";
+        width: 32px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .hero-title {
+        font-family: var(--ff-disp);
+        font-size: clamp(40px, 5.5vw, 76px);
+        font-weight: 800;
+        line-height: 1.1;
+        color: var(--white);
+        margin-bottom: 28px;
+      }
+      .hero-title em {
+        font-style: italic;
+        color: var(--gold);
+        display: block;
+        font-weight: 700;
+      }
+      .hero-desc {
+        color: var(--muted);
+        font-size: 16px;
+        max-width: 480px;
+        line-height: 1.75;
+        margin-bottom: 44px;
+      }
+      .hero-desc strong {
+        color: var(--white);
+        font-weight: 600;
+      }
+      .hero-actions {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .btn-primary {
+        padding: 14px 32px;
+        background: var(--gold);
+        color: var(--bg);
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border: 1px solid var(--gold);
+        transition: all 0.3s var(--ease);
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.5s var(--ease);
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 40px rgba(201, 169, 110, 0.3);
+      }
+      .btn-primary:hover::before {
+        transform: translateX(100%);
+      }
+      .btn-ghost {
+        padding: 14px 32px;
+        background: transparent;
+        color: var(--white);
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border: 1px solid var(--border2);
+        transition: all 0.3s var(--ease);
+      }
+      .btn-ghost:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+        transform: translateY(-3px);
+      }
+
+      /* Hero visual */
+      .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        position: relative;
+      }
+      .hero-photo-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 420px;
+        animation: float 6s ease-in-out infinite;
+      }
+      .hero-photo-bg {
+        position: absolute;
+        inset: -20px;
+        background: radial-gradient(ellipse, rgba(201, 169, 110, 0.12) 0%, transparent 70%);
+        border-radius: 50%;
+      }
+      .hero-photo-ring {
+        position: absolute;
+        inset: -30px;
+        border: 1px solid rgba(201, 169, 110, 0.15);
+        border-radius: 50%;
+        animation: borderGlow 4s ease-in-out infinite;
+      }
+      .hero-photo-ring2 {
+        position: absolute;
+        inset: -60px;
+        border: 1px solid rgba(201, 169, 110, 0.07);
+        border-radius: 50%;
+      }
+      .hero-photo {
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 2;
+        filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.8));
+      }
+      .hero-badge-card {
+        position: absolute;
+        bottom: 20px;
+        left: -20px;
+        background: var(--bg2);
+        border: 1px solid var(--border2);
+        border-radius: 14px;
+        padding: 16px 20px;
+        z-index: 10;
+        backdrop-filter: blur(10px);
+        transition:
+          transform 0.3s var(--ease),
+          box-shadow 0.3s;
+      }
+      .hero-badge-card:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      }
+      .hero-badge-card .bc-label {
+        font-family: var(--ff-mono);
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 4px;
+      }
+      .hero-badge-card .bc-val {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--white);
+      }
+      .hero-badge-card2 {
+        position: absolute;
+        top: 30px;
+        right: -20px;
+        background: var(--gold);
+        border-radius: 12px;
+        padding: 14px 18px;
+        z-index: 10;
+        transition: transform 0.3s var(--ease);
+      }
+      .hero-badge-card2:hover {
+        transform: translateY(-4px) scale(1.02);
+      }
+      .hero-badge-card2 .bc-label {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(8, 8, 16, 0.7);
+        margin-bottom: 2px;
+        font-weight: 600;
+      }
+      .hero-badge-card2 .bc-val {
+        font-size: 13px;
+        font-weight: 800;
+        color: var(--bg);
+        font-family: var(--ff-sans);
+      }
+
+      /* Hero stats row */
+      .hero-stats {
+        display: flex;
+        gap: 40px;
+        padding-top: 44px;
+        border-top: 1px solid var(--border);
+        margin-top: 44px;
+      }
+      .hero-stat .hs-num {
+        font-family: var(--ff-disp);
+        font-weight: 800;
+        font-size: 36px;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+      .hero-stat .hs-lbl {
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ─── MARQUEE ─────────────────────────────────── */
+      .marquee-section {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 18px 0;
+        overflow: hidden;
+        position: relative;
+      }
+      .marquee-track {
+        display: flex;
+        white-space: nowrap;
+        animation: marquee 30s linear infinite;
+      }
+      .marquee-section:hover .marquee-track {
+        animation-play-state: paused;
+      }
+      .marquee-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 0 40px;
+        font-family: var(--ff-sans);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        transition: color 0.3s;
+      }
+      .marquee-item:hover {
+        color: var(--white);
+      }
+      .marquee-item i {
+        color: var(--gold);
+        font-size: 10px;
+      }
+      .marquee-dot {
+        color: var(--gold);
+        opacity: 0.4;
+        padding: 0 10px;
+        font-size: 18px;
+      }
+
+      /* ─── SECTION SHARED ─────────────────────────── */
+      section {
+        padding: 100px 0;
+        position: relative;
+      }
+      .section-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--ff-mono);
+        font-size: 11px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+      .section-tag::before {
+        content: "";
+        width: 24px;
+        height: 1px;
+        background: var(--gold);
+      }
+      .section-title {
+        font-family: var(--ff-disp);
+        font-size: clamp(32px, 4vw, 52px);
+        font-weight: 700;
+        color: var(--white);
+        line-height: 1.15;
+        margin-bottom: 20px;
+      }
+      .section-desc {
+        color: var(--muted);
+        font-size: 15px;
+        max-width: 560px;
+        line-height: 1.75;
+      }
+
+      /* ─── STATS CARDS ─────────────────────────────── */
+      .stats-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        background: var(--border);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        overflow: hidden;
+        margin-top: 20px;
+      }
+      .stat-item {
+        background: var(--bg2);
+        padding: 32px 28px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition: background 0.4s;
+        cursor: default;
+      }
+      .stat-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 50% 100%, var(--gold-dim), transparent 70%);
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+      .stat-item:hover {
+        background: var(--bg3);
+      }
+      .stat-item:hover::before {
+        opacity: 1;
+      }
+      .stat-item h4 {
+        font-family: var(--ff-disp);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--gold);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .stat-item p {
+        color: var(--white);
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      /* ─── TIMELINE SECTION ────────────────────────── */
+      .timeline-section {
+        background: var(--bg);
+      }
+      .tl-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 60px;
+        gap: 40px;
+      }
+      .calendar-wrap {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .cal-top {
+        background: var(--bg3);
+        padding: 20px 28px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .cal-top h3 {
+        font-family: var(--ff-disp);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--gold);
+        font-style: italic;
+      }
+      .cal-legend {
+        font-family: var(--ff-mono);
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+      .cal-grid {
+        padding: 20px;
+      }
+      .month-block {
+        margin-bottom: 24px;
+      }
+      .month-label {
+        font-family: var(--ff-mono);
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--gold);
+        padding: 10px 16px;
+        border-left: 2px solid var(--gold);
+        margin-bottom: 12px;
+        background: var(--gold-dim);
+        border-radius: 0 6px 6px 0;
+      }
+      .cal-weekdays,
+      .cal-week {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 2px;
+        margin-bottom: 2px;
+      }
+      .wday {
+        text-align: center;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted2);
+        padding: 8px 0;
+      }
+      .cday {
+        min-height: 72px;
+        padding: 8px 6px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid transparent;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transition: all 0.25s var(--ease);
+        cursor: default;
+      }
+      .cday:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: var(--border2);
+      }
+      .cday.event {
+        background: var(--gold-dim);
+        border-color: rgba(201, 169, 110, 0.2);
+        cursor: pointer;
+      }
+      .cday.event:hover {
+        background: rgba(201, 169, 110, 0.18);
+        border-color: var(--gold);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(201, 169, 110, 0.1);
+      }
+      .cday.empty {
+        background: transparent;
+        border-color: transparent;
+        pointer-events: none;
+      }
+      .cday .dn {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 4px;
+      }
+      .cday.event .dn {
+        color: var(--gold2);
+      }
+      .cday .ev-tag {
+        font-size: 8.5px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        background: var(--gold);
+        color: var(--bg);
+        padding: 2px 5px;
+        border-radius: 4px;
+        line-height: 1.3;
+        margin-top: auto;
+      }
+      .cday .ev-sub {
+        font-size: 7.5px;
+        color: var(--gold);
+        margin-top: 2px;
+        line-height: 1.3;
+        opacity: 0.8;
+      }
+
+      /* Popup */
+      #ev-popup {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(8px);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+      #ev-popup.show {
+        display: flex;
+      }
+      .ev-popup-box {
+        background: var(--bg2);
+        border: 1px solid var(--border2);
+        border-radius: 20px;
+        padding: 40px;
+        max-width: 380px;
+        width: 90%;
+        text-align: center;
+        position: relative;
+        animation: fadeUp 0.4s var(--ease);
+      }
+      .ev-popup-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 2px;
+        background: var(--gold);
+        border-radius: 2px;
+      }
+      .ev-popup-title {
+        font-family: var(--ff-disp);
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--gold);
+        margin-bottom: 12px;
+      }
+      .ev-popup-desc {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .ev-popup-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        border: 1px solid var(--border2);
+        color: var(--muted);
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .ev-popup-close:hover {
+        border-color: var(--gold);
+        color: var(--gold);
+      }
+
+      /* events summary */
+      .ev-summary-list {
+        display: grid;
+        gap: 12px;
+        margin-top: 24px;
+        padding: 24px;
+        border-top: 1px solid var(--border);
+      }
+      .ev-summary-item {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        padding: 16px;
+        border-radius: 12px;
+        border: 1px solid transparent;
+        transition: all 0.3s var(--ease);
+        cursor: default;
+      }
+      .ev-summary-item:hover {
+        background: var(--gold-dim);
+        border-color: rgba(201, 169, 110, 0.2);
+        transform: translateX(4px);
+      }
+      .ev-date-chip {
+        flex: 0 0 80px;
+        background: var(--gold);
+        color: var(--bg);
+        border-radius: 8px;
+        padding: 8px;
+        text-align: center;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        line-height: 1.3;
+      }
+      .ev-info .ev-name {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 4px;
+      }
+      .ev-info .ev-desc {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      /* ─── LPTK SECTION ────────────────────────────── */
+      .lptk-section {
+        background: var(--bg2);
+      }
+      .lptk-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-top: 48px;
+      }
+      .lptk-card {
+        background: var(--bg);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.4s var(--ease);
+        position: relative;
+      }
+      .lptk-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+      .lptk-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(201, 169, 110, 0.25);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+      }
+      .lptk-card:hover::before {
+        opacity: 1;
+      }
+      .lptk-card-inner {
+        padding: 36px;
+      }
+      .uny-header {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 24px;
+      }
+      .uny-logo-box {
+        width: 64px;
+        height: 64px;
+        background: var(--gold-dim);
+        border: 1px solid rgba(201, 169, 110, 0.2);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s var(--ease);
+        flex-shrink: 0;
+      }
+      .lptk-card:hover .uny-logo-box {
+        background: var(--gold);
+        border-color: var(--gold);
+      }
+      .uny-logo-box img {
+        width: 40px;
+        height: auto;
+        filter: brightness(0) invert(1) sepia(1) saturate(2) hue-rotate(0deg);
+        opacity: 0.8;
+        transition: opacity 0.3s;
+      }
+      .lptk-card:hover .uny-logo-box img {
+        opacity: 1;
+      }
+      .uny-head-text h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 4px;
+      }
+      .uny-motto {
+        font-size: 12px;
+        font-style: italic;
+        color: var(--gold);
+      }
+      .lptk-desc {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.75;
+        margin-bottom: 24px;
+      }
+      .uny-stats {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 24px;
+      }
+      .uny-stat {
+        flex: 1;
+        min-width: 80px;
+        padding: 14px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        text-align: center;
+        transition: all 0.3s;
+      }
+      .lptk-card:hover .uny-stat {
+        border-color: rgba(201, 169, 110, 0.15);
+      }
+      .uny-stat-n {
+        display: block;
+        font-family: var(--ff-disp);
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--gold);
+        line-height: 1;
+      }
+      .uny-stat-l {
+        font-size: 10px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 4px;
+        display: block;
+      }
+      .uny-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gold);
+        transition: gap 0.3s;
+      }
+      .uny-link:hover {
+        gap: 14px;
+      }
+
+      .lptk-photo-wrap {
+        position: relative;
+        overflow: hidden;
+      }
+      .lptk-photo-wrap img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        filter: grayscale(30%);
+        transition: all 0.5s var(--ease);
+      }
+      .lptk-card:hover .lptk-photo-wrap img {
+        transform: scale(1.04);
+        filter: grayscale(0%);
+      }
+      .photo-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(8, 8, 16, 0.9));
+        padding: 24px 20px 14px;
+        font-size: 11px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        font-family: var(--ff-mono);
+      }
+      .lptk-maps-section {
+        padding: 20px 28px;
+      }
+      .lptk-maps-section h4 {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--white);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .lptk-maps-section h4 i {
+        color: var(--gold);
+      }
+      .map-frame {
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        transition: border-color 0.3s;
+      }
+      .lptk-card:hover .map-frame {
+        border-color: rgba(201, 169, 110, 0.25);
+      }
+      .map-frame iframe {
+        width: 100%;
+        height: 180px;
+        display: block;
+        opacity: 0.75;
+        transition: opacity 0.3s;
+      }
+      .lptk-card:hover .map-frame iframe {
+        opacity: 1;
+      }
+
+      /* ─── DOCUMENTS SECTION ──────────────────────── */
+      .doc-section {
+        background: var(--bg);
+      }
+      .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        margin-top: 48px;
+      }
+      .doc-card {
+        background: var(--bg2);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 32px 28px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s var(--ease);
+        cursor: pointer;
+        group: true;
+      }
+      .doc-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.4s var(--ease);
+      }
+      .doc-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(201, 169, 110, 0.25);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+        background: var(--bg3);
+      }
+      .doc-card:hover::after {
+        transform: scaleX(1);
+      }
+      .doc-icon {
+        width: 52px;
+        height: 52px;
+        background: var(--gold-dim);
+        border: 1px solid rgba(201, 169, 110, 0.2);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--gold);
+        margin-bottom: 24px;
+        transition: all 0.3s var(--ease);
+      }
+      .doc-card:hover .doc-icon {
+        background: var(--gold);
+        color: var(--bg);
+        transform: scale(1.1) rotate(-5deg);
+      }
+      .doc-card h3 {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 10px;
+      }
+      .doc-card p {
+        font-size: 14px;
+        color: var(--muted);
+        line-height: 1.7;
+        margin-bottom: 24px;
+      }
+      .doc-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+        transition: gap 0.3s;
+      }
+      .doc-card:hover .doc-link {
+        gap: 14px;
+      }
+
+      /* corner decoration */
+      .doc-card-corner {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px;
+        height: 60px;
+        background: radial-gradient(circle at top right, var(--gold-dim), transparent 70%);
+        pointer-events: none;
+      }
+
+      /* ─── GALLERY SECTION ────────────────────────── */
+      .gallery-section {
+        background: var(--bg2);
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 220px;
+        gap: 12px;
+        margin-top: 48px;
+      }
+      .g-large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+      .g-tall {
+        grid-column: span 1;
+        grid-row: span 2;
+      }
+      .g-wide {
+        grid-column: span 2;
+        grid-row: span 1;
+      }
+      .g-box {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        cursor: pointer;
+        background: var(--bg3);
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(50%) brightness(0.7);
+        transition: all 0.6s var(--ease);
+      }
+      .gallery-item:hover img {
+        transform: scale(1.08);
+        filter: grayscale(0%) brightness(1);
+      }
+      .gallery-item-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(8, 8, 16, 0.95) 0%, rgba(8, 8, 16, 0.3) 50%, transparent 100%);
+        opacity: 0;
+        transition: opacity 0.4s;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 24px;
+      }
+      .gallery-item:hover .gallery-item-overlay {
+        opacity: 1;
+      }
+      .gi-code {
+        font-family: var(--ff-mono);
+        font-size: 10px;
+        letter-spacing: 0.15em;
+        color: var(--gold);
+        margin-bottom: 6px;
+        transform: translateY(10px);
+        transition: transform 0.4s 0.05s var(--ease);
+      }
+      .gallery-item:hover .gi-code {
+        transform: none;
+      }
+      .gi-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 4px;
+        transform: translateY(10px);
+        transition: transform 0.4s 0.1s var(--ease);
+      }
+      .gallery-item:hover .gi-title {
+        transform: none;
+      }
+      .gi-desc {
+        font-size: 12px;
+        color: var(--muted);
+        transform: translateY(10px);
+        transition: transform 0.4s 0.15s var(--ease);
+      }
+      .gallery-item:hover .gi-desc {
+        transform: none;
+      }
+      .gallery-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border: 2px solid var(--gold);
+        border-radius: 12px;
+        opacity: 0;
+        transition: opacity 0.3s;
+        z-index: 5;
+        pointer-events: none;
+      }
+      .gallery-item:hover::before {
+        opacity: 0.4;
+      }
+
+      .gallery-more {
+        text-align: center;
+        margin-top: 40px;
+      }
+      .btn-outline-gold {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 36px;
+        border: 1px solid var(--gold);
+        border-radius: 8px;
+        color: var(--gold);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: all 0.3s var(--ease);
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-outline-gold::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: var(--gold);
+        transform: translateX(-101%);
+        transition: transform 0.4s var(--ease);
+        z-index: -1;
+      }
+      .btn-outline-gold:hover {
+        color: var(--bg);
+      }
+      .btn-outline-gold:hover::before {
+        transform: none;
+      }
+
+      /* ─── FOOTER ──────────────────────────────────── */
+      footer {
+        background: var(--bg2);
+        border-top: 1px solid var(--border);
+        padding: 70px 0 0;
+        position: relative;
+        z-index: 10;
+      }
+      .footer-top-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold), var(--muted), var(--gold), transparent);
+        opacity: 0.3;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.8fr 1fr 1fr 1.2fr;
+        gap: 60px;
+        margin-bottom: 60px;
+      }
+      .footer-brand .footer-logo {
+        font-family: var(--ff-disp);
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--white);
+        margin-bottom: 16px;
+      }
+      .footer-brand .footer-logo span {
+        color: var(--gold);
+        font-style: italic;
+      }
+      .footer-tagline {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.75;
+        margin-bottom: 24px;
+      }
+      .footer-barcode {
+        display: inline-block;
+        border-left: 2px solid var(--gold);
+        padding: 8px 12px;
+        background: var(--gold-dim);
+        border-radius: 0 6px 6px 0;
+      }
+      .footer-barcode .fb-code {
+        font-family: var(--ff-mono);
+        font-size: 16px;
+        letter-spacing: 0.15em;
+        color: var(--gold);
+      }
+      .footer-barcode .fb-id {
+        font-family: var(--ff-mono);
+        font-size: 10px;
+        color: var(--muted);
+        letter-spacing: 0.1em;
+      }
+
+      .footer-col h4 {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--white);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .footer-col h4::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul a {
+        font-size: 14px;
+        color: var(--muted);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.3s;
+      }
+      .footer-col ul a i {
+        color: var(--gold);
+        width: 14px;
+        font-size: 11px;
+      }
+      .footer-col ul a:hover {
+        color: var(--white);
+        transform: translateX(4px);
+      }
+
+      .footer-social-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .social-btn {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-size: 13px;
+        color: var(--muted);
+        transition: all 0.3s var(--ease);
+      }
+      .social-btn i {
+        color: var(--gold);
+      }
+      .social-btn:hover {
+        background: var(--gold-dim);
+        border-color: rgba(201, 169, 110, 0.3);
+        color: var(--white);
+        transform: translateX(4px);
+      }
+
+      .footer-map-wrap {
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        margin-top: 16px;
+        transition: border-color 0.3s;
+      }
+      .footer-map-wrap:hover {
+        border-color: rgba(201, 169, 110, 0.25);
+      }
+      .footer-map-wrap iframe {
+        width: 100%;
+        height: 120px;
+        display: block;
+        opacity: 0.7;
+        transition: opacity 0.3s;
+      }
+      .footer-map-wrap:hover iframe {
+        opacity: 1;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid var(--border);
+        padding: 24px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .footer-copy {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .sys-online {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--ff-mono);
+        font-size: 12px;
+        color: #22c55e;
+        letter-spacing: 0.1em;
+      }
+      .sys-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #22c55e;
+        animation: pulseGold 2s infinite;
+        box-shadow: 0 0 8px #22c55e;
+      }
+
+      /* ─── RESPONSIVE ─────────────────────────────── */
+      @media (max-width: 1100px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+        .footer-brand {
+          grid-column: 1/-1;
+        }
+      }
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: center;
+          padding-top: 120px;
+          gap: 40px;
+        }
+        .hero-label::before {
+          display: none;
+        }
+        .hero-desc {
+          margin: 0 auto 40px;
+        }
+        .hero-actions {
+          justify-content: center;
+        }
+        .hero-stats {
+          justify-content: center;
+        }
+        .hero-visual {
+          order: -1;
+        }
+        .hero-badge-card {
+          left: 0;
+        }
+        .hero-badge-card2 {
+          right: 0;
+        }
+        .lptk-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-row {
+          grid-template-columns: 1fr;
+        }
+        nav ul {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+      }
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-auto-rows: 200px;
+        }
+        .g-large {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+        .g-tall {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+        .g-wide {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+        .g-box {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-brand {
+          grid-column: 1;
+        }
+        .tl-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .doc-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 480px) {
+        .gallery-grid {
+          display: flex;
+          flex-direction: column;
+        }
+        .gallery-item {
+          height: 200px;
+        }
+        .hero-stats {
+          flex-wrap: wrap;
+          gap: 20px;
+        }
+        .hero-badge-card,
+        .hero-badge-card2 {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body class="locked">
+    <!-- CURSOR -->
+    <div class="cursor" id="cur"></div>
+    <div class="cursor-ring" id="cur-ring"></div>
+
+    <!-- PRELOADER -->
+    <div id="preloader">
+      <div class="pre-logo">E-Portofolio PPG.</div>
+      <div class="pre-bar-wrap"><div class="pre-bar" id="pre-bar"></div></div>
+      <div class="pre-label">Initializing System...</div>
+    </div>
+
+    <!-- POPUP CALENDAR -->
+    <div id="ev-popup">
+      <div class="ev-popup-box">
+        <button class="ev-popup-close" id="popup-close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="ev-popup-title" id="popup-title"></div>
+        <div class="ev-popup-desc" id="popup-desc"></div>
+      </div>
+    </div>
+
+    <!-- ══════════════ HEADER ══════════════ -->
+    <header id="header">
+      <div class="container header-inner">
+        <div class="logo-mark">
+          <div class="logo-icon">I</div>
+          <div>
+            <div class="logo-text">E-Portofolio <span>PPG.</span></div>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li class="has-dd">
+              <a href="#" style="display: flex; align-items: center; gap: 6px">E-Portofolio 1 <i class="fa-solid fa-chevron-down" style="font-size: 9px"></i></a>
+              <ul class="dd-menu">
+                <li>
+                  <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+                </li>
+                <li>
+                  <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+                </li>
+                <li>
+                  <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+                </li>
+                <li>
+                  <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+                </li>
+                <li>
+                  <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-dd">
+              <a href="#" style="display: flex; align-items: center; gap: 6px">E-Portofolio 2 <i class="fa-solid fa-chevron-down" style="font-size: 9px"></i></a>
+              <ul class="dd-menu">
+                <li>
+                  <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+                </li>
+                <li>
+                  <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="dokumentasi.html">Dokumentasi</a></li>
+            <li><a href="profil.html" class="nav-cta">Profil Saya</a></li>
+          </ul>
+        </nav>
+        <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+      </div>
+    </header>
+
+    <!-- Mobile Nav -->
+    <div class="nav-mobile" id="nav-mobile">
+      <a href="index.html">Beranda</a>
+      <a href="profil.html">Profil</a>
+      <a href="observasi.html">Hasil Observasi</a>
+      <a href="modul.html">Modul Ajar</a>
+      <a href="lkpd.html">LKPD</a>
+      <a href="penilaian.html">Penilaian</a>
+      <a href="modelguru.html">Model Guru</a>
+      <a href="refleksi.html">Refleksi</a>
+      <a href="filosofi.html">Filosofi Mengajar</a>
+      <a href="dokumentasi.html">Dokumentasi</a>
+    </div>
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="hero">
+      <div class="container" style="display: contents">
+        <div style="padding-left: clamp(20px, 4vw, 80px)">
+          <div class="hero-label reveal">PPG Prajabatan 2026 · SMAN 4 Yogyakarta</div>
+          <h1 class="hero-title reveal" data-delay="1">
+            Membentuk Masa<br />Depan Lewat
+            <em>Pendidikan.</em>
+          </h1>
+          <p class="hero-desc reveal" data-delay="2">Saya <strong>Ilyas Fandhi Anggara, S.Kom</strong>, calon guru profesional yang berdedikasi menciptakan pembelajaran inovatif dan bermakna melalui teknologi.</p>
+          <div class="hero-actions reveal" data-delay="3">
+            <a href="profil.html" class="btn-primary">Eksplorasi Profil <i class="fa-solid fa-arrow-right" style="margin-left: 8px"></i></a>
+            <a href="modelguru.html" class="btn-ghost">Model Guru</a>
+          </div>
+          <div class="hero-stats reveal" data-delay="4">
+            <div class="hero-stat">
+              <div class="hs-num">PPL 1</div>
+              <div class="hs-lbl">SMAN 4 Yogyakarta</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hs-num">UNY</div>
+              <div class="hs-lbl">LPTK Penyelenggara</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hs-num">'26</div>
+              <div class="hs-lbl">Angkatan PPG</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" style="padding-right: clamp(20px, 4vw, 60px)">
+          <div class="hero-photo-wrap reveal" data-delay="2">
+            <div class="hero-photo-bg"></div>
+            <div class="hero-photo-ring"></div>
+            <div class="hero-photo-ring2"></div>
+            <img src="Images/fototampan3.png" alt="Ilyas Fandhi Anggara" class="hero-photo" />
+            <div class="hero-badge-card">
+              <div class="bc-label">Program</div>
+              <div class="bc-val">PPG Prajabatan</div>
+            </div>
+            <div class="hero-badge-card2">
+              <div class="bc-label">Status</div>
+              <div class="bc-val">Active · PPL I</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ MARQUEE ══════════════ -->
+    <div class="marquee-section">
+      <div class="marquee-track">
+        <span class="marquee-item"><i class="fa-solid fa-sparkles"></i> Pembelajaran Berdiferensiasi</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item"><i class="fa-solid fa-rocket"></i> Integrasi TPACK</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item"><i class="fa-solid fa-laptop-code"></i> Computational Thinking</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item"><i class="fa-solid fa-palette"></i> Inovasi Media Pembelajaran</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item"><i class="fa-solid fa-globe"></i> Literasi Digital</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item"><i class="fa-solid fa-users"></i> Pendidikan Abad 21</span>
+        <span class="marquee-dot">·</span>
+
+        <span class="marquee-item"><i class="fa-solid fa-sparkles"></i> Pembelajaran Berdiferensiasi</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item"><i class="fa-solid fa-rocket"></i> Integrasi TPACK</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item"><i class="fa-solid fa-laptop-code"></i> Computational Thinking</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item"><i class="fa-solid fa-palette"></i> Inovasi Media Pembelajaran</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item"><i class="fa-solid fa-globe"></i> Literasi Digital</span>
+        <span class="marquee-dot">·</span>
+        <span class="marquee-item"><i class="fa-solid fa-users"></i> Pendidikan Abad 21</span>
+        <span class="marquee-dot">·</span>
+      </div>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="container" style="padding: 60px 0">
+      <div class="stats-row">
+        <div class="stat-item reveal">
+          <h4>PPL 1</h4>
+          <p>SMAN 4 Yogyakarta</p>
+        </div>
+        <div class="stat-item reveal" data-delay="1">
+          <h4>LPTK</h4>
+          <p>Universitas Negeri Yogyakarta</p>
+        </div>
+        <div class="stat-item reveal" data-delay="2">
+          <h4>Program</h4>
+          <p>PPG Prajabatan 2026</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════ TIMELINE ══════════════ -->
+    <section class="timeline-section" id="timeline">
+      <div class="container">
+        <div class="tl-header">
+          <div>
+            <div class="section-tag reveal">Rekam Jejak</div>
+            <h2 class="section-title reveal" data-delay="1">Timeline PPL 1</h2>
+            <p class="section-desc reveal" data-delay="2">Perjalanan Praktik Pengalaman Lapangan 1 di SMAN 4 Yogyakarta — 23 Februari hingga 30 April 2026.</p>
+          </div>
+        </div>
+
+        <div class="calendar-wrap reveal">
+          <div class="cal-top">
+            <h3>Februari — April 2026</h3>
+            <span class="cal-legend"><i class="fa-solid fa-circle" style="color: var(--gold); font-size: 8px; margin-right: 6px"></i>PPL 1 · SMAN 4 Yogyakarta</span>
+          </div>
+          <div class="cal-grid">
+            <!-- FEBRUARI -->
+            <div class="month-block">
+              <div class="month-label">Februari 2026</div>
+              <div class="cal-weekdays">
+                <div class="wday">Sen</div>
+                <div class="wday">Sel</div>
+                <div class="wday">Rab</div>
+                <div class="wday">Kam</div>
+                <div class="wday">Jum</div>
+                <div class="wday">Sab</div>
+                <div class="wday">Min</div>
+              </div>
+              <div class="cal-week">
+                <div class="cday event" data-title="ORIENTASI" data-desc="Penerjunan PPL Terbimbing - Hari pertama di SMAN 4 Yogyakarta"><span class="dn">23</span><span class="ev-tag">Orientasi</span></div>
+                <div class="cday event" data-title="PELAKSANAAN PTS" data-desc="Melakukan Pengawasan Ujian PTS kelas X dan XI"><span class="dn">24</span><span class="ev-tag">PTS</span></div>
+                <div class="cday event" data-title="PELAKSANAAN PTS" data-desc="Melakukan Pengawasan Ujian PTS kelas X dan XI"><span class="dn">25</span><span class="ev-tag">PTS</span></div>
+                <div class="cday event" data-title="OBSERVASI" data-desc="Melakukan Observasi Manajemen Sekolah"><span class="dn">26</span><span class="ev-tag">Observasi</span></div>
+                <div class="cday event" data-title="PELAKSANAAN PTS" data-desc="Melakukan Pengawasan Ujian PTS kelas X dan XI"><span class="dn">27</span><span class="ev-tag">PTS</span></div>
+                <div class="cday"><span class="dn">28</span></div>
+                <div class="cday empty"></div>
+              </div>
+            </div>
+
+            <!-- MARET -->
+            <div class="month-block">
+              <div class="month-label">Maret 2026</div>
+              <div class="cal-weekdays">
+                <div class="wday">Sen</div>
+                <div class="wday">Sel</div>
+                <div class="wday">Rab</div>
+                <div class="wday">Kam</div>
+                <div class="wday">Jum</div>
+                <div class="wday">Sab</div>
+                <div class="wday">Min</div>
+              </div>
+              <div class="cal-week">
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+                <div class="cday event" data-title="UPACARA HUT DIY" data-desc="Mengikuti upacara peringatan Hari Jadi Daerah Istimewa Yogyakarta"><span class="dn">1</span><span class="ev-tag">Upacara</span></div>
+              </div>
+              <div class="cal-week">
+                <div class="cday event" data-title="PELAKSANAAN PTS" data-desc="Pengawasan Ujian PTS kelas X dan XI"><span class="dn">2</span><span class="ev-tag">PTS</span></div>
+                <div class="cday event" data-title="PELAKSANAAN PTS" data-desc="Pengawasan Ujian PTS"><span class="dn">3</span><span class="ev-tag">PTS</span></div>
+                <div class="cday event" data-title="PELAKSANAAN PTS" data-desc="Pengawasan Ujian PTS"><span class="dn">4</span><span class="ev-tag">PTS</span></div>
+                <div class="cday event" data-title="OBSERVASI" data-desc="Melakukan Observasi Lingkungan Belajar"><span class="dn">5</span><span class="ev-tag">Observasi</span></div>
+                <div class="cday event" data-title="OBSERVASI" data-desc="Melakukan Observasi Lingkungan Belajar"><span class="dn">6</span><span class="ev-tag">Observasi</span></div>
+                <div class="cday"><span class="dn">7</span></div>
+                <div class="cday"><span class="dn">8</span></div>
+              </div>
+              <div class="cal-week">
+                <div class="cday event" data-title="ASISTEN MENGAJAR" data-desc="Pendampingan Mengajar Ko-Kurikuler"><span class="dn">9</span><span class="ev-tag">Mengajar</span></div>
+                <div class="cday event" data-title="ASISTEN MENGAJAR" data-desc="Pendampingan Mengajar Ko-Kurikuler"><span class="dn">10</span><span class="ev-tag">Mengajar</span></div>
+                <div class="cday event" data-title="ASISTEN GP" data-desc="Membantu Kegiatan Non-Administrasi Guru Pamong"><span class="dn">11</span><span class="ev-tag">Asisten GP</span></div>
+                <div class="cday event" data-title="ASISTEN MENGAJAR" data-desc="Pendampingan Mengajar Ko-Kurikuler"><span class="dn">12</span><span class="ev-tag">Mengajar</span></div>
+                <div class="cday event" data-title="ASISTEN GP" data-desc="Membantu Kegiatan Non-Administrasi Guru Pamong"><span class="dn">13</span><span class="ev-tag">Asisten GP</span></div>
+                <div class="cday"><span class="dn">14</span></div>
+                <div class="cday"><span class="dn">15</span></div>
+              </div>
+              <div class="cal-week">
+                <div class="cday"><span class="dn">16</span></div>
+                <div class="cday"><span class="dn">17</span></div>
+                <div class="cday event" data-title="LIBUR" data-desc="Cuti Bersama Hari Suci Nyepi"><span class="dn">18</span><span class="ev-tag">Libur</span></div>
+                <div class="cday event" data-title="LIBUR" data-desc="Cuti Bersama Nyepi"><span class="dn">19</span><span class="ev-tag">Libur</span></div>
+                <div class="cday event" data-title="LIBUR" data-desc="Cuti Bersama Hari Raya Idul Fitri 1447 H"><span class="dn">20</span><span class="ev-tag">Lebaran</span></div>
+                <div class="cday event" data-title="LIBUR" data-desc="Hari Raya Idul Fitri 1447 H"><span class="dn">21</span><span class="ev-tag">Lebaran</span></div>
+                <div class="cday event" data-title="LIBUR" data-desc="Cuti Bersama Idul Fitri 1447 H"><span class="dn">22</span><span class="ev-tag">Lebaran</span></div>
+              </div>
+              <div class="cal-week">
+                <div class="cday event" data-title="LIBUR" data-desc="Cuti Bersama Idul Fitri 1447 H"><span class="dn">23</span><span class="ev-tag">Lebaran</span></div>
+                <div class="cday event" data-title="LIBUR" data-desc="Cuti Bersama Idul Fitri 1447 H"><span class="dn">24</span><span class="ev-tag">Lebaran</span></div>
+                <div class="cday"><span class="dn">25</span></div>
+                <div class="cday event" data-title="PERKULIAHAN" data-desc="Melaksanakan kelas perkuliahan di kampus UNY"><span class="dn">26</span><span class="ev-tag">Kuliah</span></div>
+                <div class="cday event" data-title="PERKULIAHAN" data-desc="Melaksanakan kelas perkuliahan di kampus UNY"><span class="dn">27</span><span class="ev-tag">Kuliah</span></div>
+                <div class="cday"><span class="dn">28</span></div>
+                <div class="cday"><span class="dn">29</span></div>
+              </div>
+              <div class="cal-week">
+                <div class="cday"><span class="dn">30</span></div>
+                <div class="cday"><span class="dn">31</span></div>
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+              </div>
+            </div>
+
+            <!-- APRIL -->
+            <div class="month-block">
+              <div class="month-label">April 2026</div>
+              <div class="cal-weekdays">
+                <div class="wday">Sen</div>
+                <div class="wday">Sel</div>
+                <div class="wday">Rab</div>
+                <div class="wday">Kam</div>
+                <div class="wday">Jum</div>
+                <div class="wday">Sab</div>
+                <div class="wday">Min</div>
+              </div>
+              <div class="cal-week">
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+                <div class="cday event" data-title="PPL TERBIMBING" data-desc="Pembagian Kelas Mengajar dan Menyusun Modul Ajar"><span class="dn">1</span><span class="ev-tag">PPL</span></div>
+                <div class="cday event" data-title="PPL TERBIMBING" data-desc="Revisi Modul Ajar Bersama Guru Pamong"><span class="dn">2</span><span class="ev-tag">PPL</span></div>
+                <div class="cday event" data-title="LIBUR" data-desc="Libur Wafat Yesus Kristus"><span class="dn">3</span><span class="ev-tag">Libur</span></div>
+                <div class="cday"><span class="dn">4</span></div>
+                <div class="cday"><span class="dn">5</span></div>
+              </div>
+              <div class="cal-week">
+                <div class="cday event" data-title="BIMBINGAN DPL" data-desc="Bimbingan Dengan DPL Penyusunan Modul Ajar"><span class="dn">6</span><span class="ev-tag">Bimbingan</span></div>
+                <div class="cday event" data-title="BIMBINGAN GP" data-desc="Bimbingan Bersama Guru Pamong"><span class="dn">7</span><span class="ev-tag">Bimbingan</span></div>
+                <div class="cday event" data-title="ASISTEN MENGAJAR" data-desc="Pelaksanaan Praktik Mengajar Kelas XE5"><span class="dn">8</span><span class="ev-tag">Mengajar</span></div>
+                <div class="cday event" data-title="BIMBINGAN GP" data-desc="Evaluasi dan Refleksi Praktik Mengajar"><span class="dn">9</span><span class="ev-tag">Evaluasi</span></div>
+                <div class="cday event" data-title="ASISTEN GP" data-desc="Membantu Kegiatan Non-Administrasi"><span class="dn">10</span><span class="ev-tag">Asisten</span></div>
+                <div class="cday"><span class="dn">11</span></div>
+                <div class="cday"><span class="dn">12</span></div>
+              </div>
+              <div class="cal-week">
+                <div class="cday event" data-title="BIMBINGAN DPL" data-desc="Bimbingan Praktik Mengajar Bersama DPL"><span class="dn">13</span><span class="ev-tag">Bimbingan</span></div>
+                <div class="cday event" data-title="ASESMEN" data-desc="Pelaksanaan Pembuatan Asesmen Sumatif"><span class="dn">14</span><span class="ev-tag">Asesmen</span></div>
+                <div class="cday event" data-title="MENGAJAR" data-desc="Pelaksanaan Praktik Mengajar Kelas XE5"><span class="dn">15</span><span class="ev-tag">Mengajar</span></div>
+                <div class="cday event" data-title="BIMBINGAN GP" data-desc="Evaluasi dan Refleksi Praktik Mengajar"><span class="dn">16</span><span class="ev-tag">Evaluasi</span></div>
+                <div class="cday event" data-title="ASISTEN GP" data-desc="Membantu Kegiatan Non-Administrasi"><span class="dn">17</span><span class="ev-tag">Asisten</span></div>
+                <div class="cday"><span class="dn">18</span></div>
+                <div class="cday"><span class="dn">19</span></div>
+              </div>
+              <div class="cal-week">
+                <div class="cday event" data-title="ASISTEN GP" data-desc="Membantu Kegiatan Non-Administrasi"><span class="dn">20</span><span class="ev-tag">Asisten</span></div>
+                <div class="cday event" data-title="PENGERJAAN LMS" data-desc="Melakukan pengerjaan tugas di LMS"><span class="dn">21</span><span class="ev-tag">LMS</span></div>
+                <div class="cday event" data-title="MENGAJAR" data-desc="Pelaksanaan Praktik Mengajar di Kelas XE5"><span class="dn">22</span><span class="ev-tag">Mengajar</span></div>
+                <div class="cday event" data-title="ASESMEN" data-desc="Melakukan rekap hasil nilai asesmen murid"><span class="dn">23</span><span class="ev-tag">Asesmen</span></div>
+                <div class="cday event" data-title="PENGERJAAN LMS" data-desc="Pengerjaan tugas di LMS"><span class="dn">24</span><span class="ev-tag">LMS</span></div>
+                <div class="cday"><span class="dn">25</span></div>
+                <div class="cday"><span class="dn">26</span></div>
+              </div>
+              <div class="cal-week">
+                <div class="cday event" data-title="ASISTENSI GP" data-desc="Membantu kegiatan Non-Administrasi"><span class="dn">27</span><span class="ev-tag">Asisten</span></div>
+                <div class="cday event" data-title="ASISTENSI" data-desc="Membantu pelaksanaan piket sekolah"><span class="dn">28</span><span class="ev-tag">Piket</span></div>
+                <div class="cday event" data-title="PENGERJAAN LMS" data-desc="Pengerjaan tugas di LMS"><span class="dn">29</span><span class="ev-tag">LMS</span></div>
+                <div class="cday event" data-title="PENUTUPAN PPL" data-desc="Hari Terakhir Pelaksanaan PPL Terbimbing — Pamitan resmi di SMAN 4 Yogyakarta"><span class="dn">30</span><span class="ev-tag">Penutupan</span></div>
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+                <div class="cday empty"></div>
+              </div>
+            </div>
+          </div>
+          <!-- cal-grid -->
+
+          <!-- Event Summary -->
+          <div class="ev-summary-list">
+            <div class="ev-summary-item reveal">
+              <div class="ev-date-chip">23 Feb</div>
+              <div class="ev-info"><span class="ev-name">Orientasi & Penerjunan</span><span class="ev-desc">Hari pertama PPL Terbimbing, orientasi lingkungan sekolah dan penerjunan resmi oleh pihak universitas.</span></div>
+            </div>
+            <div class="ev-summary-item reveal" data-delay="1">
+              <div class="ev-date-chip">24–27 Feb</div>
+              <div class="ev-info"><span class="ev-name">Observasi & Pengawasan PTS</span><span class="ev-desc">Observasi manajemen sekolah dan membantu pengawasan Penilaian Tengah Semester kelas X dan XI.</span></div>
+            </div>
+            <div class="ev-summary-item reveal" data-delay="2">
+              <div class="ev-date-chip">9–13 Mar</div>
+              <div class="ev-info"><span class="ev-name">Asistensi Mengajar Ko-kurikuler</span><span class="ev-desc">Asistensi kegiatan ko-kurikuler dan membantu Guru Pamong dalam pembaruan portal sekolah.</span></div>
+            </div>
+            <div class="ev-summary-item reveal" data-delay="3">
+              <div class="ev-date-chip">1–17 Apr</div>
+              <div class="ev-info">
+                <span class="ev-name">PPL Terbimbing — Praktik Mengajar</span><span class="ev-desc">Menyusun modul ajar, konsultasi DPL & Guru Pamong, praktik mengajar di kelas XE5, dan pembuatan asesmen sumatif.</span>
+              </div>
+            </div>
+            <div class="ev-summary-item reveal" data-delay="4">
+              <div class="ev-date-chip">27–30 Apr</div>
+              <div class="ev-info"><span class="ev-name">Penutupan PPL 1</span><span class="ev-desc">Asistensi akhir, pengerjaan LMS, dan pamitan resmi hari terakhir PPL 1 PPG di SMAN 4 Yogyakarta.</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- calendar-wrap -->
+      </div>
+    </section>
+
+    <!-- ══════════════ LPTK UNY ══════════════ -->
+    <section class="lptk-section" id="lptk">
+      <div class="container">
+        <div class="section-tag reveal">LPTK Penyelenggara</div>
+        <h2 class="section-title reveal" data-delay="1">Universitas Negeri<br />Yogyakarta</h2>
+        <p class="section-desc reveal" data-delay="2">Lembaga Pendidikan Tenaga Kependidikan penyelenggara PPG Prajabatan yang unggul dan berorientasi pada pendidikan abad 21.</p>
+
+        <div class="lptk-grid">
+          <div class="lptk-card reveal">
+            <div class="lptk-card-inner">
+              <div class="uny-header">
+                <div class="uny-logo-box">
+                  <img src="Images/Logo Uny outlitne.png" alt="Logo UNY" />
+                </div>
+                <div class="uny-head-text">
+                  <h3>Universitas Negeri Yogyakarta</h3>
+                  <div class="uny-motto">"Leading and Outstanding in Education"</div>
+                </div>
+              </div>
+              <p class="lptk-desc">
+                <strong style="color: var(--white)">UNY</strong> merupakan salah satu LPTK terkemuka di Indonesia dengan komitmen mencetak guru-guru profesional, berkarakter, dan adaptif terhadap perkembangan teknologi. Program
+                <strong style="color: var(--white)">PPG Prajabatan</strong> UNY membekali calon guru dengan kompetensi pedagogik, profesional, sosial, dan kepribadian berbasis riset dan praktik lapangan.
+              </p>
+              <div class="uny-stats">
+                <div class="uny-stat"><span class="uny-stat-n">1964</span><span class="uny-stat-l">Berdiri</span></div>
+                <div class="uny-stat"><span class="uny-stat-n">A</span><span class="uny-stat-l">Akreditasi</span></div>
+                <div class="uny-stat"><span class="uny-stat-n">7</span><span class="uny-stat-l">Fakultas</span></div>
+              </div>
+              <a href="https://www.uny.ac.id" target="_blank" class="uny-link"> <i class="fa-solid fa-globe"></i> Situs Resmi UNY <i class="fa-solid fa-arrow-right"></i> </a>
+            </div>
+          </div>
+
+          <div class="lptk-card reveal" data-delay="2">
+            <div class="lptk-photo-wrap">
+              <img src="Images/UNY.jpg" alt="Kampus UNY" />
+              <div class="photo-caption">Kampus Karangmalang, Yogyakarta</div>
+            </div>
+            <div class="lptk-maps-section">
+              <h4><i class="fa-solid fa-location-dot"></i> Lokasi Kampus Utama</h4>
+              <div class="map-frame">
+                <iframe src="https://maps.google.com/maps?q=Universitas+Negeri+Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen> </iframe>
+              </div>
+              <p style="font-size: 12px; color: var(--muted); margin-top: 10px; font-family: var(--ff-mono)">Jl. Colombo No.1, Karangmalang, Sleman, DIY</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ DOCUMENTS ══════════════ -->
+    <section class="doc-section" id="dokumen">
+      <div class="container">
+        <div class="section-tag reveal">Artefak Pembelajaran</div>
+        <h2 class="section-title reveal" data-delay="1">Dokumen &<br />Artefak Utama</h2>
+        <p class="section-desc reveal" data-delay="2">Kumpulan perangkat ajar, dokumen pendukung, dan hasil refleksi inovasi selama program PPG Prajabatan.</p>
+
+        <div class="doc-grid">
+          <a href="observasi.html" class="doc-card reveal">
+            <div class="doc-card-corner"></div>
+            <div class="doc-icon"><i class="fa-solid fa-chart-simple"></i></div>
+            <h3>Hasil Observasi</h3>
+            <p>Laporan mendalam mengenai karakteristik peserta didik dan lingkungan belajar sekolah mitra.</p>
+            <span class="doc-link">Detail Dokumen <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+          <a href="modul.html" class="doc-card reveal" data-delay="1">
+            <div class="doc-card-corner"></div>
+            <div class="doc-icon"><i class="fa-solid fa-book-open"></i></div>
+            <h3>Modul Ajar</h3>
+            <p>Perangkat pembelajaran inovatif berbasis Kurikulum Merdeka dan integrasi teknologi digital.</p>
+            <span class="doc-link">Lihat Modul <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+          <a href="lkpd.html" class="doc-card reveal" data-delay="2">
+            <div class="doc-card-corner"></div>
+            <div class="doc-icon"><i class="fa-solid fa-file-pen"></i></div>
+            <h3>LKPD</h3>
+            <p>Lembar Kerja Peserta Didik yang interaktif dan memandu pemahaman siswa secara terstruktur.</p>
+            <span class="doc-link">Lihat LKPD <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+          <a href="dokumentasi.html" class="doc-card reveal" data-delay="3">
+            <div class="doc-card-corner"></div>
+            <div class="doc-icon"><i class="fa-solid fa-video"></i></div>
+            <h3>Dokumentasi</h3>
+            <p>Rekam jejak visual pelaksanaan praktik pengalaman lapangan dan aksi nyata di lapangan.</p>
+            <span class="doc-link">Buka Galeri <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+          <a href="penilaian.html" class="doc-card reveal" data-delay="2">
+            <div class="doc-card-corner"></div>
+            <div class="doc-icon"><i class="fa-solid fa-star"></i></div>
+            <h3>Penilaian</h3>
+            <p>Instrumen dan hasil asesmen sumatif serta formatif peserta didik kelas XE5 SMAN 4 Yogyakarta.</p>
+            <span class="doc-link">Lihat Penilaian <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+          <a href="modelguru.html" class="doc-card reveal" data-delay="3">
+            <div class="doc-card-corner"></div>
+            <div class="doc-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+            <h3>Model Guru</h3>
+            <p>Refleksi dan narasi tentang model serta filosofi mengajar yang dikembangkan selama PPL.</p>
+            <span class="doc-link">Lihat Model <i class="fa-solid fa-arrow-right"></i></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ GALLERY ══════════════ -->
+    <section class="gallery-section" id="dokumentasi">
+      <div class="container">
+        <div class="section-tag reveal">Visual Archive</div>
+        <h2 class="section-title reveal" data-delay="1">Dokumentasi<br />Kegiatan</h2>
+        <p class="section-desc reveal" data-delay="2">Representasi visual dari implementasi praktik mengajar dan interaksi akademis di lingkungan sekolah.</p>
+
+        <div class="gallery-grid">
+          <div class="gallery-item g-large reveal">
+            <img src="Images/foto_bersama.jpeg" alt="Penerjunan PPL" />
+            <div class="gallery-item-overlay">
+              <div class="gi-code">SYS.01</div>
+              <div class="gi-title">Penerjunan PPL</div>
+              <div class="gi-desc">Orientasi dan masa penerjunan PPL Terbimbing di SMAN 4 Yogyakarta.</div>
+            </div>
+          </div>
+          <div class="gallery-item g-tall reveal" data-delay="1">
+            <img src="Images/bimbingan_dpl.jpeg" alt="Bimbingan DPL" />
+            <div class="gallery-item-overlay">
+              <div class="gi-code">SYS.02</div>
+              <div class="gi-title">Bimbingan DPL</div>
+              <div class="gi-desc">Bimbingan bersama DPL terkait PPL Terbimbing dan penyusunan modul ajar.</div>
+            </div>
+          </div>
+          <div class="gallery-item g-wide reveal" data-delay="2">
+            <img src="Images/praktik1.jpeg" alt="Praktik Mengajar" />
+            <div class="gallery-item-overlay">
+              <div class="gi-code">SYS.03</div>
+              <div class="gi-title">Praktik Mengajar</div>
+              <div class="gi-desc">Pelaksanaan praktik mengajar di kelas XE5 SMAN 4 Yogyakarta.</div>
+            </div>
+          </div>
+          <div class="gallery-item g-box reveal" data-delay="1">
+            <img src="Images/Observasi-lingkungan.jpeg" alt="Observasi" />
+            <div class="gallery-item-overlay">
+              <div class="gi-code">SYS.04</div>
+              <div class="gi-title">Observasi</div>
+              <div class="gi-desc">Observasi manajemen sekolah dan lingkungan belajar.</div>
+            </div>
+          </div>
+          <div class="gallery-item g-box reveal" data-delay="2">
+            <img src="Images/evaluasi.jpeg" alt="Patbhe Boys" />
+            <div class="gallery-item-overlay">
+              <div class="gi-code">SYS.05</div>
+              <div class="gi-title">Patbhe Boys</div>
+              <div class="gi-desc">Rekan sesama kelompok PPL Informatika SMAN 4 Yogyakarta.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-more reveal">
+          <a href="dokumentasi.html" class="btn-outline-gold"> <i class="fa-solid fa-images"></i> Lihat Semua Dokumentasi </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer>
+      <div class="footer-top-line"></div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">E-Portofolio <span>PPG.</span></div>
+            <p class="footer-tagline">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 1. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
+            <div class="footer-barcode">
+              <div class="fb-code">||| | || ||| ||</div>
+              <div class="fb-id">ID: IFA-2026-SKOM</div>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>E-Portofolio 1</h4>
+            <ul>
+              <li>
+                <a href="observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+              </li>
+              <li>
+                <a href="modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+              </li>
+              <li>
+                <a href="lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+              </li>
+              <li>
+                <a href="penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+              </li>
+              <li>
+                <a href="modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>E-Portofolio 2</h4>
+            <ul>
+              <li>
+                <a href="refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+              </li>
+              <li>
+                <a href="filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Kontak</h4>
+            <div style="font-size: 13px; color: var(--muted); margin-bottom: 16px; line-height: 1.6">
+              <div style="color: var(--white); font-weight: 600; margin-bottom: 4px">Universitas Negeri Yogyakarta</div>
+              Jl. Colombo No.1, Karangmalang,<br />Sleman, Daerah Istimewa Yogyakarta
+            </div>
+            <div class="footer-social-btns">
+              <a href="mailto:ilyasfandhianggara@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i> Email</a>
+              <a href="https://www.instagram.com/fandhidk17/" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i> Instagram</a>
+            </div>
+            <div class="footer-map-wrap" style="margin-top: 16px">
+              <iframe src="https://maps.google.com/maps?q=Universitas+Negeri+Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copy">&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG Prajabatan.</p>
+          <div class="sys-online">
+            <div class="sys-dot"></div>
+            SYSTEM.ONLINE
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // ── CURSOR ──────────────────────────────────────────
+      const cur = document.getElementById("cur");
+      const curRing = document.getElementById("cur-ring");
+      const isDesktop = window.matchMedia("(min-width:768px)").matches;
+      if (isDesktop) {
+        let rx = 0,
+          ry = 0;
+        document.addEventListener("mousemove", (e) => {
+          cur.style.left = e.clientX + "px";
+          cur.style.top = e.clientY + "px";
+          rx += (e.clientX - rx) * 0.12;
+          ry += (e.clientY - ry) * 0.12;
+          curRing.style.left = e.clientX + "px";
+          curRing.style.top = e.clientY + "px";
+        });
+        document.querySelectorAll("a,button,.doc-card,.gallery-item,.stat-item,.ev-summary-item,.cday.event").forEach((el) => {
+          el.addEventListener("mouseenter", () => {
+            cur.classList.add("hovered");
+            curRing.classList.add("hovered");
+          });
+          el.addEventListener("mouseleave", () => {
+            cur.classList.remove("hovered");
+            curRing.classList.remove("hovered");
+          });
+        });
+      }
+
+      // ── PRELOADER ────────────────────────────────────────
+      const preBar = document.getElementById("pre-bar");
+      const preloader = document.getElementById("preloader");
+      let prog = 0;
+      const pInterval = setInterval(() => {
+        prog += Math.random() * 8 + 4;
+        if (prog >= 100) {
+          prog = 100;
+          clearInterval(pInterval);
+          setTimeout(() => {
+            preloader.classList.add("out");
+            document.body.classList.remove("locked");
+            setTimeout(() => (preloader.style.display = "none"), 900);
+          }, 400);
+        }
+        preBar.style.width = prog + "%";
+      }, 60);
+
+      // ── SCROLL REVEAL ────────────────────────────────────
+      const reveals = document.querySelectorAll(".reveal");
+      const rObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              rObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      reveals.forEach((el) => rObs.observe(el));
+
+      // ── HEADER SCROLL ────────────────────────────────────
+      const hdr = document.getElementById("header");
+      window.addEventListener("scroll", () => {
+        hdr.classList.toggle("scrolled", window.scrollY > 50);
+      });
+
+      // ── HAMBURGER ────────────────────────────────────────
+      const ham = document.getElementById("hamburger");
+      const navM = document.getElementById("nav-mobile");
+      ham.addEventListener("click", () => {
+        ham.classList.toggle("active");
+        navM.classList.toggle("open");
+        document.body.classList.toggle("locked");
+      });
+      navM.querySelectorAll("a").forEach((a) =>
+        a.addEventListener("click", () => {
+          ham.classList.remove("active");
+          navM.classList.remove("open");
+          document.body.classList.remove("locked");
+        }),
+      );
+
+      // ── CALENDAR EVENT POPUP ─────────────────────────────
+      const popup = document.getElementById("ev-popup");
+      const popTitle = document.getElementById("popup-title");
+      const popDesc = document.getElementById("popup-desc");
+      const popClose = document.getElementById("popup-close");
+      document.querySelectorAll(".cday.event").forEach((day) => {
+        day.addEventListener("click", () => {
+          popTitle.textContent = day.dataset.title || "";
+          popDesc.textContent = day.dataset.desc || "";
+          popup.classList.add("show");
+          document.body.classList.add("locked");
+        });
+      });
+      function closePopup() {
+        popup.classList.remove("show");
+        document.body.classList.remove("locked");
+      }
+      popClose.addEventListener("click", closePopup);
+      popup.addEventListener("click", (e) => {
+        if (e.target === popup) closePopup();
+      });
+
+      // ── MAGNETIC BUTTONS ─────────────────────────────────
+      if (isDesktop) {
+        document.querySelectorAll(".btn-primary,.btn-ghost,.btn-outline-gold").forEach((btn) => {
+          btn.addEventListener("mousemove", (e) => {
+            const r = btn.getBoundingClientRect();
+            const x = (e.clientX - r.left - r.width / 2) * 0.18;
+            const y = (e.clientY - r.top - r.height / 2) * 0.18;
+            btn.style.transform = `translate(${x}px,${y}px) translateY(-3px)`;
+          });
+          btn.addEventListener("mouseleave", () => {
+            btn.style.transform = "";
+          });
+        });
+      }
+
+      // ── TILT EFFECT ON DOC CARDS ─────────────────────────
+      if (isDesktop) {
+        document.querySelectorAll(".doc-card").forEach((card) => {
+          card.addEventListener("mousemove", (e) => {
+            const r = card.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width - 0.5;
+            const y = (e.clientY - r.top) / r.height - 0.5;
+            card.style.transform = `translateY(-8px) perspective(800px) rotateX(${-y * 8}deg) rotateY(${x * 8}deg)`;
+          });
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "translateY(0) perspective(800px) rotateX(0) rotateY(0)";
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
