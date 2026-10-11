@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Materi Pembelajaran | E-Portofolio PPG</title>
-    <link rel="shortcut icon" href="../Images/Logo Uny outlitne.png" type="image/x-icon" />
+    <title>Materi Pembelajaran | PPL 2 | E-Portofolio PPG</title>
+    <meta name="description" content="Eksplorasi materi esensial Informatika kelas X pada PPL 2 — algoritma, pemrograman C++, struktur kontrol, dan pengolahan data Excel." />
+    <link rel="shortcut icon" href="../Images/logo-uny-outline.png" type="image/png" />
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -736,9 +737,9 @@
       }
 
       /* =========================================
-         SLIDE / ARTIFACT CONTAINER (16:9)
+         PDF VIEWER TERMINAL
          ========================================= */
-      .slide-terminal-wrapper {
+      .pdf-terminal-wrapper {
         background: #050511;
         border: 1px solid var(--primary);
         border-radius: 16px;
@@ -804,16 +805,14 @@
         animation: pulseGreen 2s infinite;
       }
 
-      /* Rasio 16:9 untuk slide */
-      .slide-container {
+      .pdf-container {
         width: 100%;
-        aspect-ratio: 16 / 9;
+        height: 70vh;
+        min-height: 480px;
         position: relative;
         background: #0a0a14;
       }
-      .cyber-slide-frame {
-        position: absolute;
-        inset: 0;
+      .cyber-pdf-frame {
         width: 100%;
         height: 100%;
         border: none;
@@ -1376,10 +1375,15 @@
           display: none;
           padding-left: 20px;
           margin-top: 10px;
+          min-width: 100%;
         }
         .dropdown:hover .dropdown-content {
           display: block;
           animation: none;
+        }
+        .pdf-container {
+          height: 55vh;
+          min-height: 380px;
         }
         .terminal-title {
           display: none;
@@ -1550,33 +1554,34 @@
                TAB 1: UTS - SIKLUS 1
                ========================================= -->
           <div class="tab-panel active" id="tab-uts">
-            <!-- SLIDE VIEWER -->
-            <div class="slide-terminal-wrapper reveal">
+            <!-- PDF VIEWER -->
+            <div class="pdf-terminal-wrapper reveal">
               <div class="terminal-header">
                 <div class="terminal-dots">
                   <span class="dot red"></span>
                   <span class="dot yellow"></span>
                   <span class="dot green"></span>
                 </div>
-                <div class="terminal-title">~/materi/uts_siklus_1_slide.canva</div>
+                <div class="terminal-title">~/materi/uts_siklus_1.pdf</div>
                 <div class="terminal-status">ONLINE</div>
               </div>
 
-              <div class="slide-container">
-                <!-- GANTI src dengan URL embed Canva / Google Slides kamu -->
-                <iframe src="https://www.canva.com/design/DAFxxxxxxxxx/view?embed" class="cyber-slide-frame" title="Materi UTS Siklus 1 — Algoritma & Pseudocode" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
+              <div class="pdf-container">
+                <!-- GANTI src dengan path PDF materi UTS kamu -->
+                <iframe src="../Dokumen/PPL_2/Materi Siklus 1.pdf" class="cyber-pdf-frame" title="Materi UTS Siklus 1 — Algoritma & Pseudocode"></iframe>
               </div>
 
               <div class="terminal-footer">
-                <a href="https://www.canva.com/design/DAFxxxxxxxxx/view" target="_blank" class="cyber-action-btn">
+                <a href="../Dokumen/PPL_2/Materi Siklus 1.pdf" download="Materi_Siklus_1.pdf" class="cyber-action-btn">
                   <span class="btn-bracket">[</span>
-                  <i class="fa-solid fa-up-right-from-square"></i>
-                  BUKA_SLIDE_LENGKAP
+                  <i class="fa-solid fa-download"></i>
+                  DOWNLOAD_PDF
                   <span class="btn-bracket">]</span>
                 </a>
-                <a href="../Dokumen/Materi_UTS_Siklus_1.pdf" download="Materi_UTS_Siklus_1.pdf" class="cyber-action-btn">
+                <a href="../Dokumen/PPL_2/Materi Siklus 1.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
                   <span class="btn-bracket">[</span>
-                  <i class="fa-solid fa-download"></i> DOWNLOAD_PDF
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                  BUKA_DI_TAB_BARU
                   <span class="btn-bracket">]</span>
                 </a>
               </div>
@@ -1672,33 +1677,34 @@
                 </div>
               </div>
 
-              <!-- SLIDE -->
-              <div class="slide-terminal-wrapper">
+              <!-- PDF -->
+              <div class="pdf-terminal-wrapper">
                 <div class="terminal-header">
                   <div class="terminal-dots">
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/materi/uas_siklus_2_cpp.pptx</div>
+                  <div class="terminal-title">~/materi/uas_siklus_2_cpp.pdf</div>
                   <div class="terminal-status">ONLINE</div>
                 </div>
 
-                <div class="slide-container">
-                  <!-- GANTI src dengan URL embed slide Siklus 2 -->
-                  <iframe src="https://www.canva.com/design/DAFxxxxxxxxx/view?embed" class="cyber-slide-frame" title="Materi UAS Siklus 2 — Dasar Pemrograman C++" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
+                <div class="pdf-container">
+                  <!-- GANTI src dengan path PDF materi Siklus 2 -->
+                  <iframe src="../Dokumen/PPL_2/Materi Siklus 2.pdf" class="cyber-pdf-frame" title="Materi UAS Siklus 2 — Dasar Pemrograman C++"></iframe>
                 </div>
 
                 <div class="terminal-footer">
-                  <a href="https://www.canva.com/design/DAFxxxxxxxxx/view" target="_blank" class="cyber-action-btn">
+                  <a href="../Dokumen/PPL_2/Materi Siklus 2.pdf" download="Materi_Siklus_2.pdf" class="cyber-action-btn">
                     <span class="btn-bracket">[</span>
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    BUKA_SLIDE
+                    <i class="fa-solid fa-download"></i>
+                    DOWNLOAD_PDF
                     <span class="btn-bracket">]</span>
                   </a>
-                  <a href="../Dokumen/Materi_UAS_Siklus_2.pdf" download="Materi_UAS_Siklus_2.pdf" class="cyber-action-btn">
+                  <a href="../Dokumen/PPL_2/Materi Siklus 2.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
                     <span class="btn-bracket">[</span>
-                    <i class="fa-solid fa-download"></i> DOWNLOAD_PDF
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    BUKA_DI_TAB_BARU
                     <span class="btn-bracket">]</span>
                   </a>
                 </div>
@@ -1706,7 +1712,7 @@
 
               <!-- CARDS -->
               <div class="cards-grid">
-                <div class="analysis-card tilt-card">
+                <div class="analysis-card tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -1730,7 +1736,7 @@
                   </div>
                 </div>
 
-                <div class="analysis-card variant-purple tilt-card">
+                <div class="analysis-card variant-purple tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -1747,7 +1753,7 @@
                   </div>
                 </div>
 
-                <div class="analysis-card variant-red tilt-card">
+                <div class="analysis-card variant-red tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -1779,39 +1785,40 @@
                 </div>
               </div>
 
-              <div class="slide-terminal-wrapper">
+              <div class="pdf-terminal-wrapper">
                 <div class="terminal-header">
                   <div class="terminal-dots">
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/materi/uas_siklus_3_control_flow.pptx</div>
+                  <div class="terminal-title">~/materi/uas_siklus_3_control_flow.pdf</div>
                   <div class="terminal-status">ONLINE</div>
                 </div>
 
-                <div class="slide-container">
-                  <!-- GANTI src dengan URL embed slide Siklus 3 -->
-                  <iframe src="https://www.canva.com/design/DAFxxxxxxxxx/view?embed" class="cyber-slide-frame" title="Materi UAS Siklus 3 — Struktur Kontrol" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
+                <div class="pdf-container">
+                  <!-- GANTI src dengan path PDF materi Siklus 3 -->
+                  <iframe src="../Dokumen/PPL_2/Materi Siklus 3.pdf" class="cyber-pdf-frame" title="Materi UAS Siklus 3 — Struktur Kontrol"></iframe>
                 </div>
 
                 <div class="terminal-footer">
-                  <a href="https://www.canva.com/design/DAFxxxxxxxxx/view" target="_blank" class="cyber-action-btn">
+                  <a href="../Dokumen/PPL_2/Materi Siklus 3.pdf" download="Materi_Siklus_3.pdf" class="cyber-action-btn">
                     <span class="btn-bracket">[</span>
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    BUKA_SLIDE
+                    <i class="fa-solid fa-download"></i>
+                    DOWNLOAD_PDF
                     <span class="btn-bracket">]</span>
                   </a>
-                  <a href="../Dokumen/Materi_UAS_Siklus_3.pdf" download="Materi_UAS_Siklus_3.pdf" class="cyber-action-btn">
+                  <a href="../Dokumen/PPL_2/Materi Siklus 3.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
                     <span class="btn-bracket">[</span>
-                    <i class="fa-solid fa-download"></i> DOWNLOAD_PDF
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    BUKA_DI_TAB_BARU
                     <span class="btn-bracket">]</span>
                   </a>
                 </div>
               </div>
 
               <div class="cards-grid">
-                <div class="analysis-card tilt-card">
+                <div class="analysis-card tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -1831,7 +1838,7 @@
                   </div>
                 </div>
 
-                <div class="analysis-card variant-purple tilt-card">
+                <div class="analysis-card variant-purple tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -1848,7 +1855,7 @@
                   </div>
                 </div>
 
-                <div class="analysis-card variant-red tilt-card">
+                <div class="analysis-card variant-red tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -1877,39 +1884,40 @@
                 </div>
               </div>
 
-              <div class="slide-terminal-wrapper">
+              <div class="pdf-terminal-wrapper">
                 <div class="terminal-header">
                   <div class="terminal-dots">
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/materi/uas_siklus_4_excel.pptx</div>
+                  <div class="terminal-title">~/materi/uas_siklus_4_excel.pdf</div>
                   <div class="terminal-status">ONLINE</div>
                 </div>
 
-                <div class="slide-container">
-                  <!-- GANTI src dengan URL embed slide Siklus 4 -->
-                  <iframe src="https://www.canva.com/design/DAFxxxxxxxxx/view?embed" class="cyber-slide-frame" title="Materi UAS Siklus 4 — Pengolahan Data Excel" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
+                <div class="pdf-container">
+                  <!-- GANTI src dengan path PDF materi Siklus 4 -->
+                  <iframe src="../Dokumen/PPL_2/Materi Siklus 4.pdf" class="cyber-pdf-frame" title="Materi UAS Siklus 4 — Pengolahan Data Excel"></iframe>
                 </div>
 
                 <div class="terminal-footer">
-                  <a href="https://www.canva.com/design/DAFxxxxxxxxx/view" target="_blank" class="cyber-action-btn">
+                  <a href="../Dokumen/PPL_2/Materi Siklus 4.pdf" download="Materi_Siklus_4.pdf" class="cyber-action-btn">
                     <span class="btn-bracket">[</span>
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    BUKA_SLIDE
+                    <i class="fa-solid fa-download"></i>
+                    DOWNLOAD_PDF
                     <span class="btn-bracket">]</span>
                   </a>
-                  <a href="../Dokumen/Materi_UAS_Siklus_4.pdf" download="Materi_UAS_Siklus_4.pdf" class="cyber-action-btn">
+                  <a href="../Dokumen/PPL_2/Materi Siklus 4.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
                     <span class="btn-bracket">[</span>
-                    <i class="fa-solid fa-download"></i> DOWNLOAD_PDF
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    BUKA_DI_TAB_BARU
                     <span class="btn-bracket">]</span>
                   </a>
                 </div>
               </div>
 
               <div class="cards-grid">
-                <div class="analysis-card tilt-card">
+                <div class="analysis-card tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -1929,7 +1937,7 @@
                   </div>
                 </div>
 
-                <div class="analysis-card variant-purple tilt-card">
+                <div class="analysis-card variant-purple tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -1946,7 +1954,7 @@
                   </div>
                 </div>
 
-                <div class="analysis-card variant-red tilt-card">
+                <div class="analysis-card variant-red tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2101,21 +2109,15 @@
 
       /* ==========================================
          CYBER CURSOR & RADAR LOGIC
-         (menggunakan pendekatan asli seperti di
-          modul.html — mouseenter/mouseleave
-          langsung ke setiap elemen)
          ========================================== */
       const cursorDot = document.getElementById("cursor-dot");
       const cursorRing = document.getElementById("cursor-ring");
       const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
-      /* Fungsi reusable untuk attach hover listener ke elemen interaktif
-         Bisa dipanggil ulang setelah tab switch (untuk elemen dinamis) */
       function attachCursorHover(scope = document) {
-        const interactables = scope.querySelectorAll("a, button, .social-btn, .nav-links li, .tab-btn, .tilt-card, .siklus-header, .cyber-action-btn");
+        const interactables = scope.querySelectorAll("a, button, .social-btn, .nav-links li, .tab-btn, .tilt-card, .siklus-header, .cyber-action-btn, .pdf-container");
 
         interactables.forEach((el) => {
-          /* Hindari double-attach */
           if (el.dataset.cursorAttached === "true") return;
 
           el.addEventListener("mouseenter", () => {
@@ -2130,7 +2132,6 @@
       }
 
       if (isDesktop && cursorDot && cursorRing) {
-        /* 1. Gerakkan kursor */
         window.addEventListener("mousemove", (e) => {
           cursorDot.style.left = `${e.clientX}px`;
           cursorDot.style.top = `${e.clientY}px`;
@@ -2138,7 +2139,6 @@
           cursorRing.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 150, fill: "forwards" });
         });
 
-        /* 2. Attach hover listener ke semua elemen interaktif */
         attachCursorHover(document);
       }
 
@@ -2225,7 +2225,6 @@
       const tabBtns = document.querySelectorAll(".tab-btn");
       const tabPanels = document.querySelectorAll(".tab-panel");
 
-      /* Init Vanilla Tilt untuk semua .tilt-card dalam sebuah scope */
       function initTilt(scope) {
         if (typeof VanillaTilt === "undefined") return;
         const cards = scope.querySelectorAll(".tilt-card");
@@ -2257,15 +2256,12 @@
           if (activePanel) {
             activePanel.classList.add("active");
 
-            /* Trigger reveal pada elemen dalam panel baru */
             activePanel.querySelectorAll(".reveal").forEach((el) => {
               el.classList.add("active");
             });
 
-            /* Init tilt setelah panel muncul di DOM */
             setTimeout(() => initTilt(activePanel), 60);
 
-            /* Re-attach cursor hover untuk elemen baru di panel ini */
             if (isDesktop) {
               setTimeout(() => attachCursorHover(activePanel), 100);
             }
@@ -2273,7 +2269,6 @@
         });
       });
 
-      /* Init tilt untuk tab aktif pertama kali */
       const currentActivePanel = document.querySelector(".tab-panel.active");
       if (currentActivePanel) initTilt(currentActivePanel);
     </script>

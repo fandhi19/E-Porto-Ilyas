@@ -951,6 +951,160 @@
       }
 
       /* =========================================
+         MEDIA DIVIDER (pemisah antar media dalam 1 siklus)
+         ========================================= */
+      .media-divider {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin: 70px 0 40px;
+        font-family: monospace;
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: var(--primary);
+        text-transform: uppercase;
+        opacity: 0.9;
+      }
+      .media-divider::before,
+      .media-divider::after {
+        content: "";
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        flex: 1;
+      }
+      .media-divider .divider-icon {
+        color: var(--primary);
+        font-size: 8px;
+        filter: drop-shadow(0 0 6px var(--primary));
+      }
+
+      /* =========================================
+         IFRAME CANVA DI SHOWCASE IMAGE
+         ========================================= */
+      .showcase-image iframe {
+        position: absolute;
+        top: 42px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 42px);
+        border: 0;
+        display: block;
+      }
+
+      /* =========================================
+         FEATURE GRID (untuk list fitur website)
+         ========================================= */
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 12px;
+        background: rgba(0, 240, 255, 0.05);
+        border: 1px solid rgba(0, 240, 255, 0.2);
+        border-radius: 8px;
+        font-family: monospace;
+        font-size: 11.5px;
+        letter-spacing: 0.5px;
+        color: var(--text-main);
+        transition: var(--transition);
+        cursor: default;
+      }
+      .feature-item:hover {
+        background: rgba(0, 240, 255, 0.12);
+        border-color: var(--primary);
+        transform: translateY(-2px);
+        box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+      }
+      .feature-item i {
+        color: var(--primary);
+        font-size: 13px;
+        flex-shrink: 0;
+      }
+
+      /* =========================================
+         LIVE WEBSITE PREVIEW (iframe)
+         ========================================= */
+      .showcase-image.live-preview::after {
+        content: "LIVE";
+        position: absolute;
+        top: 54px;
+        right: 14px;
+        font-family: monospace;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        color: #ff003c;
+        background: rgba(255, 0, 60, 0.12);
+        border: 1px solid rgba(255, 0, 60, 0.5);
+        padding: 3px 9px;
+        border-radius: 12px;
+        z-index: 5;
+        box-shadow: 0 0 12px rgba(255, 0, 60, 0.3);
+        animation: livePulse 1.6s ease-in-out infinite;
+      }
+
+      @keyframes livePulse {
+        0%,
+        100% {
+          opacity: 1;
+          box-shadow: 0 0 12px rgba(255, 0, 60, 0.3);
+        }
+        50% {
+          opacity: 0.5;
+          box-shadow: 0 0 20px rgba(255, 0, 60, 0.6);
+        }
+      }
+
+      .showcase-image.live-preview iframe {
+        position: absolute;
+        top: 42px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 42px);
+        border: 0;
+        display: block;
+        background: #ffffff;
+      }
+
+      /* Overlay hint "Buka di tab baru" saat hover */
+      .live-hint {
+        position: absolute;
+        bottom: 14px;
+        right: 14px;
+        font-family: monospace;
+        font-size: 10.5px;
+        letter-spacing: 1px;
+        color: var(--text-main);
+        background: rgba(10, 10, 20, 0.85);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(0, 240, 255, 0.4);
+        padding: 6px 12px;
+        border-radius: 20px;
+        z-index: 5;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        opacity: 0;
+        transform: translateY(6px);
+        transition: all 0.35s ease;
+        pointer-events: none;
+      }
+      .live-hint i {
+        color: var(--primary);
+        font-size: 11px;
+      }
+      .showcase-visual:hover .live-hint {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* =========================================
          SIKLUS BLOCK HEADER (Tab 2)
          ========================================= */
       .siklus-block {
@@ -1742,68 +1896,60 @@
 
           <!-- =========================================
                TAB 1: UTS - SIKLUS 1
+               (2 Media: PPT Canva + Website Pembelajaran)
                ========================================= -->
           <div class="tab-panel active" id="tab-uts">
-            <!-- ============ SHOWCASE MEDIA ============ -->
+            <!-- ════════════════════════════════════════════
+                 MEDIA 1 — PPT CANVA
+                 ════════════════════════════════════════════ -->
             <div class="media-showcase reveal">
-              <!-- Left: Visual Preview -->
+              <!-- Left: Visual Preview (iframe Canva) -->
               <div class="showcase-visual">
                 <div class="showcase-terminal-bar">
                   <span class="dot red"></span>
                   <span class="dot yellow"></span>
                   <span class="dot green"></span>
-                  <span class="bar-title">~/media/siklus_1_preview.png</span>
+                  <span class="bar-title">~/media/siklus_1_canva.canva</span>
                 </div>
                 <div class="showcase-image">
-                  <!-- GANTI src dengan screenshot aplikasi media-mu -->
-                  <img
-                    src="../Images/media_uts_siklus1.png"
-                    alt="Preview Media UTS Siklus 1 — Sistem CBT Interaktif"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'flex';
-                    "
-                  />
-                  <!-- Fallback placeholder jika gambar tidak ditemukan -->
-                  <div class="showcase-placeholder" style="display: none">
-                    <i class="fa-solid fa-photo-film"></i>
-                    <span>Preview Media Siklus 1</span>
-                    <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Belum ada screenshot</small>
-                  </div>
+                  <!-- GANTI src dengan URL embed Canva kamu -->
+                  <iframe src="https://www.canva.com/design/DAHShCmm0ds/VIf5qO54vrhUDtJTOtENgg/view?embed" title="PPT Canva Siklus 1 — Algoritma & Pseudocode" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
                 </div>
               </div>
 
               <!-- Right: Info Card -->
               <div class="showcase-info">
-                <div class="showcase-tag"><i class="fa-solid fa-laptop-code"></i> WEB-BASED APP</div>
-                <h3 class="showcase-title">Sistem <span class="accent">CBT</span> Interaktif — Latihan Soal Algoritma</h3>
-                <p class="showcase-desc">Media pembelajaran berbasis web untuk latihan soal algoritma dan pseudocode, dilengkapi feedback otomatis, timer, dan rekapitulasi nilai real-time untuk memantau pemahaman murid secara langsung.</p>
+                <div class="showcase-tag"><i class="fa-solid fa-chalkboard"></i> SLIDE PRESENTATION</div>
+                <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Algoritma &amp; Pseudocode</h3>
+                <p class="showcase-desc">
+                  Presentasi visual interaktif untuk pengenalan konsep algoritma, flowchart, dan pseudocode. Dilengkapi animasi, ilustrasi konkret, dan contoh kasus sehari-hari agar konsep abstrak lebih mudah dipahami murid Fase E.
+                </p>
 
                 <div class="showcase-tech">
-                  <span class="tech-chip">HTML5</span>
-                  <span class="tech-chip">CSS3</span>
-                  <span class="tech-chip">JavaScript</span>
-                  <span class="tech-chip">LocalStorage</span>
+                  <span class="tech-chip">Canva</span>
+                  <span class="tech-chip">Visual Design</span>
+                  <span class="tech-chip">Animasi</span>
+                  <span class="tech-chip">Ilustrasi</span>
                 </div>
 
                 <div class="showcase-actions">
-                  <a href="https://example.com/cbt-algoritma" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
-                    <i class="fa-solid fa-rocket"></i>
-                    Coba Aplikasi
+                  <a href="https://www.canva.com/design/DAHShCmm0ds/VIf5qO54vrhUDtJTOtENgg/view" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    Buka Slide
                   </a>
-                  <a href="https://github.com/example/cbt-algoritma" target="_blank" rel="noopener" class="btn-cta btn-cta-secondary">
-                    <i class="fa-brands fa-github"></i>
-                    Source Code
+                  <a href="../Dokumen/PPL_2/Media/PPT Siklus 1.pdf" download="Materi_Siklus_1.pdf" class="btn-cta btn-cta-secondary">
+                    <i class="fa-solid fa-download"></i>
+                    Download PDF
                   </a>
                 </div>
               </div>
             </div>
 
-            <!-- ============ ANALYSIS CARDS ============ -->
-            <div class="cards-label reveal">ANALISIS MEDIA</div>
+            <!-- ANALYSIS CARDS — PPT CANVA -->
+            <div class="cards-label reveal">ANALISIS PPT CANVA</div>
 
             <div class="cards-grid">
-              <!-- KARTU 1 -->
+              <!-- KARTU 1: Konteks & Tujuan -->
               <div class="analysis-card tilt-card reveal">
                 <div class="card-scanline"></div>
                 <div class="card-header">
@@ -1816,15 +1962,15 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <p>Media <strong>Sistem CBT Interaktif</strong> dipilih untuk materi <em>Algoritma &amp; Pseudocode</em> pada Fase E, karena konsep abstrak membutuhkan latihan berulang dengan feedback cepat.</p>
                   <p>
-                    Tujuan: memberi pengalaman latihan mandiri yang
-                    <strong>terukur</strong>, memfasilitasi <em>self-paced learning</em>, dan memungkinkan guru memantau progres pemahaman murid secara real-time.
+                    PPT Canva dirancang untuk peserta didik
+                    <strong>Fase E (Kelas X)</strong> sebagai media pengantar konsep <em>algoritma, flowchart, dan pseudocode</em> pada pertemuan awal siklus 1.
                   </p>
+                  <p>Tujuan: memberi <em>visual anchor</em> yang kuat sebelum murid masuk ke latihan praktik, serta menyamakan persepsi awal tentang konsep dasar berpikir komputasional.</p>
                 </div>
               </div>
 
-              <!-- KARTU 2 -->
+              <!-- KARTU 2: Kelebihan & Kekurangan -->
               <div class="analysis-card variant-purple tilt-card reveal">
                 <div class="card-scanline"></div>
                 <div class="card-header">
@@ -1837,12 +1983,12 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <p><strong>Kelebihan:</strong> interaksi aktif murid meningkat; <em>instant feedback</em> mempercepat pemahaman; data hasil otomatis terekam; dapat diakses kapan saja.</p>
-                  <p><strong>Kekurangan:</strong> bergantung pada koneksi internet &amp; perangkat; belum ada mode offline; variasi soal masih terbatas; integrasi dengan LMS sekolah masih terbatas.</p>
+                  <p><strong>Kelebihan:</strong> desain visual menarik dan konsisten; bisa dibuka di HP maupun laptop; mudah di-update tanpa install aplikasi; mendukung penyampaian materi yang <em>linear &amp; terstruktur</em>.</p>
+                  <p><strong>Kekurangan:</strong> kurang interaktif untuk latihan mandiri; bergantung pada koneksi internet saat diakses online; tidak bisa digunakan untuk asesmen otomatis seperti website.</p>
                 </div>
               </div>
 
-              <!-- KARTU 3 -->
+              <!-- KARTU 3: Kajian Teori (TPACK) -->
               <div class="analysis-card variant-red tilt-card reveal">
                 <div class="card-scanline"></div>
                 <div class="card-header">
@@ -1855,9 +2001,139 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <p><strong>Technological Knowledge:</strong> pemanfaatan teknologi web modern sebagai <em>cognitive tool</em> untuk memperkuat pemahaman konsep abstrak.</p>
-                  <p><strong>Pedagogical Knowledge:</strong> menerapkan <em>drill &amp; practice</em> berbasis <strong>Behaviorisme-Modern</strong> dengan penguatan langsung (immediate reinforcement).</p>
-                  <p><strong>Content Knowledge:</strong> struktur soal disusun mengikuti taksonomi Bloom dari C1 hingga C4, selaras dengan capaian pembelajaran Informatika Fase E.</p>
+                  <p><strong>Technological Knowledge:</strong> pemanfaatan Canva sebagai alat desain visual yang mempermudah penyampaian konsep abstrak melalui <em>dual coding</em> (gambar + teks).</p>
+                  <p><strong>Pedagogical Knowledge:</strong> berbasis <em>advance organizer</em> (Ausubel) — memberi kerangka awal sebelum murid masuk ke materi detail.</p>
+                  <p><strong>Content Knowledge:</strong> struktur materi mengikuti urutan kognitif konkret → semi-abstrak → abstrak, sesuai Piaget tahap operasional formal.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- ════════════════════════════════════════════
+                 DIVIDER: Media 2
+                 ════════════════════════════════════════════ -->
+            <div class="media-divider reveal">
+              <i class="fa-solid fa-circle divider-icon"></i>
+              MEDIA 2
+              <i class="fa-solid fa-circle divider-icon"></i>
+            </div>
+
+            <!-- ════════════════════════════════════════════
+                 MEDIA 2 — WEBSITE PEMBELAJARAN INFORMATIKA
+                 (LIVE PREVIEW)
+                 ════════════════════════════════════════════ -->
+            <div class="media-showcase reveal">
+              <!-- Left: Live Preview -->
+              <div class="showcase-visual">
+                <div class="showcase-terminal-bar">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="bar-title">~/media/siklus_1_website.live</span>
+                </div>
+                <div class="showcase-image live-preview">
+                  <!-- LIVE PREVIEW — iframe website pembelajaran langsung -->
+                  <iframe
+                    src="https://informatika-learning.vercel.app/materi-search-sort.html"
+                    title="Live Preview Website Pembelajaran Informatika — Siklus 1"
+                    loading="lazy"
+                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                  <span class="live-hint">
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    Klik tombol di kanan untuk fullscreen
+                  </span>
+                </div>
+              </div>
+
+              <!-- Right: Info Card -->
+              <div class="showcase-info">
+                <div class="showcase-tag"><i class="fa-solid fa-globe"></i> WEB-BASED LEARNING</div>
+                <h3 class="showcase-title"><span class="accent">Informatics Lab</span> — Website Pembelajaran</h3>
+                <p class="showcase-desc">
+                  Website pembelajaran komprehensif yang memadukan materi baca, simulasi interaktif, video penjelasan, serta pre-test dan post-test untuk mengukur ketercapaian pemahaman murid secara berkelanjutan dalam satu platform
+                  terintegrasi.
+                </p>
+
+                <div class="feature-grid">
+                  <div class="feature-item"><i class="fa-solid fa-book-open"></i> Materi Baca</div>
+                  <div class="feature-item"><i class="fa-solid fa-flask"></i> Simulasi</div>
+                  <div class="feature-item"><i class="fa-solid fa-circle-play"></i> Video</div>
+                  <div class="feature-item"><i class="fa-solid fa-pen-to-square"></i> Pre-Test</div>
+                  <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Post-Test</div>
+                </div>
+
+                <div class="showcase-actions">
+                  <a href="https://informatika-learning.vercel.app/materi-search-sort.html" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                    <i class="fa-solid fa-rocket"></i>
+                    Kunjungi Website
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- ANALYSIS CARDS — WEBSITE -->
+            <div class="cards-label reveal">ANALISIS WEBSITE PEMBELAJARAN</div>
+
+            <div class="cards-grid">
+              <!-- KARTU 1: Konteks & Tujuan -->
+              <div class="analysis-card tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-bullseye card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Konteks &amp; Tujuan
+                    <small>Context &amp; Objectives</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p>
+                    Website pembelajaran dipilih sebagai
+                    <strong>media utama praktik mandiri</strong> pada siklus 1 karena menyatukan beragam aktivitas belajar (baca, simulasi, video, tes) dalam satu ekosistem digital.
+                  </p>
+                  <p>
+                    Tujuan: memberi pengalaman belajar
+                    <em>self-paced</em>, memfasilitasi asesmen berjenjang (pre → post test), dan memungkinkan guru memantau progres murid secara real-time.
+                  </p>
+                </div>
+              </div>
+
+              <!-- KARTU 2: Kelebihan & Kekurangan -->
+              <div class="analysis-card variant-purple tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-scale-balanced card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Kelebihan &amp; Kekurangan
+                    <small>Strengths &amp; Weaknesses</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p><strong>Kelebihan:</strong> semua aktivitas terintegrasi dalam satu platform; <em>instant feedback</em> dari pre-test &amp; post-test; simulasi interaktif memperkuat pemahaman konsep; akses fleksibel kapan saja.</p>
+                  <p><strong>Kekurangan:</strong> bergantung penuh pada koneksi internet stabil; butuh perangkat memadai untuk simulasi; guru perlu waktu adaptasi untuk memantau dashboard analitik.</p>
+                </div>
+              </div>
+
+              <!-- KARTU 3: Kajian Teori (TPACK) -->
+              <div class="analysis-card variant-red tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-lightbulb card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Kajian Teori (TPACK)
+                    <small>Theoretical Framework</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p><strong>Technological Knowledge:</strong> pemanfaatan web sebagai <em>integrated learning environment</em> yang menggabungkan konten, latihan, dan asesmen dalam satu platform.</p>
+                  <p><strong>Pedagogical Knowledge:</strong> menerapkan <strong>Mastery Learning (Bloom)</strong> — pre-test memetakan titik awal, post-test memverifikasi ketuntasan sebelum lanjut ke materi berikutnya.</p>
+                  <p><strong>Content Knowledge:</strong> urutan materi mengikuti <em>spiral curriculum</em> Bruner — setiap fitur (baca → simulasi → video) memperkuat konsep yang sama dari sudut pandang berbeda.</p>
                 </div>
               </div>
             </div>

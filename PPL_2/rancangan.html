@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rancangan Pembelajaran | E-Portofolio PPG</title>
-    <link rel="shortcut icon" href="../Images/Logo Uny outlitne.png" type="image/x-icon">
+    <title>Rancangan Pembelajaran | PPL 2 | E-Portofolio PPG</title>
+    <meta name="description" content="Dokumen rancangan pembelajaran PPL 2 Informatika Fase E — mencakup siklus UTS dan UAS dengan analisis konteks, tujuan, dan landasan teori pedagogi." />
+    <link rel="shortcut icon" href="../Images/logo-uny-outline.png" type="image/png" />
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -649,6 +650,93 @@
       }
 
       /* =========================================
+         SIKLUS BLOCK HEADER (untuk Tab 2)
+         ========================================= */
+      .siklus-block {
+        margin-bottom: 90px;
+      }
+      .siklus-block:last-child {
+        margin-bottom: 0;
+      }
+
+      .siklus-header {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        margin-bottom: 30px;
+        padding: 16px 24px;
+        background: linear-gradient(90deg, rgba(0, 240, 255, 0.08), rgba(168, 85, 247, 0.03), transparent);
+        border-left: 4px solid var(--primary);
+        border-radius: 0 12px 12px 0;
+        position: relative;
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .siklus-header::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.05), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.8s ease;
+      }
+
+      .siklus-header:hover::after {
+        transform: translateX(100%);
+      }
+
+      .siklus-header:hover {
+        background: linear-gradient(90deg, rgba(0, 240, 255, 0.12), rgba(168, 85, 247, 0.06), transparent);
+        border-left-color: var(--accent-purple);
+      }
+
+      .siklus-number-badge {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: monospace;
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--primary);
+        background: rgba(0, 240, 255, 0.1);
+        border: 1px solid rgba(0, 240, 255, 0.4);
+        flex-shrink: 0;
+        letter-spacing: 1px;
+        box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+        transition: var(--transition);
+      }
+
+      .siklus-header:hover .siklus-number-badge {
+        color: var(--accent-purple);
+        border-color: var(--accent-purple);
+        box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+      }
+
+      .siklus-titles {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .siklus-titles .siklus-label {
+        font-family: monospace;
+        font-size: 11px;
+        color: var(--primary);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+      .siklus-titles .siklus-name {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--white);
+        letter-spacing: 0.5px;
+      }
+
+      /* =========================================
          PDF VIEWER TERMINAL
          ========================================= */
       .pdf-terminal-wrapper {
@@ -659,7 +747,7 @@
         box-shadow:
           0 15px 35px rgba(0, 0, 0, 0.8),
           0 0 20px rgba(0, 240, 255, 0.2);
-        margin-bottom: 60px;
+        margin-bottom: 50px;
       }
 
       .terminal-header {
@@ -935,6 +1023,22 @@
         color: var(--accent-purple);
         font-style: normal;
         font-weight: 600;
+      }
+      .card-body ul {
+        list-style: none;
+        padding: 0;
+        margin: 8px 0 0 0;
+      }
+      .card-body ul li {
+        position: relative;
+        padding-left: 18px;
+        margin-bottom: 6px;
+      }
+      .card-body ul li::before {
+        content: "▸";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
       }
 
       .analysis-card.variant-purple .card-icon {
@@ -1271,6 +1375,7 @@
           display: none;
           padding-left: 20px;
           margin-top: 10px;
+          min-width: 100%;
         }
         .dropdown:hover .dropdown-content {
           display: block;
@@ -1289,6 +1394,17 @@
         }
         .hero-section {
           padding: 90px 0 40px;
+        }
+        .siklus-header {
+          padding: 14px 18px;
+        }
+        .siklus-number-badge {
+          width: 42px;
+          height: 42px;
+          font-size: 16px;
+        }
+        .siklus-titles .siklus-name {
+          font-size: 1.1rem;
         }
       }
 
@@ -1420,7 +1536,8 @@
           <h1 class="hero-title">Rancangan <span class="highlight">Pembelajaran</span></h1>
           <div class="title-divider"></div>
           <p class="hero-desc">
-            Kumpulan dokumen perancangan pembelajaran yang disusun selama pelaksanaan Praktik Pengalaman Lapangan (PPL) 2 — mencakup siklus UTS dan UAS beserta analisis konteks, tujuan, kelebihan, kekurangan, dan landasan teori pedagoginya.
+            Kumpulan dokumen perancangan pembelajaran yang disusun selama pelaksanaan Praktik Pengalaman Lapangan (PPL) 2 — mencakup 1 siklus UTS dan 3 siklus UAS beserta analisis konteks, tujuan, kelebihan, kekurangan, dan landasan teori
+            pedagoginya.
           </p>
         </div>
       </section>
@@ -1452,16 +1569,16 @@
 
               <div class="pdf-container">
                 <!-- GANTI src dengan path PDF Modul Ajar / RPP UTS kamu -->
-                <iframe src="../Dokumen/RPP_UTS_Ilyas.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UTS Siklus 1"></iframe>
+                <iframe src="../Dokumen/PPL_2/Modul Siklus 1.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UTS Siklus 1"></iframe>
               </div>
 
               <div class="terminal-footer">
-                <a href="../Dokumen/RPP_UTS_Ilyas.pdf" download="RPP_UTS_Siklus_1_Ilyas.pdf" class="cyber-download-btn">
+                <a href="../Dokumen/PPL_2/Modul Siklus 1.pdf" download="Modul_Siklus_1.pdf" class="cyber-download-btn">
                   <span class="btn-bracket">[</span>
                   <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
                   <span class="btn-bracket">]</span>
                 </a>
-                <a href="../Dokumen/RPP_UTS_Ilyas.pdf" target="_blank" class="cyber-download-btn">
+                <a href="../Dokumen/PPL_2/Modul Siklus 1.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
                   <span class="btn-bracket">[</span>
                   <i class="fa-solid fa-up-right-from-square"></i>
                   BUKA_DI_TAB_BARU
@@ -1540,107 +1657,340 @@
                TAB 2: UAS - SIKLUS 2 s.d 4
                ========================================= -->
           <div class="tab-panel" id="tab-uas">
-            <!-- PDF VIEWER -->
-            <div class="pdf-terminal-wrapper reveal">
-              <div class="terminal-header">
-                <div class="terminal-dots">
-                  <span class="dot red"></span>
-                  <span class="dot yellow"></span>
-                  <span class="dot green"></span>
+            <!-- ============ SIKLUS 2 ============ -->
+            <div class="siklus-block reveal">
+              <div class="siklus-header">
+                <div class="siklus-number-badge">02</div>
+                <div class="siklus-titles">
+                  <span class="siklus-label">SIKLUS 2</span>
+                  <span class="siklus-name">Dasar Pemrograman C++ — Sintaks & Variabel</span>
                 </div>
-                <div class="terminal-title">~/ppl_2/uas_siklus_2-4.pdf</div>
-                <div class="terminal-status">ONLINE</div>
               </div>
 
-              <div class="pdf-container">
-                <!-- GANTI src dengan path PDF Modul Ajar UAS kamu -->
-                <iframe src="../Dokumen/Modul_Ajar_UAS_Ilyas.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UAS Siklus 2 s.d 4"></iframe>
+              <!-- PDF VIEWER -->
+              <div class="pdf-terminal-wrapper">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="terminal-title">~/ppl_2/uas_siklus_2.pdf</div>
+                  <div class="terminal-status">ONLINE</div>
+                </div>
+
+                <div class="pdf-container">
+                  <!-- GANTI src dengan path PDF Modul Ajar Siklus 2 -->
+                  <iframe src="../Dokumen/PPL_2/Modul Siklus 2.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UAS Siklus 2 — C++"></iframe>
+                </div>
+
+                <div class="terminal-footer">
+                  <a href="../Dokumen/PPL_2/Modul Siklus 2.pdf" download="Modul Siklus 2.pdf" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                    <span class="btn-bracket">]</span>
+                  </a>
+                  <a href="../Dokumen/PPL_2/Modul Siklus 2.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    BUKA_DI_TAB_BARU
+                    <span class="btn-bracket">]</span>
+                  </a>
+                </div>
               </div>
 
-              <div class="terminal-footer">
-                <a href="../Dokumen/Modul_Ajar_UAS_Ilyas.pdf" download="Modul_Ajar_UAS_Siklus_2-4_Ilyas.pdf" class="cyber-download-btn">
-                  <span class="btn-bracket">[</span>
-                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
-                  <span class="btn-bracket">]</span>
-                </a>
-                <a href="../Dokumen/Modul_Ajar_UAS_Ilyas.pdf" target="_blank" class="cyber-download-btn">
-                  <span class="btn-bracket">[</span>
-                  <i class="fa-solid fa-up-right-from-square"></i>
-                  BUKA_DI_TAB_BARU
-                  <span class="btn-bracket">]</span>
-                </a>
+              <!-- ANALYSIS CARDS -->
+              <div class="cards-label">ANALISIS RANCANGAN</div>
+
+              <div class="cards-grid">
+                <!-- KARTU 1 -->
+                <div class="analysis-card tilt-card">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Rancangan Siklus 2 diperuntukkan bagi
+                      <strong>Fase E (Kelas X)</strong> dengan materi <strong>Dasar Pemrograman C++</strong> — mencakup sintaks dasar, variabel, tipe data, dan operasi I/O.
+                    </p>
+                    <p>
+                      Tujuan: murid mampu
+                      <em>menulis program C++ sederhana</em>, memahami alur eksekusi, dan melakukan <em>debugging</em> dasar secara mandiri.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- KARTU 2 -->
+                <div class="analysis-card variant-purple tilt-card">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> C++ relevan dengan industri; syntax terstruktur jelas; hasil program langsung terlihat (output terminal); melatih <em>logika komputasional</em> tingkat lanjut.</p>
+                    <p><strong>Kekurangan:</strong> kurva belajar <em>compiler setup</em> cukup tinggi; error handling membingungkan pemula; alokasi waktu praktikum sering kurang untuk sesi debugging.</p>
+                  </div>
+                </div>
+
+                <!-- KARTU 3 -->
+                <div class="analysis-card variant-red tilt-card">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Menggunakan pendekatan
+                      <strong>Constructionism (Papert)</strong> — murid belajar dengan <em>membangun artefak nyata</em> berupa program yang berjalan.
+                    </p>
+                    <p>
+                      Didukung strategi <em>Pair Programming</em> untuk kolaborasi, serta
+                      <strong>Cognitive Apprenticeship (Collins)</strong>
+                      melalui demonstrasi bertahap dari guru.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- ANALYSIS CARDS -->
-            <div class="cards-label reveal">ANALISIS RANCANGAN</div>
-
-            <div class="cards-grid">
-              <!-- KARTU 1 -->
-              <div class="analysis-card tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-bullseye card-icon"></i>
-                  </div>
-                  <div class="card-title">
-                    Konteks &amp; Tujuan
-                    <small>Context &amp; Objectives</small>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <p>
-                    Modul untuk siklus UAS dirancang untuk memperkuat
-                    <strong>kompetensi lanjutan</strong> pada Fase E, dengan fokus pada penerapan kolaborasi digital dan produksi karya yang lebih kompleks.
-                  </p>
-                  <p>
-                    Tujuan: murid mampu
-                    <em>menyusun proyek digital terintegrasi</em>, menyajikannya di forum kelas, serta merefleksikan proses belajar secara mandiri dan berkelanjutan.
-                  </p>
+            <!-- ============ SIKLUS 3 ============ -->
+            <div class="siklus-block reveal">
+              <div class="siklus-header">
+                <div class="siklus-number-badge">03</div>
+                <div class="siklus-titles">
+                  <span class="siklus-label">SIKLUS 3</span>
+                  <span class="siklus-name">Struktur Kontrol — Percabangan & Perulangan</span>
                 </div>
               </div>
 
-              <!-- KARTU 2 -->
-              <div class="analysis-card variant-purple tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-scale-balanced card-icon"></i>
+              <!-- PDF VIEWER -->
+              <div class="pdf-terminal-wrapper">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
                   </div>
-                  <div class="card-title">
-                    Kelebihan &amp; Kekurangan
-                    <small>Strengths &amp; Weaknesses</small>
-                  </div>
+                  <div class="terminal-title">~/ppl_2/uas_siklus_3.pdf</div>
+                  <div class="terminal-status">ONLINE</div>
                 </div>
-                <div class="card-body">
-                  <p>
-                    <strong>Kelebihan:</strong> rancangan bersifat <em>iteratif</em>, hasil refleksi siklus 1 dijadikan dasar perbaikan; diferensiasi proses lebih variatif; keterlibatan murid dalam asesmen (self &amp; peer assessment)
-                    meningkat.
-                  </p>
-                  <p><strong>Kekurangan:</strong> kompleksitas proyek berpotensi memunculkan kebingungan pada murid dengan kemampuan teknis rendah; waktu refleksi sering terpotong di akhir sesi.</p>
+
+                <div class="pdf-container">
+                  <!-- GANTI src dengan path PDF Modul Ajar Siklus 3 -->
+                  <iframe src="../Dokumen/PPL_2/Modul Siklus 3.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UAS Siklus 3 — Struktur Kontrol"></iframe>
+                </div>
+
+                <div class="terminal-footer">
+                  <a href="../Dokumen/PPL_2/Modul Siklus 3.pdf" download="Modul Siklus 3.pdf" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                    <span class="btn-bracket">]</span>
+                  </a>
+                  <a href="../Dokumen/PPL_2/Modul Siklus 3.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    BUKA_DI_TAB_BARU
+                    <span class="btn-bracket">]</span>
+                  </a>
                 </div>
               </div>
 
-              <!-- KARTU 3 -->
-              <div class="analysis-card variant-red tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-lightbulb card-icon"></i>
+              <!-- ANALYSIS CARDS -->
+              <div class="cards-label">ANALISIS RANCANGAN</div>
+
+              <div class="cards-grid">
+                <!-- KARTU 1 -->
+                <div class="analysis-card tilt-card">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
                   </div>
-                  <div class="card-title">
-                    Kajian Teori
-                    <small>Theoretical Framework</small>
+                  <div class="card-body">
+                    <p>
+                      Rancangan Siklus 3 berfokus pada materi
+                      <strong>Struktur Kontrol</strong> (if-else, switch-case, for, while, do-while) sebagai kelanjutan logika pemrograman pada Siklus 2.
+                    </p>
+                    <p>
+                      Tujuan: murid mampu
+                      <em>merancang alur kendali program</em> untuk menyelesaikan studi kasus nyata, serta memilih struktur kontrol yang paling efisien.
+                    </p>
                   </div>
                 </div>
-                <div class="card-body">
-                  <p>
-                    Mengadopsi <strong>Reflective Practice (Schön)</strong>
-                    untuk menjadikan refleksi siklus sebagai basis perbaikan berkelanjutan, serta
-                    <strong>Differentiated Instruction (Tomlinson)</strong>
-                    untuk mengakomodasi keberagaman kesiapan dan minat murid.
-                  </p>
-                  <p>Diperkuat kerangka <em>Assessment for Learning</em> yang menempatkan umpan balik formatif sebagai penggerak utama kemajuan belajar.</p>
+
+                <!-- KARTU 2 -->
+                <div class="analysis-card variant-purple tilt-card">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> materi sangat aplikatif dengan banyak kasus nyata (kalkulator, validasi input); visualisasi flowchart mempermudah pemahaman logika; latihan terbimbing efektif.</p>
+                    <p><strong>Kekurangan:</strong> potensi <em>infinite loop</em> pada murid pemula; kesenjangan kognitif cukup terasa; sebagian murid butuh pengulangan konsep <em>nested loop</em> lebih banyak.</p>
+                  </div>
+                </div>
+
+                <!-- KARTU 3 -->
+                <div class="analysis-card variant-red tilt-card">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Berbasis <strong>Problem-Based Learning (PBL)</strong> — murid menyelesaikan masalah kontekstual sehingga pemahaman struktur kontrol tumbuh dari kebutuhan nyata.</p>
+                    <p>Menggunakan <em>Trace Table Strategy</em> untuk melatih penalaran algoritmik dan <strong>Peer Feedback</strong> untuk memperkuat kolaborasi antar murid.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ============ SIKLUS 4 ============ -->
+            <div class="siklus-block reveal">
+              <div class="siklus-header">
+                <div class="siklus-number-badge">04</div>
+                <div class="siklus-titles">
+                  <span class="siklus-label">SIKLUS 4</span>
+                  <span class="siklus-name">Pengolahan Data dengan Microsoft Excel</span>
+                </div>
+              </div>
+
+              <!-- PDF VIEWER -->
+              <div class="pdf-terminal-wrapper">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="terminal-title">~/ppl_2/uas_siklus_4.pdf</div>
+                  <div class="terminal-status">ONLINE</div>
+                </div>
+
+                <div class="pdf-container">
+                  <!-- GANTI src dengan path PDF Modul Ajar Siklus 4 -->
+                  <iframe src="../Dokumen/PPL_2/Modul Siklus 4.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UAS Siklus 4 — Pengolahan Data Excel"></iframe>
+                </div>
+
+                <div class="terminal-footer">
+                  <a href="../Dokumen/PPL_2/Modul Siklus 4.pdf" download="Modul Siklus 4.pdf" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                    <span class="btn-bracket">]</span>
+                  </a>
+                  <a href="../Dokumen/PPL_2/Modul Siklus 4.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    BUKA_DI_TAB_BARU
+                    <span class="btn-bracket">]</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- ANALYSIS CARDS -->
+              <div class="cards-label">ANALISIS RANCANGAN</div>
+
+              <div class="cards-grid">
+                <!-- KARTU 1 -->
+                <div class="analysis-card tilt-card">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Rancangan Siklus 4 mengangkat materi
+                      <strong>Pengolahan Data dengan Microsoft Excel</strong> — mencakup formula dasar, fungsi logika, pivot table, dan visualisasi grafik.
+                    </p>
+                    <p>
+                      Tujuan: murid mampu
+                      <em>mengolah dataset sederhana</em>, menyusun laporan berbasis formula, serta menarik kesimpulan data secara sistematis.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- KARTU 2 -->
+                <div class="analysis-card variant-purple tilt-card">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> keterampilan Excel sangat dibutuhkan dunia kerja; pembelajaran langsung <em>hands-on</em>; hasil olahan data langsung direfleksikan secara visual.</p>
+                    <p><strong>Kekurangan:</strong> variasi versi Excel antar perangkat membingungkan; murid dengan <em>low-end device</em> terkendala performa; waktu terbatas untuk latihan rumus kompleks.</p>
+                  </div>
+                </div>
+
+                <!-- KARTU 3 -->
+                <div class="analysis-card variant-red tilt-card">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Menerapkan <strong>Experiential Learning (Kolb)</strong>
+                      — murid mengalami langsung siklus
+                      <em>do → reflect → think → apply</em> saat mengolah dataset nyata.
+                    </p>
+                    <p>
+                      Diperkuat kerangka
+                      <strong>Data Literacy Framework</strong> untuk membangun kemampuan berpikir berbasis data, serta <em>Authentic Assessment</em> melalui proyek laporan berbasis spreadsheet.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -1774,21 +2124,15 @@
 
       /* ==========================================
          CYBER CURSOR & RADAR LOGIC
-         (menggunakan pendekatan asli seperti di
-          modul.html — mouseenter/mouseleave
-          langsung ke setiap elemen)
          ========================================== */
       const cursorDot = document.getElementById("cursor-dot");
       const cursorRing = document.getElementById("cursor-ring");
       const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
-      /* Fungsi reusable untuk attach hover listener ke elemen interaktif
-         Bisa dipanggil ulang setelah tab switch (untuk elemen dinamis) */
       function attachCursorHover(scope = document) {
-        const interactables = scope.querySelectorAll("a, button, .social-btn, .nav-links li, .tab-btn, .tilt-card, .cyber-download-btn");
+        const interactables = scope.querySelectorAll("a, button, .social-btn, .nav-links li, .tab-btn, .tilt-card, .cyber-download-btn, .siklus-header");
 
         interactables.forEach((el) => {
-          /* Hindari double-attach */
           if (el.dataset.cursorAttached === "true") return;
 
           el.addEventListener("mouseenter", () => {
@@ -1803,7 +2147,6 @@
       }
 
       if (isDesktop && cursorDot && cursorRing) {
-        /* 1. Gerakkan kursor */
         window.addEventListener("mousemove", (e) => {
           cursorDot.style.left = `${e.clientX}px`;
           cursorDot.style.top = `${e.clientY}px`;
@@ -1811,7 +2154,6 @@
           cursorRing.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 150, fill: "forwards" });
         });
 
-        /* 2. Attach hover listener ke semua elemen interaktif */
         attachCursorHover(document);
       }
 
@@ -1898,7 +2240,6 @@
       const tabBtns = document.querySelectorAll(".tab-btn");
       const tabPanels = document.querySelectorAll(".tab-panel");
 
-      /* Init Vanilla Tilt untuk semua .tilt-card dalam sebuah scope */
       function initTilt(scope) {
         if (typeof VanillaTilt === "undefined") return;
         const cards = scope.querySelectorAll(".tilt-card");
@@ -1930,15 +2271,12 @@
           if (activePanel) {
             activePanel.classList.add("active");
 
-            /* Trigger reveal pada elemen dalam panel baru */
             activePanel.querySelectorAll(".reveal").forEach((el) => {
               el.classList.add("active");
             });
 
-            /* Init tilt setelah panel muncul di DOM */
             setTimeout(() => initTilt(activePanel), 60);
 
-            /* Re-attach cursor hover untuk elemen baru di panel ini */
             if (isDesktop) {
               setTimeout(() => attachCursorHover(activePanel), 100);
             }
@@ -1946,7 +2284,6 @@
         });
       });
 
-      /* Init tilt untuk tab aktif pertama kali */
       const currentActivePanel = document.querySelector(".tab-panel.active");
       if (currentActivePanel) initTilt(currentActivePanel);
     </script>
