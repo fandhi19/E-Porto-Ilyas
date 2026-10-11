@@ -1,0 +1,1954 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rancangan Pembelajaran | E-Portofolio PPG</title>
+    <link rel="shortcut icon" href="../Images/Logo Uny outlitne.png" type="image/x-icon">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- VANILLA TILT -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <style>
+      /* =========================================
+         CUSTOM CYBER SCROLLBAR
+         ========================================= */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #050511;
+        border-left: 1px solid rgba(0, 240, 255, 0.1);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 10px;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-purple);
+      }
+
+      /* =========================================
+         VARIABEL & RESET DASAR (ULTRA-CYBERPUNK)
+         ========================================= */
+      :root {
+        --bg-dark: #050511;
+        --card-bg: rgba(20, 20, 35, 0.7);
+        --primary: #00f0ff;
+        --accent: #ff003c;
+        --accent-purple: #a855f7;
+        --text-main: #f1f5f9;
+        --text-muted: #8b949e;
+        --white: #ffffff;
+        --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        --transition-smooth: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        --font-main: "Plus Jakarta Sans", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: var(--font-main);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        overflow-x: hidden;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      /* =========================================
+         CUSTOM CYBER CURSOR & RADAR
+         ========================================= */
+      @media (min-width: 768px) {
+        body,
+        a,
+        button,
+        input,
+        textarea,
+        .social-btn {
+          cursor: none !important;
+        }
+      }
+
+      .cyber-cursor-dot {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 6px;
+        background-color: var(--primary);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 100000;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 10px var(--primary);
+        transition:
+          background-color 0.3s,
+          box-shadow 0.3s;
+      }
+
+      .cyber-cursor-ring {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 35px;
+        height: 35px;
+        border: 1px solid rgba(0, 240, 255, 0.4);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 99999;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+        transition:
+          width 0.3s,
+          height 0.3s,
+          border-color 0.3s,
+          background-color 0.3s;
+      }
+
+      .cyber-cursor-ring::before,
+      .cyber-cursor-ring::after {
+        content: "";
+        position: absolute;
+        background: rgba(0, 240, 255, 0.5);
+        transition: background 0.3s;
+      }
+      .cyber-cursor-ring::before {
+        top: 50%;
+        left: -6px;
+        right: -6px;
+        height: 1px;
+        transform: translateY(-50%);
+      }
+      .cyber-cursor-ring::after {
+        left: 50%;
+        top: -6px;
+        bottom: -6px;
+        width: 1px;
+        transform: translateX(-50%);
+      }
+
+      body.cursor-hover-active .cyber-cursor-dot {
+        background-color: var(--accent-purple);
+        box-shadow: 0 0 10px var(--accent-purple);
+      }
+      body.cursor-hover-active .cyber-cursor-ring {
+        width: 55px;
+        height: 55px;
+        border-color: var(--accent-purple);
+        background-color: rgba(168, 85, 247, 0.05);
+        animation: rotateRadar 3s linear infinite;
+      }
+      body.cursor-hover-active .cyber-cursor-ring::before,
+      body.cursor-hover-active .cyber-cursor-ring::after {
+        background: var(--accent-purple);
+      }
+
+      @keyframes rotateRadar {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      @media (max-width: 767px) {
+        .cyber-cursor-dot,
+        .cyber-cursor-ring {
+          display: none !important;
+        }
+      }
+
+      /* =========================================
+         CONTAINER
+         ========================================= */
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      /* =========================================
+         SCANLINES & SCROLL REVEAL
+         ========================================= */
+      .scanlines {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+        background-size: 100% 4px;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.6;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(60px);
+        transition: var(--transition-smooth);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* =========================================
+         BACKGROUND ANIMASI
+         ========================================= */
+      .bg-grid-cyber {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 150vh;
+        background-image: linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px), radial-gradient(circle, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+        background-size:
+          40px 40px,
+          40px 40px,
+          80px 80px;
+        z-index: -2;
+        transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+        animation: gridMoveCyber 10s linear infinite;
+        opacity: 0.8;
+      }
+      @keyframes gridMoveCyber {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 0 40px;
+        }
+      }
+
+      .bg-gradient-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        filter: blur(100px);
+        pointer-events: none;
+      }
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        animation: floatOrb 15s ease-in-out infinite alternate;
+      }
+      .orb-1 {
+        width: 400px;
+        height: 400px;
+        background: rgba(0, 240, 255, 0.15);
+        top: 10%;
+        left: -5%;
+      }
+      .orb-2 {
+        width: 500px;
+        height: 500px;
+        background: rgba(168, 85, 247, 0.1);
+        bottom: 10%;
+        right: -10%;
+        animation-delay: -5s;
+      }
+      @keyframes floatOrb {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          transform: translate(150px, 100px) scale(1.2);
+        }
+      }
+
+      /* =========================================
+         CANVAS PARTIKEL (DIGITAL RAIN)
+         ========================================= */
+      #neural-data-particle {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -3;
+        pointer-events: none;
+        opacity: 0.4;
+      }
+
+      /* =========================================
+         HEADER & NAVBAR
+         ========================================= */
+      header {
+        background: rgba(5, 5, 17, 0.85);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(0, 240, 255, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+      }
+      .logo-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .logo {
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--white);
+        cursor: pointer;
+        letter-spacing: 1px;
+      }
+      .cyber-badge {
+        font-size: 10px;
+        font-weight: 700;
+        color: var(--primary);
+        letter-spacing: 1.5px;
+        margin-top: -3px;
+        text-transform: uppercase;
+        background: rgba(0, 240, 255, 0.1);
+        padding: 3px 8px;
+        border-radius: 4px;
+        border: 1px solid rgba(0, 240, 255, 0.2);
+      }
+
+      .neon-text {
+        color: var(--primary);
+        text-shadow:
+          0 0 10px rgba(0, 240, 255, 0.4),
+          0 0 20px rgba(0, 240, 255, 0.2),
+          0 0 30px rgba(168, 85, 247, 0.15);
+      }
+
+      .flicker {
+        animation: flickerAnimWOW 4s infinite alternate;
+      }
+      @keyframes flickerAnimWOW {
+        0%,
+        18%,
+        22%,
+        25%,
+        53%,
+        57%,
+        100% {
+          opacity: 1;
+          color: var(--primary);
+          text-shadow:
+            0 0 10px rgba(0, 240, 255, 0.4),
+            0 0 20px rgba(0, 240, 255, 0.2);
+        }
+        20%,
+        24%,
+        55% {
+          opacity: 0.5;
+          color: #1a5663;
+          text-shadow: none;
+        }
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 35px;
+        list-style: none;
+        align-items: center;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 15px;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+      .nav-links > li > a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--primary);
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s ease;
+        box-shadow: 0 0 8px var(--primary);
+      }
+      .nav-links a:hover {
+        color: var(--white);
+      }
+      .nav-links > li > a:hover::after {
+        width: 100%;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropbtn .arrow {
+        font-size: 12px;
+        transition: transform 0.3s ease;
+        display: inline-block;
+      }
+      .dropdown:hover .arrow {
+        transform: rotate(180deg);
+        color: var(--primary);
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 120%;
+        left: -20px;
+        background: rgba(10, 10, 25, 0.95);
+        backdrop-filter: blur(15px);
+        min-width: 300px;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 240, 255, 0.2);
+        box-shadow:
+          0 15px 35px rgba(0, 0, 0, 0.8),
+          0 0 20px rgba(0, 240, 255, 0.15);
+        padding: 10px 0;
+        z-index: 1000;
+        list-style: none;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+        animation: dropSlideWOW 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+      @keyframes dropSlideWOW {
+        from {
+          opacity: 0;
+          transform: translateY(-15px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .dropdown-content li a {
+        color: var(--text-muted);
+        padding: 12px 25px;
+        display: block;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        border-left: 3px solid transparent;
+      }
+      .dropdown-content li a::after {
+        display: none;
+      }
+      .dropdown-content li a:hover {
+        background: rgba(0, 240, 255, 0.08);
+        color: var(--primary);
+        padding-left: 30px;
+        border-left: 3px solid var(--primary);
+      }
+      .dropdown .fa-solid,
+      .dropdown-content .fa-solid {
+        margin-right: 8px;
+        color: var(--primary);
+      }
+
+      .menu-toggle {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+      .menu-toggle .bar {
+        width: 25px;
+        height: 3px;
+        background-color: var(--white);
+      }
+
+      /* =========================================
+         HERO SECTION
+         ========================================= */
+      .hero-section {
+        padding: 120px 0 60px;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: monospace;
+        font-size: 12px;
+        color: var(--primary);
+        letter-spacing: 2px;
+        padding: 6px 14px;
+        border: 1px solid rgba(0, 240, 255, 0.3);
+        background: rgba(0, 240, 255, 0.05);
+        border-radius: 30px;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+      }
+      .hero-badge .pulse-dot-mini {
+        width: 6px;
+        height: 6px;
+        background: var(--primary);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--primary);
+        animation: pulseGreen 2s infinite;
+      }
+
+      .hero-title {
+        font-size: clamp(2.2rem, 5vw, 3.5rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--white);
+        margin-bottom: 20px;
+        line-height: 1.1;
+      }
+      .hero-title .highlight {
+        background: linear-gradient(135deg, var(--primary), var(--accent-purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero-desc {
+        max-width: 720px;
+        margin: 0 auto;
+        color: var(--text-muted);
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .title-divider {
+        width: 80px;
+        height: 3px;
+        background: var(--primary);
+        margin: 25px auto;
+        box-shadow: 0 0 15px var(--primary);
+      }
+
+      /* =========================================
+         TAB NAVIGATION
+         ========================================= */
+      .tabs-section {
+        padding: 20px 0 100px;
+        position: relative;
+      }
+
+      .tabs-nav {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+        position: relative;
+      }
+
+      .tab-btn {
+        position: relative;
+        padding: 14px 28px;
+        background: rgba(10, 10, 25, 0.7);
+        border: 1px solid rgba(0, 240, 255, 0.2);
+        border-radius: 12px;
+        color: var(--text-muted);
+        font-family: var(--font-main);
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: var(--transition);
+        backdrop-filter: blur(10px);
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        overflow: hidden;
+      }
+
+      .tab-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0, 240, 255, 0.15), transparent);
+        transition: left 0.6s ease;
+      }
+
+      .tab-btn:hover {
+        color: var(--white);
+        border-color: rgba(0, 240, 255, 0.5);
+        transform: translateY(-3px);
+      }
+      .tab-btn:hover::before {
+        left: 100%;
+      }
+
+      .tab-btn.active {
+        color: var(--white);
+        background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(168, 85, 247, 0.15));
+        border-color: var(--primary);
+        box-shadow:
+          0 0 25px rgba(0, 240, 255, 0.3),
+          inset 0 0 15px rgba(0, 240, 255, 0.05);
+      }
+
+      .tab-btn.active i {
+        color: var(--primary);
+        filter: drop-shadow(0 0 6px var(--primary));
+      }
+
+      .tab-btn i {
+        font-size: 16px;
+        transition: var(--transition);
+        color: var(--text-muted);
+      }
+
+      /* =========================================
+         TAB PANEL
+         ========================================= */
+      .tab-panel {
+        display: none;
+        animation: panelFadeIn 0.6s ease forwards;
+      }
+      .tab-panel.active {
+        display: block;
+      }
+
+      @keyframes panelFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================================
+         PDF VIEWER TERMINAL
+         ========================================= */
+      .pdf-terminal-wrapper {
+        background: #050511;
+        border: 1px solid var(--primary);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow:
+          0 15px 35px rgba(0, 0, 0, 0.8),
+          0 0 20px rgba(0, 240, 255, 0.2);
+        margin-bottom: 60px;
+      }
+
+      .terminal-header {
+        background: #0a0a14;
+        border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+        padding: 12px 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .terminal-dots {
+        display: flex;
+        gap: 8px;
+      }
+      .terminal-dots .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+      .dot.red {
+        background: #ff5f56;
+        box-shadow: 0 0 8px #ff5f56;
+      }
+      .dot.yellow {
+        background: #ffbd2e;
+        box-shadow: 0 0 8px #ffbd2e;
+      }
+      .dot.green {
+        background: #27c93f;
+        box-shadow: 0 0 8px #27c93f;
+      }
+
+      .terminal-title {
+        font-family: monospace;
+        color: var(--text-main);
+        font-size: 14px;
+        letter-spacing: 1px;
+        opacity: 0.8;
+      }
+      .terminal-status {
+        font-family: monospace;
+        font-size: 11px;
+        color: #00ff66;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .terminal-status::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: #00ff66;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #00ff66;
+        animation: pulseGreen 2s infinite;
+      }
+
+      .pdf-container {
+        width: 100%;
+        height: 70vh;
+        min-height: 480px;
+        position: relative;
+        background: #0a0a14;
+      }
+      .cyber-pdf-frame {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .terminal-footer {
+        background: #0a0a14;
+        border-top: 1px solid rgba(0, 240, 255, 0.3);
+        padding: 15px 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .cyber-download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: monospace;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 13px;
+        padding: 10px 18px;
+        border: 1px solid var(--primary);
+        background: rgba(0, 240, 255, 0.05);
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+      }
+      .cyber-download-btn .btn-bracket {
+        opacity: 0.6;
+      }
+      .cyber-download-btn:hover {
+        background: var(--primary);
+        color: #020208;
+        box-shadow: 0 0 20px var(--primary);
+        transform: translateY(-2px);
+      }
+      .cyber-download-btn:hover .btn-bracket {
+        color: #020208;
+      }
+
+      /* =========================================
+         ANALYSIS CARDS (TILT 3D)
+         ========================================= */
+      .cards-label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 30px;
+        font-family: monospace;
+        font-size: 12px;
+        letter-spacing: 2px;
+        color: var(--primary);
+        text-transform: uppercase;
+        opacity: 0.8;
+      }
+      .cards-label::before,
+      .cards-label::after {
+        content: "";
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--primary), transparent);
+        flex: 1;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+      }
+
+      .analysis-card {
+        position: relative;
+        background: linear-gradient(145deg, rgba(20, 20, 35, 0.85), rgba(10, 10, 25, 0.9));
+        border: 1px solid rgba(0, 240, 255, 0.2);
+        border-radius: 20px;
+        padding: 35px 30px;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        overflow: hidden;
+        transition:
+          border-color 0.4s ease,
+          box-shadow 0.4s ease;
+        transform-style: preserve-3d;
+        will-change: transform;
+      }
+
+      .analysis-card::before,
+      .analysis-card::after {
+        content: "";
+        position: absolute;
+        width: 22px;
+        height: 22px;
+        border: 2px solid var(--primary);
+        pointer-events: none;
+        opacity: 0.6;
+        transition:
+          opacity 0.4s ease,
+          transform 0.4s ease;
+      }
+      .analysis-card::before {
+        top: 14px;
+        left: 14px;
+        border-right: none;
+        border-bottom: none;
+        border-radius: 6px 0 0 0;
+      }
+      .analysis-card::after {
+        bottom: 14px;
+        right: 14px;
+        border-left: none;
+        border-top: none;
+        border-radius: 0 0 6px 0;
+      }
+      .analysis-card:hover::before,
+      .analysis-card:hover::after {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+
+      .analysis-card:hover {
+        border-color: var(--primary);
+        box-shadow:
+          0 0 30px rgba(0, 240, 255, 0.25),
+          0 0 60px rgba(168, 85, 247, 0.15),
+          inset 0 0 20px rgba(0, 240, 255, 0.04);
+      }
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 22px;
+        padding-bottom: 18px;
+        border-bottom: 1px dashed rgba(0, 240, 255, 0.2);
+        position: relative;
+        z-index: 2;
+        transform: translateZ(30px);
+      }
+
+      .card-icon-wrapper {
+        width: 54px;
+        height: 54px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 240, 255, 0.08);
+        border: 1px solid rgba(0, 240, 255, 0.3);
+        flex-shrink: 0;
+        transition: var(--transition);
+      }
+
+      .analysis-card:hover .card-icon-wrapper {
+        background: rgba(168, 85, 247, 0.15);
+        border-color: var(--accent-purple);
+        box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+      }
+
+      .card-icon {
+        font-size: 1.5rem;
+        color: var(--primary);
+        transition: var(--transition);
+      }
+      .analysis-card:hover .card-icon {
+        color: var(--accent-purple);
+        transform: rotateY(180deg);
+      }
+
+      .card-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--white);
+        letter-spacing: 0.5px;
+        line-height: 1.3;
+      }
+      .card-title small {
+        display: block;
+        font-family: monospace;
+        font-size: 10px;
+        color: var(--text-muted);
+        letter-spacing: 1.5px;
+        margin-top: 4px;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+
+      .card-body {
+        position: relative;
+        z-index: 2;
+        transform: translateZ(20px);
+        color: var(--text-muted);
+        font-size: 14.5px;
+        line-height: 1.8;
+      }
+      .card-body p {
+        margin-bottom: 12px;
+      }
+      .card-body p:last-child {
+        margin-bottom: 0;
+      }
+      .card-body strong {
+        color: var(--primary);
+        font-weight: 700;
+      }
+      .card-body em {
+        color: var(--accent-purple);
+        font-style: normal;
+        font-weight: 600;
+      }
+
+      .analysis-card.variant-purple .card-icon {
+        color: var(--accent-purple);
+      }
+      .analysis-card.variant-purple .card-icon-wrapper {
+        background: rgba(168, 85, 247, 0.08);
+        border-color: rgba(168, 85, 247, 0.3);
+      }
+      .analysis-card.variant-purple::before,
+      .analysis-card.variant-purple::after {
+        border-color: var(--accent-purple);
+      }
+      .analysis-card.variant-purple:hover {
+        border-color: var(--accent-purple);
+        box-shadow:
+          0 0 30px rgba(168, 85, 247, 0.3),
+          0 0 60px rgba(0, 240, 255, 0.15);
+      }
+
+      .analysis-card.variant-red .card-icon {
+        color: var(--accent);
+      }
+      .analysis-card.variant-red .card-icon-wrapper {
+        background: rgba(255, 0, 60, 0.08);
+        border-color: rgba(255, 0, 60, 0.3);
+      }
+      .analysis-card.variant-red::before,
+      .analysis-card.variant-red::after {
+        border-color: var(--accent);
+      }
+      .analysis-card.variant-red:hover {
+        border-color: var(--accent);
+        box-shadow: 0 0 30px rgba(255, 0, 60, 0.3);
+      }
+
+      .card-scanline {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, transparent, var(--primary), transparent);
+        pointer-events: none;
+      }
+      .analysis-card:hover .card-scanline {
+        animation: scanlineMove 1.5s linear infinite;
+      }
+      @keyframes scanlineMove {
+        0% {
+          top: 0;
+        }
+        100% {
+          top: 100%;
+        }
+      }
+
+      /* =========================================
+         FOOTER
+         ========================================= */
+      .cyber-footer {
+        background: rgba(5, 5, 17, 0.95);
+        backdrop-filter: blur(20px);
+        position: relative;
+        margin-top: 100px;
+        border-top: 1px solid rgba(0, 240, 255, 0.15);
+        z-index: 10;
+        overflow: hidden;
+      }
+
+      .footer-glow-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--primary), var(--accent-purple), transparent);
+        opacity: 0.5;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 90px;
+        padding: 70px 0 50px 0;
+      }
+
+      .cyber-desc {
+        color: var(--text-muted);
+        font-size: 14px;
+        margin: 15px 0 25px;
+        line-height: 1.8;
+        max-width: 400px;
+      }
+      .hologram-barcode {
+        display: inline-block;
+        padding: 10px 15px;
+        border-left: 3px solid var(--primary);
+        background: rgba(0, 240, 255, 0.05);
+        color: var(--primary);
+      }
+      .hologram-barcode span {
+        font-family: monospace;
+        font-size: 18px;
+        letter-spacing: 2px;
+        opacity: 0.7;
+      }
+      .hologram-barcode p {
+        font-size: 10px;
+        margin-top: 5px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: var(--text-muted);
+      }
+
+      .footer-links h4,
+      .footer-social h4 {
+        color: var(--white);
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 25px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+      .footer-links li {
+        margin-bottom: 15px;
+      }
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+      .footer-links i {
+        margin-right: 8px;
+        color: var(--primary);
+      }
+      .footer-links a:hover {
+        color: var(--primary);
+        transform: translateX(5px);
+      }
+
+      .social-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .social-btn {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text-muted);
+        font-size: 13px;
+        font-family: monospace;
+        padding: 8px 12px;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+        width: max-content;
+      }
+      .social-btn i {
+        color: var(--primary);
+        margin-right: 8px;
+        transition: color 0.3s ease;
+      }
+      .social-btn .btn-label {
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--text-muted);
+        transition: color 0.3s ease;
+      }
+      .social-btn:hover {
+        background: rgba(0, 240, 255, 0.08);
+        border-color: rgba(0, 240, 255, 0.3);
+        transform: translateX(5px);
+        box-shadow: 0 0 15px rgba(0, 240, 255, 0.1);
+      }
+      .social-btn:hover i,
+      .social-btn:hover .btn-label {
+        color: var(--white);
+      }
+
+      .footer-bottom {
+        background: #020208;
+        border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        padding: 20px 0;
+      }
+      .bottom-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .bottom-flex p {
+        color: var(--text-muted);
+        font-size: 13px;
+        margin: 0;
+      }
+
+      .system-status {
+        display: flex;
+        align-items: center;
+        font-family: monospace;
+        font-size: 13px;
+        color: #00ff66;
+        letter-spacing: 1px;
+      }
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        background-color: #00ff66;
+        border-radius: 50%;
+        margin-right: 10px;
+        box-shadow: 0 0 10px #00ff66;
+      }
+      .pulse-dot {
+        animation: pulseGreen 2s infinite;
+      }
+
+      .cyber-location {
+        background: rgba(0, 240, 255, 0.03);
+        border-left: 3px solid var(--primary);
+        padding: 12px 15px;
+        margin-bottom: 25px;
+        font-size: 14px;
+        color: var(--white);
+        border-radius: 0 8px 8px 0;
+        transition: all 0.3s ease;
+      }
+      .cyber-location:hover {
+        background: rgba(0, 240, 255, 0.08);
+        box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+      }
+      .cyber-location span {
+        display: block;
+        font-size: 11px;
+        color: var(--primary);
+        margin-bottom: 5px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .cyber-location strong {
+        display: block;
+        margin-bottom: 12px;
+      }
+
+      .map-wrapper {
+        position: relative;
+        width: 100%;
+        height: 130px;
+        border-radius: 6px;
+        overflow: hidden;
+        border: 1px solid rgba(0, 240, 255, 0.3);
+        box-shadow: inset 0 0 10px rgba(0, 240, 255, 0.5);
+      }
+      .map-wrapper iframe {
+        width: 100%;
+        height: 100%;
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+        border: 0;
+      }
+      .map-wrapper:hover iframe {
+        opacity: 1;
+      }
+
+      @keyframes pulseGreen {
+        0% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(0, 255, 102, 0.7);
+        }
+        70% {
+          transform: scale(1);
+          box-shadow: 0 0 0 10px rgba(0, 255, 102, 0);
+        }
+        100% {
+          transform: scale(0.95);
+          box-shadow: 0 0 0 0 rgba(0, 255, 102, 0);
+        }
+      }
+
+      /* =========================================
+         RESPONSIVE
+         ========================================= */
+      @media (max-width: 992px) {
+        .footer-content {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+        .footer-brand {
+          grid-column: 1 / span 2;
+          text-align: center;
+        }
+        .cyber-desc {
+          margin: 15px auto 25px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .menu-toggle {
+          display: flex;
+          z-index: 1001;
+        }
+        .nav-links {
+          position: absolute;
+          top: 100%;
+          left: -100%;
+          flex-direction: column;
+          width: 100%;
+          background: rgba(5, 5, 17, 0.97);
+          backdrop-filter: blur(10px);
+          border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+          padding: 30px 0;
+          transition: 0.4s ease;
+          gap: 20px;
+        }
+        .nav-links.active {
+          left: 0;
+        }
+        .dropdown-content {
+          position: static;
+          box-shadow: none;
+          border: none;
+          background: transparent;
+          display: none;
+          padding-left: 20px;
+          margin-top: 10px;
+        }
+        .dropdown:hover .dropdown-content {
+          display: block;
+          animation: none;
+        }
+        .pdf-container {
+          height: 55vh;
+          min-height: 380px;
+        }
+        .terminal-title {
+          display: none;
+        }
+        .tab-btn {
+          padding: 12px 20px;
+          font-size: 12px;
+        }
+        .hero-section {
+          padding: 90px 0 40px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .footer-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+          gap: 40px;
+          padding: 50px 0 30px 0;
+        }
+        .footer-brand {
+          grid-column: 1;
+        }
+        .social-grid {
+          justify-content: center;
+        }
+        .bottom-flex {
+          flex-direction: column;
+          text-align: center;
+        }
+        .tabs-nav {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .tab-btn {
+          justify-content: center;
+        }
+        .cyber-download-btn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- CURSOR -->
+    <div class="cyber-cursor-dot" id="cursor-dot"></div>
+    <div class="cyber-cursor-ring" id="cursor-ring"></div>
+
+    <!-- DECOR -->
+    <div class="scanlines"></div>
+    <div class="bg-grid-cyber"></div>
+    <div class="bg-gradient-wrapper">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+
+    <!-- CANVAS DIGITAL RAIN -->
+    <canvas id="neural-data-particle"></canvas>
+
+    <!-- =========================================
+         HEADER
+         ========================================= -->
+    <header>
+      <div class="container header-container">
+        <div class="logo-wrapper">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <span class="cyber-badge">JEJAK PPL</span>
+        </div>
+
+        <nav>
+          <div class="menu-toggle" id="mobile-menu"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+          <ul class="nav-links" id="nav-links">
+            <li><a href="../index.html">Beranda</a></li>
+            <li><a href="../profil.html">Profil</a></li>
+
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">Jejak PPL 1 <span class="arrow">&#9662;</span> </a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="../PPL_1/observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+                </li>
+                <li>
+                  <a href="../PPL_1/modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+                </li>
+                <li>
+                  <a href="../PPL_1/lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+                </li>
+                <li>
+                  <a href="../PPL_1/penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+                </li>
+                <li>
+                  <a href="../PPL_1/modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+                </li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a href="#dokumen" class="dropbtn">Jejak PPL 2 <span class="arrow">&#9662;</span></a>
+              <ul class="dropdown-content">
+                <li>
+                  <a href="rancangan.html"><i class="fa-solid fa-clipboard-list"></i> Rancangan Pembelajaran</a>
+                </li>
+                <li>
+                  <a href="materi.html"><i class="fa-solid fa-book"></i> Materi Pembelajaran</a>
+                </li>
+                <li>
+                  <a href="media.html"><i class="fa-solid fa-photo-film"></i> Media Pembelajaran</a>
+                </li>
+                <li>
+                  <a href="video.html"><i class="fa-solid fa-video"></i> Video Praktik Mengajar</a>
+                </li>
+                <li>
+                  <a href="non-mengajar.html"><i class="fa-solid fa-people-group"></i> Kegiatan Non-Mengajar</a>
+                </li>
+                <li>
+                  <a href="instrumen.html"><i class="fa-solid fa-clipboard-check"></i> Instrumen</a>
+                </li>
+              </ul>
+            </li>
+
+            <li><a href="../refleksi.html">Refleksi</a></li>
+            <li><a href="../filosofi.html">Filosofi</a></li>
+            <li><a href="../dokumentasi.html">Dokumentasi</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- =========================================
+         MAIN CONTENT
+         ========================================= -->
+    <main>
+      <!-- HERO -->
+      <section class="hero-section">
+        <div class="container reveal">
+          <div class="hero-badge"><span class="pulse-dot-mini"></span> RANCANGAN PEMBELAJARAN</div>
+          <h1 class="hero-title">Rancangan <span class="highlight">Pembelajaran</span></h1>
+          <div class="title-divider"></div>
+          <p class="hero-desc">
+            Kumpulan dokumen perancangan pembelajaran yang disusun selama pelaksanaan Praktik Pengalaman Lapangan (PPL) 2 — mencakup siklus UTS dan UAS beserta analisis konteks, tujuan, kelebihan, kekurangan, dan landasan teori pedagoginya.
+          </p>
+        </div>
+      </section>
+
+      <!-- TABS -->
+      <section class="tabs-section">
+        <div class="container">
+          <!-- TAB NAV -->
+          <div class="tabs-nav reveal">
+            <button class="tab-btn active" data-tab="uts"><i class="fa-solid fa-cube"></i> UTS - Siklus 1</button>
+            <button class="tab-btn" data-tab="uas"><i class="fa-solid fa-layer-group"></i> UAS - Siklus 2 s.d 4</button>
+          </div>
+
+          <!-- =========================================
+               TAB 1: UTS - SIKLUS 1
+               ========================================= -->
+          <div class="tab-panel active" id="tab-uts">
+            <!-- PDF VIEWER -->
+            <div class="pdf-terminal-wrapper reveal">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">~/ppl_2/uts_siklus_1.pdf</div>
+                <div class="terminal-status">ONLINE</div>
+              </div>
+
+              <div class="pdf-container">
+                <!-- GANTI src dengan path PDF Modul Ajar / RPP UTS kamu -->
+                <iframe src="../Dokumen/RPP_UTS_Ilyas.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UTS Siklus 1"></iframe>
+              </div>
+
+              <div class="terminal-footer">
+                <a href="../Dokumen/RPP_UTS_Ilyas.pdf" download="RPP_UTS_Siklus_1_Ilyas.pdf" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                  <span class="btn-bracket">]</span>
+                </a>
+                <a href="../Dokumen/RPP_UTS_Ilyas.pdf" target="_blank" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                  BUKA_DI_TAB_BARU
+                  <span class="btn-bracket">]</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- ANALYSIS CARDS -->
+            <div class="cards-label reveal">ANALISIS RANCANGAN</div>
+
+            <div class="cards-grid">
+              <!-- KARTU 1 -->
+              <div class="analysis-card tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-bullseye card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Konteks &amp; Tujuan
+                    <small>Context &amp; Objectives</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p>
+                    Rancangan ini dikembangkan untuk
+                    <strong>Fase E (Kelas X)</strong> di SMAN 4 Yogyakarta dengan fokus materi <strong>Literasi Digital</strong>. Peserta didik telah memiliki dasar penggunaan media digital dan mampu bekerja dalam kelompok.
+                  </p>
+                  <p>
+                    Tujuan utama: murid mampu
+                    <em>menciptakan konten digital edukatif</em>, menyajikannya secara beretika, serta memahami aspek keamanan data dan pencegahan hoaks.
+                  </p>
+                </div>
+              </div>
+
+              <!-- KARTU 2 -->
+              <div class="analysis-card variant-purple tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-scale-balanced card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Kelebihan &amp; Kekurangan
+                    <small>Strengths &amp; Weaknesses</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p><strong>Kelebihan:</strong> pendekatan <em>Project Based Learning</em> memberi pengalaman bermakna; integrasi teknologi terkini (Canva, CapCut) meningkatkan motivasi; asesmen lengkap dari diagnostik hingga sumatif.</p>
+                  <p><strong>Kekurangan:</strong> alokasi waktu <em>4×45 menit</em> sangat padat; kesenjangan keterampilan teknis murid; ketergantungan pada infrastruktur digital dan risiko jejak digital saat publikasi konten.</p>
+                </div>
+              </div>
+
+              <!-- KARTU 3 -->
+              <div class="analysis-card variant-red tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-lightbulb card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Kajian Teori
+                    <small>Theoretical Framework</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p>Rancangan mengadopsi <strong>Deep Learning</strong> agar murid memahami makna mendalam produksi konten, serta <strong>Konstruktivisme Sosial</strong> yang mendasari kerja kelompok dan diskusi pemecahan masalah.</p>
+                  <p>Diperkuat <em>Profil Pelajar Pancasila</em> (Kreativitas, Kolaborasi, Nalar Kritis, Kemandirian) sebagai kerangka pengembangan karakter dalam setiap aktivitas pembelajaran.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- =========================================
+               TAB 2: UAS - SIKLUS 2 s.d 4
+               ========================================= -->
+          <div class="tab-panel" id="tab-uas">
+            <!-- PDF VIEWER -->
+            <div class="pdf-terminal-wrapper reveal">
+              <div class="terminal-header">
+                <div class="terminal-dots">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                </div>
+                <div class="terminal-title">~/ppl_2/uas_siklus_2-4.pdf</div>
+                <div class="terminal-status">ONLINE</div>
+              </div>
+
+              <div class="pdf-container">
+                <!-- GANTI src dengan path PDF Modul Ajar UAS kamu -->
+                <iframe src="../Dokumen/Modul_Ajar_UAS_Ilyas.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UAS Siklus 2 s.d 4"></iframe>
+              </div>
+
+              <div class="terminal-footer">
+                <a href="../Dokumen/Modul_Ajar_UAS_Ilyas.pdf" download="Modul_Ajar_UAS_Siklus_2-4_Ilyas.pdf" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                  <span class="btn-bracket">]</span>
+                </a>
+                <a href="../Dokumen/Modul_Ajar_UAS_Ilyas.pdf" target="_blank" class="cyber-download-btn">
+                  <span class="btn-bracket">[</span>
+                  <i class="fa-solid fa-up-right-from-square"></i>
+                  BUKA_DI_TAB_BARU
+                  <span class="btn-bracket">]</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- ANALYSIS CARDS -->
+            <div class="cards-label reveal">ANALISIS RANCANGAN</div>
+
+            <div class="cards-grid">
+              <!-- KARTU 1 -->
+              <div class="analysis-card tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-bullseye card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Konteks &amp; Tujuan
+                    <small>Context &amp; Objectives</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p>
+                    Modul untuk siklus UAS dirancang untuk memperkuat
+                    <strong>kompetensi lanjutan</strong> pada Fase E, dengan fokus pada penerapan kolaborasi digital dan produksi karya yang lebih kompleks.
+                  </p>
+                  <p>
+                    Tujuan: murid mampu
+                    <em>menyusun proyek digital terintegrasi</em>, menyajikannya di forum kelas, serta merefleksikan proses belajar secara mandiri dan berkelanjutan.
+                  </p>
+                </div>
+              </div>
+
+              <!-- KARTU 2 -->
+              <div class="analysis-card variant-purple tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-scale-balanced card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Kelebihan &amp; Kekurangan
+                    <small>Strengths &amp; Weaknesses</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p>
+                    <strong>Kelebihan:</strong> rancangan bersifat <em>iteratif</em>, hasil refleksi siklus 1 dijadikan dasar perbaikan; diferensiasi proses lebih variatif; keterlibatan murid dalam asesmen (self &amp; peer assessment)
+                    meningkat.
+                  </p>
+                  <p><strong>Kekurangan:</strong> kompleksitas proyek berpotensi memunculkan kebingungan pada murid dengan kemampuan teknis rendah; waktu refleksi sering terpotong di akhir sesi.</p>
+                </div>
+              </div>
+
+              <!-- KARTU 3 -->
+              <div class="analysis-card variant-red tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-lightbulb card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Kajian Teori
+                    <small>Theoretical Framework</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p>
+                    Mengadopsi <strong>Reflective Practice (Schön)</strong>
+                    untuk menjadikan refleksi siklus sebagai basis perbaikan berkelanjutan, serta
+                    <strong>Differentiated Instruction (Tomlinson)</strong>
+                    untuk mengakomodasi keberagaman kesiapan dan minat murid.
+                  </p>
+                  <p>Diperkuat kerangka <em>Assessment for Learning</em> yang menempatkan umpan balik formatif sebagai penggerak utama kemajuan belajar.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+    <footer class="cyber-footer">
+      <div class="footer-glow-line"></div>
+
+      <div class="container footer-content reveal">
+        <div class="footer-brand">
+          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
+          <p class="cyber-desc">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 2. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
+          <div class="hologram-barcode">
+            <span>||| | || ||| || | |||| ||</span>
+            <p>ID: IFA-2026-SKOM</p>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <h4>E-Portofolio 1</h4>
+          <ul>
+            <li>
+              <a href="../PPL_1/observasi.html"><i class="fa-solid fa-clipboard-check"></i> Hasil Observasi</a>
+            </li>
+            <li>
+              <a href="../PPL_1/modul.html"><i class="fa-solid fa-book-open"></i> Modul Ajar</a>
+            </li>
+            <li>
+              <a href="../PPL_1/lkpd.html"><i class="fa-solid fa-file-pen"></i> LKPD</a>
+            </li>
+            <li>
+              <a href="../PPL_1/penilaian.html"><i class="fa-solid fa-star"></i> Penilaian</a>
+            </li>
+            <li>
+              <a href="../PPL_1/modelguru.html"><i class="fa-solid fa-chalkboard-user"></i> Model Guru</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>E-Portofolio 2</h4>
+          <ul>
+            <li>
+              <a href="../refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+            </li>
+            <li>
+              <a href="../filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-social">
+          <h4>LOKASI &amp; KONTAK</h4>
+
+          <div class="cyber-location">
+            <span><i class="fa-solid fa-location-dot"></i> LOKASI LPTK</span>
+            <strong>Universitas Negeri Yogyakarta</strong>
+
+            <div class="map-wrapper">
+              <iframe
+                src="https://maps.google.com/maps?q=Universitas+Negeri+Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="130"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+            </div>
+          </div>
+
+          <div class="social-grid">
+            <a href="mailto:ilyasfandhianggara@gmail.com" class="social-btn">
+              <i class="fa-solid fa-envelope"></i>
+              <span class="btn-label">Email</span>
+            </a>
+            <a href="https://www.instagram.com/fandhidk17/" target="_blank" class="social-btn">
+              <i class="fa-brands fa-instagram"></i>
+              <span class="btn-label">Instagram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="container bottom-flex">
+          <p>&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG.</p>
+          <div class="system-status"><span class="status-dot pulse-dot"></span> SYSTEM.ONLINE</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- =========================================
+         JAVASCRIPT
+         ========================================= -->
+    <script>
+      /* ==========================================
+         HAMBURGER MENU MOBILE
+         ========================================== */
+      const mobileMenu = document.getElementById("mobile-menu");
+      const navLinks = document.getElementById("nav-links");
+      if (mobileMenu && navLinks) {
+        mobileMenu.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
+      }
+
+      /* ==========================================
+         SCROLL REVEAL (WOW! Effect)
+         ========================================== */
+      function reveal() {
+        var reveals = document.querySelectorAll(".reveal");
+        for (var i = 0; i < reveals.length; i++) {
+          var windowHeight = window.innerHeight;
+          var elementTop = reveals[i].getBoundingClientRect().top;
+          var elementVisible = 100;
+          if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+          }
+        }
+      }
+      window.addEventListener("scroll", reveal);
+      reveal();
+
+      /* ==========================================
+         CYBER CURSOR & RADAR LOGIC
+         (menggunakan pendekatan asli seperti di
+          modul.html — mouseenter/mouseleave
+          langsung ke setiap elemen)
+         ========================================== */
+      const cursorDot = document.getElementById("cursor-dot");
+      const cursorRing = document.getElementById("cursor-ring");
+      const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
+      /* Fungsi reusable untuk attach hover listener ke elemen interaktif
+         Bisa dipanggil ulang setelah tab switch (untuk elemen dinamis) */
+      function attachCursorHover(scope = document) {
+        const interactables = scope.querySelectorAll("a, button, .social-btn, .nav-links li, .tab-btn, .tilt-card, .cyber-download-btn");
+
+        interactables.forEach((el) => {
+          /* Hindari double-attach */
+          if (el.dataset.cursorAttached === "true") return;
+
+          el.addEventListener("mouseenter", () => {
+            document.body.classList.add("cursor-hover-active");
+          });
+          el.addEventListener("mouseleave", () => {
+            document.body.classList.remove("cursor-hover-active");
+          });
+
+          el.dataset.cursorAttached = "true";
+        });
+      }
+
+      if (isDesktop && cursorDot && cursorRing) {
+        /* 1. Gerakkan kursor */
+        window.addEventListener("mousemove", (e) => {
+          cursorDot.style.left = `${e.clientX}px`;
+          cursorDot.style.top = `${e.clientY}px`;
+
+          cursorRing.animate({ left: `${e.clientX}px`, top: `${e.clientY}px` }, { duration: 150, fill: "forwards" });
+        });
+
+        /* 2. Attach hover listener ke semua elemen interaktif */
+        attachCursorHover(document);
+      }
+
+      /* =============================================
+         NEURAL DATA STREAM PARTICLE (DIGITAL RAIN)
+         ============================================= */
+      (function () {
+        const canvas = document.getElementById("neural-data-particle");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+
+        let width, height;
+        let particles = [];
+
+        const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>/{}[]|?*#@%&";
+
+        const PARTICLE_COUNT = 80;
+        const FONT_SIZE = 14;
+        const SPEED_MIN = 0.4;
+        const SPEED_MAX = 1.2;
+
+        function resizeCanvas() {
+          width = window.innerWidth;
+          height = window.innerHeight;
+          canvas.width = width;
+          canvas.height = height;
+          initParticles();
+        }
+
+        class Particle {
+          constructor() {
+            this.reset(true);
+          }
+
+          reset(initial = false) {
+            this.x = Math.random() * width;
+            this.y = initial ? Math.random() * height : -10;
+            this.char = chars[Math.floor(Math.random() * chars.length)];
+            this.speed = Math.random() * (SPEED_MAX - SPEED_MIN) + SPEED_MIN;
+            this.fontSize = Math.random() * 14 + 10;
+            this.opacity = Math.random() * 0.5 + 0.3;
+            const hue = Math.random() > 0.5 ? 185 : 270;
+            this.color = `hsla(${hue}, 90%, 70%, ${this.opacity})`;
+          }
+
+          update() {
+            this.y += this.speed;
+            if (this.y > height + 20) {
+              this.reset();
+            }
+          }
+
+          draw() {
+            ctx.font = `${this.fontSize}px "Courier New", monospace`;
+            ctx.fillStyle = this.color;
+            ctx.fillText(this.char, this.x, this.y);
+          }
+        }
+
+        function initParticles() {
+          particles = [];
+          for (let i = 0; i < PARTICLE_COUNT; i++) {
+            particles.push(new Particle());
+          }
+        }
+
+        function animateParticles() {
+          ctx.clearRect(0, 0, width, height);
+          for (let p of particles) {
+            p.update();
+            p.draw();
+          }
+          requestAnimationFrame(animateParticles);
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+        animateParticles();
+      })();
+
+      /* ==========================================
+         TAB SWITCHING (UTS / UAS)
+         ========================================== */
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      const tabPanels = document.querySelectorAll(".tab-panel");
+
+      /* Init Vanilla Tilt untuk semua .tilt-card dalam sebuah scope */
+      function initTilt(scope) {
+        if (typeof VanillaTilt === "undefined") return;
+        const cards = scope.querySelectorAll(".tilt-card");
+        cards.forEach((card) => {
+          if (card.dataset.tiltInit === "true") return;
+          VanillaTilt.init(card, {
+            max: 8,
+            speed: 600,
+            glare: true,
+            "max-glare": 0.15,
+            scale: 1.02,
+            perspective: 1200,
+            gyroscope: false,
+          });
+          card.dataset.tiltInit = "true";
+        });
+      }
+
+      tabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = btn.dataset.tab;
+
+          tabBtns.forEach((b) => b.classList.remove("active"));
+          tabPanels.forEach((p) => p.classList.remove("active"));
+
+          btn.classList.add("active");
+          const activePanel = document.getElementById("tab-" + target);
+
+          if (activePanel) {
+            activePanel.classList.add("active");
+
+            /* Trigger reveal pada elemen dalam panel baru */
+            activePanel.querySelectorAll(".reveal").forEach((el) => {
+              el.classList.add("active");
+            });
+
+            /* Init tilt setelah panel muncul di DOM */
+            setTimeout(() => initTilt(activePanel), 60);
+
+            /* Re-attach cursor hover untuk elemen baru di panel ini */
+            if (isDesktop) {
+              setTimeout(() => attachCursorHover(activePanel), 100);
+            }
+          }
+        });
+      });
+
+      /* Init tilt untuk tab aktif pertama kali */
+      const currentActivePanel = document.querySelector(".tab-panel.active");
+      if (currentActivePanel) initTilt(currentActivePanel);
+    </script>
+  </body>
+</html>
