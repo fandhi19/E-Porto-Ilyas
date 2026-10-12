@@ -1448,10 +1448,10 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        right: 0;
         height: 2px;
         background: linear-gradient(90deg, transparent, var(--primary), var(--accent-purple), transparent);
-        opacity: 0.5;
+        box-shadow: 0 0 15px var(--primary);
       }
 
       .footer-content {
@@ -1783,6 +1783,215 @@
           flex-direction: column;
         }
       }
+
+      /* =========================================
+         LKPD PDF VIEWER COMPONENT
+         ========================================= */
+      .lkpd-pdf-wrapper {
+        margin-top: 35px;
+        margin-bottom: 50px;
+      }
+
+      .lkpd-pdf-header {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 18px;
+      }
+
+      .lkpd-pdf-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: monospace;
+        font-size: 11px;
+        letter-spacing: 2px;
+        color: var(--accent-purple);
+        text-transform: uppercase;
+        padding: 4px 12px;
+        background: rgba(168, 85, 247, 0.08);
+        border: 1px solid rgba(168, 85, 247, 0.3);
+        border-radius: 20px;
+        width: max-content;
+      }
+
+      .lkpd-pdf-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--white);
+        letter-spacing: 0.5px;
+      }
+
+      .lkpd-pdf-sub {
+        font-size: 13.5px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      .pdf-terminal-wrapper {
+        background: #050511;
+        border: 1px solid var(--primary);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow:
+          0 15px 35px rgba(0, 0, 0, 0.8),
+          0 0 20px rgba(0, 240, 255, 0.2);
+        margin-bottom: 30px;
+        transition: var(--transition);
+      }
+      .pdf-terminal-wrapper:hover {
+        border-color: var(--accent-purple);
+        box-shadow:
+          0 20px 40px rgba(0, 0, 0, 0.85),
+          0 0 30px rgba(168, 85, 247, 0.25);
+      }
+
+      .terminal-header {
+        background: #0a0a14;
+        border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+        padding: 12px 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .terminal-dots {
+        display: flex;
+        gap: 8px;
+      }
+
+      .terminal-dots .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .dot.red {
+        background: #ff5f56;
+        box-shadow: 0 0 8px #ff5f56;
+      }
+
+      .dot.yellow {
+        background: #ffbd2e;
+        box-shadow: 0 0 8px #ffbd2e;
+      }
+
+      .dot.green {
+        background: #27c93f;
+        box-shadow: 0 0 8px #27c93f;
+      }
+
+      .terminal-title {
+        font-family: monospace;
+        color: var(--text-main);
+        font-size: 13.5px;
+        letter-spacing: 1px;
+        opacity: 0.85;
+      }
+
+      .terminal-status {
+        font-family: monospace;
+        font-size: 11px;
+        color: #00ff66;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        letter-spacing: 1px;
+      }
+
+      .terminal-status::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: #00ff66;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #00ff66;
+        animation: pulseGreen 2s infinite;
+      }
+
+      @keyframes pulseGreen {
+        0%,
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.4;
+          transform: scale(0.85);
+        }
+      }
+
+      .pdf-container {
+        width: 100%;
+        height: 65vh;
+        min-height: 480px;
+        max-height: 750px;
+        position: relative;
+        background: #0a0a14;
+      }
+
+      .cyber-pdf-frame {
+        width: 100%;
+        height: 100%;
+        border: none;
+        display: block;
+        background: #111122;
+      }
+
+      .terminal-footer {
+        background: #0a0a14;
+        border-top: 1px solid rgba(0, 240, 255, 0.3);
+        padding: 14px 20px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .cyber-download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: monospace;
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 12.5px;
+        padding: 9px 18px;
+        border: 1px solid var(--primary);
+        background: rgba(0, 240, 255, 0.05);
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        letter-spacing: 1px;
+      }
+
+      .cyber-download-btn .btn-bracket {
+        opacity: 0.6;
+      }
+
+      .cyber-download-btn:hover {
+        background: var(--primary);
+        color: #03030c;
+        box-shadow: 0 0 15px var(--primary);
+        transform: translateY(-2px);
+      }
+
+      @media (max-width: 768px) {
+        .pdf-container {
+          height: 50vh;
+          min-height: 360px;
+        }
+        .terminal-header {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+        .terminal-status {
+          align-self: flex-end;
+        }
+      }
     </style>
   </head>
 
@@ -1894,6 +2103,15 @@
             <button class="tab-btn" data-tab="uas"><i class="fa-solid fa-layer-group"></i> UAS - Siklus 2 s.d 4</button>
           </div>
 
+          <!-- ════════════════════════════════════════════
+                 DIVIDER: Media 2
+                 ════════════════════════════════════════════ -->
+          <div class="media-divider reveal">
+            <i class="fa-solid fa-circle divider-icon"></i>
+            MEDIA 1
+            <i class="fa-solid fa-circle divider-icon"></i>
+          </div>
+
           <!-- =========================================
                TAB 1: UTS - SIKLUS 1
                (2 Media: PPT Canva + Website Pembelajaran)
@@ -1909,7 +2127,7 @@
                   <span class="dot red"></span>
                   <span class="dot yellow"></span>
                   <span class="dot green"></span>
-                  <span class="bar-title">~/media/siklus_1_canva.canva</span>
+                  <span class="bar-title">Power Point (PPT) Algoritma Standar</span>
                 </div>
                 <div class="showcase-image">
                   <!-- GANTI src dengan URL embed Canva kamu -->
@@ -1920,7 +2138,7 @@
               <!-- Right: Info Card -->
               <div class="showcase-info">
                 <div class="showcase-tag"><i class="fa-solid fa-chalkboard"></i> SLIDE PRESENTATION</div>
-                <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Algoritma &amp; Pseudocode</h3>
+                <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Algoritma Standar</h3>
                 <p class="showcase-desc">
                   Presentasi visual interaktif untuk pengenalan konsep algoritma, flowchart, dan pseudocode. Dilengkapi animasi, ilustrasi konkret, dan contoh kasus sehari-hari agar konsep abstrak lebih mudah dipahami murid Fase E.
                 </p>
@@ -2028,7 +2246,7 @@
                   <span class="dot red"></span>
                   <span class="dot yellow"></span>
                   <span class="dot green"></span>
-                  <span class="bar-title">~/media/siklus_1_website.live</span>
+                  <span class="bar-title"> Web Pembelajaran Informatik</span>
                 </div>
                 <div class="showcase-image live-preview">
                   <!-- LIVE PREVIEW — iframe website pembelajaran langsung -->
@@ -2137,6 +2355,174 @@
                 </div>
               </div>
             </div>
+
+            <!-- ════════════════════════════════════════════
+                 DIVIDER: Media 3
+                 ════════════════════════════════════════════ -->
+            <div class="media-divider reveal">
+              <i class="fa-solid fa-circle divider-icon"></i>
+              MEDIA 3
+              <i class="fa-solid fa-circle divider-icon"></i>
+            </div>
+
+            <!-- ════════════════════════════════════════════
+                 MEDIA 3 — LKPD DIGITAL & DOKUMEN PDF
+                 ════════════════════════════════════════════ -->
+            <div class="media-showcase reveal">
+              <!-- Left: Live Preview -->
+              <div class="showcase-visual">
+                <div class="showcase-terminal-bar">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="bar-title">~/media/siklus_1_lkpd.live</span>
+                </div>
+                <div class="showcase-image live-preview">
+                  <!-- LIVE PREVIEW — iframe website pembelajaran langsung -->
+                  <iframe
+                    src="https://informatika-learning.vercel.app/Materi_AS/lkpd.html"
+                    title="Live Preview LKPD Digital — Siklus 1"
+                    loading="lazy"
+                    sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                  <span class="live-hint">
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    Klik tombol di kanan untuk fullscreen
+                  </span>
+                </div>
+              </div>
+
+              <!-- Right: Info Card -->
+              <div class="showcase-info">
+                <div class="showcase-tag"><i class="fa-solid fa-file-pen"></i> DIGITAL WORKSHEET</div>
+                <h3 class="showcase-title"><span class="accent">LKPD Digital</span> — Algoritma Standar</h3>
+                <p class="showcase-desc">Lembar Kerja Peserta Didik berbasis web interaktif untuk memandu penguasaan konsep algoritma searching dan sorting, studi kasus terstruktur, serta input respons langsung.</p>
+
+                <div class="feature-grid">
+                  <div class="feature-item"><i class="fa-solid fa-list-check"></i> Petunjuk</div>
+                  <div class="feature-item"><i class="fa-solid fa-pen-to-square"></i> Isian</div>
+                  <div class="feature-item"><i class="fa-solid fa-diagram-project"></i> Simulasi Logika</div>
+                  <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Auto-Feedback</div>
+                  <div class="feature-item"><i class="fa-solid fa-file-pdf"></i> Ekspor PDF</div>
+                </div>
+
+                <div class="showcase-actions">
+                  <a href="https://informatika-learning.vercel.app/Materi_AS/lkpd.html" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                    <i class="fa-solid fa-rocket"></i>
+                    Buka Web LKPD
+                  </a>
+                  <a href="../Dokumen/PPL_2/LKPD Siklus 1.pdf" download="LKPD_Siklus_1.pdf" class="btn-cta btn-cta-secondary">
+                    <i class="fa-solid fa-download"></i>
+                    Unduh PDF LKPD
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- KOMPONEN PDF VIEWER — LKPD SIKLUS 1 -->
+            <div class="lkpd-pdf-wrapper reveal">
+              <div class="lkpd-pdf-header">
+                <div class="lkpd-pdf-badge"><i class="fa-solid fa-file-pdf"></i> DOKUMEN CETAK / PDF</div>
+                <h4 class="lkpd-pdf-title">Dokumen Lembar Kerja Peserta Didik (LKPD) — Siklus 1</h4>
+                <p class="lkpd-pdf-sub">Pratinjau dokumen PDF resmi LKPD Algoritma Standar (Searching &amp; Sorting) yang dapat diunduh atau dibaca langsung.</p>
+              </div>
+
+              <div class="pdf-terminal-wrapper">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="terminal-title">~/dokumen/lkpd_siklus_1.pdf</div>
+                  <div class="terminal-status">PDF VIEWER</div>
+                </div>
+
+                <div class="pdf-container">
+                  <iframe src="../Dokumen/PPL_2/Media/LKPD Siklus 1.pdf" class="cyber-pdf-frame" title="Dokumen PDF LKPD Siklus 1 — Algoritma Standar"></iframe>
+                </div>
+
+                <div class="terminal-footer">
+                  <a href="../Dokumen/PPL_2/Media/LKPD Siklus 1.pdf" download="LKPD_Siklus_1.pdf" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-download"></i> UNDUH_PDF
+                    <span class="btn-bracket">]</span>
+                  </a>
+                  <a href="../Dokumen/PPL_2/Media /LKPD Siklus 1.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-up-right-from-square"></i> BUKA_TAB_BARU
+                    <span class="btn-bracket">]</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- ANALYSIS CARDS — WEBSITE -->
+            <div class="cards-label reveal">ANALISIS LKPD DIGITAL</div>
+
+            <div class="cards-grid">
+              <!-- KARTU 1: Konteks & Tujuan -->
+              <div class="analysis-card tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-bullseye card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Konteks &amp; Tujuan
+                    <small>Context &amp; Objectives</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p>
+                    Website pembelajaran dipilih sebagai
+                    <strong>media utama praktik mandiri</strong> pada siklus 1 karena menyatukan beragam aktivitas belajar (baca, simulasi, video, tes) dalam satu ekosistem digital.
+                  </p>
+                  <p>
+                    Tujuan: memberi pengalaman belajar
+                    <em>self-paced</em>, memfasilitasi asesmen berjenjang (pre → post test), dan memungkinkan guru memantau progres murid secara real-time.
+                  </p>
+                </div>
+              </div>
+
+              <!-- KARTU 2: Kelebihan & Kekurangan -->
+              <div class="analysis-card variant-purple tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-scale-balanced card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Kelebihan &amp; Kekurangan
+                    <small>Strengths &amp; Weaknesses</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p><strong>Kelebihan:</strong> semua aktivitas terintegrasi dalam satu platform; <em>instant feedback</em> dari pre-test &amp; post-test; simulasi interaktif memperkuat pemahaman konsep; akses fleksibel kapan saja.</p>
+                  <p><strong>Kekurangan:</strong> bergantung penuh pada koneksi internet stabil; butuh perangkat memadai untuk simulasi; guru perlu waktu adaptasi untuk memantau dashboard analitik.</p>
+                </div>
+              </div>
+
+              <!-- KARTU 3: Kajian Teori (TPACK) -->
+              <div class="analysis-card variant-red tilt-card reveal">
+                <div class="card-scanline"></div>
+                <div class="card-header">
+                  <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-lightbulb card-icon"></i>
+                  </div>
+                  <div class="card-title">
+                    Kajian Teori (TPACK)
+                    <small>Theoretical Framework</small>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <p><strong>Technological Knowledge:</strong> pemanfaatan web sebagai <em>integrated learning environment</em> yang menggabungkan konten, latihan, dan asesmen dalam satu platform.</p>
+                  <p><strong>Pedagogical Knowledge:</strong> menerapkan <strong>Mastery Learning (Bloom)</strong> — pre-test memetakan titik awal, post-test memverifikasi ketuntasan sebelum lanjut ke materi berikutnya.</p>
+                  <p><strong>Content Knowledge:</strong> urutan materi mengikuti <em>spiral curriculum</em> Bruner — setiap fitur (baca → simulasi → video) memperkuat konsep yang sama dari sudut pandang berbeda.</p>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- =========================================
@@ -2149,66 +2535,63 @@
                 <div class="siklus-number-badge">02</div>
                 <div class="siklus-titles">
                   <span class="siklus-label">SIKLUS 2</span>
-                  <span class="siklus-name">Game 2D "CodeQuest" — Belajar C++ Sambil Bermain</span>
+                  <span class="siklus-name">Algoritma dan Pemrograman</span>
                 </div>
               </div>
 
-              <div class="media-showcase">
+              <!-- ════════════════════════════════════════════
+                   MEDIA 1 — PPT CANVA
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
+                <!-- Left: Visual Preview (iframe Canva) -->
                 <div class="showcase-visual">
                   <div class="showcase-terminal-bar">
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
-                    <span class="bar-title">~/media/siklus_2_codequest.png</span>
+                    <span class="bar-title">Power Point (PPT) Algoritma dan Pemrograman</span>
                   </div>
                   <div class="showcase-image">
-                    <!-- GANTI src dengan screenshot game 2D kamu -->
-                    <img
-                      src="../Images/media_uas_siklus2.png"
-                      alt="Preview Game 2D CodeQuest — Belajar C++"
-                      onerror="
-                        this.style.display = 'none';
-                        this.nextElementSibling.style.display = 'flex';
-                      "
-                    />
-                    <div class="showcase-placeholder" style="display: none">
-                      <i class="fa-solid fa-gamepad"></i>
-                      <span>Preview Game CodeQuest</span>
-                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Belum ada screenshot</small>
-                    </div>
+                    <!-- GANTI src dengan URL embed Canva Siklus 2 -->
+                    <iframe src="https://www.canva.com/design/DAHV4aUtB9U/Of_CKL-vV-Rv_NH9YX7z-g/view?embed" title="PPT Canva Siklus 2 — Dasar Pemrograman C++" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
                   </div>
                 </div>
 
+                <!-- Right: Info Card -->
                 <div class="showcase-info">
-                  <div class="showcase-tag"><i class="fa-solid fa-gamepad"></i> GAME 2D</div>
-                  <h3 class="showcase-title"><span class="accent">CodeQuest</span> — Petualangan Kode C++</h3>
+                  <div class="showcase-tag"><i class="fa-solid fa-chalkboard"></i> SLIDE PRESENTATION</div>
+                  <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Dasar Pemrograman C++</h3>
                   <p class="showcase-desc">
-                    Game 2D berbasis web dengan pendekatan <em>gamification</em>
-                    untuk mengenalkan sintaks C++, variabel, dan tipe data. Murid menyelesaikan misi melalui tantangan kode, mendapat poin, dan naik level.
+                    Presentasi visual interaktif untuk pengenalan sintaks dasar C++, variabel, tipe data, dan operasi input/output. Dilengkapi contoh kode live dan visualisasi alur eksekusi program agar murid memahami konsep pemrograman
+                    secara konkret.
                   </p>
 
                   <div class="showcase-tech">
-                    <span class="tech-chip">Phaser.js</span>
-                    <span class="tech-chip">Canvas API</span>
-                    <span class="tech-chip">Gamification</span>
-                    <span class="tech-chip">C++ Simulator</span>
+                    <span class="tech-chip">Canva</span>
+                    <span class="tech-chip">Visual Design</span>
+                    <span class="tech-chip">Code Highlight</span>
+                    <span class="tech-chip">Animasi</span>
                   </div>
 
                   <div class="showcase-actions">
-                    <a href="https://example.com/codequest" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
-                      <i class="fa-solid fa-rocket"></i>
-                      Mainkan Game
+                    <a href="https://www.canva.com/design/DAHV4aUtB9U/Of_CKL-vV-Rv_NH9YX7z-g/view" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      Buka Slide
                     </a>
-                    <a href="https://example.com/codequest/docs" target="_blank" rel="noopener" class="btn-cta btn-cta-secondary">
-                      <i class="fa-solid fa-book"></i>
-                      Panduan
+                    <a href="../Dokumen/PPL_2/Media/PPT Siklus 2.pdf" download="PPT_Siklus_2.pdf" class="btn-cta btn-cta-secondary">
+                      <i class="fa-solid fa-download"></i>
+                      Download PDF
                     </a>
                   </div>
                 </div>
               </div>
 
+              <!-- ANALYSIS CARDS — PPT CANVA -->
+              <div class="cards-label reveal">ANALISIS PPT CANVA</div>
+
               <div class="cards-grid">
-                <div class="analysis-card tilt-card">
+                <!-- KARTU 1: Konteks & Tujuan -->
+                <div class="analysis-card tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2220,12 +2603,13 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>CodeQuest</strong> dikembangkan untuk mengatasi kejenuhan belajar sintaks C++ yang dianggap kering dan teknis. Pendekatan <em>gamification</em> memanfaatkan motivasi intrinsik murid Fase E.</p>
-                    <p>Tujuan: membangun <em>computational thinking</em> dan pemahaman sintaks dasar melalui pengalaman bermain yang bertahap.</p>
+                    <p>PPT Canva digunakan sebagai <strong>media pengantar sintaks C++</strong> pada Fase E — memberi visualisasi konkret struktur program, tipe data, dan alur input/output sebelum murid masuk ke praktikum langsung.</p>
+                    <p>Tujuan: mengurangi <em>cognitive load</em> awal saat berhadapan dengan <em>syntax-heavy language</em>, serta menyamakan pemahaman dasar sebelum praktik coding.</p>
                   </div>
                 </div>
 
-                <div class="analysis-card variant-purple tilt-card">
+                <!-- KARTU 2: Kelebihan & Kekurangan -->
+                <div class="analysis-card variant-purple tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2237,15 +2621,13 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> motivasi &amp; engagement tinggi; sistem reward mendorong ketuntasan misi; mengurangi kecemasan belajar sintaks.</p>
-                    <p>
-                      <strong>Kekurangan:</strong> risiko <em>over-focusing</em>
-                      pada game, bukan konsep; butuh perangkat dengan spesifikasi memadai; waktu setup awal cukup lama.
-                    </p>
+                    <p><strong>Kelebihan:</strong> syntax highlight mempermudah membaca kode; visual alur eksekusi memperjelas konsep abstrak; dapat dibuka kapan saja sebagai referensi belajar mandiri.</p>
+                    <p><strong>Kekurangan:</strong> tidak bisa menjalankan kode secara langsung; murid cenderung pasif saat penyampaian satu arah; butuh koneksi internet untuk akses.</p>
                   </div>
                 </div>
 
-                <div class="analysis-card variant-red tilt-card">
+                <!-- KARTU 3: Kajian Teori (TPACK) -->
+                <div class="analysis-card variant-red tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2257,13 +2639,421 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Technological:</strong> game engine 2D sebagai wadah <em>experiential learning</em> yang aman untuk bereksperimen dengan kode.</p>
                     <p>
-                      <strong>Pedagogical:</strong> mengadopsi
-                      <strong>Self-Determination Theory (Deci &amp; Ryan)</strong>
-                      — memenuhi kebutuhan <em>autonomy, competence, relatedness</em> melalui misi, reward, dan leaderboard.
+                      <strong>Technological Knowledge:</strong> Canva sebagai alat visualisasi yang memanfaatkan <em>dual coding</em>
+                      (gambar + teks) untuk mempermudah retensi konsep pemrograman.
                     </p>
-                    <p><strong>Content:</strong> kurikulum C++ dasar dipetakan ke level game mengikuti urutan kognitif bertahap.</p>
+                    <p><strong>Pedagogical Knowledge:</strong> berbasis <em>worked example</em> (Sweller) — memberikan contoh lengkap sebelum murid menyelesaikan soal serupa.</p>
+                    <p><strong>Content Knowledge:</strong> kurikulum C++ dasar dipetakan mengikuti urutan <em>syntax → semantic → logic</em>, selaras dengan tingkat kognitif Fase E.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   DIVIDER: Media 2
+                   ════════════════════════════════════════════ -->
+              <div class="media-divider reveal">
+                <i class="fa-solid fa-circle divider-icon"></i>
+                MEDIA 2
+                <i class="fa-solid fa-circle divider-icon"></i>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   MEDIA 2 — WEBSITE PEMBELAJARAN (LIVE)
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
+                <div class="showcase-visual">
+                  <div class="showcase-terminal-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="bar-title">Web Pembelajaran Informatika</span>
+                  </div>
+                  <div class="showcase-image live-preview">
+                    <!-- GANTI src dengan URL halaman materi C++ di website kamu -->
+                    <iframe
+                      src="https://informatika-learning.vercel.app/Materi_AP/materi-algoritma.html"
+                      title="Live Preview Website Pembelajaran C++ — Siklus 2"
+                      loading="lazy"
+                      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <span class="live-hint">
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      Klik tombol di kanan untuk fullscreen
+                    </span>
+                  </div>
+                </div>
+
+                <div class="showcase-info">
+                  <div class="showcase-tag"><i class="fa-solid fa-globe"></i> WEB-BASED LEARNING</div>
+                  <h3 class="showcase-title"><span class="accent">Informatics Lab</span> — Materi Dasar C++</h3>
+                  <p class="showcase-desc">
+                    Halaman web interaktif yang memuat materi baca terstruktur, simulator kode C++ untuk eksperimen langsung, video penjelasan, serta latihan soal mandiri — semua terintegrasi dalam satu halaman untuk mendukung
+                    <em>self-paced learning</em>.
+                  </p>
+
+                  <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-book-open"></i> Materi Baca</div>
+                    <div class="feature-item"><i class="fa-solid fa-code"></i> Code Simulator</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-play"></i> Video</div>
+                    <div class="feature-item"><i class="fa-solid fa-pen-to-square"></i> Latihan</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-question"></i> FAQ</div>
+                  </div>
+
+                  <div class="showcase-actions">
+                    <a href="https://informatika-learning.vercel.app/Materi_AP/materi-algoritma.html" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-rocket"></i>
+                      Kunjungi Website
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANALYSIS CARDS — WEBSITE -->
+              <div class="cards-label reveal">ANALISIS WEBSITE PEMBELAJARAN</div>
+
+              <div class="cards-grid">
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Website pembelajaran menjadi <strong>media utama materi C++</strong> yang menggabungkan teori (materi baca, video) dengan praktik (code simulator, latihan soal) dalam satu platform digital.</p>
+                    <p>Tujuan: memberi pengalaman belajar <em>multimodal</em>, memungkinkan eksperimen kode tanpa setup compiler lokal, dan memfasilitasi diferensiasi kecepatan belajar murid.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> simulator kode menghilangkan hambatan <em>compiler setup</em>; materi tersusun multimodal (baca, tonton, coba); akses fleksibel kapan saja; feedback langsung dari simulator.</p>
+                    <p>
+                      <strong>Kekurangan:</strong> bergantung pada koneksi internet stabil; simulator web terbatas dibanding compiler native (tidak semua library C++ tersedia); perangkat <em>low-end</em> bisa lag saat menjalankan simulator.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori (TPACK)
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Technological Knowledge:</strong> web sebagai <em>integrated learning environment</em> yang menyatukan konten, simulator, dan latihan dalam satu ekosistem.</p>
+                    <p><strong>Pedagogical Knowledge:</strong> menerapkan <strong>Constructionism (Papert)</strong> — murid membangun pemahaman melalui eksperimen kode langsung di simulator.</p>
+                    <p><strong>Content Knowledge:</strong> urutan materi mengikuti <em>cognitive apprenticeship</em> — dari contoh (modelling) → latihan terbimbing (coaching) → praktik mandiri (fading).</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   DIVIDER: Media 3
+                   ════════════════════════════════════════════ -->
+              <div class="media-divider reveal">
+                <i class="fa-solid fa-circle divider-icon"></i>
+                MEDIA 3
+                <i class="fa-solid fa-circle divider-icon"></i>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   MEDIA 3 — LKPD DIGITAL (LIVE)
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
+                <div class="showcase-visual">
+                  <div class="showcase-terminal-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="bar-title">LKPD Digital Algoritma dan Pemrograman</span>
+                  </div>
+                  <div class="showcase-image live-preview">
+                    <!-- GANTI src dengan URL LKPD Digital kamu -->
+                    <iframe
+                      src="https://informatika-learning.vercel.app/Materi_AP/lkpd.ap.html"
+                      title="Live Preview LKPD Digital — Siklus 2"
+                      loading="lazy"
+                      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <span class="live-hint">
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      Klik tombol di kanan untuk fullscreen
+                    </span>
+                  </div>
+                </div>
+
+                <div class="showcase-info">
+                  <div class="showcase-tag"><i class="fa-solid fa-file-pen"></i> DIGITAL WORKSHEET</div>
+                  <h3 class="showcase-title"><span class="accent">LKPD Digital</span> — Latihan Praktikum C++</h3>
+                  <p class="showcase-desc">
+                    Lembar Kerja Peserta Didik berbasis web dengan soal praktikum terstruktur, kolom input jawaban langsung di browser, dan feedback otomatis untuk setiap langkah penyelesaian. Menggantikan LKPD kertas dengan pengalaman
+                    interaktif.
+                  </p>
+
+                  <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-list-check"></i> Petunjuk</div>
+                    <div class="feature-item"><i class="fa-solid fa-pen-to-square"></i> Isian</div>
+                    <div class="feature-item"><i class="fa-solid fa-code"></i> Praktik Kode</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Auto-Feedback</div>
+                    <div class="feature-item"><i class="fa-solid fa-file-pdf"></i> Ekspor PDF</div>
+                  </div>
+
+                  <div class="showcase-actions">
+                    <a href="https://informatika-learning.vercel.app/Materi_AP/lkpd.ap.html" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-rocket"></i>
+                      Buka Web LKPD
+                    </a>
+                    <a href="../Dokumen/PPL_2/Media/LKPD Siklus 2.pdf" download="LKPD_Siklus_2.pdf" class="btn-cta btn-cta-secondary">
+                      <i class="fa-solid fa-download"></i>
+                      Unduh PDF LKPD
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KOMPONEN PDF VIEWER — LKPD SIKLUS 2 -->
+              <div class="lkpd-pdf-wrapper reveal">
+                <div class="lkpd-pdf-header">
+                  <div class="lkpd-pdf-badge"><i class="fa-solid fa-file-pdf"></i> DOKUMEN CETAK / PDF</div>
+                  <h4 class="lkpd-pdf-title">Dokumen Lembar Kerja Peserta Didik (LKPD) — Siklus 2</h4>
+                  <p class="lkpd-pdf-sub">Pratinjau dokumen PDF resmi LKPD Algoritma dan Pemrograman (Dasar Pemrograman C++) untuk panduan praktikum laboratorium.</p>
+                </div>
+
+                <div class="pdf-terminal-wrapper">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">~/dokumen/lkpd_siklus_2.pdf</div>
+                    <div class="terminal-status">PDF VIEWER</div>
+                  </div>
+
+                  <div class="pdf-container">
+                    <iframe src="../Dokumen/PPL_2/Media/LKPD Siklus 2.pdf" class="cyber-pdf-frame" title="Dokumen PDF LKPD Siklus 2 — Pemrograman C++"></iframe>
+                  </div>
+
+                  <div class="terminal-footer">
+                    <a href="../Dokumen/PPL_2/Media/LKPD Siklus 2.pdf" download="LKPD_Siklus_2.pdf" class="cyber-download-btn">
+                      <span class="btn-bracket">[</span>
+                      <i class="fa-solid fa-download"></i> UNDUH_PDF
+                      <span class="btn-bracket">]</span>
+                    </a>
+                    <a href="../Dokumen/PPL_2/Media/LKPD Siklus 2.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
+                      <span class="btn-bracket">[</span>
+                      <i class="fa-solid fa-up-right-from-square"></i> BUKA_TAB_BARU
+                      <span class="btn-bracket">]</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANALYSIS CARDS — LKPD -->
+              <div class="cards-label reveal">ANALISIS LKPD DIGITAL</div>
+
+              <div class="cards-grid">
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>LKPD Digital digunakan sebagai <strong>panduan praktikum mandiri</strong> selama sesi pembelajaran. Menggantikan LKPD kertas agar proses pengerjaan, penyimpanan, dan penilaian lebih efisien.</p>
+                    <p>
+                      Tujuan: menstrukturkan aktivitas praktikum C++, memandu murid langkah-demi-langkah, dan memberi ruang
+                      <em>refleksi mandiri</em> atas hasil kerja.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> hemat kertas &amp; biaya cetak; auto-feedback mempercepat pemahaman; hasil kerja tersimpan digital (bisa diekspor PDF); mudah di-update tiap siklus.</p>
+                    <p><strong>Kekurangan:</strong> murid perlu akrab dengan form input browser; esai panjang lebih nyaman ditulis manual; resiko kehilangan progress jika koneksi terputus sebelum auto-save.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori (TPACK)
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Technological Knowledge:</strong> web form sebagai <em>scaffolded workspace</em> — memandu murid mengisi jawaban secara terstruktur dengan bantuan visual.</p>
+                    <p>
+                      <strong>Pedagogical Knowledge:</strong> menerapkan
+                      <strong>Zone of Proximal Development (Vygotsky)</strong>
+                      — LKPD sebagai <em>scaffolding</em> bertahap yang dikurangi seiring peningkatan kompetensi murid.
+                    </p>
+                    <p><strong>Content Knowledge:</strong> soal disusun dari <em>reproduksi sintaks</em> → <em>modifikasi kode</em> → <em>penyelesaian masalah baru</em>, sesuai taksonomi Bloom level C2–C4.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   DIVIDER: Media 4
+                   ════════════════════════════════════════════ -->
+              <div class="media-divider reveal">
+                <i class="fa-solid fa-circle divider-icon"></i>
+                MEDIA 4
+                <i class="fa-solid fa-circle divider-icon"></i>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   MEDIA 4 — POST TEST (LIVE)
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
+                <div class="showcase-visual">
+                  <div class="showcase-terminal-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="bar-title">Post Test Algortima dan Pemrograman</span>
+                  </div>
+                  <div class="showcase-image live-preview">
+                    <!-- GANTI src dengan URL Post Test kamu -->
+                    <iframe
+                      src="https://informatika-learning.vercel.app/Materi_AP/posttest-ap.html"
+                      title="Live Preview Post Test C++ — Siklus 2"
+                      loading="lazy"
+                      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <span class="live-hint">
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      Klik tombol di kanan untuk fullscreen
+                    </span>
+                  </div>
+                </div>
+
+                <div class="showcase-info">
+                  <div class="showcase-tag"><i class="fa-solid fa-clipboard-check"></i> ASSESSMENT TOOL</div>
+                  <h3 class="showcase-title"><span class="accent">Post Test</span> — Evaluasi Pemahaman C++</h3>
+                  <p class="showcase-desc">
+                    Sistem evaluasi digital dengan soal pilihan ganda dan isian singkat yang dirandomisasi, dilengkapi timer, auto-grading, dan dashboard hasil per-murid. Digunakan untuk mengukur ketercapaian tujuan pembelajaran setelah
+                    praktikum selesai.
+                  </p>
+
+                  <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-shuffle"></i> Soal Random</div>
+                    <div class="feature-item"><i class="fa-solid fa-clock"></i> Timer</div>
+                    <div class="feature-item"><i class="fa-solid fa-bolt"></i> Auto-Grade</div>
+                    <div class="feature-item"><i class="fa-solid fa-chart-simple"></i> Analisis Hasil</div>
+                    <div class="feature-item"><i class="fa-solid fa-award"></i> Sertifikat</div>
+                  </div>
+
+                  <div class="showcase-actions">
+                    <a href="https://informatika-learning.vercel.app/Materi_AP/posttest-ap.html" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-rocket"></i>
+                      Mulai Post Test
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANALYSIS CARDS — POST TEST -->
+              <div class="cards-label reveal">ANALISIS POST TEST</div>
+
+              <div class="cards-grid">
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Post Test digunakan sebagai <strong>asesmen sumatif akhir siklus</strong> untuk mengukur ketercapaian tujuan pembelajaran C++ dasar setelah seluruh rangkaian aktivitas (PPT → web → LKPD) selesai.</p>
+                    <p>Tujuan: memverifikasi penguasaan konsep, mengidentifikasi murid yang perlu remedial, dan menjadi dasar perbaikan pembelajaran siklus berikutnya.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> auto-grading menghemat waktu koreksi; soal dirandomisasi mencegah kerja sama; hasil dianalisis per-butir untuk melihat pola miskonsepsi kelas; sertifikat digital memotivasi murid.</p>
+                    <p><strong>Kekurangan:</strong> format pilihan ganda terbatas untuk menilai kemampuan coding praktis; risiko <em>guessing</em>; butuh pengawasan ketat saat pelaksanaan agar valid.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori (TPACK)
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Technological Knowledge:</strong> platform asesmen digital sebagai <em>assessment tool</em> yang menyajikan data hasil secara real-time untuk pengambilan keputusan pedagogis.</p>
+                    <p>
+                      <strong>Pedagogical Knowledge:</strong> menerapkan
+                      <strong>Assessment for Learning (Black &amp; Wiliam)</strong>
+                      — data hasil post test digunakan untuk menyesuaikan strategi mengajar berikutnya, bukan hanya memberi nilai.
+                    </p>
+                    <p><strong>Content Knowledge:</strong> butir soal dipetakan ke <em>learning objectives</em> spesifik sehingga analisis per-butir menunjukkan bagian materi mana yang perlu penguatan.</p>
                   </div>
                 </div>
               </div>
@@ -2275,63 +3065,340 @@
                 <div class="siklus-number-badge">03</div>
                 <div class="siklus-titles">
                   <span class="siklus-label">SIKLUS 3</span>
-                  <span class="siklus-name">Flowchart Simulator — Visualisasi Struktur Kontrol</span>
+                  <span class="siklus-name">Pengolahan Data dengan Microsoft Excel</span>
                 </div>
               </div>
 
-              <div class="media-showcase">
+              <!-- ════════════════════════════════════════════
+                   MEDIA 1 — PPT CANVA
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
                 <div class="showcase-visual">
                   <div class="showcase-terminal-bar">
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
-                    <span class="bar-title">~/media/siklus_3_flowchart.png</span>
+                    <span class="bar-title">~/media/siklus_3_canva.canva</span>
                   </div>
                   <div class="showcase-image">
-                    <!-- GANTI src dengan screenshot flowchart simulator -->
-                    <img
-                      src="../Images/media_uas_siklus3.png"
-                      alt="Preview Flowchart Simulator — Struktur Kontrol"
-                      onerror="
-                        this.style.display = 'none';
-                        this.nextElementSibling.style.display = 'flex';
-                      "
-                    />
-                    <div class="showcase-placeholder" style="display: none">
-                      <i class="fa-solid fa-diagram-project"></i>
-                      <span>Preview Flowchart Simulator</span>
-                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Belum ada screenshot</small>
-                    </div>
+                    <!-- GANTI src dengan URL embed Canva Siklus 3 -->
+                    <iframe src="https://www.canva.com/design/DAHXJGOaOuY/_AFkMmUjDT4nh0EvOvat-g/view?embed" title="PPT Canva Siklus 3 — Pengolahan Data Excel" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
                   </div>
                 </div>
 
                 <div class="showcase-info">
-                  <div class="showcase-tag"><i class="fa-solid fa-diagram-project"></i> DRAG &amp; DROP TOOL</div>
-                  <h3 class="showcase-title"><span class="accent">FlowSim</span> — Simulator Diagram Alur Interaktif</h3>
-                  <p class="showcase-desc">Media drag-and-drop untuk membangun flowchart secara visual dan langsung melihat hasil eksekusinya secara animasi — mempermudah pemahaman percabangan &amp; perulangan.</p>
+                  <div class="showcase-tag"><i class="fa-solid fa-chalkboard"></i> SLIDE PRESENTATION</div>
+                  <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Pengolahan Data dengan Excel</h3>
+                  <p class="showcase-desc">
+                    Presentasi visual interaktif untuk pengenalan antarmuka Excel, formula dasar, fungsi logika (IF, VLOOKUP), Pivot Table, dan pembuatan grafik. Dilengkapi ilustrasi langkah-demi-langkah dan contoh dataset sekolah untuk
+                    latihan kontekstual.
+                  </p>
 
                   <div class="showcase-tech">
-                    <span class="tech-chip">SVG Canvas</span>
-                    <span class="tech-chip">Drag &amp; Drop API</span>
-                    <span class="tech-chip">Animation Engine</span>
-                    <span class="tech-chip">Flowchart Parser</span>
+                    <span class="tech-chip">Canva</span>
+                    <span class="tech-chip">Visual Design</span>
+                    <span class="tech-chip">Screenshot Tutorial</span>
+                    <span class="tech-chip">Animasi</span>
                   </div>
 
                   <div class="showcase-actions">
-                    <a href="https://example.com/flowsim" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
-                      <i class="fa-solid fa-rocket"></i>
-                      Coba Simulator
+                    <a href="https://www.canva.com/design/DAHXJGOaOuY/_AFkMmUjDT4nh0EvOvat-g/view" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      Buka Slide
                     </a>
-                    <a href="https://example.com/flowsim/tutorial" target="_blank" rel="noopener" class="btn-cta btn-cta-secondary">
-                      <i class="fa-solid fa-circle-question"></i>
-                      Tutorial
+                    <a href="../Dokumen/PPL_2/Media/PPT Siklus 3.pdf" download="PPT_Siklus_3.pdf" class="btn-cta btn-cta-secondary">
+                      <i class="fa-solid fa-download"></i>
+                      Download PDF
                     </a>
                   </div>
                 </div>
               </div>
 
+              <!-- ANALYSIS CARDS — PPT CANVA -->
+              <div class="cards-label reveal">ANALISIS PPT CANVA</div>
+
               <div class="cards-grid">
-                <div class="analysis-card tilt-card">
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>PPT Canva digunakan sebagai <strong>media pengantar antarmuka &amp; fungsi dasar Excel</strong> — memberi visualisasi langkah-demi-langkah sebelum murid masuk ke praktik langsung dengan dataset nyata.</p>
+                    <p>Tujuan: mengurangi <em>technical barrier</em> awal dengan menyajikan tampilan Excel, toolbar, dan formula secara terstruktur sebelum murid berlatih mandiri.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> screenshot berurutan mempermudah meniru langkah; visual formula &amp; rumus jelas; dapat dibuka sebagai referensi belajar kapan saja; cocok untuk <em>flipped classroom</em>.</p>
+                    <p><strong>Kekurangan:</strong> tidak bisa mencoba langsung — harus buka Excel terpisah; murid cenderung pasif saat penyampaian satu arah; butuh koneksi internet untuk akses online.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori (TPACK)
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Technological Knowledge:</strong> Canva sebagai alat visualisasi <em>dual coding</em> — menampilkan tampilan Excel + teks penjelasan sekaligus.</p>
+                    <p><strong>Pedagogical Knowledge:</strong> menerapkan <em>worked example</em> (Sweller) — memberikan contoh lengkap sebelum murid menyelesaikan soal serupa secara mandiri.</p>
+                    <p><strong>Content Knowledge:</strong> urutan materi mengikuti <em>task analysis</em> — dari interface → formula dasar → fungsi logika → pivot table → grafik.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   DIVIDER: Media 2
+                   ════════════════════════════════════════════ -->
+              <div class="media-divider reveal">
+                <i class="fa-solid fa-circle divider-icon"></i>
+                MEDIA 2
+                <i class="fa-solid fa-circle divider-icon"></i>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   MEDIA 2 — WEBSITE PEMBELAJARAN (LIVE)
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
+                <div class="showcase-visual">
+                  <div class="showcase-terminal-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="bar-title">Website Pembelajaran Informatika</span>
+                  </div>
+                  <div class="showcase-image live-preview">
+                    <!-- GANTI src dengan URL halaman materi Excel di website kamu -->
+                    <iframe
+                      src="https://informatika-learning.vercel.app/Materi_EX/materi.html"
+                      title="Live Preview Website Pembelajaran Excel — Siklus 3"
+                      loading="lazy"
+                      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <span class="live-hint">
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      Klik tombol di kanan untuk fullscreen
+                    </span>
+                  </div>
+                </div>
+
+                <div class="showcase-info">
+                  <div class="showcase-tag"><i class="fa-solid fa-globe"></i> WEB-BASED LEARNING</div>
+                  <h3 class="showcase-title"><span class="accent">Informatics Lab</span> — Materi Pengolahan Data</h3>
+                  <p class="showcase-desc">
+                    Website pembelajaran komprehensif yang memadukan materi baca, simulasi interaktif (spreadsheet virtual), video penjelasan, dan pre-test sebagai asesmen awal — semua terintegrasi dalam satu platform untuk mendukung
+                    <em>self-paced learning</em>.
+                  </p>
+
+                  <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-book-open"></i> Materi Baca</div>
+                    <div class="feature-item"><i class="fa-solid fa-flask"></i> Simulasi</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-play"></i> Video</div>
+                    <div class="feature-item"><i class="fa-solid fa-pen-to-square"></i> Pre-Test</div>
+                    <div class="feature-item"><i class="fa-solid fa-chart-simple"></i> Dataset</div>
+                  </div>
+
+                  <div class="showcase-actions">
+                    <a href="https://informatika-learning.vercel.app/Materi_EX/materi.html" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-rocket"></i>
+                      Kunjungi Website
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANALYSIS CARDS — WEBSITE -->
+              <div class="cards-label reveal">ANALISIS WEBSITE PEMBELAJARAN</div>
+
+              <div class="cards-grid">
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Website pembelajaran menjadi <strong>media utama materi Excel</strong> yang menggabungkan teori (materi baca, video) dengan praktik (simulasi spreadsheet, pre-test) dalam satu platform digital.</p>
+                    <p>
+                      Tujuan: menyediakan pengalaman belajar
+                      <em>multimodal</em>, memungkinkan latihan tanpa install Excel (untuk perangkat terbatas), dan memetakan titik awal pemahaman murid via pre-test.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> simulasi web menghilangkan hambatan lisensi Excel; materi tersusun multimodal (baca, tonton, coba); akses fleksibel kapan saja; pre-test memberi feedback instan.</p>
+                    <p><strong>Kekurangan:</strong> simulasi web terbatas dibanding Excel native (tidak semua formula kompleks tersedia); bergantung koneksi internet; murid perlu waktu adaptasi UI yang berbeda dari Excel asli.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori (TPACK)
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Technological Knowledge:</strong> web sebagai <em>integrated learning environment</em> yang menyatukan materi, simulasi, video, dan asesmen dalam satu ekosistem.</p>
+                    <p><strong>Pedagogical Knowledge:</strong> menerapkan <strong>Multimedia Learning (Mayer)</strong> — kombinasi teks, visual, dan simulasi interaktif mengurangi <em>extraneous cognitive load</em>.</p>
+                    <p><strong>Content Knowledge:</strong> urutan materi mengikuti alur <em>data literacy</em> (collect → clean → analyze → visualize → conclude) yang aplikatif untuk dunia kerja.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   DIVIDER: Media 3
+                   ════════════════════════════════════════════ -->
+              <div class="media-divider reveal">
+                <i class="fa-solid fa-circle divider-icon"></i>
+                MEDIA 3
+                <i class="fa-solid fa-circle divider-icon"></i>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   MEDIA 3 — LKPD DIGITAL (LIVE)
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
+                <div class="showcase-visual">
+                  <div class="showcase-terminal-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="bar-title">~/media/siklus_3_lkpd.live</span>
+                  </div>
+                  <div class="showcase-image live-preview">
+                    <!-- GANTI src dengan URL LKPD Digital kamu -->
+                    <iframe
+                      src="https://informatika-learning.vercel.app/Materi_EX/lkpd.html"
+                      title="Live Preview LKPD Digital Excel — Siklus 3"
+                      loading="lazy"
+                      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <span class="live-hint">
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      Klik tombol di kanan untuk fullscreen
+                    </span>
+                  </div>
+                </div>
+
+                <div class="showcase-info">
+                  <div class="showcase-tag"><i class="fa-solid fa-file-pen"></i> DIGITAL WORKSHEET</div>
+                  <h3 class="showcase-title"><span class="accent">LKPD Digital</span> — Latihan Excel Interaktif</h3>
+                  <p class="showcase-desc">
+                    Lembar Kerja Peserta Didik berbasis web dengan studi kasus pengolahan data sekolah, kolom input jawaban langsung di browser, dan tabel data interaktif yang bisa disortir dan difilter untuk melatih keterampilan analisis.
+                  </p>
+
+                  <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-list-check"></i> Petunjuk</div>
+                    <div class="feature-item"><i class="fa-solid fa-table-cells"></i> Data Interaktif</div>
+                    <div class="feature-item"><i class="fa-solid fa-pen-to-square"></i> Isian</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Auto-Feedback</div>
+                    <div class="feature-item"><i class="fa-solid fa-file-pdf"></i> Ekspor PDF</div>
+                  </div>
+
+                  <div class="showcase-actions">
+                    <a href="https://informatika-learning.vercel.app/Materi_EX/lkpd.html" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-rocket"></i>
+                      Buka Web LKPD
+                    </a>
+                    <a href="../Dokumen/PPL_2/Media/LKPD Siklus 3.pdf" download="LKPD_Siklus_3.pdf" class="btn-cta btn-cta-secondary">
+                      <i class="fa-solid fa-download"></i>
+                      Unduh PDF LKPD
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KOMPONEN PDF VIEWER — LKPD SIKLUS 3 -->
+              <div class="lkpd-pdf-wrapper reveal">
+                <div class="lkpd-pdf-header">
+                  <div class="lkpd-pdf-badge"><i class="fa-solid fa-file-pdf"></i> DOKUMEN CETAK / PDF</div>
+                  <h4 class="lkpd-pdf-title">Dokumen Lembar Kerja Peserta Didik (LKPD) — Siklus 3</h4>
+                  <p class="lkpd-pdf-sub">Pratinjau dokumen PDF resmi LKPD Pengolahan Data Excel (Formula, Logika, dan Pivot Table) untuk praktikum mandiri dan kelompok.</p>
+                </div>
+
+                <div class="pdf-terminal-wrapper">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">~/dokumen/lkpd_siklus_3.pdf</div>
+                    <div class="terminal-status">PDF VIEWER</div>
+                  </div>
+
+                  <div class="pdf-container">
+                    <iframe src="../Dokumen/PPL_2/Media/LKPD Siklus 3.pdf" class="cyber-pdf-frame" title="Dokumen PDF LKPD Siklus 3 — Pengolahan Data Excel"></iframe>
+                  </div>
+
+                  <div class="terminal-footer">
+                    <a href="../Dokumen/PPL_2/Media/LKPD Siklus 3.pdf" download="LKPD_Siklus_3.pdf" class="cyber-download-btn">
+                      <span class="btn-bracket">[</span>
+                      <i class="fa-solid fa-download"></i> UNDUH_PDF
+                      <span class="btn-bracket">]</span>
+                    </a>
+                    <a href="../Dokumen/PPL_2/Media/LKPD Siklus 3.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
+                      <span class="btn-bracket">[</span>
+                      <i class="fa-solid fa-up-right-from-square"></i> BUKA_TAB_BARU
+                      <span class="btn-bracket">]</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANALYSIS CARDS — LKPD -->
+              <div class="cards-label reveal">ANALISIS LKPD DIGITAL</div>
+
+              <div class="cards-grid">
+                <div class="analysis-card tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2344,14 +3411,17 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      Media ini menjawab kesulitan murid dalam
-                      <em>memvisualisasikan</em> alur percabangan dan perulangan yang bersifat abstrak pada materi struktur kontrol.
+                      LKPD Digital digunakan sebagai <strong>panduan praktikum Excel mandiri</strong> dengan studi kasus nyata (data nilai siswa, data inventaris sekolah). Menggantikan LKPD kertas agar proses pengerjaan &amp; penilaian
+                      lebih efisien.
                     </p>
-                    <p>Tujuan: memberi pengalaman <strong>visual &amp; kinestetik</strong> melalui drag-and-drop, sehingga konsep logika lebih mudah dicerna.</p>
+                    <p>
+                      Tujuan: menstrukturkan aktivitas analisis data, memandu murid langkah-demi-langkah, dan memberi ruang
+                      <em>refleksi mandiri</em> atas hasil olahan data.
+                    </p>
                   </div>
                 </div>
 
-                <div class="analysis-card variant-purple tilt-card">
+                <div class="analysis-card variant-purple tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2363,12 +3433,12 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> memvisualisasikan konsep abstrak; memungkinkan <em>trial &amp; error</em> tanpa risiko; hasil animasi memperkuat retensi memori.</p>
-                    <p><strong>Kekurangan:</strong> keterbatasan jumlah blok flowchart; tidak semua browser mendukung animasi SVG; butuh waktu adaptasi awal bagi murid.</p>
+                    <p><strong>Kelebihan:</strong> studi kasus kontekstual (data nyata sekolah); auto-feedback langsung; hasil tersimpan digital dan bisa diekspor PDF; tabel data interaktif melatih analisis secara praktis.</p>
+                    <p><strong>Kekurangan:</strong> murid perlu terbiasa mengerjakan di browser; esai panjang (refleksi) lebih nyaman ditulis manual; risiko kehilangan progress jika koneksi terputus sebelum auto-save.</p>
                   </div>
                 </div>
 
-                <div class="analysis-card variant-red tilt-card">
+                <div class="analysis-card variant-red tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2380,9 +3450,136 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Technological:</strong> memanfaatkan visualisasi interaktif sebagai <em>external representation</em> yang memperkuat <em>dual coding</em> (Paivio).</p>
-                    <p><strong>Pedagogical:</strong> berbasis <strong>Concrete-Pictorial-Abstract (CPA)</strong> — murid bergerak dari konkret (drag-drop) ke abstrak (kode).</p>
-                    <p><strong>Content:</strong> struktur kontrol dipetakan ke komponen flowchart standar (terminal, process, decision, I/O).</p>
+                    <p><strong>Technological Knowledge:</strong> web form &amp; tabel interaktif sebagai <em>scaffolded workspace</em> — memandu murid bekerja dengan data secara terstruktur.</p>
+                    <p>
+                      <strong>Pedagogical Knowledge:</strong> menerapkan
+                      <strong>Situated Learning (Lave &amp; Wenger)</strong>
+                      — murid mengolah data nyata (bukan data dummy) agar pembelajaran lebih bermakna.
+                    </p>
+                    <p>
+                      <strong>Content Knowledge:</strong> soal disusun dari <em>formula sederhana</em> (SUM, AVERAGE) → <em>fungsi logika</em> (IF, COUNTIF) → <em>analisis lanjutan</em>
+                      (Pivot Table), sesuai progression data literacy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   DIVIDER: Media 4
+                   ════════════════════════════════════════════ -->
+              <div class="media-divider reveal">
+                <i class="fa-solid fa-circle divider-icon"></i>
+                MEDIA 4
+                <i class="fa-solid fa-circle divider-icon"></i>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   MEDIA 4 — POST TEST (LIVE)
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
+                <div class="showcase-visual">
+                  <div class="showcase-terminal-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="bar-title">~/media/siklus_3_posttest.live</span>
+                  </div>
+                  <div class="showcase-image live-preview">
+                    <!-- GANTI src dengan URL Post Test kamu -->
+                    <iframe
+                      src="https://informatika-learning.vercel.app/Materi_EX/posttest.html"
+                      title="Live Preview Post Test Excel — Siklus 3"
+                      loading="lazy"
+                      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <span class="live-hint">
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      Klik tombol di kanan untuk fullscreen
+                    </span>
+                  </div>
+                </div>
+
+                <div class="showcase-info">
+                  <div class="showcase-tag"><i class="fa-solid fa-clipboard-check"></i> ASSESSMENT TOOL</div>
+                  <h3 class="showcase-title"><span class="accent">Post Test</span> — Evaluasi Pengolahan Data</h3>
+                  <p class="showcase-desc">
+                    Sistem evaluasi digital dengan soal pilihan ganda dan simulasi singkat pengolahan data, dilengkapi timer, auto-grading, dan dashboard hasil per-murid. Digunakan untuk mengukur ketercapaian tujuan pembelajaran setelah
+                    praktikum selesai.
+                  </p>
+
+                  <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-shuffle"></i> Soal Random</div>
+                    <div class="feature-item"><i class="fa-solid fa-clock"></i> Timer</div>
+                    <div class="feature-item"><i class="fa-solid fa-bolt"></i> Auto-Grade</div>
+                    <div class="feature-item"><i class="fa-solid fa-chart-simple"></i> Analisis Hasil</div>
+                    <div class="feature-item"><i class="fa-solid fa-award"></i> Sertifikat</div>
+                  </div>
+
+                  <div class="showcase-actions">
+                    <a href="https://informatika-learning.vercel.app/Materi_EX/posttest.html" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-rocket"></i>
+                      Mulai Post Test
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANALYSIS CARDS — POST TEST -->
+              <div class="cards-label reveal">ANALISIS POST TEST</div>
+
+              <div class="cards-grid">
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Post Test digunakan sebagai <strong>asesmen sumatif akhir siklus</strong> untuk mengukur ketercapaian tujuan pembelajaran Excel setelah seluruh rangkaian aktivitas (PPT → web → LKPD) selesai.</p>
+                    <p>Tujuan: memverifikasi penguasaan konsep pengolahan data, mengidentifikasi murid yang perlu remedial, dan menjadi dasar perbaikan pembelajaran siklus berikutnya.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> auto-grading hemat waktu koreksi; soal dirandomisasi mencegah kerja sama; hasil dianalisis per-butir untuk melihat pola miskonsepsi kelas; sertifikat digital memotivasi murid.</p>
+                    <p><strong>Kekurangan:</strong> format pilihan ganda terbatas untuk menilai keterampilan praktik Excel secara menyeluruh; risiko <em>guessing</em>; butuh pengawasan ketat saat pelaksanaan agar valid.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori (TPACK)
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Technological Knowledge:</strong> platform asesmen digital menyajikan data hasil secara real-time untuk pengambilan keputusan pedagogis yang cepat.</p>
+                    <p><strong>Pedagogical Knowledge:</strong> menerapkan <strong>Assessment for Learning (Black &amp; Wiliam)</strong> — data hasil post test digunakan untuk menyesuaikan strategi mengajar berikutnya.</p>
+                    <p>
+                      <strong>Content Knowledge:</strong> butir soal dipetakan ke <em>learning objectives</em> spesifik (formula, fungsi logika, pivot, grafik) sehingga analisis per-butir menunjukkan bagian materi mana yang perlu penguatan.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -2394,63 +3591,60 @@
                 <div class="siklus-number-badge">04</div>
                 <div class="siklus-titles">
                   <span class="siklus-label">SIKLUS 4</span>
-                  <span class="siklus-name">Excel Data Dashboard — Pengolahan Data Interaktif</span>
+                  <span class="siklus-name">Pengolahan Data dengan Microsoft Excel</span>
                 </div>
               </div>
 
-              <div class="media-showcase">
+              <!-- ════════════════════════════════════════════
+                   MEDIA 1 — PPT CANVA
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
                 <div class="showcase-visual">
                   <div class="showcase-terminal-bar">
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
-                    <span class="bar-title">~/media/siklus_4_dashboard.png</span>
+                    <span class="bar-title">~/media/siklus_4_canva.canva</span>
                   </div>
                   <div class="showcase-image">
-                    <!-- GANTI src dengan screenshot dashboard Excel -->
-                    <img
-                      src="../Images/media_uas_siklus4.png"
-                      alt="Preview Excel Data Dashboard — Pengolahan Data"
-                      onerror="
-                        this.style.display = 'none';
-                        this.nextElementSibling.style.display = 'flex';
-                      "
-                    />
-                    <div class="showcase-placeholder" style="display: none">
-                      <i class="fa-solid fa-chart-line"></i>
-                      <span>Preview Excel Dashboard</span>
-                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Belum ada screenshot</small>
-                    </div>
+                    <!-- Embed Canva Siklus 4 -->
+                    <iframe src="https://www.canva.com/design/DAHWe4YxLf8/dulRPyVfjmFeGMu84O8qoA/view?embed" title="PPT Canva Siklus 4 — Pengolahan Data Excel" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
                   </div>
                 </div>
 
                 <div class="showcase-info">
-                  <div class="showcase-tag"><i class="fa-solid fa-chart-line"></i> SPREADSHEET TOOL</div>
-                  <h3 class="showcase-title"><span class="accent">DataLab</span> — Dashboard Pengolahan Data Interaktif</h3>
-                  <p class="showcase-desc">Template Excel interaktif dengan formula otomatis, Pivot Table, dan dashboard grafik dinamis untuk melatih murid mengolah, menganalisis, dan menyajikan data secara profesional.</p>
+                  <div class="showcase-tag"><i class="fa-solid fa-chalkboard"></i> SLIDE PRESENTATION</div>
+                  <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Pengolahan Data Lanjutan &amp; Dashboard</h3>
+                  <p class="showcase-desc">
+                    Presentasi visual interaktif untuk pendalaman materi pengolahan data, formula logika, visualisasi grafik, dan perancangan dashboard interaktif di Microsoft Excel. Disusun sistematis dengan ilustrasi kontekstual guna
+                    mempermudah pemahaman konsep.
+                  </p>
 
                   <div class="showcase-tech">
-                    <span class="tech-chip">Excel</span>
-                    <span class="tech-chip">Pivot Table</span>
-                    <span class="tech-chip">Dynamic Chart</span>
-                    <span class="tech-chip">Data Validation</span>
+                    <span class="tech-chip">Canva</span>
+                    <span class="tech-chip">Visual Design</span>
+                    <span class="tech-chip">Tutorial Interaktif</span>
+                    <span class="tech-chip">Dashboard Visual</span>
                   </div>
 
                   <div class="showcase-actions">
-                    <a href="../Dokumen/DataLab_Template.xlsx" download="DataLab_Template.xlsx" class="btn-cta btn-cta-primary">
-                      <i class="fa-solid fa-download"></i>
-                      Unduh Template
+                    <a href="https://www.canva.com/design/DAHWe4YxLf8/dulRPyVfjmFeGMu84O8qoA/view" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      Buka Slide
                     </a>
-                    <a href="https://example.com/datalab/guide" target="_blank" rel="noopener" class="btn-cta btn-cta-secondary">
-                      <i class="fa-solid fa-circle-question"></i>
-                      Panduan
+                    <a href="../Dokumen/PPL_2/Media/Materi Siklus 4.pdf" download="PPT_Siklus_4.pdf" class="btn-cta btn-cta-secondary">
+                      <i class="fa-solid fa-download"></i>
+                      Download PDF
                     </a>
                   </div>
                 </div>
               </div>
 
+              <!-- ANALYSIS CARDS — PPT CANVA -->
+              <div class="cards-label reveal">ANALISIS PPT CANVA</div>
+
               <div class="cards-grid">
-                <div class="analysis-card tilt-card">
+                <div class="analysis-card tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2462,12 +3656,12 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Media <strong>DataLab</strong> dikembangkan untuk membekali murid dengan keterampilan <em>data literacy</em> praktis menggunakan Excel — melatih analisis data dan visualisasi hasil.</p>
-                    <p>Tujuan: murid mampu <em>mengolah dataset nyata</em>, menyusun dashboard sederhana, dan menarik kesimpulan berbasis data.</p>
+                    <p>PPT Canva dimanfaatkan sebagai <strong>media pemantik visual</strong> dalam mengenalkan materi pengolahan data dan dashboard Excel secara terstruktur sebelum murid masuk ke fase latihan komputasi mandiri.</p>
+                    <p>Tujuan: memberikan <em>visual scaffolding</em> agar peserta didik memahami alur pengorganisasian data, penerapan formula, hingga pembacaan visual grafik secara runut dan sistematis.</p>
                   </div>
                 </div>
 
-                <div class="analysis-card variant-purple tilt-card">
+                <div class="analysis-card variant-purple tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2479,12 +3673,12 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> keterampilan industri langsung aplikatif; template bisa digunakan ulang; visualisasi grafik mempercepat pemahaman pola data.</p>
-                    <p><strong>Kekurangan:</strong> keterbatasan lisensi Excel pada sebagian perangkat; murid dengan <em>low-end device</em> terkendala performa; butuh adaptasi formula lanjutan.</p>
+                    <p><strong>Kelebihan:</strong> infografis jelas dan menarik; memadukan teks ringkas dengan ilustrasi praktis; fleksibel diakses dari berbagai gawai untuk kebutuhan <em>flipped learning</em>.</p>
+                    <p><strong>Kekurangan:</strong> interaktivitas cenderung satu arah jika murid hanya menyimak tanpa membuka aplikasi lembar kerja; memerlukan akses internet saat dibuka secara online di Canva.</p>
                   </div>
                 </div>
 
-                <div class="analysis-card variant-red tilt-card">
+                <div class="analysis-card variant-red tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2496,12 +3690,410 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Technological:</strong> Excel sebagai <em>cognitive partner</em> untuk proses analisis data yang efisien.</p>
-                    <p><strong>Pedagogical:</strong> menerapkan <strong>Project-Based Learning</strong> dengan kasus data nyata (data sekolah, survei, dll).</p>
+                    <p><strong>Technological Knowledge:</strong> pemanfaatan Canva sebagai media presentasi visual modern dengan prinsip <em>dual coding</em> (gambar + teks penjelasan).</p>
+                    <p><strong>Pedagogical Knowledge:</strong> menerapkan pendekatan <em>Explicit Modeling &amp; Worked Example</em> (Sweller) untuk memandu langkah penyelesaian masalah.</p>
+                    <p><strong>Content Knowledge:</strong> substansi materi mengacu pada prinsip <em>Data Analysis &amp; Interpretation</em> pada elemen Analisis Data (AD) Kurikulum Merdeka.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   DIVIDER: Media 2
+                   ════════════════════════════════════════════ -->
+              <div class="media-divider reveal">
+                <i class="fa-solid fa-circle divider-icon"></i>
+                MEDIA 2
+                <i class="fa-solid fa-circle divider-icon"></i>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   MEDIA 2 — WEBSITE PEMBELAJARAN (LIVE)
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
+                <div class="showcase-visual">
+                  <div class="showcase-terminal-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="bar-title">Website Pembelajaran Informatika — Siklus 4</span>
+                  </div>
+                  <div class="showcase-image live-preview">
+                    <!-- URL halaman materi pembelajaran Informatika -->
+                    <iframe
+                      src="https://informatika-learning.vercel.app/Materi_PS/materi.html"
+                      title="Live Preview Website Pembelajaran Informatika — Siklus 4"
+                      loading="lazy"
+                      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <span class="live-hint">
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      Klik tombol di kanan untuk fullscreen
+                    </span>
+                  </div>
+                </div>
+
+                <div class="showcase-info">
+                  <div class="showcase-tag"><i class="fa-solid fa-globe"></i> WEB-BASED LEARNING</div>
+                  <h3 class="showcase-title"><span class="accent">Informatics Learning Web</span> — Media Pembelajaran Digital</h3>
+                  <p class="showcase-desc">
+                    Website pembelajaran interaktif yang menyajikan materi terstruktur, modul bacaan digital, video demonstrasi langkah kerja, serta studi kasus pengolahan data riil dalam satu platform berbasis web untuk menunjang
+                    <em>self-paced learning</em>.
+                  </p>
+
+                  <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-book-open"></i> Materi Digital</div>
+                    <div class="feature-item"><i class="fa-solid fa-table-cells"></i> Dataset Praktik</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-play"></i> Video Tutorial</div>
+                    <div class="feature-item"><i class="fa-solid fa-flask"></i> Simulasi Data</div>
+                    <div class="feature-item"><i class="fa-solid fa-cloud-arrow-down"></i> Modul Web</div>
+                  </div>
+
+                  <div class="showcase-actions">
+                    <a href="https://informatika-learning.vercel.app/Materi_PS/materi.html" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-rocket"></i>
+                      Kunjungi Website
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANALYSIS CARDS — WEBSITE -->
+              <div class="cards-label reveal">ANALISIS WEBSITE PEMBELAJARAN</div>
+
+              <div class="cards-grid">
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Website pembelajaran berperan sebagai <strong>ekosistem belajar terpadu</strong> yang dapat diakses mandiri oleh peserta didik sebelum, saat, dan sesudah sesi pembelajaran di kelas.</p>
+                    <p>Tujuan: memfasilitasi <em>self-paced learning</em> dan menyediakan sumber belajar digital yang komprehensif tanpa hambatan lisensi perangkat lunak lembar kerja.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> menyatukan berbagai media dalam satu tempat (all-in-one platform); tampilan responsif dan terstruktur rapi; memudahkan murid melakukan pengulangan materi (<em>reinforcement</em>).</p>
+                    <p><strong>Kekurangan:</strong> bergantung penuh pada kestabilan koneksi internet; peserta didik memerlukan kemandirian dan regulasi diri (<em>self-regulated learning</em>) yang baik.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori (TPACK)
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Technological Knowledge:</strong> pemanfaatan web platform modern responsif sebagai lingkungan belajar terbuka (*open learning environment*).</p>
+                    <p><strong>Pedagogical Knowledge:</strong> menerapkan <strong>Cognitive Load Theory (Sweller)</strong> melalui penyajian informasi secara bertahap (segmenting &amp; scaffolding).</p>
+                    <p><strong>Content Knowledge:</strong> sistematika materi disusun dengan pendekatan <em>scaffolded inquiry</em> untuk melatih penalaran analitis data.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   DIVIDER: Media 3
+                   ════════════════════════════════════════════ -->
+              <div class="media-divider reveal">
+                <i class="fa-solid fa-circle divider-icon"></i>
+                MEDIA 3
+                <i class="fa-solid fa-circle divider-icon"></i>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   MEDIA 3 — LKPD DIGITAL (LIVE)
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
+                <div class="showcase-visual">
+                  <div class="showcase-terminal-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="bar-title">~/media/siklus_4_lkpd.live</span>
+                  </div>
+                  <div class="showcase-image live-preview">
+                    <!-- URL LKPD Digital Siklus 4 -->
+                    <iframe
+                      src="https://informatika-learning.vercel.app/Materi_PS/lkpd.html"
+                      title="Live Preview LKPD Digital — Siklus 4"
+                      loading="lazy"
+                      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <span class="live-hint">
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      Klik tombol di kanan untuk fullscreen
+                    </span>
+                  </div>
+                </div>
+
+                <div class="showcase-info">
+                  <div class="showcase-tag"><i class="fa-solid fa-file-pen"></i> DIGITAL WORKSHEET</div>
+                  <h3 class="showcase-title"><span class="accent">LKPD Digital</span> — Lembar Kerja Peserta Didik Interaktif</h3>
+                  <p class="showcase-desc">
+                    Lembar Kerja Peserta Didik berbasis web dengan panduan praktikum terarah, pengujian formula, studi kasus kontekstual, dan kolom refleksi hasil analisis data untuk melatih keterampilan berpikir kritis.
+                  </p>
+
+                  <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-list-check"></i> Panduan Langkah</div>
+                    <div class="feature-item"><i class="fa-solid fa-table-cells"></i> Dataset Interaktif</div>
+                    <div class="feature-item"><i class="fa-solid fa-pen-to-square"></i> Kolom Isian</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Verifikasi Hasil</div>
+                    <div class="feature-item"><i class="fa-solid fa-file-pdf"></i> Ekspor / Rekap</div>
+                  </div>
+
+                  <div class="showcase-actions">
+                    <a href="https://informatika-learning.vercel.app/Materi_PS/lkpd.html" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-rocket"></i>
+                      Buka Web LKPD
+                    </a>
+                    <a href="../Dokumen/PPL_2/Media/LKPD Siklus 4.pdf" download="LKPD_Siklus_4.pdf" class="btn-cta btn-cta-secondary">
+                      <i class="fa-solid fa-download"></i>
+                      Unduh PDF LKPD
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- KOMPONEN PDF VIEWER — LKPD SIKLUS 4 -->
+              <div class="lkpd-pdf-wrapper reveal">
+                <div class="lkpd-pdf-header">
+                  <div class="lkpd-pdf-badge"><i class="fa-solid fa-file-pdf"></i> DOKUMEN CETAK / PDF</div>
+                  <h4 class="lkpd-pdf-title">Dokumen Lembar Kerja Peserta Didik (LKPD) — Siklus 4</h4>
+                  <p class="lkpd-pdf-sub">Pratinjau dokumen PDF resmi LKPD Pengolahan Data Lanjutan &amp; Dashboard Excel untuk panduan pengerjaan proyek analitik data.</p>
+                </div>
+
+                <div class="pdf-terminal-wrapper">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">~/dokumen/lkpd_siklus_4.pdf</div>
+                    <div class="terminal-status">PDF VIEWER</div>
+                  </div>
+
+                  <div class="pdf-container">
+                    <iframe src="../Dokumen/PPL_2/Media/LKPD Siklus 4.pdf" class="cyber-pdf-frame" title="Dokumen PDF LKPD Siklus 4 — Pengolahan Data Excel"></iframe>
+                  </div>
+
+                  <div class="terminal-footer">
+                    <a href="../Dokumen/PPL_2/Media/LKPD Siklus 4.pdf" download="LKPD_Siklus_4.pdf" class="cyber-download-btn">
+                      <span class="btn-bracket">[</span>
+                      <i class="fa-solid fa-download"></i> UNDUH_PDF
+                      <span class="btn-bracket">]</span>
+                    </a>
+                    <a href="../Dokumen/PPL_2/Media/LKPD Siklus 4.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
+                      <span class="btn-bracket">[</span>
+                      <i class="fa-solid fa-up-right-from-square"></i> BUKA_TAB_BARU
+                      <span class="btn-bracket">]</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANALYSIS CARDS — LKPD -->
+              <div class="cards-label reveal">ANALISIS LKPD DIGITAL</div>
+
+              <div class="cards-grid">
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>LKPD Digital digunakan sebagai <strong>panduan aktivitas praktikum mandiri dan kelompok</strong> dalam menyelesaikan tantangan studi kasus analisis data secara terstruktur.</p>
+                    <p>Tujuan: melatih kemampuan pemecahan masalah (<em>problem solving</em>) murid melalui instruksi bertahap tanpa memerlukan lembar cetak konvensional (<em>paperless</em>).</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> ramah lingkungan (paperless); alur instruksi terstruktur jelas; murid dapat mengisi dan memeriksa hasil langsung dari peramban web; interaktif dan terdokumentasi rapi.</p>
+                    <p><strong>Kekurangan:</strong> murid harus bergantian layar antara browser LKPD dan aplikasi lembar kerja jika menggunakan satu monitor; memerlukan koneksi jaringan untuk menyimpan hasil.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori (TPACK)
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Technological Knowledge:</strong> form web interaktif sebagai <em>digital cognitive tool</em> yang menunjang aktivitas komputasi peserta didik.</p>
+                    <p><strong>Pedagogical Knowledge:</strong> mengimplementasikan pendekatan <strong>Guided Inquiry &amp; Scaffolding (Vygotsky)</strong> untuk mencapai Zona Perkembangan Proksimal (ZPD).</p>
+                    <p><strong>Content Knowledge:</strong> penugasan dikonstruksi secara berjenjang dari pemahaman rumus dasar hingga interpretasi grafik data yang komprehensif.</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   DIVIDER: Media 4
+                   ════════════════════════════════════════════ -->
+              <div class="media-divider reveal">
+                <i class="fa-solid fa-circle divider-icon"></i>
+                MEDIA 4
+                <i class="fa-solid fa-circle divider-icon"></i>
+              </div>
+
+              <!-- ════════════════════════════════════════════
+                   MEDIA 4 — POST TEST BERBASIS GAME (LIVE)
+                   ════════════════════════════════════════════ -->
+              <div class="media-showcase reveal">
+                <div class="showcase-visual">
+                  <div class="showcase-terminal-bar">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="bar-title">~/media/siklus_4_game_posttest.live</span>
+                  </div>
+                  <div class="showcase-image live-preview">
+                    <!-- URL Post Test Game -->
+                    <iframe
+                      src="https://game-kuis-informatika.vercel.app/"
+                      title="Live Preview Post Test Berbasis Game — Siklus 4"
+                      loading="lazy"
+                      sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                      referrerpolicy="no-referrer-when-downgrade"
+                    ></iframe>
+                    <span class="live-hint">
+                      <i class="fa-solid fa-gamepad"></i>
+                      Klik tombol di kanan untuk bermain fullscreen
+                    </span>
+                  </div>
+                </div>
+
+                <div class="showcase-info">
+                  <div class="showcase-tag"><i class="fa-solid fa-gamepad"></i> GAMIFIED ASSESSMENT</div>
+                  <h3 class="showcase-title"><span class="accent">Game Post-Test</span> — Evaluasi Asesmen Berbasis Game</h3>
+                  <p class="showcase-desc">
+                    Instrumen asesmen sumatif inovatif berbasis game edukatif interaktif yang dirancang dan dikembangkan sendiri untuk menguji penguasaan materi murid. Menggabungkan mekanika permainan, tantangan berwaktu, sistem skor
+                    langsung, dan feedback interaktif guna menciptakan pengalaman evaluasi yang menyenangkan, menantang, dan bebas dari ketegangan ujian (<em>test anxiety</em>).
+                  </p>
+
+                  <div class="feature-grid">
+                    <div class="feature-item"><i class="fa-solid fa-gamepad"></i> Game-Engine</div>
+                    <div class="feature-item"><i class="fa-solid fa-trophy"></i> Sistem Skor</div>
+                    <div class="feature-item"><i class="fa-solid fa-stopwatch"></i> Timer Tantangan</div>
+                    <div class="feature-item"><i class="fa-solid fa-bolt"></i> Instant Feedback</div>
+                    <div class="feature-item"><i class="fa-solid fa-ranking-star"></i> Papan Skor</div>
+                  </div>
+
+                  <div class="showcase-actions">
+                    <a href="https://game-kuis-informatika.vercel.app/" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
+                      <i class="fa-solid fa-play"></i>
+                      Mainkan Post-Test Game
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANALYSIS CARDS — POST TEST GAME -->
+              <div class="cards-label reveal">ANALISIS POST TEST BERBASIS GAME</div>
+
+              <div class="cards-grid">
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Post-Test berbasis game dikembangkan secara mandiri sebagai <strong>inovasi asesmen sumatif akhir siklus</strong> untuk mengevaluasi pemahaman konsep pengolahan data murid.</p>
+                    <p>Tujuan: mengukur tingkat penguasaan kompetensi akhir peserta didik melalui pendekatan gamifikasi yang menyenangkan, memicu motivasi intrinsik, serta mereduksi kecemasan tes (<em>test anxiety</em>).</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
                     <p>
-                      <strong>Content:</strong> prinsip <em>Data Literacy</em>
-                      (collect → clean → analyze → visualize → conclude) dipetakan ke langkah-langkah penggunaan Excel.
+                      <strong>Kelebihan:</strong> keterlibatan dan antusiasme (<em>student engagement</em>) sangat tinggi; memberikan <em>instant feedback</em>; memupuk kompetisi yang sehat; mengubah stigma asesmen yang menegangkan menjadi
+                      menantang dan rekreatif.
                     </p>
+                    <p><strong>Kekurangan:</strong> murid berisiko tergesa-gesa menjawab karena dorongan timer/kecepatan skor (<em>speed-accuracy trade-off</em>); membutuhkan koneksi internet dan gawai yang responsif untuk grafis game.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori (TPACK)
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Technological Knowledge:</strong> pemanfaatan teknologi <em>web-based game</em> interaktif buatan sendiri yang ringan, responsif, dan mudah diakses lintas peramban.</p>
+                    <p>
+                      <strong>Pedagogical Knowledge:</strong> menerapkan <strong>Digital Game-Based Learning (DGBL - Marc Prensky)</strong> dan teori <strong>Flow (Csíkszentmihályi)</strong> — menyeimbangkan tingkat tantangan dan keahlian
+                      agar murid tenggelam dalam konsentrasi optimal.
+                    </p>
+                    <p><strong>Content Knowledge:</strong> setiap skenario level game, tantangan, dan kuis dipetakan secara terukur ke indikator esensial materi Informatika (analisis logika, fungsi, dan manipulasi data).</p>
                   </div>
                 </div>
               </div>
@@ -2519,8 +4111,8 @@
 
       <div class="container footer-content reveal">
         <div class="footer-brand">
-          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
-          <p class="cyber-desc">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 2. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
+          <h2 class="logo">E-Portofolio<span class="neon-text"> PPG.</span></h2>
+          <p class="cyber-desc">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 2 di SMA Negeri 4 Yogyakarta. Disusun sebagai dokumentasi resmi dan refleksi autentik perjalanan menjadi guru profesional bersertifikat.</p>
           <div class="hologram-barcode">
             <span>||| | || ||| || | |||| ||</span>
             <p>ID: IFA-2026-SKOM</p>
@@ -2552,21 +4144,31 @@
           <h4>E-Portofolio 2</h4>
           <ul>
             <li>
-              <a href="../refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+              <a href="rancangan.html"><i class="fa-solid fa-clipboard-list"></i> Rancangan Pembelajaran</a>
             </li>
             <li>
-              <a href="../filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+              <a href="materi.html"><i class="fa-solid fa-book"></i> Materi Pembelajaran</a>
+            </li>
+            <li>
+              <a href="media.html"><i class="fa-solid fa-photo-film"></i> Media Pembelajaran</a>
+            </li>
+            <li>
+              <a href="video.html"><i class="fa-solid fa-video"></i> Video Praktik Mengajar</a>
+            </li>
+            <li>
+              <a href="non-mengajar.html"><i class="fa-solid fa-people-group"></i> Kegiatan Non-Mengajar</a>
+            </li>
+            <li>
+              <a href="instrumen.html"><i class="fa-solid fa-clipboard-check"></i> Instrumen</a>
             </li>
           </ul>
         </div>
 
         <div class="footer-social">
           <h4>LOKASI &amp; KONTAK</h4>
-
           <div class="cyber-location">
             <span><i class="fa-solid fa-location-dot"></i> LOKASI LPTK</span>
             <strong>Universitas Negeri Yogyakarta</strong>
-
             <div class="map-wrapper">
               <iframe
                 src="https://maps.google.com/maps?q=Universitas+Negeri+Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -2576,19 +4178,19 @@
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-              >
-              </iframe>
+                title="Peta UNY"
+              ></iframe>
             </div>
           </div>
 
           <div class="social-grid">
             <a href="mailto:ilyasfandhianggara@gmail.com" class="social-btn">
               <i class="fa-solid fa-envelope"></i>
-              <span class="btn-label">Email</span>
+              <span>Email</span>
             </a>
-            <a href="https://www.instagram.com/fandhidk17/" target="_blank" class="social-btn">
+            <a href="https://www.instagram.com/fandhidk17/" target="_blank" rel="noopener" class="social-btn">
               <i class="fa-brands fa-instagram"></i>
-              <span class="btn-label">Instagram</span>
+              <span>Instagram</span>
             </a>
           </div>
         </div>
@@ -2596,8 +4198,8 @@
 
       <div class="footer-bottom">
         <div class="container bottom-flex">
-          <p>&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG.</p>
-          <div class="system-status"><span class="status-dot pulse-dot"></span> SYSTEM.ONLINE</div>
+          <p>&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG Prajabatan.</p>
+          <div class="system-status"><span class="status-dot"></span> SYSTEM.ONLINE</div>
         </div>
       </div>
     </footer>

@@ -1113,10 +1113,10 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        right: 0;
         height: 2px;
         background: linear-gradient(90deg, transparent, var(--primary), var(--accent-purple), transparent);
-        opacity: 0.5;
+        box-shadow: 0 0 15px var(--primary);
       }
 
       .footer-content {
@@ -1992,8 +1992,8 @@
 
       <div class="container footer-content reveal">
         <div class="footer-brand">
-          <h2 class="logo">E-Portofolio<span class="neon-text flicker"> PPG.</span></h2>
-          <p class="cyber-desc">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 2. Disusun sebagai dokumentasi dan refleksi perjalanan menjadi guru profesional.</p>
+          <h2 class="logo">E-Portofolio<span class="neon-text"> PPG.</span></h2>
+          <p class="cyber-desc">Ruang rekam jejak Praktik Pengalaman Lapangan (PPL) 2 di SMA Negeri 4 Yogyakarta. Disusun sebagai dokumentasi resmi dan refleksi autentik perjalanan menjadi guru profesional bersertifikat.</p>
           <div class="hologram-barcode">
             <span>||| | || ||| || | |||| ||</span>
             <p>ID: IFA-2026-SKOM</p>
@@ -2025,21 +2025,31 @@
           <h4>E-Portofolio 2</h4>
           <ul>
             <li>
-              <a href="../refleksi.html"><i class="fa-solid fa-book-open"></i> Refleksi</a>
+              <a href="rancangan.html"><i class="fa-solid fa-clipboard-list"></i> Rancangan Pembelajaran</a>
             </li>
             <li>
-              <a href="../filosofi.html"><i class="fa-solid fa-graduation-cap"></i> Filosofi Mengajar</a>
+              <a href="materi.html"><i class="fa-solid fa-book"></i> Materi Pembelajaran</a>
+            </li>
+            <li>
+              <a href="media.html"><i class="fa-solid fa-photo-film"></i> Media Pembelajaran</a>
+            </li>
+            <li>
+              <a href="video.html"><i class="fa-solid fa-video"></i> Video Praktik Mengajar</a>
+            </li>
+            <li>
+              <a href="non-mengajar.html"><i class="fa-solid fa-people-group"></i> Kegiatan Non-Mengajar</a>
+            </li>
+            <li>
+              <a href="instrumen.html"><i class="fa-solid fa-clipboard-check"></i> Instrumen</a>
             </li>
           </ul>
         </div>
 
         <div class="footer-social">
           <h4>LOKASI &amp; KONTAK</h4>
-
           <div class="cyber-location">
             <span><i class="fa-solid fa-location-dot"></i> LOKASI LPTK</span>
             <strong>Universitas Negeri Yogyakarta</strong>
-
             <div class="map-wrapper">
               <iframe
                 src="https://maps.google.com/maps?q=Universitas+Negeri+Yogyakarta&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -2049,19 +2059,19 @@
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-              >
-              </iframe>
+                title="Peta UNY"
+              ></iframe>
             </div>
           </div>
 
           <div class="social-grid">
             <a href="mailto:ilyasfandhianggara@gmail.com" class="social-btn">
               <i class="fa-solid fa-envelope"></i>
-              <span class="btn-label">Email</span>
+              <span>Email</span>
             </a>
-            <a href="https://www.instagram.com/fandhidk17/" target="_blank" class="social-btn">
+            <a href="https://www.instagram.com/fandhidk17/" target="_blank" rel="noopener" class="social-btn">
               <i class="fa-brands fa-instagram"></i>
-              <span class="btn-label">Instagram</span>
+              <span>Instagram</span>
             </a>
           </div>
         </div>
@@ -2069,8 +2079,8 @@
 
       <div class="footer-bottom">
         <div class="container bottom-flex">
-          <p>&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG.</p>
-          <div class="system-status"><span class="status-dot pulse-dot"></span> SYSTEM.ONLINE</div>
+          <p>&copy; 2026 Ilyas Fandhi Anggara, S.Kom. E-Portofolio PPG Prajabatan.</p>
+          <div class="system-status"><span class="status-dot"></span> SYSTEM.ONLINE</div>
         </div>
       </div>
     </footer>
