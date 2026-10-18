@@ -650,10 +650,11 @@
       }
 
       /* =========================================
-         SIKLUS BLOCK HEADER (untuk Tab 2)
+         SIKLUS BLOCK & HEADER (Siklus 1 - 4)
          ========================================= */
       .siklus-block {
         margin-bottom: 90px;
+        animation: panelFadeIn 0.6s ease forwards;
       }
       .siklus-block:last-child {
         margin-bottom: 0;
@@ -1545,125 +1546,26 @@
       <!-- TABS -->
       <section class="tabs-section">
         <div class="container">
-          <!-- TAB NAV -->
+          <!-- TAB NAV (FILTER SIKLUS 1–4) -->
           <div class="tabs-nav reveal">
-            <button class="tab-btn active" data-tab="uts"><i class="fa-solid fa-cube"></i> UTS - Siklus 1</button>
-            <button class="tab-btn" data-tab="uas"><i class="fa-solid fa-layer-group"></i> UAS - Siklus 2 s.d 4</button>
+            <button class="tab-btn active" data-tab="all"><i class="fa-solid fa-list-ol"></i> Semua Siklus (1–4)</button>
+            <button class="tab-btn" data-tab="siklus-1"><i class="fa-solid fa-cube"></i> Siklus 1 (UTS)</button>
+            <button class="tab-btn" data-tab="siklus-2"><i class="fa-solid fa-diagram-project"></i> Siklus 2 (UAS)</button>
+            <button class="tab-btn" data-tab="siklus-3"><i class="fa-solid fa-table-cells"></i> Siklus 3 (UAS)</button>
+            <button class="tab-btn" data-tab="siklus-4"><i class="fa-solid fa-code"></i> Siklus 4 (UAS)</button>
           </div>
 
           <!-- =========================================
-               TAB 1: UTS - SIKLUS 1
+               DAFTAR SIKLUS 1 s.d 4 (SEKUENSIAL)
                ========================================= -->
-          <div class="tab-panel active" id="tab-uts">
-            <!-- PDF VIEWER -->
-            <div class="pdf-terminal-wrapper reveal">
-              <div class="terminal-header">
-                <div class="terminal-dots">
-                  <span class="dot red"></span>
-                  <span class="dot yellow"></span>
-                  <span class="dot green"></span>
-                </div>
-                <div class="terminal-title">~/ppl_2/uts_siklus_1.pdf</div>
-                <div class="terminal-status">ONLINE</div>
-              </div>
-
-              <div class="pdf-container">
-                <!-- GANTI src dengan path PDF Modul Ajar / RPP UTS kamu -->
-                <iframe src="../Dokumen/PPL_2/Modul Siklus 1.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UTS Siklus 1"></iframe>
-              </div>
-
-              <div class="terminal-footer">
-                <a href="../Dokumen/PPL_2/Modul Siklus 1.pdf" download="Modul_Siklus_1.pdf" class="cyber-download-btn">
-                  <span class="btn-bracket">[</span>
-                  <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
-                  <span class="btn-bracket">]</span>
-                </a>
-                <a href="../Dokumen/PPL_2/Modul Siklus 1.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
-                  <span class="btn-bracket">[</span>
-                  <i class="fa-solid fa-up-right-from-square"></i>
-                  BUKA_DI_TAB_BARU
-                  <span class="btn-bracket">]</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- ANALYSIS CARDS -->
-            <div class="cards-label reveal">ANALISIS RANCANGAN</div>
-
-            <div class="cards-grid">
-              <!-- KARTU 1 -->
-              <div class="analysis-card tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-bullseye card-icon"></i>
-                  </div>
-                  <div class="card-title">
-                    Konteks &amp; Tujuan
-                    <small>Context &amp; Objectives</small>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <p>
-                    Rancangan ini dikembangkan untuk
-                    <strong>Fase E (Kelas X)</strong> di SMAN 4 Yogyakarta dengan fokus materi <strong>Literasi Digital</strong>. Peserta didik telah memiliki dasar penggunaan media digital dan mampu bekerja dalam kelompok.
-                  </p>
-                  <p>
-                    Tujuan utama: murid mampu
-                    <em>menciptakan konten digital edukatif</em>, menyajikannya secara beretika, serta memahami aspek keamanan data dan pencegahan hoaks.
-                  </p>
-                </div>
-              </div>
-
-              <!-- KARTU 2 -->
-              <div class="analysis-card variant-purple tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-scale-balanced card-icon"></i>
-                  </div>
-                  <div class="card-title">
-                    Kelebihan &amp; Kekurangan
-                    <small>Strengths &amp; Weaknesses</small>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <p><strong>Kelebihan:</strong> pendekatan <em>Project Based Learning</em> memberi pengalaman bermakna; integrasi teknologi terkini (Canva, CapCut) meningkatkan motivasi; asesmen lengkap dari diagnostik hingga sumatif.</p>
-                  <p><strong>Kekurangan:</strong> alokasi waktu <em>4×45 menit</em> sangat padat; kesenjangan keterampilan teknis murid; ketergantungan pada infrastruktur digital dan risiko jejak digital saat publikasi konten.</p>
-                </div>
-              </div>
-
-              <!-- KARTU 3 -->
-              <div class="analysis-card variant-red tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-lightbulb card-icon"></i>
-                  </div>
-                  <div class="card-title">
-                    Kajian Teori
-                    <small>Theoretical Framework</small>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <p>Rancangan mengadopsi <strong>Deep Learning</strong> agar murid memahami makna mendalam produksi konten, serta <strong>Konstruktivisme Sosial</strong> yang mendasari kerja kelompok dan diskusi pemecahan masalah.</p>
-                  <p>Diperkuat <em>Profil Pelajar Pancasila</em> (Kreativitas, Kolaborasi, Nalar Kritis, Kemandirian) sebagai kerangka pengembangan karakter dalam setiap aktivitas pembelajaran.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- =========================================
-               TAB 2: UAS - SIKLUS 2 s.d 4
-               ========================================= -->
-          <div class="tab-panel" id="tab-uas">
-            <!-- ============ SIKLUS 2 ============ -->
-            <div class="siklus-block reveal">
+          <div class="siklus-stream">
+            <!-- ============ SIKLUS 1 ============ -->
+            <div class="siklus-block reveal" data-siklus="siklus-1" id="siklus-1">
               <div class="siklus-header">
-                <div class="siklus-number-badge">02</div>
+                <div class="siklus-number-badge">01</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 2</span>
-                  <span class="siklus-name">Dasar Pemrograman C++ — Sintaks & Variabel</span>
+                  <span class="siklus-label">SIKLUS 1 &bull; UTS</span>
+                  <span class="siklus-name">Algoritma Standar: Searching dan Sorting</span>
                 </div>
               </div>
 
@@ -1675,13 +1577,117 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/ppl_2/uas_siklus_2.pdf</div>
+                  <div class="terminal-title">~/ppl_2/uts_siklus_1_searching_sorting.pdf</div>
                   <div class="terminal-status">ONLINE</div>
                 </div>
 
                 <div class="pdf-container">
-                  <!-- GANTI src dengan path PDF Modul Ajar Siklus 2 -->
-                  <iframe src="../Dokumen/PPL_2/Modul Siklus 2.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UAS Siklus 2 — C++"></iframe>
+                  <!-- PDF Modul Ajar Siklus 1 -->
+                  <iframe src="../Dokumen/PPL_2/Modul Siklus 1.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UTS Siklus 1 — Algoritma Standar: Searching dan Sorting"></iframe>
+                </div>
+
+                <div class="terminal-footer">
+                  <a href="../Dokumen/PPL_2/Modul Siklus 1.pdf" download="Modul_Siklus_1.pdf" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                    <span class="btn-bracket">]</span>
+                  </a>
+                  <a href="../Dokumen/PPL_2/Modul Siklus 1.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-up-right-from-square"></i>
+                    BUKA_DI_TAB_BARU
+                    <span class="btn-bracket">]</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- ANALYSIS CARDS -->
+              <div class="cards-grid">
+                <!-- KARTU 1: Konteks & Tujuan -->
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Rancangan dikembangkan untuk <strong>Fase E (Kelas X) SMAN 4 Yogyakarta</strong> dengan fokus materi <strong>Algoritma Standar: Searching (Linear &amp; Binary Search) dan Sorting (Bubble, Insertion, &amp; Selection Sort)</strong>.
+                    </p>
+                    <p>
+                      Tujuan utama: murid mampu memahami mekanisme pencarian dan pengurutan data, mengimplementasikan langkah-langkah logika algoritma pemilahan data, serta menganalisis efisiensi komparasi algoritma dalam konteks pemecahan masalah komputasional secara terstruktur.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- KARTU 2: Kelebihan & Kekurangan -->
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> pendekatan simulasi interaktif (unplugged kartu data &amp; digital) mempermudah visualisasi proses algoritma yang abstrak; asesmen formatif terstruktur menggunakan LKPD studi kasus; melatih pemikiran logis prosedural sejak awal.</p>
+                    <p><strong>Kekurangan:</strong> alokasi waktu membutuhkan manajemen ketat saat membandingkan kompleksitas beberapa metode sorting sekaligus; variasi kecepatan pemahaman logika antar murid memerlukan scaffolding diferensiasi bertahap.</p>
+                  </div>
+                </div>
+
+                <!-- KARTU 3: Kajian Teori -->
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Menerapkan kerangka <strong>Computational Thinking (Wing, 2006)</strong> — mencakup dekomposisi masalah, pengenalan pola perbandingan nilai, abstraksi data, dan perancangan algoritma berurut.</p>
+                    <p>Didukung teori <strong>Konstruktivisme Kognitif (Bruner)</strong> melalui tahapan <em>enactive, iconic, and symbolic</em> saat mempraktikkan proses pencarian dan pengurutan data.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ============ SIKLUS 2 ============ -->
+            <div class="siklus-block reveal" data-siklus="siklus-2" id="siklus-2">
+              <div class="siklus-header">
+                <div class="siklus-number-badge">02</div>
+                <div class="siklus-titles">
+                  <span class="siklus-label">SIKLUS 2 &bull; UAS</span>
+                  <span class="siklus-name">Algoritma Pemrograman Dasar: Algoritma dan Flowchart</span>
+                </div>
+              </div>
+
+              <!-- PDF VIEWER -->
+              <div class="pdf-terminal-wrapper">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="terminal-title">~/ppl_2/uas_siklus_2_flowchart.pdf</div>
+                  <div class="terminal-status">ONLINE</div>
+                </div>
+
+                <div class="pdf-container">
+                  <!-- PDF Modul Ajar Siklus 2 -->
+                  <iframe src="../Dokumen/PPL_2/Modul Siklus 2.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UAS Siklus 2 — Algoritma dan Flowchart"></iframe>
                 </div>
 
                 <div class="terminal-footer">
@@ -1700,8 +1706,6 @@
               </div>
 
               <!-- ANALYSIS CARDS -->
-              <div class="cards-label">ANALISIS RANCANGAN</div>
-
               <div class="cards-grid">
                 <!-- KARTU 1 -->
                 <div class="analysis-card tilt-card">
@@ -1717,12 +1721,10 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      Rancangan Siklus 2 diperuntukkan bagi
-                      <strong>Fase E (Kelas X)</strong> dengan materi <strong>Dasar Pemrograman C++</strong> — mencakup sintaks dasar, variabel, tipe data, dan operasi I/O.
+                      Rancangan Siklus 2 diperuntukkan bagi <strong>Fase E (Kelas X) SMAN 4 Yogyakarta</strong> dengan materi <strong>Algoritma Pemrograman Dasar: Perancangan Algoritma dan Notasi Diagram Alir (Flowchart)</strong>.
                     </p>
                     <p>
-                      Tujuan: murid mampu
-                      <em>menulis program C++ sederhana</em>, memahami alur eksekusi, dan melakukan <em>debugging</em> dasar secara mandiri.
+                      Tujuan: murid mampu menerjemahkan masalah logika prosedural ke dalam instruksi berurutan dan merepresentasikannya menggunakan simbol-simbol standar diagram alir (terminator, input/output, proses, percabangan keputusan).
                     </p>
                   </div>
                 </div>
@@ -1740,8 +1742,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> C++ relevan dengan industri; syntax terstruktur jelas; hasil program langsung terlihat (output terminal); melatih <em>logika komputasional</em> tingkat lanjut.</p>
-                    <p><strong>Kekurangan:</strong> kurva belajar <em>compiler setup</em> cukup tinggi; error handling membingungkan pemula; alokasi waktu praktikum sering kurang untuk sesi debugging.</p>
+                    <p><strong>Kelebihan:</strong> representasi visual diagram alir mempermudah pelacakan alur kendali logika dan percabangan kondisi sebelum murid masuk ke penulisan sintaks program formal; efektif meminimalisir kesalahan logika alur.</p>
+                    <p><strong>Kekurangan:</strong> sebagian murid cenderung terburu-buru menggambar tanpa analisis dekomposisi masalah mendalam; standardisasi ketelitian penggunaan simbol flowchart memerlukan pembiasaan dan bimbingan berkelanjutan.</p>
                   </div>
                 </div>
 
@@ -1759,13 +1761,10 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      Menggunakan pendekatan
-                      <strong>Constructionism (Papert)</strong> — murid belajar dengan <em>membangun artefak nyata</em> berupa program yang berjalan.
+                      Berlandaskan <strong>Dual Coding Theory (Paivio)</strong> — memadukan representasi verbal-tekstual instruksi logika dan representasi visual grafis diagram alir untuk memperkuat retensi memori konseptual.
                     </p>
                     <p>
-                      Didukung strategi <em>Pair Programming</em> untuk kolaborasi, serta
-                      <strong>Cognitive Apprenticeship (Collins)</strong>
-                      melalui demonstrasi bertahap dari guru.
+                      Didukung pendekatan <strong>Cognitive Apprenticeship (Collins)</strong> melalui tahapan <em>modeling, coaching, and scaffolding</em> guru dalam merancang diagram alir kasus kontekstual.
                     </p>
                   </div>
                 </div>
@@ -1773,12 +1772,12 @@
             </div>
 
             <!-- ============ SIKLUS 3 ============ -->
-            <div class="siklus-block reveal">
+            <div class="siklus-block reveal" data-siklus="siklus-3" id="siklus-3">
               <div class="siklus-header">
                 <div class="siklus-number-badge">03</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 3</span>
-                  <span class="siklus-name">Struktur Kontrol — Percabangan & Perulangan</span>
+                  <span class="siklus-label">SIKLUS 3 &bull; UAS</span>
+                  <span class="siklus-name">Microsoft Excel: Mengelola Data</span>
                 </div>
               </div>
 
@@ -1790,13 +1789,13 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/ppl_2/uas_siklus_3.pdf</div>
+                  <div class="terminal-title">~/ppl_2/uas_siklus_3_excel_data.pdf</div>
                   <div class="terminal-status">ONLINE</div>
                 </div>
 
                 <div class="pdf-container">
-                  <!-- GANTI src dengan path PDF Modul Ajar Siklus 3 -->
-                  <iframe src="../Dokumen/PPL_2/Modul Siklus 3.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UAS Siklus 3 — Struktur Kontrol"></iframe>
+                  <!-- PDF Modul Ajar Siklus 3 -->
+                  <iframe src="../Dokumen/PPL_2/Modul Siklus 3.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UAS Siklus 3 — Microsoft Excel: Mengelola Data"></iframe>
                 </div>
 
                 <div class="terminal-footer">
@@ -1815,8 +1814,6 @@
               </div>
 
               <!-- ANALYSIS CARDS -->
-              <div class="cards-label">ANALISIS RANCANGAN</div>
-
               <div class="cards-grid">
                 <!-- KARTU 1 -->
                 <div class="analysis-card tilt-card">
@@ -1832,12 +1829,10 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      Rancangan Siklus 3 berfokus pada materi
-                      <strong>Struktur Kontrol</strong> (if-else, switch-case, for, while, do-while) sebagai kelanjutan logika pemrograman pada Siklus 2.
+                      Rancangan Siklus 3 berfokus pada materi <strong>Microsoft Excel: Mengelola Data</strong> bagi <strong>Fase E (Kelas X) SMAN 4 Yogyakarta</strong> — mencakup organisasi tabel data, tipe data sel, formula dasar (SUM, AVERAGE, COUNT, MIN, MAX), fungsi logika IF (tunggal &amp; bertingkat), serta validasi data.
                     </p>
                     <p>
-                      Tujuan: murid mampu
-                      <em>merancang alur kendali program</em> untuk menyelesaikan studi kasus nyata, serta memilih struktur kontrol yang paling efisien.
+                      Tujuan: murid mampu merapikan, mengolah, menganalisis, dan memvalidasi dataset tabular secara sistematis serta menyajikan informasi ringkas yang akurat untuk mendukung pengambilan keputusan.
                     </p>
                   </div>
                 </div>
@@ -1855,8 +1850,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> materi sangat aplikatif dengan banyak kasus nyata (kalkulator, validasi input); visualisasi flowchart mempermudah pemahaman logika; latihan terbimbing efektif.</p>
-                    <p><strong>Kekurangan:</strong> potensi <em>infinite loop</em> pada murid pemula; kesenjangan kognitif cukup terasa; sebagian murid butuh pengulangan konsep <em>nested loop</em> lebih banyak.</p>
+                    <p><strong>Kelebihan:</strong> kompetensi spreadsheet sangat esensial dan aplikatif untuk kebutuhan akademis serta dunia kerja nyata; pembelajaran <em>hands-on</em> langsung menggunakan dataset riil; hasil kalkulasi logika formula dapat diverifikasi secara instan.</p>
+                    <p><strong>Kekurangan:</strong> disparitas versi Microsoft Excel antar perangkat murid; potensi kendala sintaks regional pemisah argumen (koma vs titik koma); murid memerlukan waktu ekstra saat mengonstruksi formula logika kondisional bertingkat.</p>
                   </div>
                 </div>
 
@@ -1873,20 +1868,20 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Berbasis <strong>Problem-Based Learning (PBL)</strong> — murid menyelesaikan masalah kontekstual sehingga pemahaman struktur kontrol tumbuh dari kebutuhan nyata.</p>
-                    <p>Menggunakan <em>Trace Table Strategy</em> untuk melatih penalaran algoritmik dan <strong>Peer Feedback</strong> untuk memperkuat kolaborasi antar murid.</p>
+                    <p>Menerapkan <strong>Experiential Learning Theory (Kolb)</strong> — siklus belajar aktif mulai dari <em>Concrete Experience</em> (eksplorasi dataset), <em>Reflective Observation</em> (meneliti hasil olahan data), <em>Abstract Conceptualization</em> (merumuskan logika formula), hingga <em>Active Experimentation</em> (analisis kasus baru).</p>
+                    <p>Diperkuat kerangka <strong>Data Literacy Framework</strong> untuk membentuk pola pikir analitis dan berbasis data (*data-driven thinking*).</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- ============ SIKLUS 4 ============ -->
-            <div class="siklus-block reveal">
+            <div class="siklus-block reveal" data-siklus="siklus-4" id="siklus-4">
               <div class="siklus-header">
                 <div class="siklus-number-badge">04</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 4</span>
-                  <span class="siklus-name">Pengolahan Data dengan Microsoft Excel</span>
+                  <span class="siklus-label">SIKLUS 4 &bull; UAS</span>
+                  <span class="siklus-name">Algoritma Pemrograman Dasar: Pseudocode dan Pengenalan Bahasa Pemrograman</span>
                 </div>
               </div>
 
@@ -1898,13 +1893,13 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/ppl_2/uas_siklus_4.pdf</div>
+                  <div class="terminal-title">~/ppl_2/uas_siklus_4_pseudocode_koding.pdf</div>
                   <div class="terminal-status">ONLINE</div>
                 </div>
 
                 <div class="pdf-container">
-                  <!-- GANTI src dengan path PDF Modul Ajar Siklus 4 -->
-                  <iframe src="../Dokumen/PPL_2/Modul Siklus 4.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UAS Siklus 4 — Pengolahan Data Excel"></iframe>
+                  <!-- PDF Modul Ajar Siklus 4 -->
+                  <iframe src="../Dokumen/PPL_2/Modul Siklus 4.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UAS Siklus 4 — Pseudocode &amp; Pengenalan Bahasa Pemrograman"></iframe>
                 </div>
 
                 <div class="terminal-footer">
@@ -1923,8 +1918,6 @@
               </div>
 
               <!-- ANALYSIS CARDS -->
-              <div class="cards-label">ANALISIS RANCANGAN</div>
-
               <div class="cards-grid">
                 <!-- KARTU 1 -->
                 <div class="analysis-card tilt-card">
@@ -1940,12 +1933,10 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      Rancangan Siklus 4 mengangkat materi
-                      <strong>Pengolahan Data dengan Microsoft Excel</strong> — mencakup formula dasar, fungsi logika, pivot table, dan visualisasi grafik.
+                      Rancangan Siklus 4 menyajikan materi <strong>Algoritma Pemrograman Dasar: Notasi Pseudocode dan Pengenalan Bahasa Pemrograman</strong> bagi <strong>Fase E (Kelas X) SMAN 4 Yogyakarta</strong> — mencakup translasi flowchart ke pseudocode terstruktur, pengenalan sintaks dasar, variabel, tipe data, serta operasi input/output (I/O).
                     </p>
                     <p>
-                      Tujuan: murid mampu
-                      <em>mengolah dataset sederhana</em>, menyusun laporan berbasis formula, serta menarik kesimpulan data secara sistematis.
+                      Tujuan: murid mampu mentransformasikan diagram alur menjadi notasi pseudocode yang presisi, lalu mengimplementasikannya ke dalam kode program sederhana serta mengeksekusi program di compiler secara mandiri.
                     </p>
                   </div>
                 </div>
@@ -1963,8 +1954,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> keterampilan Excel sangat dibutuhkan dunia kerja; pembelajaran langsung <em>hands-on</em>; hasil olahan data langsung direfleksikan secara visual.</p>
-                    <p><strong>Kekurangan:</strong> variasi versi Excel antar perangkat membingungkan; murid dengan <em>low-end device</em> terkendala performa; waktu terbatas untuk latihan rumus kompleks.</p>
+                    <p><strong>Kelebihan:</strong> menjadi jembatan (<em>bridging</em>) yang kokoh antara pemikiran logika murni ke sintaks pemrograman komputer sesungguhnya; murid memperoleh kepuasan belajar saat program pertama berhasil dieksekusi (<em>compiler run success</em>).</p>
+                    <p><strong>Kekurangan:</strong> tantangan adaptasi terhadap <em>syntax error</em> dan pesan kompilator; murid pemula memerlukan ketelitian tinggi dalam tata bahasa kode (tanda titik koma, kurung kurawal, case sensitivity).</p>
                   </div>
                 </div>
 
@@ -1982,13 +1973,10 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      Menerapkan <strong>Experiential Learning (Kolb)</strong>
-                      — murid mengalami langsung siklus
-                      <em>do → reflect → think → apply</em> saat mengolah dataset nyata.
+                      Mengadopsi <strong>Constructionism (Seymour Papert)</strong> — murid belajar paling mendalam ketika secara aktif merancang dan mengonstruksi sebuah artefak komputasional nyata berupa program komputer yang berfungsi.
                     </p>
                     <p>
-                      Diperkuat kerangka
-                      <strong>Data Literacy Framework</strong> untuk membangun kemampuan berpikir berbasis data, serta <em>Authentic Assessment</em> melalui proyek laporan berbasis spreadsheet.
+                      Didukung pendekatan <strong>Zone of Proximal Development (Vygotsky)</strong> melalui scaffolding bertahap dari pseudocode, template kode dasar, hingga koding mandiri.
                     </p>
                   </div>
                 </div>
@@ -2245,10 +2233,10 @@
       })();
 
       /* ==========================================
-         TAB SWITCHING (UTS / UAS)
+         TAB / SIKLUS FILTER SWITCHING (Semua / Siklus 1 - 4)
          ========================================== */
       const tabBtns = document.querySelectorAll(".tab-btn");
-      const tabPanels = document.querySelectorAll(".tab-panel");
+      const siklusBlocks = document.querySelectorAll(".siklus-block");
 
       function initTilt(scope) {
         if (typeof VanillaTilt === "undefined") return;
@@ -2273,29 +2261,29 @@
           const target = btn.dataset.tab;
 
           tabBtns.forEach((b) => b.classList.remove("active"));
-          tabPanels.forEach((p) => p.classList.remove("active"));
-
           btn.classList.add("active");
-          const activePanel = document.getElementById("tab-" + target);
 
-          if (activePanel) {
-            activePanel.classList.add("active");
-
-            activePanel.querySelectorAll(".reveal").forEach((el) => {
-              el.classList.add("active");
-            });
-
-            setTimeout(() => initTilt(activePanel), 60);
-
-            if (isDesktop) {
-              setTimeout(() => attachCursorHover(activePanel), 100);
+          siklusBlocks.forEach((block) => {
+            const blockSiklus = block.dataset.siklus;
+            if (target === "all" || target === blockSiklus) {
+              block.style.display = "block";
+              block.classList.add("active");
+              block.querySelectorAll(".reveal").forEach((el) => el.classList.add("active"));
+              initTilt(block);
+              if (isDesktop) attachCursorHover(block);
+            } else {
+              block.style.display = "none";
             }
-          }
+          });
         });
       });
 
-      const currentActivePanel = document.querySelector(".tab-panel.active");
-      if (currentActivePanel) initTilt(currentActivePanel);
+      // Inisialisasi tilt pada siklus awal yang aktif
+      siklusBlocks.forEach((block) => {
+        if (block.style.display !== "none") {
+          initTilt(block);
+        }
+      });
     </script>
   </body>
 </html>

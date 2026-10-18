@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video Praktik Mengajar | E-Portofolio PPG</title>
-    <link rel="shortcut icon" href="../Images/Logo Uny outlitne.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../Images/Logo Uny outlitne.png" type="image/x-icon" />
 
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -649,10 +649,11 @@
       }
 
       /* =========================================
-         SIKLUS BLOCK HEADER (Tab 2)
+         SIKLUS BLOCK & HEADER (Siklus 1 - 4)
          ========================================= */
       .siklus-block {
         margin-bottom: 90px;
+        animation: panelFadeIn 0.6s ease forwards;
       }
       .siklus-block:last-child {
         margin-bottom: 0;
@@ -838,6 +839,50 @@
           padding-bottom: 56.25%;
           height: 0;
         }
+      }
+
+      /* Pending Video State */
+      .video-pending-box {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 30px 20px;
+        background: radial-gradient(circle at center, rgba(0, 240, 255, 0.08) 0%, rgba(5, 5, 17, 0.96) 80%);
+        border: 1px dashed rgba(0, 240, 255, 0.35);
+      }
+      .video-pending-box .pending-icon {
+        font-size: 42px;
+        color: var(--primary);
+        margin-bottom: 12px;
+        opacity: 0.85;
+      }
+      .video-pending-box .pending-badge {
+        display: inline-block;
+        font-family: monospace;
+        font-size: 11px;
+        letter-spacing: 2px;
+        color: var(--accent-purple);
+        border: 1px solid rgba(168, 85, 247, 0.4);
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 12px;
+        background: rgba(168, 85, 247, 0.08);
+      }
+      .video-pending-box h4 {
+        font-size: 18px;
+        color: var(--white);
+        margin-bottom: 8px;
+        letter-spacing: 0.5px;
+      }
+      .video-pending-box p {
+        font-size: 13px;
+        color: var(--text-muted);
+        max-width: 480px;
+        line-height: 1.6;
       }
 
       .terminal-footer {
@@ -1561,132 +1606,139 @@
       <!-- TABS -->
       <section class="tabs-section">
         <div class="container">
-          <!-- TAB NAV -->
+          <!-- TAB NAV (FILTER SIKLUS 1–4) -->
           <div class="tabs-nav reveal">
-            <button class="tab-btn active" data-tab="uts"><i class="fa-solid fa-cube"></i> UTS - Siklus 1</button>
-            <button class="tab-btn" data-tab="uas"><i class="fa-solid fa-layer-group"></i> UAS - Siklus 2 s.d 4</button>
+            <button class="tab-btn active" data-tab="all"><i class="fa-solid fa-list-check"></i> Semua Siklus (1–4)</button>
+            <button class="tab-btn" data-tab="siklus-1"><i class="fa-solid fa-cube"></i> Siklus 1 (UTS)</button>
+            <button class="tab-btn" data-tab="siklus-2"><i class="fa-solid fa-layer-group"></i> Siklus 2 (UAS)</button>
+            <button class="tab-btn" data-tab="siklus-3"><i class="fa-solid fa-table-cells"></i> Siklus 3 (UAS)</button>
+            <button class="tab-btn" data-tab="siklus-4"><i class="fa-solid fa-code"></i> Siklus 4 (UAS)</button>
           </div>
 
           <!-- =========================================
-               TAB 1: UTS - SIKLUS 1
+               DAFTAR SIKLUS 1 s.d 4 (SEKUENSIAL)
                ========================================= -->
-          <div class="tab-panel active" id="tab-uts">
-            <!-- VIDEO VIEWER -->
-            <div class="video-terminal-wrapper reveal">
-              <div class="terminal-header">
-                <div class="terminal-dots">
-                  <span class="dot red"></span>
-                  <span class="dot yellow"></span>
-                  <span class="dot green"></span>
+          <div class="siklus-stream">
+            <!-- ============ SIKLUS 1 ============ -->
+            <div class="siklus-block reveal" data-siklus="siklus-1" id="siklus-1">
+              <div class="siklus-header">
+                <div class="siklus-number-badge">01</div>
+                <div class="siklus-titles">
+                  <span class="siklus-label">SIKLUS 1 &bull; UTS</span>
+                  <span class="siklus-name">Algoritma Standar: Searching dan Sorting</span>
                 </div>
-                <div class="terminal-title">~/video/uts_siklus_1_praktik.mp4</div>
-                <div class="terminal-status">REC</div>
               </div>
 
-              <div class="video-container-16-9">
-                <!-- GANTI src dengan URL embed YouTube kamu -->
-                <iframe
-                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                  title="Video Praktik Mengajar UTS Siklus 1"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                  loading="lazy"
-                ></iframe>
+              <!-- VIDEO VIEWER -->
+              <div class="video-terminal-wrapper">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <div class="terminal-title">~/video/uts_siklus_1_searching_sorting.mp4</div>
+                  <div class="terminal-status" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1)">PENDING</div>
+                </div>
+
+                <div class="video-container-16-9">
+                  <!-- GANTI DENGAN LINK GOOGLE DRIVE SIKLUS 1: https://drive.google.com/file/d/FILE_ID/preview -->
+                  <div class="video-pending-box">
+                    <div class="pending-icon"><i class="fa-brands fa-google-drive"></i></div>
+                    <span class="pending-badge">[ DALAM PROSES UNGGAH ]</span>
+                    <h4>Rekaman Video Siklus 1</h4>
+                    <p>Tautan video praktik mengajar Siklus 1 (Algoritma Standar: Searching dan Sorting) sedang dalam proses unggah ke Google Drive.</p>
+                  </div>
+                </div>
+
+                <div class="terminal-footer">
+                  <a href="#siklus-1" class="cyber-action-btn" style="opacity: 0.6; cursor: not-allowed">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-brands fa-google-drive"></i>
+                    VIDEO_SEGERA_HADIR
+                    <span class="btn-bracket">]</span>
+                  </a>
+                  <a href="../Dokumen/Refleksi_UTS_Siklus_1.pdf" download="Refleksi_UTS_Siklus_1.pdf" class="cyber-action-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-file-pdf"></i>
+                    UNDUH_REFLEKSI
+                    <span class="btn-bracket">]</span>
+                  </a>
+                </div>
               </div>
 
-              <div class="terminal-footer">
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener" class="cyber-action-btn">
-                  <span class="btn-bracket">[</span>
-                  <i class="fa-brands fa-youtube"></i>
-                  TONTON_DI_YOUTUBE
-                  <span class="btn-bracket">]</span>
-                </a>
-                <a href="../Dokumen/Refleksi_UTS_Siklus_1.pdf" download="Refleksi_UTS_Siklus_1.pdf" class="cyber-action-btn">
-                  <span class="btn-bracket">[</span>
-                  <i class="fa-solid fa-file-pdf"></i>
-                  UNDUH_REFLEKSI
-                  <span class="btn-bracket">]</span>
-                </a>
+              <!-- ANALYSIS CARDS -->
+              <div class="cards-grid">
+                <!-- KARTU 1: Konteks & Tujuan -->
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Video direkam pada <strong>Kelas X-5 SMAN 4 Yogyakarta</strong> (Rabu, 19 Agustus 2026, jam ke-3–4) dengan materi <strong>Algoritma Standar: Searching dan Sorting</strong>.</p>
+                    <p>
+                      Tujuan praktik: mengamati bagaimana murid
+                      <em>mengonstruksi pemahaman konsep pencarian data (linear &amp; binary search)</em> serta pengurutan data (bubble, selection, insertion sort) melalui simulasi kartu interaktif dan diskusi kelompok berorientasi
+                      computational thinking.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- KARTU 2: Kelebihan & Kekurangan -->
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> komunikasi non-verbal <em>eye contact &amp; gesture</em> cukup baik; manajemen kelas kondusif dengan <em>voice modulation</em> variatif; transisi antar tahap pembelajaran lancar.</p>
+                    <p><strong>Kekurangan:</strong> manajemen waktu pada sesi diskusi kelompok <em>over-run 5 menit</em>; sebagian murid di baris belakang kurang terpantau; belum optimal memberi apresiasi spesifik atas jawaban murid.</p>
+                  </div>
+                </div>
+
+                <!-- KARTU 3: Kajian Teori -->
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Dikaji ulang melalui <strong>Model Refleksi Gibbs</strong>
+                      (deskripsi &rarr; perasaan &rarr; evaluasi &rarr; analisis &rarr; kesimpulan &rarr; rencana), agar perbaikan tidak hanya bersifat intuitif.
+                    </p>
+                    <p>Merujuk pada <strong>Kompetensi Kepribadian Guru (Permendiknas 16/2007)</strong> — menekankan <em>kestabilan emosi</em> dan keteladanan sebagai bagian dari manajemen kelas efektif (Marzano, 2003).</p>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- ANALYSIS CARDS -->
-            <div class="cards-label reveal">SWA-REFLEKSI MENGAJAR</div>
-
-            <div class="cards-grid">
-              <!-- KARTU 1: Konteks & Tujuan -->
-              <div class="analysis-card tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-bullseye card-icon"></i>
-                  </div>
-                  <div class="card-title">
-                    Konteks &amp; Tujuan
-                    <small>Context &amp; Objectives</small>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <p>Video direkam pada <strong>Kelas X-5 SMAN 4 Yogyakarta</strong> (Rabu, 4 September 2024, jam ke-3–4) dengan materi <strong>Dasar Algoritma &amp; Pseudocode</strong>.</p>
-                  <p>
-                    Tujuan praktik: mengamati bagaimana murid
-                    <em>mengonstruksi pemahaman logika</em> melalui diskusi kelompok dan latihan terbimbing, serta mengevaluasi efektivitas komunikasi dua arah guru-murid.
-                  </p>
-                </div>
-              </div>
-
-              <!-- KARTU 2: Kelebihan & Kekurangan -->
-              <div class="analysis-card variant-purple tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-scale-balanced card-icon"></i>
-                  </div>
-                  <div class="card-title">
-                    Kelebihan &amp; Kekurangan
-                    <small>Strengths &amp; Weaknesses</small>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <p><strong>Kelebihan:</strong> komunikasi non-verbal <em>eye contact &amp; gesture</em> cukup baik; manajemen kelas kondusif dengan <em>voice modulation</em> variatif; transisi antar tahap pembelajaran lancar.</p>
-                  <p><strong>Kekurangan:</strong> manajemen waktu pada sesi diskusi kelompok <em>over-run 5 menit</em>; sebagian murid di baris belakang kurang terpantau; belum optimal memberi apresiasi spesifik atas jawaban murid.</p>
-                </div>
-              </div>
-
-              <!-- KARTU 3: Kajian Teori -->
-              <div class="analysis-card variant-red tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-lightbulb card-icon"></i>
-                  </div>
-                  <div class="card-title">
-                    Kajian Teori
-                    <small>Theoretical Framework</small>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <p>
-                    Dikaji ulang melalui <strong>Model Refleksi Gibbs</strong>
-                    (deskripsi → perasaan → evaluasi → analisis → kesimpulan → rencana), agar perbaikan tidak hanya bersifat intuitif.
-                  </p>
-                  <p>Merujuk pada <strong>Kompetensi Kepribadian Guru (Permendiknas 16/2007)</strong> — menekankan <em>kestabilan emosi</em> dan keteladanan sebagai bagian dari manajemen kelas efektif (Marzano, 2003).</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- =========================================
-               TAB 2: UAS - SIKLUS 2 s.d 4
-               ========================================= -->
-          <div class="tab-panel" id="tab-uas">
             <!-- ============ SIKLUS 2 ============ -->
-            <div class="siklus-block reveal">
+            <div class="siklus-block reveal" data-siklus="siklus-2" id="siklus-2">
               <div class="siklus-header">
                 <div class="siklus-number-badge">02</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 2</span>
-                  <span class="siklus-name">Dasar Pemrograman C++ — Sintaks & Variabel</span>
+                  <span class="siklus-label">SIKLUS 2 &bull; UAS</span>
+                  <span class="siklus-name">Algoritma Pemrograman Dasar: Algoritma dan Flowchart</span>
                 </div>
               </div>
 
@@ -1698,26 +1750,25 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/video/uas_siklus_2_cpp.mp4</div>
-                  <div class="terminal-status">REC</div>
+                  <div class="terminal-title">~/video/uas_siklus_2_algoritma_flowchart.mp4</div>
+                  <div class="terminal-status" style="color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1)">PENDING</div>
                 </div>
 
                 <div class="video-container-16-9">
-                  <!-- GANTI src dengan URL embed YouTube Siklus 2 -->
-                  <iframe
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Video Praktik Mengajar UAS Siklus 2 — C++"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                    loading="lazy"
-                  ></iframe>
+                  <!-- GANTI DENGAN LINK GOOGLE DRIVE SIKLUS 2: https://drive.google.com/file/d/FILE_ID/preview -->
+                  <div class="video-pending-box">
+                    <div class="pending-icon"><i class="fa-brands fa-google-drive"></i></div>
+                    <span class="pending-badge">[ DALAM PROSES UNGGAH ]</span>
+                    <h4>Rekaman Video Siklus 2</h4>
+                    <p>Tautan video praktik mengajar Siklus 2 (Algoritma Pemrograman Dasar: Algoritma dan Flowchart) sedang dalam proses unggah ke Google Drive.</p>
+                  </div>
                 </div>
 
                 <div class="terminal-footer">
-                  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener" class="cyber-action-btn">
+                  <a href="#siklus-2" class="cyber-action-btn" style="opacity: 0.6; cursor: not-allowed">
                     <span class="btn-bracket">[</span>
-                    <i class="fa-brands fa-youtube"></i>
-                    TONTON_DI_YOUTUBE
+                    <i class="fa-brands fa-google-drive"></i>
+                    VIDEO_SEGERA_HADIR
                     <span class="btn-bracket">]</span>
                   </a>
                   <a href="../Dokumen/Refleksi_UAS_Siklus_2.pdf" download="Refleksi_UAS_Siklus_2.pdf" class="cyber-action-btn">
@@ -1743,10 +1794,13 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Praktik dilaksanakan di <strong>Kelas X-3</strong> (Selasa, 15 Oktober 2024) dengan materi <strong>Dasar Pemrograman C++</strong> — fokus pada sintaks, variabel, dan tipe data.</p>
+                    <p>
+                      Praktik dilaksanakan di <strong>Kelas X-3 SMAN 4 Yogyakarta</strong> (Selasa, 1 September 2026) dengan materi <strong>Algoritma Pemrograman Dasar: Algoritma dan Flowchart</strong> — fokus pada perancangan logika,
+                      diagram alir, dan percabangan keputusan.
+                    </p>
                     <p>
                       Tujuan observasi: melihat bagaimana guru memandu murid
-                      <em>menulis kode pertama</em> dan menumbuhkan rasa percaya diri menghadapi error compiler.
+                      <em>memvisualisasikan alur pemecahan masalah komputasi</em> melalui bagan alir terstandar serta menumbuhkan daya nalar logis siswa.
                     </p>
                   </div>
                 </div>
@@ -1764,7 +1818,7 @@
                   </div>
                   <div class="card-body">
                     <p><strong>Kelebihan:</strong> demonstrasi live coding terstruktur; scaffolding error handling jelas; waktu praktik proporsional dengan teori.</p>
-                    <p><strong>Kekurangan:</strong> guru cenderung <em>monolog</em> saat menjelaskan konsep pointer; murid pasif di awal sesi; keterbatasan perangkat membuat beberapa murid berbagi laptop.</p>
+                    <p><strong>Kekurangan:</strong> guru cenderung <em>monolog</em> saat menjelaskan konsep struktur/deklarasi variabel; murid pasif di awal sesi; keterbatasan perangkat membuat beberapa murid berbagi laptop.</p>
                   </div>
                 </div>
 
@@ -1788,12 +1842,12 @@
             </div>
 
             <!-- ============ SIKLUS 3 ============ -->
-            <div class="siklus-block reveal">
+            <div class="siklus-block reveal" data-siklus="siklus-3" id="siklus-3">
               <div class="siklus-header">
                 <div class="siklus-number-badge">03</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 3</span>
-                  <span class="siklus-name">Struktur Kontrol — Percabangan & Perulangan</span>
+                  <span class="siklus-label">SIKLUS 3 &bull; UAS</span>
+                  <span class="siklus-name">Microsoft Excel: Mengelola Data</span>
                 </div>
               </div>
 
@@ -1804,26 +1858,26 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/video/uas_siklus_3_control_flow.mp4</div>
-                  <div class="terminal-status">REC</div>
+                  <div class="terminal-title">~/video/uas_siklus_3_excel_data.mp4</div>
+                  <div class="terminal-status">LIVE &bull; DRIVE</div>
                 </div>
 
                 <div class="video-container-16-9">
-                  <!-- GANTI src dengan URL embed YouTube Siklus 3 -->
+                  <!-- Video Google Drive Siklus 3: Microsoft Excel -->
                   <iframe
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Video Praktik Mengajar UAS Siklus 3 — Struktur Kontrol"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    src="https://drive.google.com/file/d/1RtIvliFd-WgvMTS7QTDrf5rXDVKy88md/preview"
+                    title="Video Praktik Mengajar UAS Siklus 3 — Microsoft Excel: Mengelola Data"
+                    allow="autoplay; encrypted-media; picture-in-picture"
                     allowfullscreen
                     loading="lazy"
                   ></iframe>
                 </div>
 
                 <div class="terminal-footer">
-                  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener" class="cyber-action-btn">
+                  <a href="https://drive.google.com/file/d/1RtIvliFd-WgvMTS7QTDrf5rXDVKy88md/view?usp=sharing" target="_blank" rel="noopener" class="cyber-action-btn">
                     <span class="btn-bracket">[</span>
-                    <i class="fa-brands fa-youtube"></i>
-                    TONTON_DI_YOUTUBE
+                    <i class="fa-brands fa-google-drive"></i>
+                    TONTON_DI_DRIVE
                     <span class="btn-bracket">]</span>
                   </a>
                   <a href="../Dokumen/Refleksi_UAS_Siklus_3.pdf" download="Refleksi_UAS_Siklus_3.pdf" class="cyber-action-btn">
@@ -1849,13 +1903,13 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      Praktik di <strong>Kelas X-4</strong> (Rabu, 6 November 2024), materi <strong>Struktur Kontrol</strong>
-                      (if-else, for, while) dengan pendekatan
+                      Praktik di <strong>Kelas X-4 SMAN 4 Yogyakarta</strong> (Rabu, 16 September 2026), materi <strong>Microsoft Excel: Mengelola Data</strong>
+                      (formula dasar, fungsi logika IF/VLOOKUP, dan Pivot Table) dengan pendekatan
                       <em>Problem-Based Learning</em>.
                     </p>
                     <p>
                       Tujuan observasi: menilai kemampuan guru
-                      <em>memfasilitasi diskusi kelompok</em> dalam memecahkan kasus nyata dan mengelola dinamika kelas.
+                      <em>memfasilitasi praktikum pengolahan data kelompok</em> secara mandiri, melatih penalaran analitik data sekolah, dan mengelola dinamika interaksi di laboratorium komputer.
                     </p>
                   </div>
                 </div>
@@ -1872,11 +1926,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>
-                      <strong>Kelebihan:</strong> guru berkeliling aktif memantau kelompok; pertanyaan pemantik <em>open-ended</em>
-                      merangsang diskusi; apresiasi spesifik ke murid meningkat.
-                    </p>
-                    <p><strong>Kekurangan:</strong> beberapa kelompok kesulitan memahami <em>nested loop</em>; guru terlalu cepat menjawab ketika murid bertanya; transisi antar kelompok perlu pengaturan ulang.</p>
+                    <p><strong>Kelebihan:</strong> guru berkeliling aktif memantau pengerjaan spreadsheet murid; panduan formula step-by-step terstruktur; pemanfaatan data riil sekolah memicu antusiasme siswa.</p>
+                    <p><strong>Kekurangan:</strong> variasi kecepatan komputasi antar murid cukup lebar; beberapa murid perlu pendampingan intensif pada fungsi logika bersarang; manajemen waktu eksplorasi pivot table perlu dioptimalkan.</p>
                   </div>
                 </div>
 
@@ -1907,12 +1958,12 @@
             </div>
 
             <!-- ============ SIKLUS 4 ============ -->
-            <div class="siklus-block reveal">
+            <div class="siklus-block reveal" data-siklus="siklus-4" id="siklus-4">
               <div class="siklus-header">
                 <div class="siklus-number-badge">04</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 4</span>
-                  <span class="siklus-name">Pengolahan Data dengan Microsoft Excel</span>
+                  <span class="siklus-label">SIKLUS 4 &bull; UAS</span>
+                  <span class="siklus-name">Algoritma Pemrograman Dasar: Pseudocode dan Pengenalan Bahasa Pemrograman</span>
                 </div>
               </div>
 
@@ -1923,26 +1974,26 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/video/uas_siklus_4_excel.mp4</div>
-                  <div class="terminal-status">REC</div>
+                  <div class="terminal-title">~/video/uas_siklus_4_pseudocode_programming.mp4</div>
+                  <div class="terminal-status">LIVE &bull; DRIVE</div>
                 </div>
 
                 <div class="video-container-16-9">
-                  <!-- GANTI src dengan URL embed YouTube Siklus 4 -->
+                  <!-- Video Google Drive Siklus 4: Pseudocode & Pengenalan Pemrograman -->
                   <iframe
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                    title="Video Praktik Mengajar UAS Siklus 4 — Pengolahan Data Excel"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    src="https://drive.google.com/file/d/1S-sAUwAOf82aV3ClTiGI2Y_WW_al9l3r/preview"
+                    title="Video Praktik Mengajar UAS Siklus 4 — Algoritma Pemrograman Dasar: Pseudocode dan Pengenalan Bahasa Pemrograman"
+                    allow="autoplay; encrypted-media; picture-in-picture"
                     allowfullscreen
                     loading="lazy"
                   ></iframe>
                 </div>
 
                 <div class="terminal-footer">
-                  <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener" class="cyber-action-btn">
+                  <a href="https://drive.google.com/file/d/1S-sAUwAOf82aV3ClTiGI2Y_WW_al9l3r/view?usp=sharing" target="_blank" rel="noopener" class="cyber-action-btn">
                     <span class="btn-bracket">[</span>
-                    <i class="fa-brands fa-youtube"></i>
-                    TONTON_DI_YOUTUBE
+                    <i class="fa-brands fa-google-drive"></i>
+                    TONTON_DI_DRIVE
                     <span class="btn-bracket">]</span>
                   </a>
                   <a href="../Dokumen/Refleksi_UAS_Siklus_4.pdf" download="Refleksi_UAS_Siklus_4.pdf" class="cyber-action-btn">
@@ -1967,10 +2018,13 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Praktik terakhir di <strong>Kelas X-5</strong> (Rabu, 27 November 2024), materi <strong>Pengolahan Data dengan Excel</strong> — menerapkan formula dan visualisasi data.</p>
+                    <p>
+                      Praktik terakhir di <strong>Kelas X-5 SMAN 4 Yogyakarta</strong> (Rabu, 30 September 2026), materi <strong>Algoritma Pemrograman Dasar: Pseudocode dan Pengenalan Bahasa Pemrograman</strong> — menerapkan perancangan
+                      notasi pseudocode terstruktur, translasi ke bahasa pemrograman, variabel, dan kontrol alur.
+                    </p>
                     <p>
                       Tujuan observasi: mengevaluasi kemampuan guru
-                      <em>mengintegrasikan teknologi</em> dalam pembelajaran kontekstual dan mengelola sesi praktikum langsung.
+                      <em>memfasilitasi translasi berpikir komputasional</em> dari algoritma ke sintaks kode terstruktur dan membimbing praktikum pemrograman secara diferensiasi.
                     </p>
                   </div>
                 </div>
@@ -1987,8 +2041,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> kontekstualisasi materi dengan data nyata sekolah; feedback formatif langsung saat praktik; integrasi contoh nyata dari dunia kerja meningkatkan relevansi.</p>
-                    <p><strong>Kekurangan:</strong> keterbatasan versi Excel antar perangkat siswa; waktu <em>hands-on</em> kurang untuk eksplorasi mandiri; beberapa murid tertinggal karena kecepatan tutorial tidak merata.</p>
+                    <p><strong>Kelebihan:</strong> pendekatan komparasi berdampingan antara pseudocode dan kode nyata mempermudah pemahaman logika; live review kode berjalan interaktif; asesmen formatif responsif.</p>
+                    <p><strong>Kekurangan:</strong> beberapa murid masih memerlukan adaptasi pada aturan penulisan sintaks bahasa pemrograman; variasi kecepatan mengetik kode siswa perlu diakomodasi.</p>
                   </div>
                 </div>
 
@@ -2006,7 +2060,7 @@
                   <div class="card-body">
                     <p>
                       Mengaitkan dengan
-                      <strong>Experiential Learning (Kolb)</strong> — murid mengalami langsung siklus <em>do → reflect → think → apply</em> saat mengolah dataset.
+                      <strong>Experiential Learning (Kolb)</strong> — murid mengalami langsung siklus <em>do &rarr; reflect &rarr; think &rarr; apply</em> saat merancang notasi pseudocode dan menguji program.
                     </p>
                     <p>
                       Refleksi juga merujuk pada
@@ -2257,10 +2311,10 @@
       })();
 
       /* ==========================================
-         TAB SWITCHING (UTS / UAS)
+         TAB / SIKLUS FILTER SWITCHING (Semua / Siklus 1 - 4)
          ========================================== */
       const tabBtns = document.querySelectorAll(".tab-btn");
-      const tabPanels = document.querySelectorAll(".tab-panel");
+      const siklusBlocks = document.querySelectorAll(".siklus-block");
 
       function initTilt(scope) {
         if (typeof VanillaTilt === "undefined") return;
@@ -2285,29 +2339,29 @@
           const target = btn.dataset.tab;
 
           tabBtns.forEach((b) => b.classList.remove("active"));
-          tabPanels.forEach((p) => p.classList.remove("active"));
-
           btn.classList.add("active");
-          const activePanel = document.getElementById("tab-" + target);
 
-          if (activePanel) {
-            activePanel.classList.add("active");
-
-            activePanel.querySelectorAll(".reveal").forEach((el) => {
-              el.classList.add("active");
-            });
-
-            setTimeout(() => initTilt(activePanel), 60);
-
-            if (isDesktop) {
-              setTimeout(() => attachCursorHover(activePanel), 100);
+          siklusBlocks.forEach((block) => {
+            const blockSiklus = block.dataset.siklus;
+            if (target === "all" || target === blockSiklus) {
+              block.style.display = "block";
+              block.classList.add("active");
+              block.querySelectorAll(".reveal").forEach((el) => el.classList.add("active"));
+              initTilt(block);
+              if (isDesktop) attachCursorHover(block);
+            } else {
+              block.style.display = "none";
             }
-          }
+          });
         });
       });
 
-      const currentActivePanel = document.querySelector(".tab-panel.active");
-      if (currentActivePanel) initTilt(currentActivePanel);
+      // Inisialisasi tilt pada siklus awal yang aktif
+      siklusBlocks.forEach((block) => {
+        if (block.style.display !== "none") {
+          initTilt(block);
+        }
+      });
     </script>
   </body>
 </html>

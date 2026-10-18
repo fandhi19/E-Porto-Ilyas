@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="Css/style.css" />
-    <link rel="shortcut icon" href="Images/logo_uny.png" type="image/x-icon" />
+    <link rel="shortcut icon" href="Images/Logo Uny outlitne.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   </head>
   <body>
@@ -182,414 +182,837 @@
     <section id="timeline" class="timeline-section">
       <div class="container">
         <div class="section-header text-center">
-          <h2 class="section-title glitch-text" data-text="TIMELINE PPL 1">TIMELINE PPL 1</h2>
+          <h2 class="section-title glitch-text" data-text="TIMELINE PELAKSANAAN PPL">TIMELINE PELAKSANAAN PPL</h2>
           <div class="cyber-line"></div>
-          <p class="cyber-desc" style="max-width: 600px; margin: 0 auto">Perjalanan Praktik Pengalaman Lapangan 1 di SMAN 4 Yogyakarta dari 23 Februari hingga 30 April 2026</p>
+          <p class="cyber-desc" style="max-width: 650px; margin: 0 auto">Perjalanan Praktik Pengalaman Lapangan di SMAN 4 Yogyakarta — PPL 1 (Februari - April 2026) dan PPL 2 (Agustus - Oktober 2026)</p>
         </div>
 
-        <div class="calendar-container reveal">
-          <div class="calendar-header">
-            <h3 class="calendar-month">Februari - April 2026</h3>
-            <div class="calendar-legend">
-              <span class="legend-item"><i class="fa-solid fa-circle"></i> PPL 1 SMAN 4 Yogyakarta</span>
+        <!-- TIMELINE TABS SWITCHER -->
+        <div class="timeline-tabs-wrapper reveal">
+          <button class="timeline-tab-btn active" data-tab="ppl1">
+            <i class="fa-solid fa-flag-checkered"></i>
+            <div class="tab-btn-text">
+              <span class="tab-title">Timeline PPL 1</span>
+              <span class="tab-subtitle">23 Februari — 30 April 2026</span>
             </div>
-          </div>
+            <span class="tab-badge">PPL 1</span>
+          </button>
+          <button class="timeline-tab-btn" data-tab="ppl2">
+            <i class="fa-solid fa-rocket"></i>
+            <div class="tab-btn-text">
+              <span class="tab-title">Timeline PPL 2</span>
+              <span class="tab-subtitle">3 Agustus — 2 Oktober 2026</span>
+            </div>
+            <span class="tab-badge active">PPL 2</span>
+          </button>
+        </div>
 
-          <div class="calendar-grid">
-            <!-- ==================== FEBRUARI 2026 ==================== -->
-            <div class="month-block">
-              <div class="month-header">
-                <span class="month-title">Februari 2026</span>
-              </div>
-              <div class="calendar-weekdays">
-                <div class="weekday">Sen</div>
-                <div class="weekday">Sel</div>
-                <div class="weekday">Rab</div>
-                <div class="weekday">Kam</div>
-                <div class="weekday">Jum</div>
-                <div class="weekday">Sab</div>
-                <div class="weekday">Min</div>
-              </div>
-              <!-- Hanya baris minggu yang berisi 23-28 (Sen-Sab), Minggu kosong -->
-              <div class="calendar-week">
-                <div class="calendar-day event-day">
-                  <span class="day-number">23</span>
-                  <div class="event-item"><span class="event-title">ORIENTASI</span><span class="event-time">Penerjunan PPL</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">24</span>
-                  <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">25</span>
-                  <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">26</span>
-                  <div class="event-item"><span class="event-title">OBSERVASI</span><span class="event-time">Melakukan Observasi Manajemen Sekolah</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">27</span>
-                  <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
-                </div>
-                <div class="calendar-day"><span class="day-number">28</span></div>
-                <div class="calendar-day empty-day"><span class="day-number" style="visibility: hidden">0</span></div>
+        <!-- ==================== PANEL TIMELINE PPL 1 ==================== -->
+        <div id="timeline-panel-ppl1" class="timeline-panel active">
+          <div class="calendar-container reveal">
+            <div class="calendar-header">
+              <h3 class="calendar-month">Februari - April 2026</h3>
+              <div class="calendar-legend">
+                <span class="legend-item"><i class="fa-solid fa-circle"></i> PPL 1 SMAN 4 Yogyakarta</span>
               </div>
             </div>
 
-            <!-- ==================== MARET 2026 ==================== -->
-            <div class="month-block">
-              <div class="month-header">
-                <span class="month-title">Maret 2026</span>
-              </div>
-              <div class="calendar-weekdays">
-                <div class="weekday">Sen</div>
-                <div class="weekday">Sel</div>
-                <div class="weekday">Rab</div>
-                <div class="weekday">Kam</div>
-                <div class="weekday">Jum</div>
-                <div class="weekday">Sab</div>
-                <div class="weekday">Min</div>
-              </div>
-              <!-- Baris 1: hanya Minggu 1 Maret, kolom 1-6 kosong -->
-              <div class="calendar-week">
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">1</span>
-                  <div class="event-item"><span class="event-title">UPACARA</span><span class="event-time">Upacara HUT DIY</span></div>
+            <div class="calendar-grid">
+              <!-- ==================== FEBRUARI 2026 ==================== -->
+              <div class="month-block">
+                <div class="month-header">
+                  <span class="month-title">Februari 2026</span>
+                </div>
+                <div class="calendar-weekdays">
+                  <div class="weekday">Sen</div>
+                  <div class="weekday">Sel</div>
+                  <div class="weekday">Rab</div>
+                  <div class="weekday">Kam</div>
+                  <div class="weekday">Jum</div>
+                  <div class="weekday">Sab</div>
+                  <div class="weekday">Min</div>
+                </div>
+                <!-- Hanya baris minggu yang berisi 23-28 (Sen-Sab), Minggu kosong -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">23</span>
+                    <div class="event-item"><span class="event-title">ORIENTASI</span><span class="event-time">Penerjunan PPL</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">24</span>
+                    <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">25</span>
+                    <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">26</span>
+                    <div class="event-item"><span class="event-title">OBSERVASI</span><span class="event-time">Melakukan Observasi Manajemen Sekolah</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">27</span>
+                    <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">28</span></div>
+                  <div class="calendar-day empty-day"><span class="day-number" style="visibility: hidden">0</span></div>
                 </div>
               </div>
-              <!-- Baris 2: 2-8 Maret -->
-              <div class="calendar-week">
-                <div class="calendar-day event-day">
-                  <span class="day-number">2</span>
-                  <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
+
+              <!-- ==================== MARET 2026 ==================== -->
+              <div class="month-block">
+                <div class="month-header">
+                  <span class="month-title">Maret 2026</span>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">3</span>
-                  <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
+                <div class="calendar-weekdays">
+                  <div class="weekday">Sen</div>
+                  <div class="weekday">Sel</div>
+                  <div class="weekday">Rab</div>
+                  <div class="weekday">Kam</div>
+                  <div class="weekday">Jum</div>
+                  <div class="weekday">Sab</div>
+                  <div class="weekday">Min</div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">4</span>
-                  <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
+                <!-- Baris 1: hanya Minggu 1 Maret, kolom 1-6 kosong -->
+                <div class="calendar-week">
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">1</span>
+                    <div class="event-item"><span class="event-title">UPACARA</span><span class="event-time">Upacara HUT DIY</span></div>
+                  </div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">5</span>
-                  <div class="event-item"><span class="event-title">OBSERVASI</span><span class="event-time">Melakukan Observasi Lingkungan Belajar</span></div>
+                <!-- Baris 2: 2-8 Maret -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">2</span>
+                    <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">3</span>
+                    <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">4</span>
+                    <div class="event-item"><span class="event-title">PELAKSANAAN PTS</span><span class="event-time">Melakukan Pengawasan Ujian PTS</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">5</span>
+                    <div class="event-item"><span class="event-title">OBSERVASI</span><span class="event-time">Melakukan Observasi Lingkungan Belajar</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">6</span>
+                    <div class="event-item"><span class="event-title">OBSERVASI</span><span class="event-time">Melakukan Observasi Lingkungan Belajar</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">7</span></div>
+                  <div class="calendar-day"><span class="day-number">8</span></div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">6</span>
-                  <div class="event-item"><span class="event-title">OBSERVASI</span><span class="event-time">Melakukan Observasi Lingkungan Belajar</span></div>
+                <!-- Baris 3: 9-15 -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">9</span>
+                    <div class="event-item"><span class="event-title">ASISTEN MENGAJAR</span><span class="event-time">Pendampingan Mengajar KoKulikuler</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">10</span>
+                    <div class="event-item"><span class="event-title">ASISTEN MENGAJAR</span><span class="event-time">Pendampingan Mengajar KoKulikuler</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">11</span>
+                    <div class="event-item"><span class="event-title">ASISTEN GP</span><span class="event-time">Membantu Kegiatan Non-Administrasi</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">12</span>
+                    <div class="event-item"><span class="event-title">ASISTEN MENGAJAR</span><span class="event-time">Pendampingan Mengajar KoKulikuler</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">13</span>
+                    <div class="event-item"><span class="event-title">ASISTEN GP</span><span class="event-time">Membantu Kegiatan Non-Administrasi</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">14</span></div>
+                  <div class="calendar-day"><span class="day-number">15</span></div>
                 </div>
-                <div class="calendar-day"><span class="day-number">7</span></div>
-                <div class="calendar-day"><span class="day-number">8</span></div>
+                <!-- Baris 4: 16-22 -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day"><span class="day-number">16</span></div>
+                  <div class="calendar-day event-day"><span class="day-number">17</span></div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">18</span>
+                    <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Suci Nyepi</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">19</span>
+                    <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Suci Nyepi</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">20</span>
+                    <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Raya Idul Fitri 1447 H</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">21</span>
+                    <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Raya Idul Fitri 1447 H</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">22</span>
+                    <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Raya Idul Fitri 1447 H</span></div>
+                  </div>
+                </div>
+                <!-- Baris 5: 23-29 -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">23</span>
+                    <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Raya Idul Fitri 1447 H</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">24</span>
+                    <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Raya Idul Fitri 1447 H</span></div>
+                  </div>
+                  <div class="calendar-day event-day"><span class="day-number">25</span></div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">26</span>
+                    <div class="event-item"><span class="event-title">PERKULIAHAN</span><span class="event-time">Melaksanakan kelas perkuliahan di kampus UNY</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">27</span>
+                    <div class="event-item"><span class="event-title">PERKULIAHAN</span><span class="event-time">Melaksanakan kelas perkuliahan di kampus UNY</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">28</span></div>
+                  <div class="calendar-day"><span class="day-number">29</span></div>
+                </div>
+                <!-- Baris 6: 30-31 (Senin 30, Selasa 31), sisanya kosong -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day"><span class="day-number">30</span></div>
+                  <div class="calendar-day event-day"><span class="day-number">31</span></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                </div>
               </div>
-              <!-- Baris 3: 9-15 -->
-              <div class="calendar-week">
-                <div class="calendar-day event-day">
-                  <span class="day-number">9</span>
-                  <div class="event-item"><span class="event-title">ASISTEN MENGAJAR</span><span class="event-time">Pendampingan Mengajar KoKulikuler</span></div>
+
+              <!-- ==================== APRIL 2026 ==================== -->
+              <div class="month-block">
+                <div class="month-header">
+                  <span class="month-title">April 2026</span>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">10</span>
-                  <div class="event-item"><span class="event-title">ASISTEN MENGAJAR</span><span class="event-time">Pendampingan Mengajar KoKulikuler</span></div>
+                <div class="calendar-weekdays">
+                  <div class="weekday">Sen</div>
+                  <div class="weekday">Sel</div>
+                  <div class="weekday">Rab</div>
+                  <div class="weekday">Kam</div>
+                  <div class="weekday">Jum</div>
+                  <div class="weekday">Sab</div>
+                  <div class="weekday">Min</div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">11</span>
-                  <div class="event-item"><span class="event-title">ASISTEN GP</span><span class="event-time">Membantu Kegiatan Non-Administrasi</span></div>
+                <!-- Baris 1: April dimulai Rabu 1, jadi Sen-Sel kosong -->
+                <div class="calendar-week">
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">1</span>
+                    <div class="event-item"><span class="event-title">PPL-TERBIMBING</span><span class="event-time">Pembagian Kelas Mengajar dan Menyusun Modul Ajar</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">2</span>
+                    <div class="event-item"><span class="event-title">PPL-TERBIMBING</span><span class="event-time">Reisi Modul Ajar Bersama Guru Pamong</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">3</span>
+                    <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Libur Wafat Yesus Kristus</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">4</span></div>
+                  <div class="calendar-day"><span class="day-number">5</span></div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">12</span>
-                  <div class="event-item"><span class="event-title">ASISTEN MENGAJAR</span><span class="event-time">Pendampingan Mengajar KoKulikuler</span></div>
+                <!-- Baris 2: 6-12 -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">6</span>
+                    <div class="event-item"><span class="event-title">BIMBINNGAN DPL</span><span class="event-time">Bimbingan Dengan DPL Penyusunan Modul Ajar</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">7</span>
+                    <div class="event-item"><span class="event-title">BIMBINGAN GP</span><span class="event-time">Bimbingan Bersama Guru Pamong</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">8</span>
+                    <div class="event-item"><span class="event-title">ASISTEN MENGAJAR</span><span class="event-time">Pelaksanaan Praktik Mengajar Kelas XE5</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">9</span>
+                    <div class="event-item"><span class="event-title">BIMBINGAN GP</span><span class="event-time">Evaluasi dan Refleksi Praktik Mengajar</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">10</span>
+                    <div class="event-item"><span class="event-title">ASISTEN GP</span><span class="event-time">Membantu Kegiatan Non-Administrasi</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">11</span></div>
+                  <div class="calendar-day"><span class="day-number">12</span></div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">13</span>
-                  <div class="event-item"><span class="event-title">ASISTEN GP</span><span class="event-time">Membantu Kegiatan Non-Administrasi</span></div>
+                <!-- Baris 3: 13-19 -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">13</span>
+                    <div class="event-item"><span class="event-title">BIMBINNGAN DPL</span><span class="event-time">Bimbingan Praktik Mengajar Bersama DPL</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">14</span>
+                    <div class="event-item"><span class="event-title">ASESMEN</span><span class="event-time">Pelaksanaan Pembuataan Asesmen Sumatif</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">15</span>
+                    <div class="event-item"><span class="event-title">MENGAJAR</span><span class="event-time">Pelaksanaan Praktik Mengajar Kelas XE5</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">16</span>
+                    <div class="event-item"><span class="event-title">BIMBINGAN GP</span><span class="event-time">Evaluasi dan Refleksi Praktik Mengajar</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">17</span>
+                    <div class="event-item"><span class="event-title">ASISTEN GP</span><span class="event-time">Membantu Kegiatan Non-Administrasi</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">18</span>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">19</span>
+                  </div>
                 </div>
-                <div class="calendar-day"><span class="day-number">14</span></div>
-                <div class="calendar-day"><span class="day-number">15</span></div>
-              </div>
-              <!-- Baris 4: 16-22 -->
-              <div class="calendar-week">
-                <div class="calendar-day event-day"><span class="day-number">16</span></div>
-                <div class="calendar-day event-day"><span class="day-number">17</span></div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">18</span>
-                  <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Suci Nyepi</span></div>
+                <!-- Baris 4: 20-26 -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">20</span>
+                    <div class="event-item"><span class="event-title">ASISTEN GP</span><span class="event-time">Membantu Kegiatan Non-Administrasi</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">21</span>
+                    <div class="event-item"><span class="event-title">PENGERJAAN LMS</span><span class="event-time">Melakukan pengerjaan tugas yang ada di LMS</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">22</span>
+                    <div class="event-item"><span class="event-title">MENGAJAR</span><span class="event-time">Pelaksanaan Praktik Mengajar di Kelas XE5</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">23</span>
+                    <div class="event-item"><span class="event-title">ASESMEN</span><span class="event-time">Melakukan rekap hasil nilai asesmen murid</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">24</span>
+                    <div class="event-item"><span class="event-title">PENGERJAAN LMS</span><span class="event-time">Melakuan pengerjaan tugas yang ada di LMS</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">25</span></div>
+                  <div class="calendar-day"><span class="day-number">26</span></div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">19</span>
-                  <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Suci Nyepi</span></div>
+                <!-- Baris 5: 27-30 (Senin-Kamis), Jumat-Sabtu-Minggu kosong -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">27</span>
+                    <div class="event-item"><span class="event-title">ASISTENSI GP</span><span class="event-time">Membantu kegiatan Non-Administrasi</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">28</span>
+                    <div class="event-item"><span class="event-title">ASISTENSI</span><span class="event-time">Membantu dalam pelaksanaan piket sekolah</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">29</span>
+                    <div class="event-item"><span class="event-title">PENGERJAAN LMS</span><span class="event-time">Melakukan pengerjaan tugas yang ada di LMS</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">30</span>
+                    <div class="event-item"><span class="event-title">PENUTUPAN</span><span class="event-time">Hari Terakhir Pelaksanaan PPL Terbimbing</span></div>
+                  </div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">20</span>
-                  <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Raya Idul Fitri 1447 H</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">21</span>
-                  <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Raya Idul Fitri 1447 H</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">22</span>
-                  <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Raya Idul Fitri 1447 H</span></div>
-                </div>
-              </div>
-              <!-- Baris 5: 23-29 -->
-              <div class="calendar-week">
-                <div class="calendar-day event-day">
-                  <span class="day-number">23</span>
-                  <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Raya Idul Fitri 1447 H</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">24</span>
-                  <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Cuti Bersama Hari Raya Idul Fitri 1447 H</span></div>
-                </div>
-                <div class="calendar-day event-day"><span class="day-number">25</span></div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">26</span>
-                  <div class="event-item"><span class="event-title">PERKULIAHAN</span><span class="event-time">Melaksanakan kelas perkuliahan di kampus UNY</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">27</span>
-                  <div class="event-item"><span class="event-title">PERKULIAHAN</span><span class="event-time">Melaksanakan kelas perkuliahan di kampus UNY</span></div>
-                </div>
-                <div class="calendar-day"><span class="day-number">28</span></div>
-                <div class="calendar-day"><span class="day-number">29</span></div>
-              </div>
-              <!-- Baris 6: 30-31 (Senin 30, Selasa 31), sisanya kosong -->
-              <div class="calendar-week">
-                <div class="calendar-day event-day"><span class="day-number">30</span></div>
-                <div class="calendar-day event-day"><span class="day-number">31</span></div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
               </div>
             </div>
+            <!-- end calendar-grid -->
 
-            <!-- ==================== APRIL 2026 ==================== -->
-            <div class="month-block">
-              <div class="month-header">
-                <span class="month-title">April 2026</span>
-              </div>
-              <div class="calendar-weekdays">
-                <div class="weekday">Sen</div>
-                <div class="weekday">Sel</div>
-                <div class="weekday">Rab</div>
-                <div class="weekday">Kam</div>
-                <div class="weekday">Jum</div>
-                <div class="weekday">Sab</div>
-                <div class="weekday">Min</div>
-              </div>
-              <!-- Baris 1: April dimulai Rabu 1, jadi Sen-Sel kosong -->
-              <div class="calendar-week">
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">1</span>
-                  <div class="event-item"><span class="event-title">PPL-TERBIMBING</span><span class="event-time">Pembagian Kelas Mengajar dan Menyusun Modul Ajar</span></div>
+            <!-- Calendar Events Legend (tidak berubah) -->
+            <div class="calendar-events-legend">
+              <h4>Ringkasan Kegiatan PPL 1</h4>
+              <div class="events-list">
+                <div class="event-summary">
+                  <div class="event-date">23 Feb</div>
+                  <div class="event-info">
+                    <span class="event-name">Orientasi & Penerjunan</span>
+                    <span class="event-desc">Pelaksanaan hari pertama PPL Terbimbing PPG di SMAN 4 Yogyakarta, yang meliputi kegiatan orientasi lingkungan sekolah serta penerjunan resmi oleh pihak universitas.</span>
+                  </div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">2</span>
-                  <div class="event-item"><span class="event-title">PPL-TERBIMBING</span><span class="event-time">Reisi Modul Ajar Bersama Guru Pamong</span></div>
+                <div class="event-summary">
+                  <div class="event-date">24 - 27 Feb</div>
+                  <div class="event-info">
+                    <span class="event-name">Observasi Manajemen Sekolah & Pelaksanaan PTS</span>
+                    <span class="event-desc"
+                      >Melakukan observasi mendalam terkait manajemen dan budaya sekolah, serta berpartisipasi aktif membantu staf pengajar dalam pengawasan pelaksanaan Penilaian Tengah Semester (PTS) untuk kelas X dan XI.</span
+                    >
+                  </div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">3</span>
-                  <div class="event-item"><span class="event-title">LIBUR</span><span class="event-time">Libur Wafat Yesus Kristus</span></div>
+                <div class="event-summary">
+                  <div class="event-date">1 Mar</div>
+                  <div class="event-info">
+                    <span class="event-name">Upacara Peringatan Hari Jadi DIY</span>
+                    <span class="event-desc">Mengikuti upacara peringatan Hari Jadi Daerah Istimewa Yogyakarta di lingkungan SMAN 4 Yogyakarta sebagai bentuk integrasi dengan kegiatan kultural sekolah.</span>
+                  </div>
                 </div>
-                <div class="calendar-day"><span class="day-number">4</span></div>
-                <div class="calendar-day"><span class="day-number">5</span></div>
-              </div>
-              <!-- Baris 2: 6-12 -->
-              <div class="calendar-week">
-                <div class="calendar-day event-day">
-                  <span class="day-number">6</span>
-                  <div class="event-item"><span class="event-title">BIMBINNGAN DPL</span><span class="event-time">Bimbingan Dengan DPL Penyusunan Modul Ajar</span></div>
+                <div class="event-summary">
+                  <div class="event-date">2 - 6 Mar</div>
+                  <div class="event-info">
+                    <span class="event-name">Observasi Lingkungan Belajar & Pelaksanaan PTS</span>
+                    <span class="event-desc">Melakukan observasi terhadap karakteristik lingkungan belajar siswa dan kembali memberikan asistensi pada pelaksanaan PTS bagi siswa kelas X dan XI.</span>
+                  </div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">7</span>
-                  <div class="event-item"><span class="event-title">BIMBINGAN GP</span><span class="event-time">Bimbingan Bersama Guru Pamong</span></div>
+                <div class="event-summary">
+                  <div class="event-date">9 - 13 mar</div>
+                  <div class="event-info">
+                    <span class="event-name">Asistensi Mengajar & Dukungan Ko-kurikuler</span>
+                    <span class="event-desc">Memberikan asistensi dalam kegiatan ko-kurikuler sekolah serta membantu Guru Pamong dalam melakukan pembaruan konten dan manajemen informasi pada portal resmi sekolah.</span>
+                  </div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">8</span>
-                  <div class="event-item"><span class="event-title">ASISTEN MENGAJAR</span><span class="event-time">Pelaksanaan Praktik Mengajar Kelas XE5</span></div>
+                <div class="event-summary">
+                  <div class="event-date">26-27 Mar</div>
+                  <div class="event-info">
+                    <span class="event-name">Pendalaman Materi Akademik</span>
+                    <span class="event-desc">Melaksanakan perkuliahan rutin secara daring guna mensinkronisasikan teori kependidikan dengan praktik yang ditemukan di lapangan.</span>
+                  </div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">9</span>
-                  <div class="event-item"><span class="event-title">BIMBINGAN GP</span><span class="event-time">Evaluasi dan Refleksi Praktik Mengajar</span></div>
+                <div class="event-summary">
+                  <div class="event-date">1 - 10 Apr</div>
+                  <div class="event-info">
+                    <span class="event-name">PPL Terbimbing</span>
+                    <span class="event-desc">Menyusun modul ajar yang berdiferensiasi, melakukan konsultasi intensif bersama Dosen Pembimbing Lapangan (DPL) serta Guru Pamong, dan mulai bertugas sebagai asisten pengajar di lapangan.</span>
+                  </div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">10</span>
-                  <div class="event-item"><span class="event-title">ASISTEN GP</span><span class="event-time">Membantu Kegiatan Non-Administrasi</span></div>
+                <div class="event-summary">
+                  <div class="event-date">13 - 17 Apr</div>
+                  <div class="event-info">
+                    <span class="event-name">PPL Terbimbing</span>
+                    <span class="event-desc">Mahasiswa melakukan pembuatan Asesmen Sumatif, perktik mengajar, bimbingan DPL dan membantu guru pamong dalam update website sekolah</span>
+                  </div>
                 </div>
-                <div class="calendar-day"><span class="day-number">11</span></div>
-                <div class="calendar-day"><span class="day-number">12</span></div>
-              </div>
-              <!-- Baris 3: 13-19 -->
-              <div class="calendar-week">
-                <div class="calendar-day event-day">
-                  <span class="day-number">13</span>
-                  <div class="event-item"><span class="event-title">BIMBINNGAN DPL</span><span class="event-time">Bimbingan Praktik Mengajar Bersama DPL</span></div>
+                <div class="event-summary">
+                  <div class="event-date">20 - 24 Apr</div>
+                  <div class="event-info">
+                    <span class="event-name">PPL Terbimbing</span>
+                    <span class="event-desc">Mahasiswa membantu guru pamong dalam pembuatan web kelulusan kelas XII, melaksanakan praktik mengajar, rekap nilai murid dan pengerjaan tugas di LMS</span>
+                  </div>
                 </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">14</span>
-                  <div class="event-item"><span class="event-title">ASESMEN</span><span class="event-time">Pelaksanaan Pembuataan Asesmen Sumatif</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">15</span>
-                  <div class="event-item"><span class="event-title">MENGAJAR</span><span class="event-time">Pelaksanaan Praktik Mengajar Kelas XE5</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">16</span>
-                  <div class="event-item"><span class="event-title">BIMBINGAN GP</span><span class="event-time">Evaluasi dan Refleksi Praktik Mengajar</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">17</span>
-                  <div class="event-item"><span class="event-title">ASISTEN GP</span><span class="event-time">Membantu Kegiatan Non-Administrasi</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">18</span>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">19</span>
-                </div>
-              </div>
-              <!-- Baris 4: 20-26 -->
-              <div class="calendar-week">
-                <div class="calendar-day event-day">
-                  <span class="day-number">20</span>
-                  <div class="event-item"><span class="event-title">ASISTEN GP</span><span class="event-time">Membantu Kegiatan Non-Administrasi</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">21</span>
-                  <div class="event-item"><span class="event-title">PENGERJAAN LMS</span><span class="event-time">Melakukan pengerjaan tugas yang ada di LMS</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">22</span>
-                  <div class="event-item"><span class="event-title">MENGAJAR</span><span class="event-time">Pelaksanaan Praktik Mengajar di Kelas XE5</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">23</span>
-                  <div class="event-item"><span class="event-title">ASESMEN</span><span class="event-time">Melakukan rekap hasil nilai asesmen murid</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">24</span>
-                  <div class="event-item"><span class="event-title">PENGERJAAN LMS</span><span class="event-time">Melakuan pengerjaan tugas yang ada di LMS</span></div>
-                </div>
-                <div class="calendar-day"><span class="day-number">25</span></div>
-                <div class="calendar-day"><span class="day-number">26</span></div>
-              </div>
-              <!-- Baris 5: 27-30 (Senin-Kamis), Jumat-Sabtu-Minggu kosong -->
-              <div class="calendar-week">
-                <div class="calendar-day event-day">
-                  <span class="day-number">27</span>
-                  <div class="event-item"><span class="event-title">ASISTENSI GP</span><span class="event-time">Membantu kegiatan Non-Administrasi</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">28</span>
-                  <div class="event-item"><span class="event-title">ASISTENSI</span><span class="event-time">Membantu dalam pelaksanaan piket sekolah</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">29</span>
-                  <div class="event-item"><span class="event-title">PENGERJAAN LMS</span><span class="event-time">Melakukan pengerjaan tugas yang ada di LMS</span></div>
-                </div>
-                <div class="calendar-day event-day">
-                  <span class="day-number">30</span>
-                  <div class="event-item"><span class="event-title">PENUTUPAN</span><span class="event-time">Hari Terakhir Pelaksanaan PPL Terbimbing</span></div>
-                </div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
-                <div class="calendar-day empty-day"></div>
-              </div>
-            </div>
-          </div>
-          <!-- end calendar-grid -->
-
-          <!-- Calendar Events Legend (tidak berubah) -->
-          <div class="calendar-events-legend">
-            <h4>Ringkasan Kegiatan PPL 1</h4>
-            <div class="events-list">
-              <div class="event-summary">
-                <div class="event-date">23 Feb</div>
-                <div class="event-info">
-                  <span class="event-name">Orientasi & Penerjunan</span>
-                  <span class="event-desc">Pelaksanaan hari pertama PPL Terbimbing PPG di SMAN 4 Yogyakarta, yang meliputi kegiatan orientasi lingkungan sekolah serta penerjunan resmi oleh pihak universitas.</span>
-                </div>
-              </div>
-              <div class="event-summary">
-                <div class="event-date">24 - 27 Feb</div>
-                <div class="event-info">
-                  <span class="event-name">Observasi Manajemen Sekolah & Pelaksanaan PTS</span>
-                  <span class="event-desc"
-                    >Melakukan observasi mendalam terkait manajemen dan budaya sekolah, serta berpartisipasi aktif membantu staf pengajar dalam pengawasan pelaksanaan Penilaian Tengah Semester (PTS) untuk kelas X dan XI.</span
-                  >
-                </div>
-              </div>
-              <div class="event-summary">
-                <div class="event-date">1 Mar</div>
-                <div class="event-info">
-                  <span class="event-name">Upacara Peringatan Hari Jadi DIY</span>
-                  <span class="event-desc">Mengikuti upacara peringatan Hari Jadi Daerah Istimewa Yogyakarta di lingkungan SMAN 4 Yogyakarta sebagai bentuk integrasi dengan kegiatan kultural sekolah.</span>
-                </div>
-              </div>
-              <div class="event-summary">
-                <div class="event-date">2 - 6 Mar</div>
-                <div class="event-info">
-                  <span class="event-name">Observasi Lingkungan Belajar & Pelaksanaan PTS</span>
-                  <span class="event-desc">Melakukan observasi terhadap karakteristik lingkungan belajar siswa dan kembali memberikan asistensi pada pelaksanaan PTS bagi siswa kelas X dan XI.</span>
-                </div>
-              </div>
-              <div class="event-summary">
-                <div class="event-date">9 - 13 mar</div>
-                <div class="event-info">
-                  <span class="event-name">Asistensi Mengajar & Dukungan Ko-kurikuler</span>
-                  <span class="event-desc">Memberikan asistensi dalam kegiatan ko-kurikuler sekolah serta membantu Guru Pamong dalam melakukan pembaruan konten dan manajemen informasi pada portal resmi sekolah.</span>
-                </div>
-              </div>
-              <div class="event-summary">
-                <div class="event-date">26-27 Mar</div>
-                <div class="event-info">
-                  <span class="event-name">Pendalaman Materi Akademik</span>
-                  <span class="event-desc">Melaksanakan perkuliahan rutin secara daring guna mensinkronisasikan teori kependidikan dengan praktik yang ditemukan di lapangan.</span>
-                </div>
-              </div>
-              <div class="event-summary">
-                <div class="event-date">1 - 10 Apr</div>
-                <div class="event-info">
-                  <span class="event-name">PPL Terbimbing</span>
-                  <span class="event-desc">Menyusun modul ajar yang berdiferensiasi, melakukan konsultasi intensif bersama Dosen Pembimbing Lapangan (DPL) serta Guru Pamong, dan mulai bertugas sebagai asisten pengajar di lapangan.</span>
-                </div>
-              </div>
-              <div class="event-summary">
-                <div class="event-date">13 - 17 Apr</div>
-                <div class="event-info">
-                  <span class="event-name">PPL Terbimbing</span>
-                  <span class="event-desc">Mahasiswa melakukan pembuatan Asesmen Sumatif, perktik mengajar, bimbingan DPL dan membantu guru pamong dalam update website sekolah</span>
-                </div>
-              </div>
-              <div class="event-summary">
-                <div class="event-date">20 - 24 Apr</div>
-                <div class="event-info">
-                  <span class="event-name">PPL Terbimbing</span>
-                  <span class="event-desc">Mahasiswa membantu guru pamong dalam pembuatan web kelulusan kelas XII, melaksanakan praktik mengajar, rekap nilai murid dan pengerjaan tugas di LMS</span>
-                </div>
-              </div>
-              <div class="event-summary">
-                <div class="event-date">27 - 30 Apr</div>
-                <div class="event-info">
-                  <span class="event-name">Asistensi</span>
-                  <span class="event-desc">Mahasiswa membntu guru pamong dalam update website sekolah, pengerjaan tugas di LMS serta dan pamitan hari terakhir PPL 1 PPG</span>
+                <div class="event-summary">
+                  <div class="event-date">27 - 30 Apr</div>
+                  <div class="event-info">
+                    <span class="event-name">Asistensi</span>
+                    <span class="event-desc">Mahasiswa membntu guru pamong dalam update website sekolah, pengerjaan tugas di LMS serta dan pamitan hari terakhir PPL 1 PPG</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <!-- END TIMELINE PANEL PPL 1 -->
+
+        <!-- ==================== PANEL TIMELINE PPL 2 ==================== -->
+        <div id="timeline-panel-ppl2" class="timeline-panel">
+          <div class="calendar-container reveal">
+            <div class="calendar-header">
+              <h3 class="calendar-month">Agustus - Oktober 2026</h3>
+              <div class="calendar-legend">
+                <span class="legend-item"><i class="fa-solid fa-circle"></i> PPL 2 SMAN 4 Yogyakarta</span>
+              </div>
+            </div>
+
+            <div class="calendar-grid">
+              <!-- ==================== AGUSTUS 2026 ==================== -->
+              <div class="month-block">
+                <div class="month-header">
+                  <span class="month-title">Agustus 2026</span>
+                </div>
+                <div class="calendar-weekdays">
+                  <div class="weekday">Sen</div>
+                  <div class="weekday">Sel</div>
+                  <div class="weekday">Rab</div>
+                  <div class="weekday">Kam</div>
+                  <div class="weekday">Jum</div>
+                  <div class="weekday">Sab</div>
+                  <div class="weekday">Min</div>
+                </div>
+                <!-- Baris 1: 1-2 Agustus (Sab-Min) -->
+                <div class="calendar-week">
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day"><span class="day-number">1</span></div>
+                  <div class="calendar-day"><span class="day-number">2</span></div>
+                </div>
+                <!-- Baris 2: 3-9 Agustus (3 Ags Penerjunan PPL 2) -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">3</span>
+                    <div class="event-item"><span class="event-title">ORIENTASI PPL 2</span><span class="event-time">Penerjunan Resmi di SMAN 4 Yogyakarta</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">4</span>
+                    <div class="event-item"><span class="event-title">OBSERVASI KELAS</span><span class="event-time">Observasi &amp; Asesmen Diagnostik Kelas X</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">5</span>
+                    <div class="event-item"><span class="event-title">KOORDINASI GP</span><span class="event-time">Koordinasi Program bersama Guru Pamong</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">6</span>
+                    <div class="event-item"><span class="event-title">ASISTENSI MENGAJAR</span><span class="event-time">Pendampingan Pembelajaran Informatika</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">7</span>
+                    <div class="event-item"><span class="event-title">PROJEK KEPEMIMPINAN</span><span class="event-time">Rapat &amp; Observasi Kebutuhan Projek</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">8</span></div>
+                  <div class="calendar-day"><span class="day-number">9</span></div>
+                </div>
+                <!-- Baris 3: 10-16 Agustus -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">10</span>
+                    <div class="event-item"><span class="event-title">PERANGKAT AJAR</span><span class="event-time">Penyusunan Modul Ajar Siklus 1 C++</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">11</span>
+                    <div class="event-item"><span class="event-title">BIMBINGAN DPL</span><span class="event-time">Konsultasi Modul Ajar bersama DPL UNY</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">12</span>
+                    <div class="event-item"><span class="event-title">PANITIA HUT RI</span><span class="event-time">Koordinasi Semarak 17-an bersama OSIS</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">13</span>
+                    <div class="event-item"><span class="event-title">PIKET SEKOLAH</span><span class="event-time">Pelayanan Tamu &amp; Administrasi Sekolah</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">14</span>
+                    <div class="event-item"><span class="event-title">GLADI BERSIH</span><span class="event-time">Gladi Upacara HUT Kemerdekaan RI</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">15</span></div>
+                  <div class="calendar-day"><span class="day-number">16</span></div>
+                </div>
+                <!-- Baris 4: 17-23 Agustus -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">17</span>
+                    <div class="event-item"><span class="event-title">HUT RI KE-79</span><span class="event-time">Upacara &amp; Kepanitiaan Semarak 17-an</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">18</span>
+                    <div class="event-item"><span class="event-title">PRAKTIK SIKLUS 1</span><span class="event-time">Algoritma Pemrograman Kelas X</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">19</span>
+                    <div class="event-item"><span class="event-title">PRAKTIK SIKLUS 1</span><span class="event-time">Coding C++ Dasar &amp; Praktikum Lab</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">20</span>
+                    <div class="event-item"><span class="event-title">REFLEKSI SIKLUS 1</span><span class="event-time">Evaluasi Praktik bersama Guru Pamong</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">21</span>
+                    <div class="event-item"><span class="event-title">LOMBA INOVASI</span><span class="event-time">Pendampingan Inovasi Pemda DIY</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">22</span></div>
+                  <div class="calendar-day"><span class="day-number">23</span></div>
+                </div>
+                <!-- Baris 5: 24-30 Agustus -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">24</span>
+                    <div class="event-item"><span class="event-title">MONEV PROJEK</span><span class="event-time">Review Capaian Projek Kepemimpinan</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">25</span>
+                    <div class="event-item"><span class="event-title">PIKET KANTOR</span><span class="event-time">Administrasi Sekolah &amp; Presensi Murid</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">26</span>
+                    <div class="event-item"><span class="event-title">KO-KURIKULER</span><span class="event-time">Pendampingan Literasi Komputasi Siswa</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">27</span>
+                    <div class="event-item"><span class="event-title">MODUL SIKLUS 2</span><span class="event-time">Penyusunan Kontrol Percabangan If-Else</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">28</span>
+                    <div class="event-item"><span class="event-title">BIMBINGAN GP</span><span class="event-time">Validasi Perangkat Ajar Siklus 2</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">29</span></div>
+                  <div class="calendar-day"><span class="day-number">30</span></div>
+                </div>
+                <!-- Baris 6: 31 Agustus -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">31</span>
+                    <div class="event-item"><span class="event-title">ASESMEN SIKLUS 1</span><span class="event-time">Rekapitulasi Nilai &amp; Evaluasi Murid</span></div>
+                  </div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                </div>
+              </div>
+
+              <!-- ==================== SEPTEMBER 2026 ==================== -->
+              <div class="month-block">
+                <div class="month-header">
+                  <span class="month-title">September 2026</span>
+                </div>
+                <div class="calendar-weekdays">
+                  <div class="weekday">Sen</div>
+                  <div class="weekday">Sel</div>
+                  <div class="weekday">Rab</div>
+                  <div class="weekday">Kam</div>
+                  <div class="weekday">Jum</div>
+                  <div class="weekday">Sab</div>
+                  <div class="weekday">Min</div>
+                </div>
+                <!-- Baris 1: 1-6 September -->
+                <div class="calendar-week">
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">1</span>
+                    <div class="event-item"><span class="event-title">PRAKTIK SIKLUS 2</span><span class="event-time">Percabangan If-Else Kelas X</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">2</span>
+                    <div class="event-item"><span class="event-title">PRAKTIK SIKLUS 2</span><span class="event-time">Struktur Switch-Case C++</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">3</span>
+                    <div class="event-item"><span class="event-title">REFLEKSI SIKLUS 2</span><span class="event-time">Evaluasi &amp; Umpan Balik Murid</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">4</span>
+                    <div class="event-item"><span class="event-title">PIKET &amp; TU</span><span class="event-time">Administrasi Surat &amp; Presensi Sekolah</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">5</span></div>
+                  <div class="calendar-day"><span class="day-number">6</span></div>
+                </div>
+                <!-- Baris 2: 7-13 September -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">7</span>
+                    <div class="event-item"><span class="event-title">PERSIAPAN WORKSHOP</span><span class="event-time">Koordinasi Diseminasi Projek Sekolah</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">8</span>
+                    <div class="event-item"><span class="event-title">WORKSHOP GURU</span><span class="event-time">Pelatihan Projek Guru &amp; Karyawan</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">9</span>
+                    <div class="event-item"><span class="event-title">BIMBINGAN DPL</span><span class="event-time">Review Progres PPL 2 bersama DPL UNY</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">10</span>
+                    <div class="event-item"><span class="event-title">PENDAMPINGAN IT</span><span class="event-time">Implementasi Platform Digital SMAN 4</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">11</span>
+                    <div class="event-item"><span class="event-title">MODUL SIKLUS 3</span><span class="event-time">Perancangan Modul Looping C++</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">12</span></div>
+                  <div class="calendar-day"><span class="day-number">13</span></div>
+                </div>
+                <!-- Baris 3: 14-20 September -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">14</span>
+                    <div class="event-item"><span class="event-title">PENGAWAS ASTS</span><span class="event-time">Pengawasan Ujian Asesmen Sumatif</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">15</span>
+                    <div class="event-item"><span class="event-title">PENGAWAS ASTS</span><span class="event-time">Pengawasan Ujian Asesmen Sumatif</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">16</span>
+                    <div class="event-item"><span class="event-title">PENGAWAS ASTS</span><span class="event-time">Pengawasan Ujian Asesmen Sumatif</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">17</span>
+                    <div class="event-item"><span class="event-title">PENGAWAS ASTS</span><span class="event-time">Pengawasan Ujian Asesmen Sumatif</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">18</span>
+                    <div class="event-item"><span class="event-title">BAP ASTS</span><span class="event-time">Rekapitulasi Presensi &amp; Berita Acara</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">19</span></div>
+                  <div class="calendar-day"><span class="day-number">20</span></div>
+                </div>
+                <!-- Baris 4: 21-27 September -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">21</span>
+                    <div class="event-item"><span class="event-title">PRAKTIK SIKLUS 3</span><span class="event-time">Perulangan For Loop C++</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">22</span>
+                    <div class="event-item"><span class="event-title">PRAKTIK SIKLUS 3</span><span class="event-time">Perulangan While &amp; Do-While</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">23</span>
+                    <div class="event-item"><span class="event-title">ASESMEN FORMATIF</span><span class="event-time">Evaluasi Pemahaman Looping Murid</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">24</span>
+                    <div class="event-item"><span class="event-title">REFLEKSI SIKLUS 3</span><span class="event-time">Bimbingan &amp; Evaluasi bersama Pamong</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">25</span>
+                    <div class="event-item"><span class="event-title">INOVASI PEMDA</span><span class="event-time">Finalisasi Dokumen Inovasi Pemda DIY</span></div>
+                  </div>
+                  <div class="calendar-day"><span class="day-number">26</span></div>
+                  <div class="calendar-day"><span class="day-number">27</span></div>
+                </div>
+                <!-- Baris 5: 28-30 September -->
+                <div class="calendar-week">
+                  <div class="calendar-day event-day">
+                    <span class="day-number">28</span>
+                    <div class="event-item"><span class="event-title">PRAKTIK SIKLUS 4</span><span class="event-time">DataLab: Olah Data Interaktif Excel</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">29</span>
+                    <div class="event-item"><span class="event-title">PRAKTIK SIKLUS 4</span><span class="event-time">Dynamic Chart &amp; LKPD Digital</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">30</span>
+                    <div class="event-item"><span class="event-title">POST-TEST GAME</span><span class="event-time">Game Edukasi Evaluasi Akhir Siklus 4</span></div>
+                  </div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                </div>
+              </div>
+
+              <!-- ==================== OKTOBER 2026 ==================== -->
+              <div class="month-block">
+                <div class="month-header">
+                  <span class="month-title">Oktober 2026</span>
+                </div>
+                <div class="calendar-weekdays">
+                  <div class="weekday">Sen</div>
+                  <div class="weekday">Sel</div>
+                  <div class="weekday">Rab</div>
+                  <div class="weekday">Kam</div>
+                  <div class="weekday">Jum</div>
+                  <div class="weekday">Sab</div>
+                  <div class="weekday">Min</div>
+                </div>
+                <!-- Baris 1: 1-2 Oktober (2 Okt Penarikan PPL 2) -->
+                <div class="calendar-week">
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">1</span>
+                    <div class="event-item"><span class="event-title">REFLEKSI AKHIR</span><span class="event-time">Refleksi Komprehensif &amp; Portofolio PPL 2</span></div>
+                  </div>
+                  <div class="calendar-day event-day">
+                    <span class="day-number">2</span>
+                    <div class="event-item"><span class="event-title">PENARIKAN PPL 2</span><span class="event-time">Hari Terakhir &amp; Pelepasan Resmi SMAN 4</span></div>
+                  </div>
+                  <div class="calendar-day empty-day"></div>
+                  <div class="calendar-day empty-day"></div>
+                </div>
+              </div>
+            </div>
+            <!-- end calendar-grid PPL 2 -->
+
+            <!-- Calendar Events Legend PPL 2 -->
+            <div class="calendar-events-legend">
+              <h4>Ringkasan Kegiatan PPL 2</h4>
+              <div class="events-list">
+                <div class="event-summary">
+                  <div class="event-date">3 - 7 Ags</div>
+                  <div class="event-info">
+                    <span class="event-name">Orientasi, Penerjunan &amp; Observasi Awal</span>
+                    <span class="event-desc">Penerjunan resmi PPL 2 di SMAN 4 Yogyakarta, koordinasi dengan Kepala Sekolah &amp; Guru Pamong, asesmen diagnostik karakteristik murid kelas X, serta inisiasi Projek Kepemimpinan.</span>
+                  </div>
+                </div>
+                <div class="event-summary">
+                  <div class="event-date">10 - 14 Ags</div>
+                  <div class="event-info">
+                    <span class="event-name">Penyusunan Perangkat Ajar &amp; Kepanitiaan HUT RI</span>
+                    <span class="event-desc">Penyusunan modul ajar berdiferensiasi Siklus 1 (Dasar Pemrograman C++), bimbingan intensif bersama DPL UNY dan Guru Pamong, serta keterlibatan aktif dalam kepanitiaan Semarak HUT Ke-79 RI.</span>
+                  </div>
+                </div>
+                <div class="event-summary">
+                  <div class="event-date">17 Ags</div>
+                  <div class="event-info">
+                    <span class="event-name">Upacara &amp; Semarak HUT Kemerdekaan RI Ke-79</span>
+                    <span class="event-desc">Mengikuti upacara bendera HUT RI di lingkungan SMAN 4 Yogyakarta serta mendampingi eksekusi rangkaian perlombaan edukatif bersama dewan guru dan OSIS.</span>
+                  </div>
+                </div>
+                <div class="event-summary">
+                  <div class="event-date">18 - 28 Ags</div>
+                  <div class="event-info">
+                    <span class="event-name">Praktik Siklus 1 &amp; Pendampingan Inovasi Pemda DIY</span>
+                    <span class="event-desc"
+                      >Melaksanakan praktik pembelajaran terbimbing Siklus 1 tentang Algoritma dan Pemrograman C++ di Laboratorium Komputer, serta membantu tim sekolah menyiapkan dokumen portofolio Lomba Inovasi Pelayanan Publik Pemda
+                      DIY.</span
+                    >
+                  </div>
+                </div>
+                <div class="event-summary">
+                  <div class="event-date">31 Ags - 4 Sep</div>
+                  <div class="event-info">
+                    <span class="event-name">Praktik Siklus 2: Kontrol Percabangan (If-Else &amp; Switch)</span>
+                    <span class="event-desc">Implementasi pembelajaran interaktif materi percabangan kondisional, penerapan LKPD digital terstruktur, evaluasi formatif pemahaman logika murid, dan piket administrasi sekolah.</span>
+                  </div>
+                </div>
+                <div class="event-summary">
+                  <div class="event-date">7 - 11 Sep</div>
+                  <div class="event-info">
+                    <span class="event-name">Pelatihan &amp; Workshop Projek Kepemimpinan</span>
+                    <span class="event-desc">Menyelenggarakan workshop diseminasi dan pelatihan implementasi platform digital projek kepemimpinan kepada bapak/ibu guru dan karyawan SMAN 4 Yogyakarta, didampingi DPL UNY.</span>
+                  </div>
+                </div>
+                <div class="event-summary">
+                  <div class="event-date">14 - 18 Sep</div>
+                  <div class="event-info">
+                    <span class="event-name">Pengawasan Asesmen Sumatif Tengah Semester (ASTS)</span>
+                    <span class="event-desc">Menjalankan tugas kedinasan pengawasan ruang ujian ASTS Gasal berbasis CBT/digital, penegakan tata tertib asesmen, verifikasi presensi, dan penyusunan Berita Acara Pelaksanaan Ujian (BAP).</span>
+                  </div>
+                </div>
+                <div class="event-summary">
+                  <div class="event-date">21 - 25 Sep</div>
+                  <div class="event-info">
+                    <span class="event-name">Praktik Siklus 3: Struktur Perulangan (Looping)</span>
+                    <span class="event-desc">Pelaksanaan praktik mengajar struktur perulangan (For, While, Do-While) berbantuan visualisasi animasi algoritma, studi kasus nyata, dan refleksi pedagogis bersama Guru Pamong.</span>
+                  </div>
+                </div>
+                <div class="event-summary">
+                  <div class="event-date">28 - 30 Sep</div>
+                  <div class="event-info">
+                    <span class="event-name">Praktik Siklus 4: Excel DataLab &amp; Evaluasi Game</span>
+                    <span class="event-desc">Praktik pengolahan data interaktif berbasis Excel DataLab, pemanfaatan Dynamic Chart, pengerjaan LKPD digital, dan asesmen akhir interaktif berbasis game edukasi.</span>
+                  </div>
+                </div>
+                <div class="event-summary">
+                  <div class="event-date">1 - 2 Okt</div>
+                  <div class="event-info">
+                    <span class="event-name">Refleksi Akhir, Penarikan &amp; Pelepasan Resmi PPL 2</span>
+                    <span class="event-desc">Penyusunan refleksi komprehensif seluruh siklus, rekapitulasi portofolio digital, dan pelepasan resmi mahasiswa PPL 2 PPG Prajabatan bersama DPL UNY dan Kepala Sekolah SMAN 4 Yogyakarta.</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- END TIMELINE PANEL PPL 2 -->
       </div>
     </section>
 
@@ -1096,11 +1519,40 @@
         resizeCanvas();
         animateParticles();
       })();
+      // ==========================================
+      // TIMELINE TAB SWITCHING (PPL 1 vs PPL 2)
+      // ==========================================
+      const timelineTabBtns = document.querySelectorAll(".timeline-tab-btn");
+      const timelinePanels = {
+        ppl1: document.getElementById("timeline-panel-ppl1"),
+        ppl2: document.getElementById("timeline-panel-ppl2"),
+      };
+
+      timelineTabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = btn.dataset.tab;
+          timelineTabBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+
+          Object.keys(timelinePanels).forEach((key) => {
+            if (timelinePanels[key]) {
+              if (key === target) {
+                timelinePanels[key].classList.add("active");
+                // Trigger reveal animations inside
+                timelinePanels[key].querySelectorAll(".reveal").forEach((r) => r.classList.add("active"));
+              } else {
+                timelinePanels[key].classList.remove("active");
+              }
+            }
+          });
+        });
+      });
+
       // Aktifkan tabindex di semua calendar-day untuk interaksi klik di HP
       document.querySelectorAll(".calendar-day").forEach((day) => {
         day.setAttribute("tabindex", "0");
       });
-      // Aktifkan tabindex & klik
+      // Aktifkan tabindex & klik untuk event popup
       document.querySelectorAll(".calendar-day.event-day").forEach((day) => {
         day.setAttribute("tabindex", "0");
         day.addEventListener("click", function (e) {
@@ -1111,20 +1563,24 @@
           const time = timeEl ? timeEl.innerText : "";
 
           const popup = document.getElementById("event-popup");
+          if (!popup) return;
           const popupTitle = popup.querySelector(".popup-title");
           const popupTime = popup.querySelector(".popup-time");
-          popupTitle.innerText = title;
-          popupTime.innerText = time;
+          if (popupTitle) popupTitle.innerText = title;
+          if (popupTime) popupTime.innerText = time;
           popup.style.display = "flex";
         });
       });
 
       // Tutup popup saat klik di luar atau tombol close
-      document.getElementById("event-popup").addEventListener("click", function (e) {
-        if (e.target === this || e.target.classList.contains("popup-close")) {
-          this.style.display = "none";
-        }
-      });
+      const eventPopup = document.getElementById("event-popup");
+      if (eventPopup) {
+        eventPopup.addEventListener("click", function (e) {
+          if (e.target === this || e.target.classList.contains("popup-close")) {
+            this.style.display = "none";
+          }
+        });
+      }
     </script>
   </body>
 </html>

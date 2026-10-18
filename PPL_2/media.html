@@ -1109,6 +1109,7 @@
          ========================================= */
       .siklus-block {
         margin-bottom: 90px;
+        animation: panelFadeIn 0.35s ease forwards;
       }
       .siklus-block:last-child {
         margin-bottom: 0;
@@ -2099,24 +2100,31 @@
         <div class="container">
           <!-- TAB NAV -->
           <div class="tabs-nav reveal">
-            <button class="tab-btn active" data-tab="uts"><i class="fa-solid fa-cube"></i> UTS - Siklus 1</button>
-            <button class="tab-btn" data-tab="uas"><i class="fa-solid fa-layer-group"></i> UAS - Siklus 2 s.d 4</button>
+            <button class="tab-btn active" data-tab="all"><i class="fa-solid fa-list-check"></i> Semua Siklus (1–4)</button>
+            <button class="tab-btn" data-tab="siklus-1"><i class="fa-solid fa-cube"></i> Siklus 1 (UTS)</button>
+            <button class="tab-btn" data-tab="siklus-2"><i class="fa-solid fa-layer-group"></i> Siklus 2 (UAS)</button>
+            <button class="tab-btn" data-tab="siklus-3"><i class="fa-solid fa-table-cells"></i> Siklus 3 (UAS)</button>
+            <button class="tab-btn" data-tab="siklus-4"><i class="fa-solid fa-code"></i> Siklus 4 (UAS)</button>
           </div>
 
-          <!-- ════════════════════════════════════════════
-                 DIVIDER: Media 2
+          <!-- ============ SIKLUS 1 ============ -->
+          <div class="siklus-block reveal" data-siklus="siklus-1">
+            <div class="siklus-header">
+              <div class="siklus-number-badge">01</div>
+              <div class="siklus-titles">
+                <span class="siklus-label">SIKLUS 1 • UTS</span>
+                <span class="siklus-name">Algoritma Standar: Searching dan Sorting</span>
+              </div>
+            </div>
+
+            <!-- ════════════════════════════════════════════
+                 DIVIDER: Media 1
                  ════════════════════════════════════════════ -->
-          <div class="media-divider reveal">
-            <i class="fa-solid fa-circle divider-icon"></i>
-            MEDIA 1
-            <i class="fa-solid fa-circle divider-icon"></i>
-          </div>
-
-          <!-- =========================================
-               TAB 1: UTS - SIKLUS 1
-               (2 Media: PPT Canva + Website Pembelajaran)
-               ========================================= -->
-          <div class="tab-panel active" id="tab-uts">
+            <div class="media-divider reveal">
+              <i class="fa-solid fa-circle divider-icon"></i>
+              MEDIA 1
+              <i class="fa-solid fa-circle divider-icon"></i>
+            </div>
             <!-- ════════════════════════════════════════════
                  MEDIA 1 — PPT CANVA
                  ════════════════════════════════════════════ -->
@@ -2525,53 +2533,48 @@
             </div>
           </div>
 
-          <!-- =========================================
-               TAB 2: UAS - SIKLUS 2 s.d 4
-               ========================================= -->
-          <div class="tab-panel" id="tab-uas">
-            <!-- ============ SIKLUS 2 ============ -->
-            <div class="siklus-block reveal">
-              <div class="siklus-header">
-                <div class="siklus-number-badge">02</div>
-                <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 2</span>
-                  <span class="siklus-name">Algoritma dan Pemrograman</span>
+          <!-- ============ SIKLUS 2 ============ -->
+          <div class="siklus-block reveal" data-siklus="siklus-2">
+            <div class="siklus-header">
+              <div class="siklus-number-badge">02</div>
+              <div class="siklus-titles">
+                <span class="siklus-label">SIKLUS 2 • UAS</span>
+                <span class="siklus-name">Algoritma Pemrograman Dasar: Algoritma dan Flowchart</span>
+              </div>
+            </div>
+
+            <!-- ════════════════════════════════════════════
+                 MEDIA 1 — PPT CANVA
+                 ════════════════════════════════════════════ -->
+            <div class="media-showcase reveal">
+              <!-- Left: Visual Preview (iframe Canva) -->
+              <div class="showcase-visual">
+                <div class="showcase-terminal-bar">
+                  <span class="dot red"></span>
+                  <span class="dot yellow"></span>
+                  <span class="dot green"></span>
+                  <span class="bar-title">Power Point (PPT) Algoritma & Flowchart</span>
+                </div>
+                <div class="showcase-image">
+                  <!-- GANTI src dengan URL embed Canva Siklus 2 -->
+                  <iframe src="https://www.canva.com/design/DAHV4aUtB9U/Of_CKL-vV-Rv_NH9YX7z-g/view?embed" title="PPT Canva Siklus 2 — Algoritma & Flowchart" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
                 </div>
               </div>
 
-              <!-- ════════════════════════════════════════════
-                   MEDIA 1 — PPT CANVA
-                   ════════════════════════════════════════════ -->
-              <div class="media-showcase reveal">
-                <!-- Left: Visual Preview (iframe Canva) -->
-                <div class="showcase-visual">
-                  <div class="showcase-terminal-bar">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
-                    <span class="bar-title">Power Point (PPT) Algoritma dan Pemrograman</span>
-                  </div>
-                  <div class="showcase-image">
-                    <!-- GANTI src dengan URL embed Canva Siklus 2 -->
-                    <iframe src="https://www.canva.com/design/DAHV4aUtB9U/Of_CKL-vV-Rv_NH9YX7z-g/view?embed" title="PPT Canva Siklus 2 — Dasar Pemrograman C++" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
-                  </div>
+              <!-- Right: Info Card -->
+              <div class="showcase-info">
+                <div class="showcase-tag"><i class="fa-solid fa-chalkboard"></i> SLIDE PRESENTATION</div>
+                <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Algoritma & Flowchart</h3>
+                <p class="showcase-desc">
+                  Presentasi visual interaktif untuk pengenalan dasar perancangan logika algoritma, simbol-simbol bagan alir (flowchart), struktur runtunan, dan percabangan keputusan agar murid memahami konsep logika komputasi secara terstruktur.
+                </p>
+
+                <div class="showcase-tech">
+                  <span class="tech-chip">Canva</span>
+                  <span class="tech-chip">Visual Design</span>
+                  <span class="tech-chip">Algoritma</span>
+                  <span class="tech-chip">Flowchart</span>
                 </div>
-
-                <!-- Right: Info Card -->
-                <div class="showcase-info">
-                  <div class="showcase-tag"><i class="fa-solid fa-chalkboard"></i> SLIDE PRESENTATION</div>
-                  <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Dasar Pemrograman C++</h3>
-                  <p class="showcase-desc">
-                    Presentasi visual interaktif untuk pengenalan sintaks dasar C++, variabel, tipe data, dan operasi input/output. Dilengkapi contoh kode live dan visualisasi alur eksekusi program agar murid memahami konsep pemrograman
-                    secara konkret.
-                  </p>
-
-                  <div class="showcase-tech">
-                    <span class="tech-chip">Canva</span>
-                    <span class="tech-chip">Visual Design</span>
-                    <span class="tech-chip">Code Highlight</span>
-                    <span class="tech-chip">Animasi</span>
-                  </div>
 
                   <div class="showcase-actions">
                     <a href="https://www.canva.com/design/DAHV4aUtB9U/Of_CKL-vV-Rv_NH9YX7z-g/view" target="_blank" rel="noopener" class="btn-cta btn-cta-primary">
@@ -2603,8 +2606,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>PPT Canva digunakan sebagai <strong>media pengantar sintaks C++</strong> pada Fase E — memberi visualisasi konkret struktur program, tipe data, dan alur input/output sebelum murid masuk ke praktikum langsung.</p>
-                    <p>Tujuan: mengurangi <em>cognitive load</em> awal saat berhadapan dengan <em>syntax-heavy language</em>, serta menyamakan pemahaman dasar sebelum praktik coding.</p>
+                    <p>PPT Canva digunakan sebagai <strong>media pengantar logika algoritma &amp; flowchart</strong> pada Fase E — memberi visualisasi konkret tentang alur berpikir komputasional, simbol bagan alir, dan percabangan keputusan sebelum murid mulai menyusun algoritma mandiri.</p>
+                    <p>Tujuan: mengurangi <em>cognitive load</em> awal dan mempermudah murid memahami alur logika eksekusi sebelum masuk ke praktikum perancangan solusi.</p>
                   </div>
                 </div>
 
@@ -2621,8 +2624,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> syntax highlight mempermudah membaca kode; visual alur eksekusi memperjelas konsep abstrak; dapat dibuka kapan saja sebagai referensi belajar mandiri.</p>
-                    <p><strong>Kekurangan:</strong> tidak bisa menjalankan kode secara langsung; murid cenderung pasif saat penyampaian satu arah; butuh koneksi internet untuk akses.</p>
+                    <p><strong>Kelebihan:</strong> diagram flowchart visual mempermudah melacak alur logika; visualisasi kasus nyata memperjelas konsep abstrak; dapat diakses kapan saja untuk belajar mandiri.</p>
+                    <p><strong>Kekurangan:</strong> media bersifat statis satu arah tanpa simulasi eksekusi langkah otomatis; butuh bimbingan guru saat murid merancang percabangan bersarang.</p>
                   </div>
                 </div>
 
@@ -2640,11 +2643,11 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      <strong>Technological Knowledge:</strong> Canva sebagai alat visualisasi yang memanfaatkan <em>dual coding</em>
-                      (gambar + teks) untuk mempermudah retensi konsep pemrograman.
+                      <strong>Technological Knowledge:</strong> Canva sebagai media visualisasi grafis yang memanfaatkan <em>dual coding</em>
+                      (diagram + teks) untuk mempermudah retensi logika algoritma.
                     </p>
-                    <p><strong>Pedagogical Knowledge:</strong> berbasis <em>worked example</em> (Sweller) — memberikan contoh lengkap sebelum murid menyelesaikan soal serupa.</p>
-                    <p><strong>Content Knowledge:</strong> kurikulum C++ dasar dipetakan mengikuti urutan <em>syntax → semantic → logic</em>, selaras dengan tingkat kognitif Fase E.</p>
+                    <p><strong>Pedagogical Knowledge:</strong> berbasis <em>worked example</em> (Sweller) — menyajikan contoh bagan alir terstruktur sebelum murid merancang alur logika mandiri.</p>
+                    <p><strong>Content Knowledge:</strong> materi algoritma dan flowchart disusun berjenjang (input &rarr; proses &rarr; percabangan &rarr; output), selaras dengan Capaian Pembelajaran Fase E.</p>
                   </div>
                 </div>
               </div>
@@ -2787,7 +2790,7 @@
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
-                    <span class="bar-title">LKPD Digital Algoritma dan Pemrograman</span>
+                    <span class="bar-title">LKPD Digital Algoritma &amp; Flowchart</span>
                   </div>
                   <div class="showcase-image live-preview">
                     <!-- GANTI src dengan URL LKPD Digital kamu -->
@@ -2807,17 +2810,16 @@
 
                 <div class="showcase-info">
                   <div class="showcase-tag"><i class="fa-solid fa-file-pen"></i> DIGITAL WORKSHEET</div>
-                  <h3 class="showcase-title"><span class="accent">LKPD Digital</span> — Latihan Praktikum C++</h3>
+                  <h3 class="showcase-title"><span class="accent">LKPD Digital</span> — Perancangan Algoritma &amp; Flowchart</h3>
                   <p class="showcase-desc">
-                    Lembar Kerja Peserta Didik berbasis web dengan soal praktikum terstruktur, kolom input jawaban langsung di browser, dan feedback otomatis untuk setiap langkah penyelesaian. Menggantikan LKPD kertas dengan pengalaman
-                    interaktif.
+                    Lembar Kerja Peserta Didik berbasis web dengan latihan penataan diagram alir, penulisan runtunan logika, dan studi kasus algoritma terstruktur untuk memperkuat daya nalar komputasi murid secara interaktif.
                   </p>
 
                   <div class="feature-grid">
                     <div class="feature-item"><i class="fa-solid fa-list-check"></i> Petunjuk</div>
                     <div class="feature-item"><i class="fa-solid fa-pen-to-square"></i> Isian</div>
-                    <div class="feature-item"><i class="fa-solid fa-code"></i> Praktik Kode</div>
-                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Auto-Feedback</div>
+                    <div class="feature-item"><i class="fa-solid fa-diagram-project"></i> Diagram Alir</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Verifikasi Alur</div>
                     <div class="feature-item"><i class="fa-solid fa-file-pdf"></i> Ekspor PDF</div>
                   </div>
 
@@ -2839,7 +2841,7 @@
                 <div class="lkpd-pdf-header">
                   <div class="lkpd-pdf-badge"><i class="fa-solid fa-file-pdf"></i> DOKUMEN CETAK / PDF</div>
                   <h4 class="lkpd-pdf-title">Dokumen Lembar Kerja Peserta Didik (LKPD) — Siklus 2</h4>
-                  <p class="lkpd-pdf-sub">Pratinjau dokumen PDF resmi LKPD Algoritma dan Pemrograman (Dasar Pemrograman C++) untuk panduan praktikum laboratorium.</p>
+                  <p class="lkpd-pdf-sub">Pratinjau dokumen PDF resmi LKPD Algoritma Pemrograman Dasar (Algoritma dan Flowchart) untuk panduan praktikum dan perancangan diagram alir logika.</p>
                 </div>
 
                 <div class="pdf-terminal-wrapper">
@@ -2854,7 +2856,7 @@
                   </div>
 
                   <div class="pdf-container">
-                    <iframe src="../Dokumen/PPL_2/Media/LKPD Siklus 2.pdf" class="cyber-pdf-frame" title="Dokumen PDF LKPD Siklus 2 — Pemrograman C++"></iframe>
+                    <iframe src="../Dokumen/PPL_2/Media/LKPD Siklus 2.pdf" class="cyber-pdf-frame" title="Dokumen PDF LKPD Siklus 2 — Algoritma dan Flowchart"></iframe>
                   </div>
 
                   <div class="terminal-footer">
@@ -3060,12 +3062,12 @@
             </div>
 
             <!-- ============ SIKLUS 3 ============ -->
-            <div class="siklus-block reveal">
+            <div class="siklus-block reveal" data-siklus="siklus-3">
               <div class="siklus-header">
                 <div class="siklus-number-badge">03</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 3</span>
-                  <span class="siklus-name">Pengolahan Data dengan Microsoft Excel</span>
+                  <span class="siklus-label">SIKLUS 3 • UAS</span>
+                  <span class="siklus-name">Microsoft Excel: Mengelola Data</span>
                 </div>
               </div>
 
@@ -3082,13 +3084,13 @@
                   </div>
                   <div class="showcase-image">
                     <!-- GANTI src dengan URL embed Canva Siklus 3 -->
-                    <iframe src="https://www.canva.com/design/DAHXJGOaOuY/_AFkMmUjDT4nh0EvOvat-g/view?embed" title="PPT Canva Siklus 3 — Pengolahan Data Excel" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
+                    <iframe src="https://www.canva.com/design/DAHXJGOaOuY/_AFkMmUjDT4nh0EvOvat-g/view?embed" title="PPT Canva Siklus 3 — Microsoft Excel: Mengelola Data" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
                   </div>
                 </div>
 
                 <div class="showcase-info">
                   <div class="showcase-tag"><i class="fa-solid fa-chalkboard"></i> SLIDE PRESENTATION</div>
-                  <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Pengolahan Data dengan Excel</h3>
+                  <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Microsoft Excel: Mengelola Data</h3>
                   <p class="showcase-desc">
                     Presentasi visual interaktif untuk pengenalan antarmuka Excel, formula dasar, fungsi logika (IF, VLOOKUP), Pivot Table, dan pembuatan grafik. Dilengkapi ilustrasi langkah-demi-langkah dan contoh dataset sekolah untuk
                     latihan kontekstual.
@@ -3361,7 +3363,7 @@
                 <div class="lkpd-pdf-header">
                   <div class="lkpd-pdf-badge"><i class="fa-solid fa-file-pdf"></i> DOKUMEN CETAK / PDF</div>
                   <h4 class="lkpd-pdf-title">Dokumen Lembar Kerja Peserta Didik (LKPD) — Siklus 3</h4>
-                  <p class="lkpd-pdf-sub">Pratinjau dokumen PDF resmi LKPD Pengolahan Data Excel (Formula, Logika, dan Pivot Table) untuk praktikum mandiri dan kelompok.</p>
+                  <p class="lkpd-pdf-sub">Pratinjau dokumen PDF resmi LKPD Microsoft Excel: Mengelola Data (Formula, Fungsi Logika, dan Pivot Table) untuk praktikum mandiri dan kelompok.</p>
                 </div>
 
                 <div class="pdf-terminal-wrapper">
@@ -3376,7 +3378,7 @@
                   </div>
 
                   <div class="pdf-container">
-                    <iframe src="../Dokumen/PPL_2/Media/LKPD Siklus 3.pdf" class="cyber-pdf-frame" title="Dokumen PDF LKPD Siklus 3 — Pengolahan Data Excel"></iframe>
+                    <iframe src="../Dokumen/PPL_2/Media/LKPD Siklus 3.pdf" class="cyber-pdf-frame" title="Dokumen PDF LKPD Siklus 3 — Microsoft Excel: Mengelola Data"></iframe>
                   </div>
 
                   <div class="terminal-footer">
@@ -3586,12 +3588,12 @@
             </div>
 
             <!-- ============ SIKLUS 4 ============ -->
-            <div class="siklus-block reveal">
+            <div class="siklus-block reveal" data-siklus="siklus-4">
               <div class="siklus-header">
                 <div class="siklus-number-badge">04</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 4</span>
-                  <span class="siklus-name">Pengolahan Data dengan Microsoft Excel</span>
+                  <span class="siklus-label">SIKLUS 4 • UAS</span>
+                  <span class="siklus-name">Algoritma Pemrograman Dasar: Pseudocode dan Pengenalan Bahasa Pemrograman</span>
                 </div>
               </div>
 
@@ -3608,23 +3610,22 @@
                   </div>
                   <div class="showcase-image">
                     <!-- Embed Canva Siklus 4 -->
-                    <iframe src="https://www.canva.com/design/DAHWe4YxLf8/dulRPyVfjmFeGMu84O8qoA/view?embed" title="PPT Canva Siklus 4 — Pengolahan Data Excel" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
+                    <iframe src="https://www.canva.com/design/DAHWe4YxLf8/dulRPyVfjmFeGMu84O8qoA/view?embed" title="PPT Canva Siklus 4 — Pseudocode &amp; Pengenalan Bahasa Pemrograman" allowfullscreen="allowfullscreen" loading="lazy"></iframe>
                   </div>
                 </div>
 
                 <div class="showcase-info">
                   <div class="showcase-tag"><i class="fa-solid fa-chalkboard"></i> SLIDE PRESENTATION</div>
-                  <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Pengolahan Data Lanjutan &amp; Dashboard</h3>
+                  <h3 class="showcase-title"><span class="accent">PPT Canva</span> — Pseudocode &amp; Pengenalan Bahasa Pemrograman</h3>
                   <p class="showcase-desc">
-                    Presentasi visual interaktif untuk pendalaman materi pengolahan data, formula logika, visualisasi grafik, dan perancangan dashboard interaktif di Microsoft Excel. Disusun sistematis dengan ilustrasi kontekstual guna
-                    mempermudah pemahaman konsep.
+                    Presentasi visual interaktif untuk perancangan algoritma menggunakan notasi pseudocode dan pengenalan sintaks dasar bahasa pemrograman. Disusun sistematis dengan contoh alur translasi logika ke kode nyata.
                   </p>
 
                   <div class="showcase-tech">
                     <span class="tech-chip">Canva</span>
                     <span class="tech-chip">Visual Design</span>
-                    <span class="tech-chip">Tutorial Interaktif</span>
-                    <span class="tech-chip">Dashboard Visual</span>
+                    <span class="tech-chip">Pseudocode</span>
+                    <span class="tech-chip">Bahasa Pemrograman</span>
                   </div>
 
                   <div class="showcase-actions">
@@ -3656,8 +3657,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>PPT Canva dimanfaatkan sebagai <strong>media pemantik visual</strong> dalam mengenalkan materi pengolahan data dan dashboard Excel secara terstruktur sebelum murid masuk ke fase latihan komputasi mandiri.</p>
-                    <p>Tujuan: memberikan <em>visual scaffolding</em> agar peserta didik memahami alur pengorganisasian data, penerapan formula, hingga pembacaan visual grafik secara runut dan sistematis.</p>
+                    <p>PPT Canva dimanfaatkan sebagai <strong>media pemantik visual</strong> dalam mengenalkan notasi pseudocode dan struktur sintaks dasar bahasa pemrograman secara terstruktur sebelum murid masuk ke penulisan program mandiri.</p>
+                    <p>Tujuan: memberikan <em>visual scaffolding</em> agar peserta didik memahami alur translasi logika dari bahasa alami ke representasi pseudocode hingga konstruksi sintaks kode.</p>
                   </div>
                 </div>
 
@@ -3673,8 +3674,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> infografis jelas dan menarik; memadukan teks ringkas dengan ilustrasi praktis; fleksibel diakses dari berbagai gawai untuk kebutuhan <em>flipped learning</em>.</p>
-                    <p><strong>Kekurangan:</strong> interaktivitas cenderung satu arah jika murid hanya menyimak tanpa membuka aplikasi lembar kerja; memerlukan akses internet saat dibuka secara online di Canva.</p>
+                    <p><strong>Kelebihan:</strong> tata letak kode dan logika jelas; memadukan teks ringkas dengan visualisasi diagram alur; fleksibel diakses dari berbagai gawai untuk kebutuhan <em>flipped learning</em>.</p>
+                    <p><strong>Kekurangan:</strong> interaktivitas cenderung satu arah jika murid hanya menyimak tanpa praktik langsung di editor kode; memerlukan akses internet saat dibuka via Canva.</p>
                   </div>
                 </div>
 
@@ -3690,9 +3691,9 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Technological Knowledge:</strong> pemanfaatan Canva sebagai media presentasi visual modern dengan prinsip <em>dual coding</em> (gambar + teks penjelasan).</p>
-                    <p><strong>Pedagogical Knowledge:</strong> menerapkan pendekatan <em>Explicit Modeling &amp; Worked Example</em> (Sweller) untuk memandu langkah penyelesaian masalah.</p>
-                    <p><strong>Content Knowledge:</strong> substansi materi mengacu pada prinsip <em>Data Analysis &amp; Interpretation</em> pada elemen Analisis Data (AD) Kurikulum Merdeka.</p>
+                    <p><strong>Technological Knowledge:</strong> pemanfaatan Canva sebagai media presentasi visual modern dengan prinsip <em>dual coding</em> (struktur logika kode + visualisasi animasi alur).</p>
+                    <p><strong>Pedagogical Knowledge:</strong> menerapkan pendekatan <em>Explicit Modeling &amp; Worked Example</em> (Sweller) untuk memandu konversi logika algoritma menjadi kode nyata.</p>
+                    <p><strong>Content Knowledge:</strong> substansi materi mengacu pada elemen Algoritma dan Pemrograman (AP) Kurikulum Merdeka Fase E (Pseudocode, Variabel, Input/Output, dan Percabangan).</p>
                   </div>
                 </div>
               </div>
@@ -3737,15 +3738,15 @@
                   <div class="showcase-tag"><i class="fa-solid fa-globe"></i> WEB-BASED LEARNING</div>
                   <h3 class="showcase-title"><span class="accent">Informatics Learning Web</span> — Media Pembelajaran Digital</h3>
                   <p class="showcase-desc">
-                    Website pembelajaran interaktif yang menyajikan materi terstruktur, modul bacaan digital, video demonstrasi langkah kerja, serta studi kasus pengolahan data riil dalam satu platform berbasis web untuk menunjang
+                    Website pembelajaran interaktif yang menyajikan materi terstruktur, modul bacaan digital, visualisasi algoritma, serta contoh konversi notasi pseudocode ke kode program dalam satu platform berbasis web untuk menunjang
                     <em>self-paced learning</em>.
                   </p>
 
                   <div class="feature-grid">
-                    <div class="feature-item"><i class="fa-solid fa-book-open"></i> Materi Digital</div>
-                    <div class="feature-item"><i class="fa-solid fa-table-cells"></i> Dataset Praktik</div>
+                    <div class="feature-item"><i class="fa-solid fa-book-open"></i> Modul Digital</div>
+                    <div class="feature-item"><i class="fa-solid fa-code"></i> Notasi Pseudocode</div>
                     <div class="feature-item"><i class="fa-solid fa-circle-play"></i> Video Tutorial</div>
-                    <div class="feature-item"><i class="fa-solid fa-flask"></i> Simulasi Data</div>
+                    <div class="feature-item"><i class="fa-solid fa-laptop-code"></i> Contoh Program</div>
                     <div class="feature-item"><i class="fa-solid fa-cloud-arrow-down"></i> Modul Web</div>
                   </div>
 
@@ -3775,7 +3776,7 @@
                   </div>
                   <div class="card-body">
                     <p>Website pembelajaran berperan sebagai <strong>ekosistem belajar terpadu</strong> yang dapat diakses mandiri oleh peserta didik sebelum, saat, dan sesudah sesi pembelajaran di kelas.</p>
-                    <p>Tujuan: memfasilitasi <em>self-paced learning</em> dan menyediakan sumber belajar digital yang komprehensif tanpa hambatan lisensi perangkat lunak lembar kerja.</p>
+                    <p>Tujuan: memfasilitasi <em>self-paced learning</em> dan menyediakan sumber belajar digital interaktif untuk eksplorasi logika algoritma dan pemrograman secara mandiri.</p>
                   </div>
                 </div>
 
@@ -3808,9 +3809,9 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Technological Knowledge:</strong> pemanfaatan web platform modern responsif sebagai lingkungan belajar terbuka (*open learning environment*).</p>
+                    <p><strong>Technological Knowledge:</strong> pemanfaatan web platform modern responsif sebagai lingkungan belajar terbuka (<em>open learning environment</em>).</p>
                     <p><strong>Pedagogical Knowledge:</strong> menerapkan <strong>Cognitive Load Theory (Sweller)</strong> melalui penyajian informasi secara bertahap (segmenting &amp; scaffolding).</p>
-                    <p><strong>Content Knowledge:</strong> sistematika materi disusun dengan pendekatan <em>scaffolded inquiry</em> untuk melatih penalaran analitis data.</p>
+                    <p><strong>Content Knowledge:</strong> sistematika materi disusun dengan pendekatan <em>scaffolded inquiry</em> untuk melatih penalaran logika algoritma dan konstruksi sintaks pemrograman dasar.</p>
                   </div>
                 </div>
               </div>
@@ -3853,17 +3854,17 @@
 
                 <div class="showcase-info">
                   <div class="showcase-tag"><i class="fa-solid fa-file-pen"></i> DIGITAL WORKSHEET</div>
-                  <h3 class="showcase-title"><span class="accent">LKPD Digital</span> — Lembar Kerja Peserta Didik Interaktif</h3>
+                  <h3 class="showcase-title"><span class="accent">LKPD Digital</span> — Perancangan Pseudocode &amp; Pemrograman</h3>
                   <p class="showcase-desc">
-                    Lembar Kerja Peserta Didik berbasis web dengan panduan praktikum terarah, pengujian formula, studi kasus kontekstual, dan kolom refleksi hasil analisis data untuk melatih keterampilan berpikir kritis.
+                    Lembar Kerja Peserta Didik berbasis web dengan panduan perancangan pseudocode, translasi algoritma ke bahasa pemrograman, pengujian logika kasus, dan kolom refleksi untuk melatih kemampuan berpikir komputasional tingkat tinggi.
                   </p>
 
                   <div class="feature-grid">
-                    <div class="feature-item"><i class="fa-solid fa-list-check"></i> Panduan Langkah</div>
-                    <div class="feature-item"><i class="fa-solid fa-table-cells"></i> Dataset Interaktif</div>
+                    <div class="feature-item"><i class="fa-solid fa-list-check"></i> Panduan Algoritma</div>
+                    <div class="feature-item"><i class="fa-solid fa-laptop-code"></i> Notasi Pseudocode</div>
                     <div class="feature-item"><i class="fa-solid fa-pen-to-square"></i> Kolom Isian</div>
-                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Verifikasi Hasil</div>
-                    <div class="feature-item"><i class="fa-solid fa-file-pdf"></i> Ekspor / Rekap</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Verifikasi Solusi</div>
+                    <div class="feature-item"><i class="fa-solid fa-file-pdf"></i> Ekspor PDF</div>
                   </div>
 
                   <div class="showcase-actions">
@@ -3884,7 +3885,7 @@
                 <div class="lkpd-pdf-header">
                   <div class="lkpd-pdf-badge"><i class="fa-solid fa-file-pdf"></i> DOKUMEN CETAK / PDF</div>
                   <h4 class="lkpd-pdf-title">Dokumen Lembar Kerja Peserta Didik (LKPD) — Siklus 4</h4>
-                  <p class="lkpd-pdf-sub">Pratinjau dokumen PDF resmi LKPD Pengolahan Data Lanjutan &amp; Dashboard Excel untuk panduan pengerjaan proyek analitik data.</p>
+                  <p class="lkpd-pdf-sub">Pratinjau dokumen PDF resmi LKPD Algoritma Pemrograman Dasar (Pseudocode dan Pengenalan Bahasa Pemrograman) untuk panduan praktikum dan penugasan mandiri.</p>
                 </div>
 
                 <div class="pdf-terminal-wrapper">
@@ -3899,7 +3900,7 @@
                   </div>
 
                   <div class="pdf-container">
-                    <iframe src="../Dokumen/PPL_2/Media/LKPD Siklus 4.pdf" class="cyber-pdf-frame" title="Dokumen PDF LKPD Siklus 4 — Pengolahan Data Excel"></iframe>
+                    <iframe src="../Dokumen/PPL_2/Media/LKPD Siklus 4.pdf" class="cyber-pdf-frame" title="Dokumen PDF LKPD Siklus 4 — Pseudocode dan Bahasa Pemrograman"></iframe>
                   </div>
 
                   <div class="terminal-footer">
@@ -3933,7 +3934,7 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>LKPD Digital digunakan sebagai <strong>panduan aktivitas praktikum mandiri dan kelompok</strong> dalam menyelesaikan tantangan studi kasus analisis data secara terstruktur.</p>
+                    <p>LKPD Digital digunakan sebagai <strong>panduan aktivitas praktikum mandiri dan kelompok</strong> dalam menyelesaikan tantangan studi kasus perancangan pseudocode dan dasar pemrograman secara terstruktur.</p>
                     <p>Tujuan: melatih kemampuan pemecahan masalah (<em>problem solving</em>) murid melalui instruksi bertahap tanpa memerlukan lembar cetak konvensional (<em>paperless</em>).</p>
                   </div>
                 </div>
@@ -3950,8 +3951,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> ramah lingkungan (paperless); alur instruksi terstruktur jelas; murid dapat mengisi dan memeriksa hasil langsung dari peramban web; interaktif dan terdokumentasi rapi.</p>
-                    <p><strong>Kekurangan:</strong> murid harus bergantian layar antara browser LKPD dan aplikasi lembar kerja jika menggunakan satu monitor; memerlukan koneksi jaringan untuk menyimpan hasil.</p>
+                    <p><strong>Kelebihan:</strong> ramah lingkungan (paperless); alur instruksi terstruktur jelas; murid dapat mengisi dan memeriksa logika pseudocode langsung di browser; interaktif dan terdokumentasi rapi.</p>
+                    <p><strong>Kekurangan:</strong> murid harus bergantian layar antara browser LKPD dan editor kode jika menggunakan satu monitor; memerlukan koneksi jaringan untuk mengakses web.</p>
                   </div>
                 </div>
 
@@ -3967,9 +3968,9 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Technological Knowledge:</strong> form web interaktif sebagai <em>digital cognitive tool</em> yang menunjang aktivitas komputasi peserta didik.</p>
+                    <p><strong>Technological Knowledge:</strong> form web interaktif sebagai <em>digital cognitive tool</em> yang menunjang aktivitas komputasi dan penulisan logika pseudocode peserta didik.</p>
                     <p><strong>Pedagogical Knowledge:</strong> mengimplementasikan pendekatan <strong>Guided Inquiry &amp; Scaffolding (Vygotsky)</strong> untuk mencapai Zona Perkembangan Proksimal (ZPD).</p>
-                    <p><strong>Content Knowledge:</strong> penugasan dikonstruksi secara berjenjang dari pemahaman rumus dasar hingga interpretasi grafik data yang komprehensif.</p>
+                    <p><strong>Content Knowledge:</strong> penugasan dikonstruksi secara berjenjang dari analisis masalah, penulisan notasi pseudocode, hingga implementasi struktur logika bahasa pemrograman.</p>
                   </div>
                 </div>
               </div>
@@ -4051,7 +4052,7 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Post-Test berbasis game dikembangkan secara mandiri sebagai <strong>inovasi asesmen sumatif akhir siklus</strong> untuk mengevaluasi pemahaman konsep pengolahan data murid.</p>
+                    <p>Post-Test berbasis game dikembangkan secara mandiri sebagai <strong>inovasi asesmen sumatif akhir siklus</strong> untuk mengevaluasi pemahaman logika pseudocode dan dasar pemrograman murid.</p>
                     <p>Tujuan: mengukur tingkat penguasaan kompetensi akhir peserta didik melalui pendekatan gamifikasi yang menyenangkan, memicu motivasi intrinsik, serta mereduksi kecemasan tes (<em>test anxiety</em>).</p>
                   </div>
                 </div>
@@ -4093,14 +4094,13 @@
                       <strong>Pedagogical Knowledge:</strong> menerapkan <strong>Digital Game-Based Learning (DGBL - Marc Prensky)</strong> dan teori <strong>Flow (Csíkszentmihályi)</strong> — menyeimbangkan tingkat tantangan dan keahlian
                       agar murid tenggelam dalam konsentrasi optimal.
                     </p>
-                    <p><strong>Content Knowledge:</strong> setiap skenario level game, tantangan, dan kuis dipetakan secara terukur ke indikator esensial materi Informatika (analisis logika, fungsi, dan manipulasi data).</p>
+                    <p><strong>Content Knowledge:</strong> setiap skenario level game, tantangan, dan kuis dipetakan secara terukur ke indikator esensial materi Informatika (analisis logika pseudocode, variabel, dan percabangan program).</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
     </main>
 
     <!-- =========================================
@@ -4349,10 +4349,10 @@
       })();
 
       /* ==========================================
-         TAB SWITCHING (UTS / UAS)
+         TAB / SIKLUS FILTER SWITCHING (Semua / Siklus 1 - 4)
          ========================================== */
       const tabBtns = document.querySelectorAll(".tab-btn");
-      const tabPanels = document.querySelectorAll(".tab-panel");
+      const siklusBlocks = document.querySelectorAll(".siklus-block");
 
       function initTilt(scope) {
         if (typeof VanillaTilt === "undefined") return;
@@ -4377,29 +4377,29 @@
           const target = btn.dataset.tab;
 
           tabBtns.forEach((b) => b.classList.remove("active"));
-          tabPanels.forEach((p) => p.classList.remove("active"));
-
           btn.classList.add("active");
-          const activePanel = document.getElementById("tab-" + target);
 
-          if (activePanel) {
-            activePanel.classList.add("active");
-
-            activePanel.querySelectorAll(".reveal").forEach((el) => {
-              el.classList.add("active");
-            });
-
-            setTimeout(() => initTilt(activePanel), 60);
-
-            if (isDesktop) {
-              setTimeout(() => attachCursorHover(activePanel), 100);
+          siklusBlocks.forEach((block) => {
+            const blockSiklus = block.dataset.siklus;
+            if (target === "all" || target === blockSiklus) {
+              block.style.display = "block";
+              block.classList.add("active");
+              block.querySelectorAll(".reveal").forEach((el) => el.classList.add("active"));
+              initTilt(block);
+              if (isDesktop) attachCursorHover(block);
+            } else {
+              block.style.display = "none";
             }
-          }
+          });
         });
       });
 
-      const currentActivePanel = document.querySelector(".tab-panel.active");
-      if (currentActivePanel) initTilt(currentActivePanel);
+      // Inisialisasi tilt pada siklus awal yang aktif
+      siklusBlocks.forEach((block) => {
+        if (block.style.display !== "none") {
+          initTilt(block);
+        }
+      });
     </script>
   </body>
 </html>

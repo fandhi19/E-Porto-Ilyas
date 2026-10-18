@@ -653,6 +653,7 @@
          ========================================= */
       .siklus-block {
         margin-bottom: 90px;
+        animation: panelFadeIn 0.35s ease forwards;
       }
       .siklus-block:last-child {
         margin-bottom: 0;
@@ -1668,17 +1669,28 @@
         <div class="container">
           <!-- TAB NAV -->
           <div class="tabs-nav reveal">
-            <button class="tab-btn active" data-tab="uts"><i class="fa-solid fa-cube"></i> UTS - Siklus 1</button>
-            <button class="tab-btn" data-tab="uas"><i class="fa-solid fa-layer-group"></i> UAS - Siklus 2 s.d 4</button>
+            <button class="tab-btn active" data-tab="all"><i class="fa-solid fa-list-check"></i> Semua Siklus (1-4)</button>
+            <button class="tab-btn" data-tab="siklus-1"><i class="fa-solid fa-cube"></i> Siklus 1 (UTS)</button>
+            <button class="tab-btn" data-tab="siklus-2"><i class="fa-solid fa-layer-group"></i> Siklus 2 (UAS)</button>
+            <button class="tab-btn" data-tab="siklus-3"><i class="fa-solid fa-table-cells"></i> Siklus 3 (UAS)</button>
+            <button class="tab-btn" data-tab="siklus-4"><i class="fa-solid fa-code"></i> Siklus 4 (UAS)</button>
           </div>
 
           <!-- =========================================
-               TAB 1: UTS - SIKLUS 1
+               SIKLUS 1: UTS
                ========================================= -->
-          <div class="tab-panel active" id="tab-uts">
+          <div class="siklus-block reveal" data-siklus="siklus-1" id="siklus-1">
+            <div class="siklus-header">
+              <div class="siklus-number-badge">01</div>
+              <div class="siklus-titles">
+                <span class="siklus-label">SIKLUS 1 • UTS</span>
+                <span class="siklus-name">Algoritma Standar: Searching dan Sorting</span>
+              </div>
+            </div>
+
             <!-- ============ DOKUMEN & VISUAL ============ -->
             <div class="doc-visual-grid reveal">
-              <!-- PDF RUBRIK / KISI-KISI -->
+              <!-- PDF RUBRIK / KISI-KISI / LEMBAR ASESMEN -->
               <div class="pdf-terminal">
                 <div class="terminal-header">
                   <div class="terminal-dots">
@@ -1686,23 +1698,22 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/instrumen/uts_siklus_1_kisi.pdf</div>
+                  <div class="terminal-title">~/instrumen/lampiran8_siklus1_asesmen.pdf</div>
                   <div class="terminal-status">ONLINE</div>
                 </div>
 
                 <div class="pdf-container">
-                  <!-- GANTI src dengan path PDF kisi-kisi / rubrik UTS -->
-                  <iframe src="../Dokumen/Kisi_Kisi_UTS_Siklus_1.pdf" class="cyber-pdf-frame" title="Kisi-kisi & Rubrik Penilaian UTS Siklus 1"></iframe>
+                  <iframe src="../Dokumen/Lampiran 8 Siklus 1.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen Siklus 1 — Algoritma Standar Searching & Sorting"></iframe>
                 </div>
 
                 <div class="terminal-footer">
-                  <a href="../Dokumen/Kisi_Kisi_UTS_Siklus_1.pdf" download="Kisi_Kisi_UTS_Siklus_1.pdf" class="cyber-action-btn">
+                  <a href="../Dokumen/Lampiran 8 Siklus 1.pdf" download="Lampiran_8_Siklus_1.pdf" class="cyber-action-btn">
                     <span class="btn-bracket">[</span>
                     <i class="fa-solid fa-download"></i>
-                    UNDUH_KISI-KISI
+                    UNDUH_DOKUMEN
                     <span class="btn-bracket">]</span>
                   </a>
-                  <a href="../Dokumen/Kisi_Kisi_UTS_Siklus_1.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
+                  <a href="../Dokumen/Lampiran 8 Siklus 1.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
                     <span class="btn-bracket">[</span>
                     <i class="fa-solid fa-up-right-from-square"></i>
                     BUKA_TAB_BARU
@@ -1719,7 +1730,7 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/cbt/preview_siklus1.png</div>
+                  <div class="terminal-title">~/cbt/preview_searching_sorting.png</div>
                   <div class="terminal-status">CBT LIVE</div>
                 </div>
 
@@ -1728,10 +1739,9 @@
                     <i class="fa-solid fa-circle" style="font-size: 6px"></i>
                     CBT PREVIEW
                   </div>
-                  <!-- GANTI src dengan screenshot sistem CBT -->
                   <img
                     src="../Images/instrumen_cbt_uts.png"
-                    alt="Screenshot Sistem CBT UTS Siklus 1"
+                    alt="Screenshot Sistem CBT UTS Siklus 1 Searching & Sorting"
                     onerror="
                       this.style.display = 'none';
                       this.nextElementSibling.style.display = 'flex';
@@ -1740,14 +1750,14 @@
                   <div class="fallback-icon">
                     <i class="fa-solid fa-desktop"></i>
                     <span>CBT Siklus 1</span>
-                    <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Belum ada screenshot</small>
+                    <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Searching &amp; Sorting</small>
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- ============ ANALYSIS CARDS ============ -->
-            <div class="cards-label reveal">ANALISIS INSTRUMEN</div>
+            <div class="cards-label reveal">ANALISIS INSTRUMEN SIKLUS 1</div>
 
             <div class="cards-grid">
               <!-- KARTU 1 -->
@@ -1763,10 +1773,10 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <p>Instrumen sumatif <strong>Sistem CBT 40 Soal</strong> + rubrik proyek digunakan untuk mengukur capaian <em>Algoritma &amp; Pseudocode</em> pada Fase E.</p>
+                  <p>Instrumen sumatif tengah semester (UTS) dan lembar asesmen observasi terstruktur digunakan untuk mengukur capaian <strong>Algoritma Standar: Searching &amp; Sorting</strong> pada Fase E.</p>
                   <p>
                     Tujuan: memetakan tingkat pemahaman murid secara
-                    <strong>kuantitatif</strong> (skor CBT) dan <strong>kualitatif</strong> (rubrik proyek), serta mengidentifikasi kebutuhan remedial &amp; pengayaan berbasis data.
+                    <strong>kuantitatif</strong> (tes kognitif logika penelusuran &amp; tracing table) dan <strong>kualitatif</strong> (unjuk kerja peraga simulasi), serta mengidentifikasi kesiapan remedial &amp; pengayaan.
                   </p>
                 </div>
               </div>
@@ -1784,8 +1794,8 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <p><strong>Kelebihan:</strong> distribusi tingkat kesukaran soal seimbang (30% mudah, 50% sedang, 20% sulit); <em>auto-grading</em> CBT hemat waktu; rubrik proyek transparan &amp; mudah dipahami siswa.</p>
-                  <p><strong>Kekurangan:</strong> soal CBT masih dominan <em>LOTS</em> (C1–C2); beberapa butir kurang kontekstual; rubrik holistik perlu disagregasi lebih rinci untuk feedback yang lebih spesifik.</p>
+                  <p><strong>Kelebihan:</strong> rubrik terstruktur mencakup kesiapan pedagogik, ketepatan peragaan alur kartu acak, dan evaluasi objektif butir tes bergradasi (mudah, sedang, sukar).</p>
+                  <p><strong>Kekurangan:</strong> butir soal analisis perbandingan kompleksitas komputasi (Big O notation) masih memerlukan representasi grafis tambahan agar lebih mudah dipahami siswa pemula.</p>
                 </div>
               </div>
 
@@ -1802,27 +1812,21 @@
                   </div>
                 </div>
                 <div class="card-body">
-                  <p>Mengacu pada <strong>Authentic Assessment (Wiggins, 1990)</strong> — penilaian harus mencerminkan performa nyata, bukan sekadar recall informasi.</p>
+                  <p>Mengacu pada <strong>Authentic Assessment (Wiggins, 1990)</strong> dan <strong>Bloom's Revised Taxonomy</strong> — menyelaraskan dimensi kognitif C2–C4 dengan penilaian performa nyata penelusuran algoritma.</p>
                   <p>
-                    Diperkuat prinsip <strong>Assessment for Learning</strong> (Black &amp; Wiliam) — umpan balik menjadi inti proses belajar, serta <em>fairness in assessment</em> melalui penyetaraan bobot soal berdasarkan tingkat
-                    kognitif.
+                    Diperkuat prinsip <strong>Assessment for Learning (Black &amp; Wiliam)</strong> — umpan balik komprehensif menjadi poros perbaikan pemahaman algoritma siswa secara adaptif.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- =========================================
-               TAB 2: UAS - SIKLUS 2 s.d 4
-               ========================================= -->
-          <div class="tab-panel" id="tab-uas">
             <!-- ============ SIKLUS 2 ============ -->
-            <div class="siklus-block reveal">
+            <div class="siklus-block reveal" data-siklus="siklus-2" id="siklus-2">
               <div class="siklus-header">
                 <div class="siklus-number-badge">02</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 2</span>
-                  <span class="siklus-name">Penilaian Praktikum C++ &amp; Portofolio Program</span>
+                  <span class="siklus-label">SIKLUS 2 • UAS</span>
+                  <span class="siklus-name">Algoritma Pemrograman Dasar: Algoritma dan Flowchart</span>
                 </div>
               </div>
 
@@ -1834,23 +1838,22 @@
                       <span class="dot yellow"></span>
                       <span class="dot green"></span>
                     </div>
-                    <div class="terminal-title">~/instrumen/siklus2_rubrik_cpp.pdf</div>
+                    <div class="terminal-title">~/instrumen/lampiran8_siklus2_asesmen.pdf</div>
                     <div class="terminal-status">ONLINE</div>
                   </div>
 
                   <div class="pdf-container">
-                    <!-- GANTI src dengan path PDF rubrik C++ -->
-                    <iframe src="../Dokumen/Rubrik_UAS_Siklus_2.pdf" class="cyber-pdf-frame" title="Rubrik Penilaian Praktikum C++ — Siklus 2"></iframe>
+                    <iframe src="../Dokumen/Lampiran 8 Siklus 2.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen Siklus 2 — Algoritma dan Flowchart"></iframe>
                   </div>
 
                   <div class="terminal-footer">
-                    <a href="../Dokumen/Rubrik_UAS_Siklus_2.pdf" download="Rubrik_UAS_Siklus_2.pdf" class="cyber-action-btn">
+                    <a href="../Dokumen/Lampiran 8 Siklus 2.pdf" download="Lampiran_8_Siklus_2.pdf" class="cyber-action-btn">
                       <span class="btn-bracket">[</span>
                       <i class="fa-solid fa-download"></i>
-                      UNDUH_RUBRIK
+                      UNDUH_DOKUMEN
                       <span class="btn-bracket">]</span>
                     </a>
-                    <a href="../Dokumen/Rubrik_UAS_Siklus_2.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
+                    <a href="../Dokumen/Lampiran 8 Siklus 2.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
                       <span class="btn-bracket">[</span>
                       <i class="fa-solid fa-up-right-from-square"></i>
                       BUKA_TAB_BARU
@@ -1866,19 +1869,288 @@
                       <span class="dot yellow"></span>
                       <span class="dot green"></span>
                     </div>
-                    <div class="terminal-title">~/cbt/preview_cpp_s2.png</div>
-                    <div class="terminal-status">CODE RUNNER</div>
+                    <div class="terminal-title">~/cbt/preview_flowchart_logic.png</div>
+                    <div class="terminal-status">FLOWCHART LIVE</div>
                   </div>
 
                   <div class="cbt-preview">
                     <div class="preview-badge">
                       <i class="fa-solid fa-circle" style="font-size: 6px"></i>
-                      CODE PRACTICE
+                      FLOWCHART EVAL
                     </div>
-                    <!-- GANTI src dengan screenshot sistem code runner -->
                     <img
                       src="../Images/instrumen_cpp_s2.png"
-                      alt="Screenshot Code Runner Praktikum C++"
+                      alt="Screenshot Asesmen Flowchart & Logika Pemrograman"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div class="fallback-icon">
+                      <i class="fa-solid fa-diagram-project"></i>
+                      <span>Diagram Alir Logika</span>
+                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Algoritma &amp; Flowchart</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============ ANALYSIS CARDS ============ -->
+              <div class="cards-label reveal">ANALISIS INSTRUMEN SIKLUS 2</div>
+
+              <div class="cards-grid">
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Asesmen unjuk kerja (<em>performance assessment</em>) dan lembar observasi proses untuk memvalidasi kemampuan murid memodelkan alur komputasi ke dalam bentuk <strong>Diagram Alir (ANSI Flowchart)</strong>.</p>
+                    <p>
+                      Tujuan: mengevaluasi penalaran logika murid secara terstruktur, mulai dari inisialisasi variabel, pembacaan input, percabangan kondisi keputusan (<em>decision diamond</em>), hingga penutupan alur.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> indikator rubrik analitik sangat jelas dalam membedakan penggunaan simbol standar, kevalidan arah konektor panah, serta pencegahan alur tak berujung (<em>infinite loop</em>).</p>
+                    <p><strong>Kekurangan:</strong> variasi solusi antarmurid pada percabangan majemuk menuntut rubrik ekuivalensi yang luwes agar kreativitas pemecahan masalah tidak terkekang simbol baku tunggal.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Berpijak pada konsep <strong>Computational Thinking Assessment (Wing, 2006)</strong> — asesmen menekankan pemahaman dekomposisi masalah dan pemodelan alur abstrak sebelum masuk ke ranah coding.</p>
+                    <p>Diperkuat kerangka <em>Assessment for Learning (Black &amp; Wiliam)</em> — diagnostik berkala selama penyusunan flowchart memberikan umpan balik langsung sebelum kesalahan logika mengendap.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ============ SIKLUS 3 ============ -->
+            <div class="siklus-block reveal" data-siklus="siklus-3" id="siklus-3">
+              <div class="siklus-header">
+                <div class="siklus-number-badge">03</div>
+                <div class="siklus-titles">
+                  <span class="siklus-label">SIKLUS 3 • UAS</span>
+                  <span class="siklus-name">Microsoft Excel: Mengelola Data</span>
+                </div>
+              </div>
+
+              <div class="doc-visual-grid">
+                <div class="pdf-terminal">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">~/instrumen/lampiran8_siklus3_asesmen.pdf</div>
+                    <div class="terminal-status">ONLINE</div>
+                  </div>
+
+                  <div class="pdf-container">
+                    <iframe src="../Dokumen/Lampiran 8 Siklus 3.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen Siklus 3 — Microsoft Excel: Mengelola Data"></iframe>
+                  </div>
+
+                  <div class="terminal-footer">
+                    <a href="../Dokumen/Lampiran 8 Siklus 3.pdf" download="Lampiran_8_Siklus_3.pdf" class="cyber-action-btn">
+                      <span class="btn-bracket">[</span>
+                      <i class="fa-solid fa-download"></i>
+                      UNDUH_DOKUMEN
+                      <span class="btn-bracket">]</span>
+                    </a>
+                    <a href="../Dokumen/Lampiran 8 Siklus 3.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
+                      <span class="btn-bracket">[</span>
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      BUKA_TAB_BARU
+                      <span class="btn-bracket">]</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="cbt-terminal">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">~/cbt/preview_excel_sheets.png</div>
+                    <div class="terminal-status">SPREADSHEET LIVE</div>
+                  </div>
+
+                  <div class="cbt-preview">
+                    <div class="preview-badge">
+                      <i class="fa-solid fa-circle" style="font-size: 6px"></i>
+                      EXCEL EVAL
+                    </div>
+                    <img
+                      src="../Images/instrumen_excel_s4.png"
+                      alt="Screenshot Asesmen Praktikum Microsoft Excel"
+                      onerror="
+                        this.style.display = 'none';
+                        this.nextElementSibling.style.display = 'flex';
+                      "
+                    />
+                    <div class="fallback-icon">
+                      <i class="fa-solid fa-table-cells"></i>
+                      <span>Spreadsheet &amp; Formula</span>
+                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Mengelola Data Excel</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ============ ANALYSIS CARDS ============ -->
+              <div class="cards-label reveal">ANALISIS INSTRUMEN SIKLUS 3</div>
+
+              <div class="cards-grid">
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>
+                      Asesmen kinerja berbasis <strong>portofolio spreadsheet praktikum</strong> dan lembar pengamatan untuk menguji kemahiran murid mengolah dataset menggunakan formula (SUM, AVERAGE, IF, VLOOKUP) dan visualisasi chart.
+                    </p>
+                    <p>Tujuan: memvalidasi kecakapan <em>data literacy</em> murid dalam mengorganisasi, membersihkan, menganalisis, serta menyajikan data kontekstual secara akurat.</p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> penilaian berbasis berkas kerja autentik (.xlsx) memberikan gambaran riil kapabilitas teknis murid menyelesaikan kebutuhan pengolahan data dunia kerja.</p>
+                    <p>
+                      <strong>Kekurangan:</strong> diperlukan alokasi waktu koreksi formula secara mendalam pada berkas siswa untuk memverifikasi penulisan rumus dinamis versus input nilai manual.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Mengadopsi kerangka <strong>Authentic Task &amp; Product Assessment (Herrington &amp; Oliver)</strong> — asesmen menyajikan masalah autentik pengolahan data riil dengan hasil produk spreadsheet fungsional.</p>
+                    <p>Diperkuat model <strong>SOLO Taxonomy (Biggs &amp; Collis)</strong> — evaluasi berjenjang dari penerapan formula tunggal hingga perancangan dashboard tabel terintegrasi.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ============ SIKLUS 4 ============ -->
+            <div class="siklus-block reveal" data-siklus="siklus-4" id="siklus-4">
+              <div class="siklus-header">
+                <div class="siklus-number-badge">04</div>
+                <div class="siklus-titles">
+                  <span class="siklus-label">SIKLUS 4 • UAS</span>
+                  <span class="siklus-name">Algoritma Pemrograman Dasar: Pseudocode dan Pengenalan Bahasa Pemrograman</span>
+                </div>
+              </div>
+
+              <div class="doc-visual-grid">
+                <div class="pdf-terminal">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">~/instrumen/lampiran7_observasi_pembelajaran.pdf</div>
+                    <div class="terminal-status">ONLINE</div>
+                  </div>
+
+                  <div class="pdf-container">
+                    <iframe src="../Dokumen/Lampiran 7.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen Siklus 4 — Pseudocode & Pengenalan Bahasa Pemrograman"></iframe>
+                  </div>
+
+                  <div class="terminal-footer">
+                    <a href="../Dokumen/Lampiran 7.pdf" download="Lampiran_7_Observasi.pdf" class="cyber-action-btn">
+                      <span class="btn-bracket">[</span>
+                      <i class="fa-solid fa-download"></i>
+                      UNDUH_DOKUMEN
+                      <span class="btn-bracket">]</span>
+                    </a>
+                    <a href="../Dokumen/Lampiran 7.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
+                      <span class="btn-bracket">[</span>
+                      <i class="fa-solid fa-up-right-from-square"></i>
+                      BUKA_TAB_BARU
+                      <span class="btn-bracket">]</span>
+                    </a>
+                  </div>
+                </div>
+
+                <div class="cbt-terminal">
+                  <div class="terminal-header">
+                    <div class="terminal-dots">
+                      <span class="dot red"></span>
+                      <span class="dot yellow"></span>
+                      <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">~/cbt/preview_pseudocode_code.png</div>
+                    <div class="terminal-status">CODE RUNNER LIVE</div>
+                  </div>
+
+                  <div class="cbt-preview">
+                    <div class="preview-badge">
+                      <i class="fa-solid fa-circle" style="font-size: 6px"></i>
+                      COMPILER EVAL
+                    </div>
+                    <img
+                      src="../Images/instrumen_quiz_s3.png"
+                      alt="Screenshot Asesmen Transcoding Pseudocode ke Bahasa Pemrograman"
                       onerror="
                         this.style.display = 'none';
                         this.nextElementSibling.style.display = 'flex';
@@ -1886,149 +2158,18 @@
                     />
                     <div class="fallback-icon">
                       <i class="fa-solid fa-code"></i>
-                      <span>C++ Runner</span>
-                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Belum ada screenshot</small>
+                      <span>Transcoding Pseudocode</span>
+                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Pseudocode &amp; Sintaks Bahasa</small>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!-- ============ ANALYSIS CARDS ============ -->
+              <div class="cards-label reveal">ANALISIS INSTRUMEN SIKLUS 4</div>
 
               <div class="cards-grid">
-                <div class="analysis-card tilt-card">
-                  <div class="card-scanline"></div>
-                  <div class="card-header">
-                    <div class="card-icon-wrapper">
-                      <i class="fa-solid fa-bullseye card-icon"></i>
-                    </div>
-                    <div class="card-title">
-                      Konteks &amp; Tujuan
-                      <small>Context &amp; Objectives</small>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <p>Asesmen formatif berbasis <strong>portofolio program C++</strong> dan <em>rubrik analitik</em> menilai 4 aspek: kebenaran output, efisiensi kode, keterbacaan, dan dokumentasi.</p>
-                    <p>
-                      Tujuan: mengukur keterampilan
-                      <em>hands-on programming</em> dan menumbuhkan kebiasaan coding yang rapi sejak awal.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="analysis-card variant-purple tilt-card">
-                  <div class="card-scanline"></div>
-                  <div class="card-header">
-                    <div class="card-icon-wrapper">
-                      <i class="fa-solid fa-scale-balanced card-icon"></i>
-                    </div>
-                    <div class="card-title">
-                      Kelebihan &amp; Kekurangan
-                      <small>Strengths &amp; Weaknesses</small>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <p><strong>Kelebihan:</strong> rubrik analitik memudahkan feedback spesifik per aspek; penilaian autentik berbasis produk nyata.</p>
-                    <p><strong>Kekurangan:</strong> proses penilaian memakan waktu karena harus me-review kode satu per satu; subjektivitas pada aspek "keterbacaan" perlu dipandu contoh eksplisit.</p>
-                  </div>
-                </div>
-
-                <div class="analysis-card variant-red tilt-card">
-                  <div class="card-scanline"></div>
-                  <div class="card-header">
-                    <div class="card-icon-wrapper">
-                      <i class="fa-solid fa-lightbulb card-icon"></i>
-                    </div>
-                    <div class="card-title">
-                      Kajian Teori
-                      <small>Theoretical Framework</small>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <p>Berbasis <strong>Performance Assessment</strong> yang menuntut murid mendemonstrasikan keterampilan dalam konteks nyata.</p>
-                    <p>Diperkuat <em>Rubric-based Assessment (Andrade)</em> — rubrik analitik membantu murid memahami ekspektasi kualitas sebelum mengerjakan tugas (<em>feed-up</em>, <em>feed-back</em>, <em>feed-forward</em>).</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- ============ SIKLUS 3 ============ -->
-            <div class="siklus-block reveal">
-              <div class="siklus-header">
-                <div class="siklus-number-badge">03</div>
-                <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 3</span>
-                  <span class="siklus-name">Asesmen Diagnostik &amp; Kuis Interaktif Struktur Kontrol</span>
-                </div>
-              </div>
-
-              <div class="doc-visual-grid">
-                <div class="pdf-terminal">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="dot red"></span>
-                      <span class="dot yellow"></span>
-                      <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">~/instrumen/siklus3_rubrik_kontrol.pdf</div>
-                    <div class="terminal-status">ONLINE</div>
-                  </div>
-
-                  <div class="pdf-container">
-                    <!-- GANTI src dengan path PDF asesmen Siklus 3 -->
-                    <iframe src="../Dokumen/Rubrik_UAS_Siklus_3.pdf" class="cyber-pdf-frame" title="Rubrik Penilaian Struktur Kontrol — Siklus 3"></iframe>
-                  </div>
-
-                  <div class="terminal-footer">
-                    <a href="../Dokumen/Rubrik_UAS_Siklus_3.pdf" download="Rubrik_UAS_Siklus_3.pdf" class="cyber-action-btn">
-                      <span class="btn-bracket">[</span>
-                      <i class="fa-solid fa-download"></i>
-                      UNDUH_RUBRIK
-                      <span class="btn-bracket">]</span>
-                    </a>
-                    <a href="../Dokumen/Rubrik_UAS_Siklus_3.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
-                      <span class="btn-bracket">[</span>
-                      <i class="fa-solid fa-up-right-from-square"></i>
-                      BUKA_TAB_BARU
-                      <span class="btn-bracket">]</span>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="cbt-terminal">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="dot red"></span>
-                      <span class="dot yellow"></span>
-                      <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">~/cbt/quiz_siklus3.png</div>
-                    <div class="terminal-status">QUIZ MODE</div>
-                  </div>
-
-                  <div class="cbt-preview">
-                    <div class="preview-badge">
-                      <i class="fa-solid fa-circle" style="font-size: 6px"></i>
-                      LIVE QUIZ
-                    </div>
-                    <!-- GANTI src dengan screenshot kuis interaktif -->
-                    <img
-                      src="../Images/instrumen_quiz_s3.png"
-                      alt="Screenshot Kuis Interaktif Struktur Kontrol"
-                      onerror="
-                        this.style.display = 'none';
-                        this.nextElementSibling.style.display = 'flex';
-                      "
-                    />
-                    <div class="fallback-icon">
-                      <i class="fa-solid fa-bolt"></i>
-                      <span>Quiz Interaktif</span>
-                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Belum ada screenshot</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="cards-grid">
-                <div class="analysis-card tilt-card">
+                <div class="analysis-card tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2041,15 +2182,15 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      Kombinasi <strong>asesmen diagnostik awal</strong>
-                      (untuk memetakan miskonsepsi) dan
-                      <em>kuis interaktif real-time</em> (Kahoot/Quizizz) untuk materi struktur kontrol.
+                      Instrumen formatif penelusuran logika (<em>code tracing</em>) dan rubrik konversi algoritma untuk mengukur kapabilitas murid mentranslasikan <strong>notasi pseudocode standar</strong> ke dalam sintaks bahasa pemrograman.
                     </p>
-                    <p>Tujuan: mengidentifikasi <em>learning gap</em> sebelum instruksi dimulai, serta membangun keterlibatan aktif melalui gamifikasi.</p>
+                    <p>
+                      Tujuan: menilai kesiapan murid dalam memahami mekanisme kerja kompiler, deklarasi variabel bertipe, percabangan IF-ELSE, serta struktur pengulangan (FOR/WHILE).
+                    </p>
                   </div>
                 </div>
 
-                <div class="analysis-card variant-purple tilt-card">
+                <div class="analysis-card variant-purple tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2061,15 +2202,14 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> data respons real-time memungkinkan guru <em>adjust instruksi on-the-fly</em>; gamifikasi meningkatkan motivasi; laporan otomatis per-siswa dan per-kelas.</p>
+                    <p><strong>Kelebihan:</strong> rubrik menguji dekomposisi logika dan penanganan kesalahan sintaks/runtime secara terpisah, sehingga murid tidak kehilangan poin logika murni akibat kesalahan tanda baca.</p>
                     <p>
-                      <strong>Kekurangan:</strong> bergantung pada koneksi internet stabil; potensi <em>fastest-finger syndrome</em>
-                      yang mengorbankan kedalaman berpikir; sebagian siswa gugup saat leaderboard ditampilkan publik.
+                      <strong>Kekurangan:</strong> murid pemula kerap mengalami kecemasan sintaks (<em>semicolon anxiety</em>); guru perlu memfasilitasi scaffolding rubrik bertahap dari pseudocode ke baris kode.
                     </p>
                   </div>
                 </div>
 
-                <div class="analysis-card variant-red tilt-card">
+                <div class="analysis-card variant-red tilt-card reveal">
                   <div class="card-scanline"></div>
                   <div class="card-header">
                     <div class="card-icon-wrapper">
@@ -2081,157 +2221,14 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Berbasis <strong>Formative Assessment</strong> (Black &amp; Wiliam, 1998) — asesmen dilakukan <em>selama</em> pembelajaran untuk menyesuaikan instruksi, bukan hanya di akhir.</p>
-                    <p>Diperkuat konsep <em>Diagnostic Teaching</em> — guru mendiagnosis konsepsi awal murid sebelum membangun pengetahuan baru, selaras dengan <strong>Constructivism</strong>.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- ============ SIKLUS 4 ============ -->
-            <div class="siklus-block reveal">
-              <div class="siklus-header">
-                <div class="siklus-number-badge">04</div>
-                <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 4</span>
-                  <span class="siklus-name">Proyek Akhir Excel &amp; Penilaian Autentik</span>
-                </div>
-              </div>
-
-              <div class="doc-visual-grid">
-                <div class="pdf-terminal">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="dot red"></span>
-                      <span class="dot yellow"></span>
-                      <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">~/instrumen/siklus4_rubrik_excel.pdf</div>
-                    <div class="terminal-status">ONLINE</div>
-                  </div>
-
-                  <div class="pdf-container">
-                    <!-- GANTI src dengan path PDF rubrik proyek Excel -->
-                    <iframe src="../Dokumen/Rubrik_UAS_Siklus_4.pdf" class="cyber-pdf-frame" title="Rubrik Proyek Akhir Excel — Siklus 4"></iframe>
-                  </div>
-
-                  <div class="terminal-footer">
-                    <a href="../Dokumen/Rubrik_UAS_Siklus_4.pdf" download="Rubrik_UAS_Siklus_4.pdf" class="cyber-action-btn">
-                      <span class="btn-bracket">[</span>
-                      <i class="fa-solid fa-download"></i>
-                      UNDUH_RUBRIK
-                      <span class="btn-bracket">]</span>
-                    </a>
-                    <a href="../Dokumen/Rubrik_UAS_Siklus_4.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
-                      <span class="btn-bracket">[</span>
-                      <i class="fa-solid fa-up-right-from-square"></i>
-                      BUKA_TAB_BARU
-                      <span class="btn-bracket">]</span>
-                    </a>
-                  </div>
-                </div>
-
-                <div class="cbt-terminal">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="dot red"></span>
-                      <span class="dot yellow"></span>
-                      <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">~/cbt/hasil_proyek_s4.png</div>
-                    <div class="terminal-status">SHEET VIZ</div>
-                  </div>
-
-                  <div class="cbt-preview">
-                    <div class="preview-badge">
-                      <i class="fa-solid fa-circle" style="font-size: 6px"></i>
-                      PORTOFOLIO
-                    </div>
-                    <!-- GANTI src dengan screenshot hasil proyek Excel -->
-                    <img
-                      src="../Images/instrumen_excel_s4.png"
-                      alt="Screenshot Hasil Proyek Excel"
-                      onerror="
-                        this.style.display = 'none';
-                        this.nextElementSibling.style.display = 'flex';
-                      "
-                    />
-                    <div class="fallback-icon">
-                      <i class="fa-solid fa-chart-column"></i>
-                      <span>Dashboard Excel</span>
-                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Belum ada screenshot</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="cards-grid">
-                <div class="analysis-card tilt-card">
-                  <div class="card-scanline"></div>
-                  <div class="card-header">
-                    <div class="card-icon-wrapper">
-                      <i class="fa-solid fa-bullseye card-icon"></i>
-                    </div>
-                    <div class="card-title">
-                      Konteks &amp; Tujuan
-                      <small>Context &amp; Objectives</small>
-                    </div>
-                  </div>
-                  <div class="card-body">
+                    <p>Berlandaskan teori <strong>Notional Machine (Sorva, 2013)</strong> — instrumen mengevaluasi representasi mental siswa tentang bagaimana komputer mengeksekusi instruksi pseudocode langkah-demi-langkah.</p>
                     <p>
-                      Asesmen sumatif berupa
-                      <strong>proyek dashboard Excel</strong> — murid mengolah dataset nyata, membuat visualisasi, dan mempresentasikan insight.
-                    </p>
-                    <p>
-                      Tujuan: mengukur keterampilan
-                      <em>data literacy</em> secara holistik (mengolah, menganalisis, menyajikan, menyimpulkan) dalam bentuk produk autentik.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="analysis-card variant-purple tilt-card">
-                  <div class="card-scanline"></div>
-                  <div class="card-header">
-                    <div class="card-icon-wrapper">
-                      <i class="fa-solid fa-scale-balanced card-icon"></i>
-                    </div>
-                    <div class="card-title">
-                      Kelebihan &amp; Kekurangan
-                      <small>Strengths &amp; Weaknesses</small>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <p><strong>Kelebihan:</strong> penilaian berbasis produk nyata (high authenticity); rubrik mencakup aspek teknis &amp; presentasi; melatih <em>21st century skills</em> (komunikasi + analisis).</p>
-                    <p>
-                      <strong>Kekurangan:</strong> waktu penilaian relatif lama karena harus menilai presentasi satu per satu; rubrik perlu dikalibrasi lintas penilai untuk konsistensi; potensi <em>halo effect</em> pada penampilan
-                      presentasi.
-                    </p>
-                  </div>
-                </div>
-
-                <div class="analysis-card variant-red tilt-card">
-                  <div class="card-scanline"></div>
-                  <div class="card-header">
-                    <div class="card-icon-wrapper">
-                      <i class="fa-solid fa-lightbulb card-icon"></i>
-                    </div>
-                    <div class="card-title">
-                      Kajian Teori
-                      <small>Theoretical Framework</small>
-                    </div>
-                  </div>
-                  <div class="card-body">
-                    <p>Mengadopsi <strong>Authentic Assessment</strong> penuh — tugas menyerupai situasi dunia nyata (<em>real-world task</em>) dan menuntut aplikasi pengetahuan terintegrasi.</p>
-                    <p>
-                      Diperkuat model <strong>SOLO Taxonomy</strong>
-                      (Biggs) — penilaian progresif dari
-                      <em>uni-structural → multi-structural → relational → extended abstract</em> untuk mengukur kedalaman pemahaman.
+                      Diperkuat prinsip <strong>Scaffolding Assessment (Vygotsky - ZPD)</strong> — penilaian berjenjang yang menjembatani zona perkembangan dari logika naratif ke kode program terkompilasi.
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </section>
     </main>
@@ -2472,10 +2469,10 @@
       })();
 
       /* ==========================================
-         TAB SWITCHING (UTS / UAS)
+         TAB / SIKLUS FILTER SWITCHING (Semua / Siklus 1 - 4)
          ========================================== */
       const tabBtns = document.querySelectorAll(".tab-btn");
-      const tabPanels = document.querySelectorAll(".tab-panel");
+      const siklusBlocks = document.querySelectorAll(".siklus-block");
 
       function initTilt(scope) {
         if (typeof VanillaTilt === "undefined") return;
@@ -2500,29 +2497,29 @@
           const target = btn.dataset.tab;
 
           tabBtns.forEach((b) => b.classList.remove("active"));
-          tabPanels.forEach((p) => p.classList.remove("active"));
-
           btn.classList.add("active");
-          const activePanel = document.getElementById("tab-" + target);
 
-          if (activePanel) {
-            activePanel.classList.add("active");
-
-            activePanel.querySelectorAll(".reveal").forEach((el) => {
-              el.classList.add("active");
-            });
-
-            setTimeout(() => initTilt(activePanel), 60);
-
-            if (isDesktop) {
-              setTimeout(() => attachCursorHover(activePanel), 100);
+          siklusBlocks.forEach((block) => {
+            const blockSiklus = block.dataset.siklus;
+            if (target === "all" || target === blockSiklus) {
+              block.style.display = "block";
+              block.classList.add("active");
+              block.querySelectorAll(".reveal").forEach((el) => el.classList.add("active"));
+              initTilt(block);
+              if (isDesktop) attachCursorHover(block);
+            } else {
+              block.style.display = "none";
             }
-          }
+          });
         });
       });
 
-      const currentActivePanel = document.querySelector(".tab-panel.active");
-      if (currentActivePanel) initTilt(currentActivePanel);
+      // Inisialisasi tilt pada siklus awal yang aktif
+      siklusBlocks.forEach((block) => {
+        if (block.style.display !== "none") {
+          initTilt(block);
+        }
+      });
     </script>
   </body>
 </html>
