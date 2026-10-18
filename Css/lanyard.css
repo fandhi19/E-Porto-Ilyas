@@ -1,0 +1,625 @@
+/* ==========================================================================
+   LANYARD HERO BADGE (Ultra-Cyberpunk Dark Neon Edition)
+   Matching the core website theme: Obsidian Navy, Cyan Neon (#00f0ff),
+   Cyber Purple (#a855f7), Holographic Glass & Interactive Cursor Physics
+   ========================================================================== */
+
+.lanyard-scene {
+  position: relative;
+  width: 100%;
+  max-width: 460px;
+  min-height: 820px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  perspective: 1200px;
+  margin: -115px auto 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  overflow: visible;
+  z-index: 10;
+}
+
+/* Tooltip / Hint Interaktif */
+.lanyard-hint {
+  position: absolute;
+  top: 135px;
+  right: 5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(3, 7, 20, 0.85);
+  border: 1px solid rgba(0, 240, 255, 0.5);
+  border-radius: 20px;
+  font-family: monospace;
+  font-size: 11px;
+  color: var(--primary, #00f0ff);
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  z-index: 25;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.25), 0 4px 15px rgba(0, 0, 0, 0.6);
+  animation: floatHint 3s ease-in-out infinite;
+}
+
+.lanyard-hint.hidden {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+@keyframes floatHint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Rig Utama Lanyard (Pusat Titik Ayun) */
+.lanyard-rig {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: 50% 0px;
+  will-change: transform;
+  z-index: 10;
+}
+
+/* =========================================
+   TALI LANYARD (CYBER STRAP)
+   ========================================= */
+
+.lanyard-strap {
+  position: relative;
+  width: 48px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Tali Atas (Cyber Obsidian Weave + Cyan Neon Text Menjulur ke Belakang Navbar) */
+.upper-strap {
+  height: 250px;
+  background: #080d1e;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 240, 255, 0.06) 0px,
+    rgba(0, 240, 255, 0.06) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  box-shadow:
+    inset 0 0 12px rgba(0, 0, 0, 0.8),
+    0 0 15px rgba(0, 240, 255, 0.15),
+    0 5px 20px rgba(0, 0, 0, 0.6);
+  border-left: 2px solid rgba(0, 240, 255, 0.35);
+  border-right: 2px solid rgba(0, 240, 255, 0.35);
+}
+
+/* Jahitan Tepi Neon Cyan */
+.strap-stitch-left,
+.strap-stitch-right {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  border-left: 1.5px dashed rgba(0, 240, 255, 0.7);
+  pointer-events: none;
+}
+
+.strap-stitch-left { left: 3px; }
+.strap-stitch-right { right: 3px; }
+
+/* Teks Pola Berulang "UNY • PPG" dengan Neon Glow */
+.strap-text-loop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.strap-text-loop span {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 900;
+  font-size: 19px;
+  color: #00f0ff;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  text-shadow:
+    0 0 8px rgba(0, 240, 255, 0.8),
+    0 0 16px rgba(0, 240, 255, 0.4);
+}
+
+.strap-text-loop .strap-dot {
+  font-size: 10px;
+  color: #a855f7;
+  line-height: 0.5;
+  text-shadow: 0 0 6px #a855f7;
+}
+
+/* =========================================
+   GESPER CYBER ARMOR (STEALTH BUCKLE)
+   ========================================= */
+
+.lanyard-buckle {
+  position: relative;
+  width: 62px;
+  height: 74px;
+  margin: -2px 0;
+  z-index: 12;
+  filter: drop-shadow(0 0 10px rgba(0, 240, 255, 0.25)) drop-shadow(0 6px 14px rgba(0, 0, 0, 0.7));
+}
+
+.buckle-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =========================================
+   TALI BAWAH (CYBER LOWER STRAP)
+   ========================================= */
+
+.lower-strap {
+  height: 82px;
+  background: #060b18;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(0, 240, 255, 0.08) 0px,
+    rgba(0, 240, 255, 0.08) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  box-shadow:
+    inset 0 0 12px rgba(0, 0, 0, 0.85),
+    0 0 12px rgba(0, 240, 255, 0.2),
+    0 6px 16px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 2px solid rgba(0, 240, 255, 0.35);
+  border-right: 2px solid rgba(0, 240, 255, 0.35);
+}
+
+.lower-strap .strap-stitch-left,
+.lower-strap .strap-stitch-right {
+  border-left-color: rgba(168, 85, 247, 0.7);
+}
+
+/* Teks Vertikal "PPG UNY" Neon Cyan */
+.strap-vertical-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-orientation: mixed;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #00f0ff;
+  text-shadow:
+    0 0 8px rgba(0, 240, 255, 0.9),
+    0 0 18px rgba(0, 240, 255, 0.5);
+}
+
+/* Garis Jahitan Penutup */
+.strap-seam-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #0d152a;
+  border-top: 1px dashed rgba(0, 240, 255, 0.7);
+}
+
+/* =========================================
+   PENGAIT LOGAM CYBER (STEALTH CLASP)
+   ========================================= */
+
+.lanyard-hook-assembly {
+  position: relative;
+  width: 48px;
+  height: 72px;
+  margin-top: -3px;
+  z-index: 14;
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.2)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.8));
+}
+
+.hook-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* =========================================
+   KARTU ID CARD / CYBER PASS BADGE
+   ========================================= */
+
+.lanyard-badge {
+  position: relative;
+  width: 290px;
+  height: 465px;
+  margin-top: -24px;
+  border-radius: 20px;
+  transform-style: preserve-3d;
+  cursor: grab;
+  will-change: transform;
+  z-index: 15;
+}
+
+.lanyard-badge:active {
+  cursor: grabbing;
+}
+
+/* Lubang Slot Gantungan di Atas Kartu */
+.badge-slot {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 52px;
+  height: 13px;
+  background: rgba(3, 7, 18, 0.98);
+  border: 1.5px solid rgba(0, 240, 255, 0.6);
+  border-radius: 7px;
+  z-index: 30;
+  box-shadow:
+    inset 0 2px 6px rgba(0, 0, 0, 0.9),
+    0 0 10px rgba(0, 240, 255, 0.35);
+}
+
+.badge-slot-hole {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: #02040a;
+  box-shadow: inset 0 3px 6px #000;
+}
+
+/* Kontainer Utama Kartu (Dark Cyber Glassmorphism) */
+.badge-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(175deg, #070d22 0%, #040816 60%, #030612 100%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow:
+    0 0 25px rgba(0, 240, 255, 0.22),
+    0 25px 60px -10px rgba(0, 0, 0, 0.85),
+    inset 0 1px 1px rgba(0, 240, 255, 0.3),
+    inset 0 -1px 1px rgba(168, 85, 247, 0.2);
+  border: 1.5px solid rgba(0, 240, 255, 0.38);
+  backdrop-filter: blur(12px);
+}
+
+/* Sisi Atas: Latar Gelap Cyber + Grid + Foto Portrait */
+.badge-photo-section {
+  position: relative;
+  flex: 1;
+  background: linear-gradient(180deg, #0a132e 0%, #060c20 70%, #030716 100%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Aksen Cyber Grid Neon di Belakang Foto */
+.badge-grid-accent {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+
+/* Aura Glow Bundar di Belakang Foto */
+.badge-photo-aura {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.22) 0%, rgba(168, 85, 247, 0.12) 50%, transparent 75%);
+  filter: blur(25px);
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Foto Portrait Ilyas di dalam ID Card */
+.badge-portrait-img {
+  position: relative;
+  width: 96%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  z-index: 5;
+  filter: contrast(1.05) saturate(1.05) drop-shadow(0 10px 25px rgba(0, 0, 0, 0.6));
+  pointer-events: none;
+  transform: translateY(6px);
+}
+
+/* Chip Kontak Logam Cyber / Hologram Tag */
+.badge-chip {
+  position: absolute;
+  top: 36px;
+  right: 16px;
+  width: 32px;
+  height: 24px;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #00f0ff 0%, #0284c7 45%, #a855f7 100%);
+  border: 1px solid rgba(0, 240, 255, 0.7);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.4), 0 2px 6px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 3px 4px;
+  z-index: 8;
+  opacity: 0.95;
+}
+
+.chip-line {
+  height: 1px;
+  background: rgba(3, 7, 18, 0.75);
+}
+
+/* =========================================
+   BAGIAN BAWAH KARTU (CYBER TERMINAL PANEL)
+   ========================================= */
+
+.badge-footer-section {
+  position: relative;
+  background: rgba(3, 6, 16, 0.96);
+  padding: 16px 20px 14px;
+  z-index: 10;
+  border-top: 1.5px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(0, 240, 255, 0.2);
+}
+
+.badge-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.badge-branding {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.badge-uny-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 8px rgba(0, 240, 255, 0.6));
+}
+
+.badge-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.badge-brand-title {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  color: #00f0ff;
+  letter-spacing: -0.5px;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+}
+
+.badge-brand-sub {
+  font-family: monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: #a855f7;
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 6px rgba(168, 85, 247, 0.5);
+}
+
+.badge-qrcode {
+  font-size: 24px;
+  color: #00f0ff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+  opacity: 0.9;
+}
+
+.badge-role-title {
+  font-family: monospace;
+  font-size: 11px;
+  font-weight: 800;
+  color: #00f0ff;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+.badge-person-name {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.4);
+}
+
+.badge-details {
+  font-family: monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-top: 4px;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+}
+
+/* Barcode Cyber Neon */
+.badge-barcode-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(0, 240, 255, 0.25);
+}
+
+.badge-barcode {
+  width: 130px;
+  height: 18px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #00f0ff 0px,
+    #00f0ff 2px,
+    transparent 2px,
+    transparent 4px,
+    #00f0ff 4px,
+    #00f0ff 7px,
+    transparent 7px,
+    transparent 9px,
+    #00f0ff 9px,
+    #00f0ff 10px,
+    transparent 10px,
+    transparent 13px,
+    #00f0ff 13px,
+    #00f0ff 16px,
+    transparent 16px,
+    transparent 17px
+  );
+  filter: drop-shadow(0 0 4px rgba(0, 240, 255, 0.4));
+}
+
+.badge-id-num {
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: 700;
+  color: #00f0ff;
+  letter-spacing: 1px;
+  text-shadow: 0 0 6px rgba(0, 240, 255, 0.6);
+}
+
+/* =========================================
+   EFEK KILAP REFLEKSI (GLOSS & SPECULAR SHINE)
+   ========================================= */
+
+.badge-shine-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 20%,
+    rgba(0, 240, 255, 0.15) 45%,
+    rgba(255, 255, 255, 0.35) 50%,
+    rgba(168, 85, 247, 0.15) 55%,
+    transparent 75%
+  );
+  transform: translateX(-100%);
+  pointer-events: none;
+  z-index: 20;
+  border-radius: 20px;
+  transition: transform 0.08s ease-out;
+}
+
+/* =========================================
+   BAYANGAN REALISTIS DI BELAKANG KARTU
+   ========================================= */
+
+.badge-shadow {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: -20px;
+  border-radius: 26px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 240, 255, 0.25) 0%,
+    rgba(0, 0, 0, 0.75) 50%,
+    transparent 80%
+  );
+  filter: blur(24px);
+  z-index: 1;
+  pointer-events: none;
+  transform: translateZ(-30px);
+  transition: transform 0.08s ease-out;
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .lanyard-scene {
+    min-height: 720px;
+    max-width: 400px;
+    margin: -90px auto 0;
+  }
+  .upper-strap {
+    height: 210px;
+  }
+  .lanyard-badge {
+    width: 260px;
+    height: 415px;
+  }
+  .badge-brand-title {
+    font-size: 22px;
+  }
+  .badge-person-name {
+    font-size: 13.5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lanyard-scene {
+    min-height: 650px;
+    max-width: 340px;
+    margin: -60px auto 0;
+  }
+  .upper-strap {
+    height: 180px;
+    width: 44px;
+  }
+  .lanyard-buckle {
+    width: 56px;
+    height: 66px;
+  }
+  .lower-strap {
+    height: 68px;
+    width: 44px;
+  }
+  .lanyard-badge {
+    width: 240px;
+    height: 385px;
+  }
+  .badge-footer-section {
+    padding: 14px 16px 12px;
+  }
+  .badge-brand-title {
+    font-size: 20px;
+  }
+  .badge-person-name {
+    font-size: 12.5px;
+  }
+  .badge-details {
+    font-size: 8.5px;
+    margin-bottom: 6px;
+  }
+  .lanyard-hint {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+}

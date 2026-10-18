@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="Css/style.css" />
+    <link rel="stylesheet" href="Css/lanyard.css" />
     <link rel="shortcut icon" href="Images/Logo Uny outlitne.png" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   </head>
@@ -114,13 +115,144 @@
           </div>
         </div>
 
-        <div class="hero-image levitate-anim reveal">
-          <div class="portrait-photo-wrapper">
-            <div class="uny-hero-logo">
-              <img src="Images/Logo Uny outlitne.png" alt="Logo UNY" class="uny-hero-spin" />
-            </div>
+        <div class="hero-image reveal" id="hero-lanyard-area">
+          <div class="lanyard-scene" id="lanyard-scene">
+            <!-- Tooltip Interaktif -->
+            <div class="lanyard-hint"><i class="fa-solid fa-arrows-up-down-left-right"></i> Klik &amp; Tarik ID Card (Tarik ke bawah untuk memantul)</div>
 
-            <img src="Images/fototampan3.png" alt="Foto Ilyas Fandhi Anggara, S.Kom, Cyber-Guru" class="main-portrait-photo" />
+            <!-- Rig Gantungan Lanyard Fisika -->
+            <div class="lanyard-rig" id="lanyard-rig">
+              <!-- Tali Atas (Putih dengan Teks UNY Berulang) -->
+              <div class="lanyard-strap upper-strap">
+                <div class="strap-text-loop">
+                  <span>UNY</span>
+                  <span class="strap-dot">•</span>
+                  <span>PPG</span>
+                  <span class="strap-dot">•</span>
+                  <span>UNY</span>
+                  <span class="strap-dot">•</span>
+                  <span>PPG</span>
+                  <span class="strap-dot">•</span>
+                  <span>UNY</span>
+                  <span class="strap-dot">•</span>
+                  <span>PPG</span>
+                  <span class="strap-dot">•</span>
+                  <span>UNY</span>
+                  <span class="strap-dot">•</span>
+                  <span>PPG</span>
+                  <span class="strap-dot">•</span>
+                  <span>UNY</span>
+                </div>
+                <div class="strap-stitch-left"></div>
+                <div class="strap-stitch-right"></div>
+              </div>
+
+              <!-- Gesper Cyber Armor (Stealth Buckle) -->
+              <div class="lanyard-buckle">
+                <svg viewBox="0 0 70 85" class="buckle-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Bagian Atas Gesper -->
+                  <path d="M12 4 H58 C62 4 65 7 65 11 V26 H5 V11 C5 7 8 4 12 4 Z" fill="#091024" stroke="#00f0ff" stroke-width="1.8" />
+                  <rect x="18" y="10" width="34" height="6" rx="3" fill="#030816" stroke="#00f0ff" stroke-width="0.8" />
+                  <!-- Klip Bawah Gesper -->
+                  <path d="M10 26 H60 L57 60 C56 65 52 68 47 68 H23 C18 68 14 65 13 60 L10 26 Z" fill="#0b142d" stroke="#00f0ff" stroke-width="1.8" />
+                  <!-- Notches Pengunci Samping -->
+                  <path d="M5 32 C12 36 12 48 5 52" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round" />
+                  <path d="M65 32 C58 36 58 48 65 52" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round" />
+                  <rect x="22" y="36" width="26" height="18" rx="4" fill="#040816" stroke="#a855f7" stroke-width="1" />
+                  <line x1="35" y1="36" x2="35" y2="54" stroke="#00f0ff" stroke-width="1.5" />
+                  <circle cx="35" cy="45" r="2" fill="#00ff66" />
+                  <!-- Loop Bawah Tali -->
+                  <path d="M24 68 H46 V80 C46 83 43 85 40 85 H30 C27 85 24 83 24 80 V68 Z" fill="#080e22" stroke="#00f0ff" stroke-width="1.2" />
+                  <rect x="28" y="73" width="14" height="5" rx="2.5" fill="#02050f" />
+                </svg>
+              </div>
+
+              <!-- Tali Bawah (Cyber Obsidian dengan Teks Vertikal Neon) -->
+              <div class="lanyard-strap lower-strap">
+                <div class="strap-vertical-text">PPG UNY</div>
+                <div class="strap-stitch-left"></div>
+                <div class="strap-stitch-right"></div>
+                <div class="strap-seam-bar"></div>
+              </div>
+
+              <!-- Pengait Logam Karabiner (Stealth Hook) -->
+              <div class="lanyard-hook-assembly">
+                <svg viewBox="0 0 60 90" class="hook-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Cincin D-Ring Logam Hitam -->
+                  <path d="M16 10 H44 C49 10 52 14 50 19 L46 26 C44 29 40 31 36 31 H24 C20 31 16 29 14 26 L10 19 C8 14 11 10 16 10 Z" fill="#0b1022" stroke="#00f0ff" stroke-width="1.6" />
+                  <!-- Swivel Joint -->
+                  <circle cx="30" cy="34" r="7" fill="#060a16" stroke="#00f0ff" stroke-width="1.5" />
+                  <rect x="26" y="38" width="8" height="8" rx="2" fill="#11182c" />
+                  <!-- Badan Pengait Logam -->
+                  <path d="M23 45 H37 V68 C37 75 32 80 25 80 C18 80 15 74 15 67 C15 60 21 57 26 57" stroke="#050814" stroke-width="5" stroke-linecap="round" />
+                  <path d="M23 45 H37 V68 C37 75 32 80 25 80 C18 80 15 74 15 67 C15 60 21 57 26 57" stroke="#00f0ff" stroke-width="2" stroke-linecap="round" />
+                  <!-- Tuas Pegas Pengunci -->
+                  <path d="M37 54 L44 64" stroke="#10182e" stroke-width="4" stroke-linecap="round" />
+                  <circle cx="43" cy="63" r="3" fill="#a855f7" />
+                  <!-- Ujung Kait Menembus Slot Kartu -->
+                  <circle cx="26" cy="74" r="3.5" fill="#00f0ff" />
+                </svg>
+              </div>
+
+              <!-- Kartu ID Card Pass Badge -->
+              <div class="lanyard-badge" id="lanyard-badge">
+                <!-- Lubang Slot Gantungan Tali -->
+                <div class="badge-slot">
+                  <div class="badge-slot-hole"></div>
+                </div>
+
+                <!-- Konten Kartu ID -->
+                <div class="badge-inner">
+                  <!-- Bagian Atas: Background Gelap Cyber + Grid + Foto Portrait -->
+                  <div class="badge-photo-section">
+                    <div class="badge-grid-accent"></div>
+                    <div class="badge-photo-aura"></div>
+
+                    <!-- Foto Portrait Ilyas Fandhi Anggara -->
+                    <img src="Images/fototampan3.png" alt="Ilyas Fandhi Anggara, S.Kom - Guru Praktikan PPG UNY" class="badge-portrait-img" draggable="false" />
+
+                    <!-- Chip Kontak IC Logam Emas Cyber -->
+                    <div class="badge-chip">
+                      <div class="chip-line"></div>
+                      <div class="chip-line"></div>
+                      <div class="chip-line"></div>
+                    </div>
+                  </div>
+
+                  <!-- Bagian Bawah: Cyber Terminal Panel (Dark Obsidian & Neon) -->
+                  <div class="badge-footer-section">
+                    <div class="badge-footer-row">
+                      <div class="badge-branding">
+                        <img src="Images/logo_uny.png" alt="Logo UNY" class="badge-uny-logo" />
+                        <div class="badge-brand-text">
+                          <span class="badge-brand-title">PPG</span>
+                          <span class="badge-brand-sub">UNY</span>
+                        </div>
+                      </div>
+
+                      <div class="badge-qrcode">
+                        <i class="fa-solid fa-qrcode"></i>
+                      </div>
+                    </div>
+
+                    <div class="badge-role-title">GURU PRAKTIKAN</div>
+                    <div class="badge-person-name">ILYAS FANDHI ANGGARA, S.KOM</div>
+                    <div class="badge-details"><span>PENDIDIKAN INFORMATIKA</span> • <span>SMAN 4 YOGYAKARTA</span></div>
+
+                    <div class="badge-barcode-wrap">
+                      <div class="badge-barcode"></div>
+                      <span class="badge-id-num">ID : 2026-PPG-PATBHE</span>
+                    </div>
+                  </div>
+
+                  <!-- Kilau Refleksi Mengkilap (Specular Glossy Sheen) -->
+                  <div class="badge-shine-overlay"></div>
+                </div>
+
+                <!-- Bayangan Realistis Mengambang (Hanging Drop Shadow) -->
+                <div class="badge-shadow"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1582,5 +1714,6 @@
         });
       }
     </script>
+    <script src="js/lanyard.js"></script>
   </body>
 </html>
