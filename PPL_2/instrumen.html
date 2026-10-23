@@ -734,18 +734,9 @@
       }
 
       /* =========================================
-         DOCUMENT + VISUAL GRID (2 kolom)
+         PDF VIEWER TERMINAL
          ========================================= */
-      .doc-visual-grid {
-        display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        gap: 30px;
-        margin-bottom: 50px;
-        align-items: stretch;
-      }
-
-      /* ---- PDF Terminal ---- */
-      .pdf-terminal {
+      .pdf-terminal-wrapper {
         background: #050511;
         border: 1px solid var(--primary);
         border-radius: 16px;
@@ -753,8 +744,7 @@
         box-shadow:
           0 15px 35px rgba(0, 0, 0, 0.8),
           0 0 20px rgba(0, 240, 255, 0.2);
-        display: flex;
-        flex-direction: column;
+        margin-bottom: 50px;
       }
 
       .terminal-header {
@@ -790,7 +780,7 @@
       .terminal-title {
         font-family: monospace;
         color: var(--text-main);
-        font-size: 13px;
+        font-size: 14px;
         letter-spacing: 1px;
         opacity: 0.8;
       }
@@ -814,10 +804,10 @@
 
       .pdf-container {
         width: 100%;
-        height: 520px;
+        height: 70vh;
+        min-height: 480px;
         position: relative;
         background: #0a0a14;
-        flex: 1;
       }
       .cyber-pdf-frame {
         width: 100%;
@@ -828,13 +818,13 @@
       .terminal-footer {
         background: #0a0a14;
         border-top: 1px solid rgba(0, 240, 255, 0.3);
-        padding: 12px 16px;
+        padding: 15px 20px;
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 12px;
       }
-      .cyber-action-btn {
+      .cyber-download-btn {
         display: inline-flex;
         align-items: center;
         gap: 8px;
@@ -842,130 +832,25 @@
         color: var(--primary);
         text-decoration: none;
         font-weight: 700;
-        font-size: 12px;
-        padding: 9px 16px;
+        font-size: 13px;
+        padding: 10px 18px;
         border: 1px solid var(--primary);
         background: rgba(0, 240, 255, 0.05);
         border-radius: 6px;
         transition: all 0.3s ease;
         letter-spacing: 1px;
       }
-      .cyber-action-btn .btn-bracket {
+      .cyber-download-btn .btn-bracket {
         opacity: 0.6;
       }
-      .cyber-action-btn:hover {
+      .cyber-download-btn:hover {
         background: var(--primary);
         color: #020208;
         box-shadow: 0 0 20px var(--primary);
         transform: translateY(-2px);
       }
-      .cyber-action-btn:hover .btn-bracket {
+      .cyber-download-btn:hover .btn-bracket {
         color: #020208;
-      }
-
-      /* ---- CBT Preview Terminal ---- */
-      .cbt-terminal {
-        background: #050511;
-        border: 1px solid var(--accent-purple);
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow:
-          0 15px 35px rgba(0, 0, 0, 0.8),
-          0 0 20px rgba(168, 85, 247, 0.2);
-        display: flex;
-        flex-direction: column;
-        transition: var(--transition);
-      }
-
-      .cbt-terminal:hover {
-        border-color: var(--primary);
-        box-shadow:
-          0 15px 35px rgba(0, 0, 0, 0.8),
-          0 0 30px rgba(0, 240, 255, 0.3);
-      }
-
-      .cbt-terminal .terminal-header {
-        border-bottom-color: rgba(168, 85, 247, 0.4);
-      }
-
-      .cbt-terminal .terminal-status {
-        color: #ffbd2e;
-      }
-      .cbt-terminal .terminal-status::before {
-        background: #ffbd2e;
-        box-shadow: 0 0 8px #ffbd2e;
-      }
-
-      .cbt-preview {
-        position: relative;
-        width: 100%;
-        aspect-ratio: 3 / 4;
-        overflow: hidden;
-        background: radial-gradient(circle at center, rgba(168, 85, 247, 0.08), transparent 70%);
-        flex: 1;
-      }
-
-      .cbt-preview img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-        transition: transform 0.6s ease;
-        opacity: 0.9;
-      }
-      .cbt-terminal:hover .cbt-preview img {
-        transform: scale(1.04);
-        opacity: 1;
-      }
-
-      .cbt-preview .fallback-icon {
-        position: absolute;
-        inset: 0;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 16px;
-        color: rgba(168, 85, 247, 0.5);
-      }
-      .cbt-preview .fallback-icon i {
-        font-size: 5rem;
-        filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.5));
-        animation: floatIcon 3s ease-in-out infinite;
-      }
-      .cbt-preview .fallback-icon span {
-        font-family: monospace;
-        font-size: 12px;
-        letter-spacing: 2px;
-        text-transform: uppercase;
-      }
-
-      .cbt-preview .preview-badge {
-        position: absolute;
-        top: 14px;
-        left: 14px;
-        font-family: monospace;
-        font-size: 10px;
-        letter-spacing: 2px;
-        color: var(--white);
-        background: rgba(168, 85, 247, 0.4);
-        border: 1px solid var(--accent-purple);
-        padding: 5px 12px;
-        border-radius: 20px;
-        text-transform: uppercase;
-        font-weight: 700;
-        backdrop-filter: blur(10px);
-        z-index: 3;
-      }
-
-      @keyframes floatIcon {
-        0%,
-        100% {
-          transform: translateY(0);
-        }
-        50% {
-          transform: translateY(-8px);
-        }
       }
 
       /* =========================================
@@ -1552,7 +1437,7 @@
         .tab-btn {
           justify-content: center;
         }
-        .cyber-action-btn {
+        .cyber-download-btn {
           width: 100%;
           justify-content: center;
         }
@@ -1632,7 +1517,7 @@
                   <a href="non-mengajar.html"><i class="fa-solid fa-people-group"></i> Kegiatan Non-Mengajar</a>
                 </li>
                 <li>
-                  <a href="instrumen.html"><i class="fa-solid fa-clipboard-check"></i> Instrumen</a>
+                  <a href="instrumen.html" class="active"><i class="fa-solid fa-clipboard-check"></i> Instrumen</a>
                 </li>
               </ul>
             </li>
@@ -1659,7 +1544,8 @@
           </h1>
           <div class="title-divider"></div>
           <p class="hero-desc">
-            Rancangan asesmen formatif dan sumatif yang autentik untuk mengukur ketercapaian kompetensi peserta didik pada mata pelajaran Informatika — dilengkapi rubrik, kisi-kisi, dan sistem Computer-Based Test (CBT).
+            Kumpulan dokumen instrumen asesmen dan evaluasi pembelajaran Informatika Fase E di SMA Negeri 4 Yogyakarta selama PPL 2 — mencakup 1 siklus UTS dan 3 siklus UAS dilengkapi rubrik penilaian autentik, kisi-kisi evaluasi, serta
+            analisis landasan teori pedagoginya.
           </p>
         </div>
       </section>
@@ -1668,236 +1554,161 @@
       <section class="tabs-section">
         <div class="container">
           <!-- TAB NAV -->
+          <!-- TAB NAV (FILTER SIKLUS 1–4) -->
           <div class="tabs-nav reveal">
-            <button class="tab-btn active" data-tab="all"><i class="fa-solid fa-list-check"></i> Semua Siklus (1-4)</button>
+            <button class="tab-btn active" data-tab="all"><i class="fa-solid fa-list-ol"></i> Semua Siklus (1–4)</button>
             <button class="tab-btn" data-tab="siklus-1"><i class="fa-solid fa-cube"></i> Siklus 1 (UTS)</button>
-            <button class="tab-btn" data-tab="siklus-2"><i class="fa-solid fa-layer-group"></i> Siklus 2 (UAS)</button>
+            <button class="tab-btn" data-tab="siklus-2"><i class="fa-solid fa-diagram-project"></i> Siklus 2 (UAS)</button>
             <button class="tab-btn" data-tab="siklus-3"><i class="fa-solid fa-table-cells"></i> Siklus 3 (UAS)</button>
             <button class="tab-btn" data-tab="siklus-4"><i class="fa-solid fa-code"></i> Siklus 4 (UAS)</button>
           </div>
 
           <!-- =========================================
-               SIKLUS 1: UTS
+               DAFTAR SIKLUS 1 s.d 4 (SEKUENSIAL)
                ========================================= -->
-          <div class="siklus-block reveal" data-siklus="siklus-1" id="siklus-1">
-            <div class="siklus-header">
-              <div class="siklus-number-badge">01</div>
-              <div class="siklus-titles">
-                <span class="siklus-label">SIKLUS 1 • UTS</span>
-                <span class="siklus-name">Algoritma Standar: Searching dan Sorting</span>
+          <div class="siklus-stream">
+            <!-- ============ SIKLUS 1 ============ -->
+            <div class="siklus-block reveal" data-siklus="siklus-1" id="siklus-1">
+              <div class="siklus-header">
+                <div class="siklus-number-badge">01</div>
+                <div class="siklus-titles">
+                  <span class="siklus-label">SIKLUS 1 &bull; UTS</span>
+                  <span class="siklus-name">Algoritma Standar: Searching dan Sorting</span>
+                </div>
               </div>
-            </div>
 
-            <!-- ============ DOKUMEN & VISUAL ============ -->
-            <div class="doc-visual-grid reveal">
-              <!-- PDF RUBRIK / KISI-KISI / LEMBAR ASESMEN -->
-              <div class="pdf-terminal">
+              <!-- PDF VIEWER -->
+              <div class="pdf-terminal-wrapper">
                 <div class="terminal-header">
                   <div class="terminal-dots">
                     <span class="dot red"></span>
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/instrumen/lampiran8_siklus1_asesmen.pdf</div>
+                  <div class="terminal-title">~/ppl_2/uts_siklus_1_instrumen_asesmen.pdf</div>
                   <div class="terminal-status">ONLINE</div>
                 </div>
 
                 <div class="pdf-container">
-                  <iframe src="../Dokumen/Lampiran 8 Siklus 1.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen Siklus 1 — Algoritma Standar Searching & Sorting"></iframe>
+                  <iframe src="../Dokumen/PPL_2/Instrumen Siklus 1.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen UTS Siklus 1 — Algoritma Standar Searching &amp; Sorting"></iframe>
                 </div>
 
                 <div class="terminal-footer">
-                  <a href="../Dokumen/Lampiran 8 Siklus 1.pdf" download="Lampiran_8_Siklus_1.pdf" class="cyber-action-btn">
+                  <a href="../Dokumen/PPL_2/Instrumen Siklus 1.pdf" download="Instrumen_Asesmen_Siklus_1.pdf" class="cyber-download-btn">
                     <span class="btn-bracket">[</span>
-                    <i class="fa-solid fa-download"></i>
-                    UNDUH_DOKUMEN
+                    <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
                     <span class="btn-bracket">]</span>
                   </a>
-                  <a href="../Dokumen/Lampiran 8 Siklus 1.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
+                  <a href="../Dokumen/PPL_2/Instrumen Siklus 1.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
                     <span class="btn-bracket">[</span>
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    BUKA_TAB_BARU
+                    <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
                     <span class="btn-bracket">]</span>
                   </a>
                 </div>
               </div>
 
-              <!-- CBT SCREENSHOT -->
-              <div class="cbt-terminal">
-                <div class="terminal-header">
-                  <div class="terminal-dots">
-                    <span class="dot red"></span>
-                    <span class="dot yellow"></span>
-                    <span class="dot green"></span>
+              <!-- ANALYSIS CARDS -->
+              <div class="cards-grid">
+                <!-- KARTU 1 -->
+                <div class="analysis-card tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-bullseye card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Konteks &amp; Tujuan
+                      <small>Context &amp; Objectives</small>
+                    </div>
                   </div>
-                  <div class="terminal-title">~/cbt/preview_searching_sorting.png</div>
-                  <div class="terminal-status">CBT LIVE</div>
+                  <div class="card-body">
+                    <p>Instrumen sumatif tengah semester (UTS) dan lembar asesmen observasi terstruktur digunakan untuk mengukur capaian <strong>Algoritma Standar: Searching &amp; Sorting</strong> pada Fase E.</p>
+                    <p>
+                      Tujuan: memetakan tingkat pemahaman murid secara
+                      <strong>kuantitatif</strong> (tes kognitif logika penelusuran &amp; tracing table) dan <strong>kualitatif</strong> (unjuk kerja peraga simulasi), serta mengidentifikasi kesiapan remedial &amp; pengayaan.
+                    </p>
+                  </div>
                 </div>
 
-                <div class="cbt-preview">
-                  <div class="preview-badge">
-                    <i class="fa-solid fa-circle" style="font-size: 6px"></i>
-                    CBT PREVIEW
+                <!-- KARTU 2 -->
+                <div class="analysis-card variant-purple tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-scale-balanced card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kelebihan &amp; Kekurangan
+                      <small>Strengths &amp; Weaknesses</small>
+                    </div>
                   </div>
-                  <img
-                    src="../Images/instrumen_cbt_uts.png"
-                    alt="Screenshot Sistem CBT UTS Siklus 1 Searching & Sorting"
-                    onerror="
-                      this.style.display = 'none';
-                      this.nextElementSibling.style.display = 'flex';
-                    "
-                  />
-                  <div class="fallback-icon">
-                    <i class="fa-solid fa-desktop"></i>
-                    <span>CBT Siklus 1</span>
-                    <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Searching &amp; Sorting</small>
+                  <div class="card-body">
+                    <p><strong>Kelebihan:</strong> rubrik terstruktur mencakup kesiapan pedagogik, ketepatan peragaan alur kartu acak, dan evaluasi objektif butir tes bergradasi (mudah, sedang, sukar).</p>
+                    <p><strong>Kekurangan:</strong> butir soal analisis perbandingan kompleksitas komputasi (Big O notation) masih memerlukan representasi grafis tambahan agar lebih mudah dipahami siswa pemula.</p>
+                  </div>
+                </div>
+
+                <!-- KARTU 3 -->
+                <div class="analysis-card variant-red tilt-card reveal">
+                  <div class="card-scanline"></div>
+                  <div class="card-header">
+                    <div class="card-icon-wrapper">
+                      <i class="fa-solid fa-lightbulb card-icon"></i>
+                    </div>
+                    <div class="card-title">
+                      Kajian Teori
+                      <small>Theoretical Framework</small>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <p>Mengacu pada <strong>Authentic Assessment (Wiggins, 1990)</strong> dan <strong>Bloom's Revised Taxonomy</strong> — menyelaraskan dimensi kognitif C2–C4 dengan penilaian performa nyata penelusuran algoritma.</p>
+                    <p>Diperkuat prinsip <strong>Assessment for Learning (Black &amp; Wiliam)</strong> — umpan balik komprehensif menjadi poros perbaikan pemahaman algoritma siswa secara adaptif.</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- ============ ANALYSIS CARDS ============ -->
-            <div class="cards-label reveal">ANALISIS INSTRUMEN SIKLUS 1</div>
-
-            <div class="cards-grid">
-              <!-- KARTU 1 -->
-              <div class="analysis-card tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-bullseye card-icon"></i>
-                  </div>
-                  <div class="card-title">
-                    Konteks &amp; Tujuan
-                    <small>Context &amp; Objectives</small>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <p>Instrumen sumatif tengah semester (UTS) dan lembar asesmen observasi terstruktur digunakan untuk mengukur capaian <strong>Algoritma Standar: Searching &amp; Sorting</strong> pada Fase E.</p>
-                  <p>
-                    Tujuan: memetakan tingkat pemahaman murid secara
-                    <strong>kuantitatif</strong> (tes kognitif logika penelusuran &amp; tracing table) dan <strong>kualitatif</strong> (unjuk kerja peraga simulasi), serta mengidentifikasi kesiapan remedial &amp; pengayaan.
-                  </p>
-                </div>
-              </div>
-
-              <!-- KARTU 2 -->
-              <div class="analysis-card variant-purple tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-scale-balanced card-icon"></i>
-                  </div>
-                  <div class="card-title">
-                    Kelebihan &amp; Kekurangan
-                    <small>Strengths &amp; Weaknesses</small>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <p><strong>Kelebihan:</strong> rubrik terstruktur mencakup kesiapan pedagogik, ketepatan peragaan alur kartu acak, dan evaluasi objektif butir tes bergradasi (mudah, sedang, sukar).</p>
-                  <p><strong>Kekurangan:</strong> butir soal analisis perbandingan kompleksitas komputasi (Big O notation) masih memerlukan representasi grafis tambahan agar lebih mudah dipahami siswa pemula.</p>
-                </div>
-              </div>
-
-              <!-- KARTU 3 -->
-              <div class="analysis-card variant-red tilt-card reveal">
-                <div class="card-scanline"></div>
-                <div class="card-header">
-                  <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-lightbulb card-icon"></i>
-                  </div>
-                  <div class="card-title">
-                    Kajian Teori
-                    <small>Theoretical Framework</small>
-                  </div>
-                </div>
-                <div class="card-body">
-                  <p>Mengacu pada <strong>Authentic Assessment (Wiggins, 1990)</strong> dan <strong>Bloom's Revised Taxonomy</strong> — menyelaraskan dimensi kognitif C2–C4 dengan penilaian performa nyata penelusuran algoritma.</p>
-                  <p>
-                    Diperkuat prinsip <strong>Assessment for Learning (Black &amp; Wiliam)</strong> — umpan balik komprehensif menjadi poros perbaikan pemahaman algoritma siswa secara adaptif.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
             <!-- ============ SIKLUS 2 ============ -->
             <div class="siklus-block reveal" data-siklus="siklus-2" id="siklus-2">
               <div class="siklus-header">
                 <div class="siklus-number-badge">02</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 2 • UAS</span>
+                  <span class="siklus-label">SIKLUS 2 &bull; UAS</span>
                   <span class="siklus-name">Algoritma Pemrograman Dasar: Algoritma dan Flowchart</span>
                 </div>
               </div>
 
-              <div class="doc-visual-grid">
-                <div class="pdf-terminal">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="dot red"></span>
-                      <span class="dot yellow"></span>
-                      <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">~/instrumen/lampiran8_siklus2_asesmen.pdf</div>
-                    <div class="terminal-status">ONLINE</div>
+              <!-- PDF VIEWER -->
+              <div class="pdf-terminal-wrapper">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
                   </div>
-
-                  <div class="pdf-container">
-                    <iframe src="../Dokumen/Lampiran 8 Siklus 2.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen Siklus 2 — Algoritma dan Flowchart"></iframe>
-                  </div>
-
-                  <div class="terminal-footer">
-                    <a href="../Dokumen/Lampiran 8 Siklus 2.pdf" download="Lampiran_8_Siklus_2.pdf" class="cyber-action-btn">
-                      <span class="btn-bracket">[</span>
-                      <i class="fa-solid fa-download"></i>
-                      UNDUH_DOKUMEN
-                      <span class="btn-bracket">]</span>
-                    </a>
-                    <a href="../Dokumen/Lampiran 8 Siklus 2.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
-                      <span class="btn-bracket">[</span>
-                      <i class="fa-solid fa-up-right-from-square"></i>
-                      BUKA_TAB_BARU
-                      <span class="btn-bracket">]</span>
-                    </a>
-                  </div>
+                  <div class="terminal-title">~/ppl_2/uas_siklus_2_instrumen_flowchart.pdf</div>
+                  <div class="terminal-status">ONLINE</div>
                 </div>
 
-                <div class="cbt-terminal">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="dot red"></span>
-                      <span class="dot yellow"></span>
-                      <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">~/cbt/preview_flowchart_logic.png</div>
-                    <div class="terminal-status">FLOWCHART LIVE</div>
-                  </div>
+                <div class="pdf-container">
+                  <iframe src="../Dokumen/PPL_2/Instrumen Siklus 2.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen UAS Siklus 2 — Algoritma dan Flowchart"></iframe>
+                </div>
 
-                  <div class="cbt-preview">
-                    <div class="preview-badge">
-                      <i class="fa-solid fa-circle" style="font-size: 6px"></i>
-                      FLOWCHART EVAL
-                    </div>
-                    <img
-                      src="../Images/instrumen_cpp_s2.png"
-                      alt="Screenshot Asesmen Flowchart & Logika Pemrograman"
-                      onerror="
-                        this.style.display = 'none';
-                        this.nextElementSibling.style.display = 'flex';
-                      "
-                    />
-                    <div class="fallback-icon">
-                      <i class="fa-solid fa-diagram-project"></i>
-                      <span>Diagram Alir Logika</span>
-                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Algoritma &amp; Flowchart</small>
-                    </div>
-                  </div>
+                <div class="terminal-footer">
+                  <a href="../Dokumen/PPL_2/Instrumen Siklus 2.pdf" download="Instrumen_Siklus_2.pdf" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                    <span class="btn-bracket">]</span>
+                  </a>
+                  <a href="../Dokumen/PPL_2/Instrumen Siklus 2.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                    <span class="btn-bracket">]</span>
+                  </a>
                 </div>
               </div>
 
-              <!-- ============ ANALYSIS CARDS ============ -->
-              <div class="cards-label reveal">ANALISIS INSTRUMEN SIKLUS 2</div>
-
+              <!-- ANALYSIS CARDS -->
               <div class="cards-grid">
                 <div class="analysis-card tilt-card reveal">
                   <div class="card-scanline"></div>
@@ -1912,9 +1723,7 @@
                   </div>
                   <div class="card-body">
                     <p>Asesmen unjuk kerja (<em>performance assessment</em>) dan lembar observasi proses untuk memvalidasi kemampuan murid memodelkan alur komputasi ke dalam bentuk <strong>Diagram Alir (ANSI Flowchart)</strong>.</p>
-                    <p>
-                      Tujuan: mengevaluasi penalaran logika murid secara terstruktur, mulai dari inisialisasi variabel, pembacaan input, percabangan kondisi keputusan (<em>decision diamond</em>), hingga penutupan alur.
-                    </p>
+                    <p>Tujuan: mengevaluasi penalaran logika murid secara terstruktur, mulai dari inisialisasi variabel, pembacaan input, percabangan kondisi keputusan (<em>decision diamond</em>), hingga penutupan alur.</p>
                   </div>
                 </div>
 
@@ -1959,79 +1768,42 @@
               <div class="siklus-header">
                 <div class="siklus-number-badge">03</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 3 • UAS</span>
+                  <span class="siklus-label">SIKLUS 3 &bull; UAS</span>
                   <span class="siklus-name">Microsoft Excel: Mengelola Data</span>
                 </div>
               </div>
 
-              <div class="doc-visual-grid">
-                <div class="pdf-terminal">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="dot red"></span>
-                      <span class="dot yellow"></span>
-                      <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">~/instrumen/lampiran8_siklus3_asesmen.pdf</div>
-                    <div class="terminal-status">ONLINE</div>
+              <!-- PDF VIEWER -->
+              <div class="pdf-terminal-wrapper">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
                   </div>
-
-                  <div class="pdf-container">
-                    <iframe src="../Dokumen/Lampiran 8 Siklus 3.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen Siklus 3 — Microsoft Excel: Mengelola Data"></iframe>
-                  </div>
-
-                  <div class="terminal-footer">
-                    <a href="../Dokumen/Lampiran 8 Siklus 3.pdf" download="Lampiran_8_Siklus_3.pdf" class="cyber-action-btn">
-                      <span class="btn-bracket">[</span>
-                      <i class="fa-solid fa-download"></i>
-                      UNDUH_DOKUMEN
-                      <span class="btn-bracket">]</span>
-                    </a>
-                    <a href="../Dokumen/Lampiran 8 Siklus 3.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
-                      <span class="btn-bracket">[</span>
-                      <i class="fa-solid fa-up-right-from-square"></i>
-                      BUKA_TAB_BARU
-                      <span class="btn-bracket">]</span>
-                    </a>
-                  </div>
+                  <div class="terminal-title">~/ppl_2/uas_siklus_3_instrumen_excel.pdf</div>
+                  <div class="terminal-status">ONLINE</div>
                 </div>
 
-                <div class="cbt-terminal">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="dot red"></span>
-                      <span class="dot yellow"></span>
-                      <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">~/cbt/preview_excel_sheets.png</div>
-                    <div class="terminal-status">SPREADSHEET LIVE</div>
-                  </div>
+                <div class="pdf-container">
+                  <iframe src="../Dokumen/PPL_2/Instrumen Siklus 3.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen UAS Siklus 3 — Microsoft Excel: Mengelola Data"></iframe>
+                </div>
 
-                  <div class="cbt-preview">
-                    <div class="preview-badge">
-                      <i class="fa-solid fa-circle" style="font-size: 6px"></i>
-                      EXCEL EVAL
-                    </div>
-                    <img
-                      src="../Images/instrumen_excel_s4.png"
-                      alt="Screenshot Asesmen Praktikum Microsoft Excel"
-                      onerror="
-                        this.style.display = 'none';
-                        this.nextElementSibling.style.display = 'flex';
-                      "
-                    />
-                    <div class="fallback-icon">
-                      <i class="fa-solid fa-table-cells"></i>
-                      <span>Spreadsheet &amp; Formula</span>
-                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Mengelola Data Excel</small>
-                    </div>
-                  </div>
+                <div class="terminal-footer">
+                  <a href="../Dokumen/PPL_2/Instrumen Siklus 3.pdf" download="Instrumen_Siklus_3.pdf" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                    <span class="btn-bracket">]</span>
+                  </a>
+                  <a href="../Dokumen/PPL_2/Instrumen Siklus 3.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                    <span class="btn-bracket">]</span>
+                  </a>
                 </div>
               </div>
 
-              <!-- ============ ANALYSIS CARDS ============ -->
-              <div class="cards-label reveal">ANALISIS INSTRUMEN SIKLUS 3</div>
-
+              <!-- ANALYSIS CARDS -->
               <div class="cards-grid">
                 <div class="analysis-card tilt-card reveal">
                   <div class="card-scanline"></div>
@@ -2065,9 +1837,7 @@
                   </div>
                   <div class="card-body">
                     <p><strong>Kelebihan:</strong> penilaian berbasis berkas kerja autentik (.xlsx) memberikan gambaran riil kapabilitas teknis murid menyelesaikan kebutuhan pengolahan data dunia kerja.</p>
-                    <p>
-                      <strong>Kekurangan:</strong> diperlukan alokasi waktu koreksi formula secara mendalam pada berkas siswa untuk memverifikasi penulisan rumus dinamis versus input nilai manual.
-                    </p>
+                    <p><strong>Kekurangan:</strong> diperlukan alokasi waktu koreksi formula secara mendalam pada berkas siswa untuk memverifikasi penulisan rumus dinamis versus input nilai manual.</p>
                   </div>
                 </div>
 
@@ -2095,79 +1865,42 @@
               <div class="siklus-header">
                 <div class="siklus-number-badge">04</div>
                 <div class="siklus-titles">
-                  <span class="siklus-label">SIKLUS 4 • UAS</span>
+                  <span class="siklus-label">SIKLUS 4 &bull; UAS</span>
                   <span class="siklus-name">Algoritma Pemrograman Dasar: Pseudocode dan Pengenalan Bahasa Pemrograman</span>
                 </div>
               </div>
 
-              <div class="doc-visual-grid">
-                <div class="pdf-terminal">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="dot red"></span>
-                      <span class="dot yellow"></span>
-                      <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">~/instrumen/lampiran7_observasi_pembelajaran.pdf</div>
-                    <div class="terminal-status">ONLINE</div>
+              <!-- PDF VIEWER -->
+              <div class="pdf-terminal-wrapper">
+                <div class="terminal-header">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
                   </div>
-
-                  <div class="pdf-container">
-                    <iframe src="../Dokumen/Lampiran 7.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen Siklus 4 — Pseudocode & Pengenalan Bahasa Pemrograman"></iframe>
-                  </div>
-
-                  <div class="terminal-footer">
-                    <a href="../Dokumen/Lampiran 7.pdf" download="Lampiran_7_Observasi.pdf" class="cyber-action-btn">
-                      <span class="btn-bracket">[</span>
-                      <i class="fa-solid fa-download"></i>
-                      UNDUH_DOKUMEN
-                      <span class="btn-bracket">]</span>
-                    </a>
-                    <a href="../Dokumen/Lampiran 7.pdf" target="_blank" rel="noopener" class="cyber-action-btn">
-                      <span class="btn-bracket">[</span>
-                      <i class="fa-solid fa-up-right-from-square"></i>
-                      BUKA_TAB_BARU
-                      <span class="btn-bracket">]</span>
-                    </a>
-                  </div>
+                  <div class="terminal-title">~/ppl_2/uas_siklus_4_instrumen_pseudocode.pdf</div>
+                  <div class="terminal-status">ONLINE</div>
                 </div>
 
-                <div class="cbt-terminal">
-                  <div class="terminal-header">
-                    <div class="terminal-dots">
-                      <span class="dot red"></span>
-                      <span class="dot yellow"></span>
-                      <span class="dot green"></span>
-                    </div>
-                    <div class="terminal-title">~/cbt/preview_pseudocode_code.png</div>
-                    <div class="terminal-status">CODE RUNNER LIVE</div>
-                  </div>
+                <div class="pdf-container">
+                  <iframe src="../Dokumen/PPL_2/Instrumen Siklus 4.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen UAS Siklus 4 — Pseudocode &amp; Pengenalan Bahasa Pemrograman"></iframe>
+                </div>
 
-                  <div class="cbt-preview">
-                    <div class="preview-badge">
-                      <i class="fa-solid fa-circle" style="font-size: 6px"></i>
-                      COMPILER EVAL
-                    </div>
-                    <img
-                      src="../Images/instrumen_quiz_s3.png"
-                      alt="Screenshot Asesmen Transcoding Pseudocode ke Bahasa Pemrograman"
-                      onerror="
-                        this.style.display = 'none';
-                        this.nextElementSibling.style.display = 'flex';
-                      "
-                    />
-                    <div class="fallback-icon">
-                      <i class="fa-solid fa-code"></i>
-                      <span>Transcoding Pseudocode</span>
-                      <small style="font-size: 11px; opacity: 0.6; letter-spacing: 1px">Pseudocode &amp; Sintaks Bahasa</small>
-                    </div>
-                  </div>
+                <div class="terminal-footer">
+                  <a href="../Dokumen/PPL_2/Instrumen Siklus 4.pdf" download="Instrumen_Siklus_4.pdf" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-download"></i> DOWNLOAD_FILE
+                    <span class="btn-bracket">]</span>
+                  </a>
+                  <a href="../Dokumen/PPL_2/Instrumen Siklus 4.pdf" target="_blank" rel="noopener" class="cyber-download-btn">
+                    <span class="btn-bracket">[</span>
+                    <i class="fa-solid fa-up-right-from-square"></i> BUKA_DI_TAB_BARU
+                    <span class="btn-bracket">]</span>
+                  </a>
                 </div>
               </div>
 
-              <!-- ============ ANALYSIS CARDS ============ -->
-              <div class="cards-label reveal">ANALISIS INSTRUMEN SIKLUS 4</div>
-
+              <!-- ANALYSIS CARDS -->
               <div class="cards-grid">
                 <div class="analysis-card tilt-card reveal">
                   <div class="card-scanline"></div>
@@ -2182,11 +1915,10 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      Instrumen formatif penelusuran logika (<em>code tracing</em>) dan rubrik konversi algoritma untuk mengukur kapabilitas murid mentranslasikan <strong>notasi pseudocode standar</strong> ke dalam sintaks bahasa pemrograman.
+                      Instrumen formatif penelusuran logika (<em>code tracing</em>) dan rubrik konversi algoritma untuk mengukur kapabilitas murid mentranslasikan <strong>notasi pseudocode standar</strong> ke dalam sintaks bahasa
+                      pemrograman.
                     </p>
-                    <p>
-                      Tujuan: menilai kesiapan murid dalam memahami mekanisme kerja kompiler, deklarasi variabel bertipe, percabangan IF-ELSE, serta struktur pengulangan (FOR/WHILE).
-                    </p>
+                    <p>Tujuan: menilai kesiapan murid dalam memahami mekanisme kerja kompiler, deklarasi variabel bertipe, percabangan IF-ELSE, serta struktur pengulangan (FOR/WHILE).</p>
                   </div>
                 </div>
 
@@ -2203,9 +1935,7 @@
                   </div>
                   <div class="card-body">
                     <p><strong>Kelebihan:</strong> rubrik menguji dekomposisi logika dan penanganan kesalahan sintaks/runtime secara terpisah, sehingga murid tidak kehilangan poin logika murni akibat kesalahan tanda baca.</p>
-                    <p>
-                      <strong>Kekurangan:</strong> murid pemula kerap mengalami kecemasan sintaks (<em>semicolon anxiety</em>); guru perlu memfasilitasi scaffolding rubrik bertahap dari pseudocode ke baris kode.
-                    </p>
+                    <p><strong>Kekurangan:</strong> murid pemula kerap mengalami kecemasan sintaks (<em>semicolon anxiety</em>); guru perlu memfasilitasi scaffolding rubrik bertahap dari pseudocode ke baris kode.</p>
                   </div>
                 </div>
 
@@ -2222,13 +1952,12 @@
                   </div>
                   <div class="card-body">
                     <p>Berlandaskan teori <strong>Notional Machine (Sorva, 2013)</strong> — instrumen mengevaluasi representasi mental siswa tentang bagaimana komputer mengeksekusi instruksi pseudocode langkah-demi-langkah.</p>
-                    <p>
-                      Diperkuat prinsip <strong>Scaffolding Assessment (Vygotsky - ZPD)</strong> — penilaian berjenjang yang menjembatani zona perkembangan dari logika naratif ke kode program terkompilasi.
-                    </p>
+                    <p>Diperkuat prinsip <strong>Scaffolding Assessment (Vygotsky - ZPD)</strong> — penilaian berjenjang yang menjembatani zona perkembangan dari logika naratif ke kode program terkompilasi.</p>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
         </div>
       </section>
     </main>
@@ -2364,7 +2093,7 @@
       const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
       function attachCursorHover(scope = document) {
-        const interactables = scope.querySelectorAll("a, button, .social-btn, .nav-links li, .tab-btn, .tilt-card, .cyber-action-btn, .cbt-preview, .pdf-container");
+        const interactables = scope.querySelectorAll("a, button, .social-btn, .nav-links li, .tab-btn, .tilt-card, .cyber-download-btn, .cbt-preview, .pdf-container");
 
         interactables.forEach((el) => {
           if (el.dataset.cursorAttached === "true") return;

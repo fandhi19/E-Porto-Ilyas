@@ -715,19 +715,22 @@
       }
 
       .activities-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-        gap: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+        max-width: 1200px;
+        margin: 0 auto;
       }
 
-      /* Single Activity Card */
+      /* Single Activity Showcase Card (Horizontal Split Layout on Desktop) */
       .activity-card {
         background: var(--card-bg);
         border: 1px solid var(--card-border);
-        border-radius: 20px;
+        border-radius: 22px;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr 1.08fr;
+        gap: 0;
         transition: var(--transition);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
@@ -739,54 +742,308 @@
         content: "";
         position: absolute;
         inset: 0;
-        border-radius: 20px;
-        background: linear-gradient(145deg, rgba(0, 240, 255, 0.06), transparent 60%, rgba(129, 140, 248, 0.04));
+        border-radius: 22px;
+        background: linear-gradient(135deg, rgba(0, 240, 255, 0.05), transparent 60%, rgba(168, 85, 247, 0.04));
         pointer-events: none;
       }
 
       .activity-card:hover {
-        transform: translateY(-8px);
+        transform: translateY(-6px);
         border-color: var(--card-border-hover);
         box-shadow:
           0 25px 50px rgba(0, 0, 0, 0.75),
           0 0 35px rgba(0, 240, 255, 0.22);
       }
 
-      /* Card Image Wrapper (16:9 Aspect Ratio) */
+      /* Sisi Kiri: Kolom Visual Galeri */
+      .card-visual-column {
+        display: flex;
+        flex-direction: column;
+        background: rgba(8, 8, 20, 0.75);
+        border-right: 1px solid rgba(0, 240, 255, 0.12);
+        position: relative;
+      }
+
+      .visual-terminal-bar {
+        height: 42px;
+        background: rgba(10, 10, 24, 0.95);
+        border-bottom: 1px solid rgba(0, 240, 255, 0.15);
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        gap: 8px;
+        z-index: 2;
+      }
+
+      .terminal-dots {
+        display: flex;
+        gap: 6px;
+      }
+      .terminal-dots .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+      .terminal-dots .dot.red { background: #ff5f56; box-shadow: 0 0 5px #ff5f56; }
+      .terminal-dots .dot.yellow { background: #ffbd2e; box-shadow: 0 0 5px #ffbd2e; }
+      .terminal-dots .dot.green { background: #27c93f; box-shadow: 0 0 5px #27c93f; }
+
+      .terminal-filename {
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        color: var(--text-muted);
+        margin-left: 6px;
+        opacity: 0.85;
+      }
+
+      .gallery-counter-tag {
+        margin-left: auto;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--primary);
+        background: rgba(0, 240, 255, 0.08);
+        border: 1px solid rgba(0, 240, 255, 0.25);
+        padding: 2px 10px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      /* Main Media Interactive Slider */
       .card-media-wrapper {
         position: relative;
         width: 100%;
-        aspect-ratio: 16 / 9;
+        min-height: 320px;
+        flex: 1;
         overflow: hidden;
-        background: #090918;
+        background: #060614;
+        display: flex;
+        flex-direction: column;
+        user-select: none;
       }
 
-      .card-media-wrapper img {
+      .card-slider-track-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        min-height: 320px;
+        flex: 1;
+        overflow: hidden;
+        cursor: grab;
+      }
+      .card-slider-track-container:active {
+        cursor: grabbing;
+      }
+
+      .card-slider-track {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        will-change: transform;
+      }
+
+      .card-slide-item {
+        position: relative;
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        min-height: 320px;
+        overflow: hidden;
+        background: #060614;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .card-slide-item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
         transition: transform 0.65s cubic-bezier(0.165, 0.84, 0.44, 1);
+        pointer-events: none;
+        -webkit-user-drag: none;
       }
 
-      .activity-card:hover .card-media-wrapper img {
-        transform: scale(1.08);
+      .activity-card:hover .card-slide-item.active img {
+        transform: scale(1.04);
       }
 
-      /* Gradient Overlay on Image */
       .card-media-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(20, 20, 35, 0.95) 0%, rgba(20, 20, 35, 0.4) 45%, rgba(5, 5, 17, 0.1) 100%);
+        background: linear-gradient(to top, rgba(10, 10, 25, 0.75) 0%, rgba(10, 10, 25, 0.15) 35%, transparent 65%);
         pointer-events: none;
       }
 
-      /* Badges on Top of Image */
-      .badge-category {
+      /* Slide Navigation Buttons */
+      .slide-nav-btn {
         position: absolute;
-        top: 16px;
-        left: 16px;
-        z-index: 3;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(5, 5, 17, 0.85);
+        border: 1px solid rgba(0, 240, 255, 0.45);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 6;
+        backdrop-filter: blur(8px);
+        transition: all 0.25s ease;
+        opacity: 0.85;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      }
+      .slide-nav-btn:hover {
+        opacity: 1;
+        background: var(--primary);
+        color: #050511;
+        border-color: var(--primary);
+        box-shadow: 0 0 18px var(--primary);
+        transform: translateY(-50%) scale(1.1);
+      }
+      .slide-nav-btn.prev-btn {
+        left: 12px;
+      }
+      .slide-nav-btn.next-btn {
+        right: 12px;
+      }
+
+      /* Slider Bottom Overlay Controls */
+      .slider-bottom-controls {
+        position: absolute;
+        bottom: 12px;
+        left: 12px;
+        right: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        pointer-events: none;
+        z-index: 5;
+        gap: 10px;
+      }
+
+      /* Slider Dots Pagination */
+      .slider-dots-bar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(5, 5, 17, 0.7);
+        backdrop-filter: blur(8px);
+        padding: 5px 10px;
+        border-radius: 20px;
+        border: 1px solid rgba(0, 240, 255, 0.3);
+        pointer-events: auto;
+      }
+      .slider-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.35);
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+        display: inline-block;
+      }
+      .slider-dot:hover {
+        background: rgba(0, 240, 255, 0.8);
+      }
+      .slider-dot.active {
+        width: 20px;
+        border-radius: 10px;
+        background: var(--primary);
+        box-shadow: 0 0 10px var(--primary);
+      }
+
+      /* Zoom Trigger Pill */
+      .zoom-indicator {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--white);
+        background: rgba(5, 5, 17, 0.75);
+        border: 1px solid rgba(0, 240, 255, 0.35);
+        padding: 5px 12px;
+        border-radius: 20px;
+        backdrop-filter: blur(8px);
+        transition: var(--transition);
+        cursor: pointer;
+        pointer-events: auto;
+      }
+      .zoom-indicator:hover {
+        background: var(--primary);
+        color: #050511;
+        box-shadow: 0 0 14px var(--primary);
+        transform: translateY(-2px);
+      }
+
+      /* Gallery Thumbnails Strip */
+      .card-gallery-strip {
+        display: flex;
+        gap: 10px;
+        padding: 12px 16px;
+        background: rgba(6, 6, 16, 0.95);
+        border-top: 1px solid rgba(0, 240, 255, 0.12);
+        overflow-x: auto;
+        scrollbar-width: thin;
+        scrollbar-color: var(--primary) transparent;
+      }
+      .card-gallery-strip::-webkit-scrollbar {
+        height: 4px;
+      }
+      .card-gallery-strip::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 4px;
+      }
+
+      .card-gallery-thumb {
+        width: 62px;
+        height: 44px;
+        border-radius: 8px;
+        overflow: hidden;
+        border: 2px solid rgba(0, 240, 255, 0.25);
+        cursor: pointer;
+        flex-shrink: 0;
+        transition: var(--transition);
+        position: relative;
+        opacity: 0.65;
+      }
+      .card-gallery-thumb:hover,
+      .card-gallery-thumb.active {
+        opacity: 1;
+        border-color: var(--primary);
+        box-shadow: 0 0 12px rgba(0, 240, 255, 0.5);
+        transform: scale(1.06);
+      }
+      .card-gallery-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Sisi Kanan: Konten Informasi */
+      .card-body {
+        padding: 28px 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .card-top-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 14px;
+      }
+
+      .badge-category {
         display: inline-flex;
         align-items: center;
         gap: 6px;
@@ -798,7 +1055,6 @@
         border-radius: 20px;
         text-transform: uppercase;
         backdrop-filter: blur(10px);
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
       }
 
       .badge-category.projek {
@@ -818,61 +1074,26 @@
       }
 
       .badge-index {
-        position: absolute;
-        top: 16px;
-        right: 16px;
-        z-index: 3;
         font-family: var(--font-mono);
-        font-size: 13px;
+        font-size: 12.5px;
         font-weight: 800;
         color: var(--primary);
-        background: rgba(5, 5, 17, 0.75);
-        border: 1px solid rgba(0, 240, 255, 0.4);
-        padding: 4px 11px;
-        border-radius: 10px;
-        backdrop-filter: blur(8px);
-      }
-
-      /* Zoom Trigger Pill */
-      .zoom-indicator {
-        position: absolute;
-        bottom: 14px;
-        right: 14px;
-        z-index: 3;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-family: var(--font-mono);
-        font-size: 11px;
-        color: var(--white);
-        background: rgba(0, 0, 0, 0.65);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 5px 12px;
-        border-radius: 20px;
-        opacity: 0;
-        transform: translateY(6px);
-        transition: var(--transition);
-        backdrop-filter: blur(8px);
-      }
-
-      .activity-card:hover .zoom-indicator {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      /* Card Content */
-      .card-body {
-        padding: 24px 26px 26px;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
+        background: rgba(0, 240, 255, 0.08);
+        border: 1px solid rgba(0, 240, 255, 0.35);
+        padding: 3px 10px;
+        border-radius: 8px;
       }
 
       .card-meta-line {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        justify-content: space-between;
+        gap: 16px;
         margin-bottom: 12px;
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        color: var(--text-sub);
+      }
         font-family: var(--font-mono);
         font-size: 11.5px;
         color: var(--text-sub);
@@ -1185,6 +1406,48 @@
         object-fit: contain;
       }
 
+      /* Lightbox Navigation Buttons */
+      .lightbox-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(5, 5, 17, 0.85);
+        border: 1px solid rgba(0, 240, 255, 0.4);
+        color: var(--primary);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        cursor: pointer;
+        transition: var(--transition);
+        backdrop-filter: blur(8px);
+        z-index: 10;
+      }
+      .lightbox-nav-btn:hover {
+        background: var(--primary);
+        color: #050511;
+        box-shadow: 0 0 18px var(--primary);
+        transform: translateY(-50%) scale(1.1);
+      }
+      .lightbox-nav-btn.prev {
+        left: 14px;
+      }
+      .lightbox-nav-btn.next {
+        right: 14px;
+      }
+      @media (max-width: 640px) {
+        .lightbox-nav-btn {
+          width: 36px;
+          height: 36px;
+          font-size: 14px;
+        }
+        .lightbox-nav-btn.prev { left: 8px; }
+        .lightbox-nav-btn.next { right: 8px; }
+      }
+
       .lightbox-caption {
         padding: 18px 24px;
         background: #0d0d1e;
@@ -1357,6 +1620,27 @@
         .stat-card:nth-child(2) {
           border-right: none;
         }
+        .activity-card {
+          grid-template-columns: 1fr;
+        }
+        .card-visual-column {
+          border-right: none;
+          border-bottom: 1px solid rgba(0, 240, 255, 0.12);
+        }
+        .card-media-wrapper,
+        .card-slider-track-container,
+        .card-slide-item {
+          min-height: 250px;
+          aspect-ratio: 16 / 9;
+        }
+        .slide-nav-btn {
+          width: 32px;
+          height: 32px;
+          font-size: 13px;
+        }
+        .card-body {
+          padding: 24px 22px;
+        }
       }
 
       @media (max-width: 768px) {
@@ -1400,9 +1684,6 @@
         .stat-card:last-child {
           border-bottom: none;
           padding-bottom: 0;
-        }
-        .activities-grid {
-          grid-template-columns: 1fr;
         }
         .footer-content {
           grid-template-columns: 1fr;
@@ -1535,12 +1816,12 @@
           <!-- HIGHLIGHT METRIC COUNTERS -->
           <div class="hero-stats-bar">
             <div class="stat-card">
-              <span class="stat-num">07</span>
-              <span class="stat-label">Kegiatan Strategis</span>
+              <span class="stat-num">06</span>
+              <span class="stat-label">Kegiatan Non-Mengajar</span>
             </div>
             <div class="stat-card">
-              <span class="stat-num">03</span>
-              <span class="stat-label">Pilar Kolaborasi</span>
+              <span class="stat-num">20</span>
+              <span class="stat-label">Dokumentasi Foto</span>
             </div>
             <div class="stat-card">
               <span class="stat-num">SMAN 4</span>
@@ -1548,7 +1829,7 @@
             </div>
             <div class="stat-card">
               <span class="stat-num">100%</span>
-              <span class="stat-label">Tuntas Tervalidasi</span>
+              <span class="stat-label">Tuntas Terverifikasi</span>
             </div>
           </div>
         </div>
@@ -1561,516 +1842,748 @@
             <button class="filter-btn active" data-filter="all">
               <i class="fa-solid fa-layer-group"></i>
               Semua Kegiatan
-              <span class="filter-count">7</span>
+              <span class="filter-count">6</span>
+            </button>
+            <button class="filter-btn" data-filter="administrasi">
+              <i class="fa-solid fa-clipboard-check"></i>
+              Pelayanan &amp; Asesmen
+              <span class="filter-count">3</span>
             </button>
             <button class="filter-btn" data-filter="projek">
               <i class="fa-solid fa-crown"></i>
               Projek Kepemimpinan
-              <span class="filter-count">3</span>
+              <span class="filter-count">1</span>
             </button>
             <button class="filter-btn" data-filter="sekolah">
               <i class="fa-solid fa-school"></i>
-              Kegiatan Sekolah
-              <span class="filter-count">2</span>
-            </button>
-            <button class="filter-btn" data-filter="administrasi">
-              <i class="fa-solid fa-clipboard-check"></i>
-              Administrasi &amp; Asesmen
+              Kepanitiaan &amp; Kompetisi
               <span class="filter-count">2</span>
             </button>
           </div>
         </div>
       </section>
 
-      <!-- 7 KEGIATAN NON-MENGAJAR GRID -->
+      <!-- 6 KEGIATAN NON-MENGAJAR GRID -->
       <section class="activities-section">
         <div class="container">
-          <div class="activities-grid" id="activities-container">
+                    <div class="activities-grid" id="activities-container">
             <!-- =========================================
-                 KEGIATAN 1: Rapat & Observasi Projek Kepemimpinan
+                 KEGIATAN 1: Piket Kantor
                  ========================================= -->
-            <article class="activity-card reveal" data-category="projek" data-tilt data-tilt-max="6" data-tilt-glare="true" data-tilt-max-glare="0.12">
-              <div class="card-media-wrapper">
-                <span class="badge-category projek"><i class="fa-solid fa-crown"></i> PROJEK KEPEMIMPINAN</span>
-                <span class="badge-index">#01</span>
+            <article class="activity-card reveal" data-category="administrasi" data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.08">
+              <!-- Sisi Kiri: Visual & Galeri Foto -->
+              <div class="card-visual-column">
+                <div class="visual-terminal-bar">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="terminal-filename">~/non-mengajar/01_piket_kantor.jpg</span>
+                  <span class="gallery-counter-tag"><i class="fa-solid fa-images"></i> <span class="counter-curr">1</span>/<span class="counter-total">2</span> Foto</span>
+                </div>
 
-                <img
-                  src="../Images/bimbingan_dpl.jpeg"
-                  alt="Rapat &amp; Observasi Projek Kepemimpinan SMAN 4 Yogyakarta"
-                  class="object-cover"
-                  loading="lazy"
-                  onerror="
-                    this.onerror = null;
-                    this.src = '../Images/foto_bersama.jpeg';
-                  "
-                />
-                <div class="card-media-overlay"></div>
-                <div class="zoom-indicator"><i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Foto</div>
+                <div class="card-media-wrapper">
+                  <button class="slide-nav-btn prev-btn" aria-label="Foto Sebelumnya" title="Foto Sebelumnya">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+                  <button class="slide-nav-btn next-btn" aria-label="Foto Berikutnya" title="Foto Berikutnya">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+
+                  <div class="card-slider-track-container">
+                    <div class="card-slider-track">
+                      <div class="card-slide-item active" data-index="0" data-img="../images/PPL_2/Piket Kantor 1.jpeg" data-caption="Pencatatan presensi keterlambatan, verifikasi alasan siswa, dan penertiban atribut di meja piket SMAN 4 Yogyakarta.">
+                        <img src="../images/PPL_2/Piket Kantor 1.jpeg" alt="Piket Kantor 1" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="1" data-img="../images/PPL_2/Piket Kantor 2.jpeg" data-caption="Penerbitan surat izin masuk kelas dan koordinasi perizinan siswa bersama guru piket dan kesiswaan.">
+                        <img src="../images/PPL_2/Piket Kantor 2.jpeg" alt="Piket Kantor 2" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="slider-bottom-controls">
+                    <div class="slider-dots-bar">
+                      <span class="slider-dot active" data-index="0" title="Foto 1"></span><span class="slider-dot" data-index="1" title="Foto 2"></span>
+                    </div>
+                    <div class="zoom-indicator"><i class="fa-solid fa-expand"></i> Perbesar Foto</div>
+                  </div>
+                </div>
+
+                <div class="card-gallery-strip">
+                  <div class="card-gallery-thumb active" data-index="0" data-img="../images/PPL_2/Piket Kantor 1.jpeg" data-caption="Pencatatan presensi keterlambatan, verifikasi alasan siswa, dan penertiban atribut di meja piket SMAN 4 Yogyakarta.">
+                    <img src="../images/PPL_2/Piket Kantor 1.jpeg" alt="Piket Kantor 1" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="1" data-img="../images/PPL_2/Piket Kantor 2.jpeg" data-caption="Penerbitan surat izin masuk kelas dan koordinasi perizinan siswa bersama guru piket dan kesiswaan.">
+                    <img src="../images/PPL_2/Piket Kantor 2.jpeg" alt="Piket Kantor 2" loading="lazy" />
+                  </div>
+                </div>
               </div>
 
+              <!-- Sisi Kanan: Konten Informasi -->
               <div class="card-body">
-                <div class="card-meta-line">
-                  <span><i class="fa-solid fa-location-dot"></i> R. Rapat SMAN 4 Yogyakarta</span>
-                  <span><i class="fa-solid fa-calendar-days"></i> Fase Inisiasi</span>
-                </div>
-
-                <h3 class="card-title">Rapat Koordinasi &amp; Observasi Awal Projek Kepemimpinan</h3>
-
-                <p class="card-desc">
-                  Menginisiasi kolaborasi strategis dan studi diagnostik kebutuhan bersama pimpinan SMAN 4 Yogyakarta (Wakasek Sarpras, Guru Pamong) serta Dosen Pembimbing Lapangan (DPL UNY). Melakukan observasi mendalam tata kelola sarana
-                  prasarana sekolah guna memetakan urgensi digitalisasi inventaris dan reservasi fasilitas.
-                </p>
-
-                <div class="card-specs">
-                  <div class="spec-row">
-                    <span class="spec-label">Kolaborator</span>
-                    <span class="spec-val">DPL UNY &amp; Manajemen SMAN 4 Yogyakarta</span>
+                <div>
+                  <div class="card-top-bar">
+                    <span class="badge-category administrasi"><i class="fa-solid fa-clipboard-check"></i> PELAYANAN &amp; PIKET</span>
+                    <span class="badge-index">#01</span>
                   </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Fokus Kerja</span>
-                    <span class="spec-val">Need Assessment, Tata Kelola Fasilitas, Desain Sistem</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Output Utama</span>
-                    <span class="spec-val">Dokumen Analisis Kebutuhan &amp; Matriks Rencana Aksi</span>
-                  </div>
-                </div>
 
-                <div class="card-tags">
-                  <span class="tag-chip"><i class="fa-solid fa-handshake"></i> Sinergi DPL &amp; Sekolah</span>
-                  <span class="tag-chip"><i class="fa-solid fa-magnifying-glass"></i> Observasi Sarpras</span>
-                  <span class="tag-chip"><i class="fa-solid fa-diagram-project"></i> Inisiasi Projek</span>
+                  <div class="card-meta-line">
+                    <span><i class="fa-solid fa-location-dot"></i> Lobby &amp; Ruang Piket SMAN 4</span>
+                    <span><i class="fa-solid fa-calendar-days"></i> Rutin Terjadwal PPL Mandiri</span>
+                  </div>
+
+                  <h3 class="card-title">Piket Kantor: Pelayanan Murid Terlambat, Perizinan, &amp; Administrasi</h3>
+
+                  <p class="card-desc">
+                    Melaksanakan tugas piket kantor di meja layanan depan SMAN 4 Yogyakarta. <strong>Fokus penanganan:</strong> mencatat dan membina siswa terlambat dengan pendekatan disiplin positif, melayani perizinan siswa (sakit ke UKS dan izin keperluan keluarga/kedinasan), menerbitkan surat izin masuk kelas resmi, serta mengelola buku agenda tamu kedinasan dan koordinasi persuratan sekolah.
+                  </p>
+
+                  <div class="card-specs">
+                    <div class="spec-row">
+                      <span class="spec-label">Unit Tugas</span>
+                      <span class="spec-val">Tim Piket Guru, Kesiswaan, &amp; Tata Usaha SMAN 4</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Fokus Aksi</span>
+                      <span class="spec-val">Penanganan Siswa Terlambat, Validasi Izin, Pelayanan Tamu</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Output Utama</span>
+                      <span class="spec-val">Buku Rekap Keterlambatan, Lembar Izin Siswa, &amp; Jurnal Piket</span>
+                    </div>
+                  </div>
+
+                  <div class="card-tags">
+                    <span class="tag-chip"><i class="fa-solid fa-user-clock"></i> Disiplin Siswa</span>
+                    <span class="tag-chip"><i class="fa-solid fa-file-circle-check"></i> Surat Perizinan</span>
+                    <span class="tag-chip"><i class="fa-solid fa-bell-concierge"></i> Layanan Tamu</span>
+                    <span class="tag-chip"><i class="fa-solid fa-handshake"></i> Manajemen Sekolah</span>
+                  </div>
                 </div>
 
                 <div class="card-footer">
                   <div class="status-pill"><i class="fa-solid fa-circle-check"></i> Terlaksana &amp; Tervalidasi</div>
                   <button
                     class="btn-view-doc"
-                    data-img="../Images/bimbingan_dpl.jpeg"
-                    data-title="Rapat Koordinasi &amp; Observasi Projek Kepemimpinan"
-                    data-desc="Dokumentasi koordinasi terpadu antara mahasiswa PPL PPG Prajabatan, pimpinan SMAN 4 Yogyakarta, dan Dosen Pembimbing Lapangan Universitas Negeri Yogyakarta."
+                    data-img="../images/PPL_2/Piket Kantor 1.jpeg"
+                    data-title="Piket Kantor: Penanganan Keterlambatan &amp; Perizinan"
+                    data-desc="Dokumentasi pelaksanaan tugas piket kantor di SMAN 4 Yogyakarta: mengelola presensi siswa terlambat, menerbitkan izin masuk kelas, dan melayani koordinasi administrasi."
                   >
-                    <i class="fa-solid fa-expand"></i> Dokumentasi
+                    <i class="fa-solid fa-expand"></i> Buka Galeri (2 Foto)
                   </button>
                 </div>
               </div>
             </article>
 
             <!-- =========================================
-                 KEGIATAN 2: Evaluasi Perkembangan Projek Kepemimpinan
+                 KEGIATAN 2: Mengawas ASTS
                  ========================================= -->
-            <article class="activity-card reveal" data-category="projek" data-tilt data-tilt-max="6" data-tilt-glare="true" data-tilt-max-glare="0.12">
-              <div class="card-media-wrapper">
-                <span class="badge-category projek"><i class="fa-solid fa-crown"></i> PROJEK KEPEMIMPINAN</span>
-                <span class="badge-index">#02</span>
+            <article class="activity-card reveal" data-category="administrasi" data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.08">
+              <!-- Sisi Kiri: Visual & Galeri Foto -->
+              <div class="card-visual-column">
+                <div class="visual-terminal-bar">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="terminal-filename">~/non-mengajar/02_mengawas_asts.jpg</span>
+                  <span class="gallery-counter-tag"><i class="fa-solid fa-images"></i> <span class="counter-curr">1</span>/<span class="counter-total">2</span> Foto</span>
+                </div>
 
-                <img
-                  src="../Images/rekanppl.jpeg"
-                  alt="Evaluasi Perkembangan Projek Kepemimpinan"
-                  class="object-cover"
-                  loading="lazy"
-                  onerror="
-                    this.onerror = null;
-                    this.src = '../Images/foto_bersama.jpeg';
-                  "
-                />
-                <div class="card-media-overlay"></div>
-                <div class="zoom-indicator"><i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Foto</div>
+                <div class="card-media-wrapper">
+                  <button class="slide-nav-btn prev-btn" aria-label="Foto Sebelumnya" title="Foto Sebelumnya">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+                  <button class="slide-nav-btn next-btn" aria-label="Foto Berikutnya" title="Foto Berikutnya">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+
+                  <div class="card-slider-track-container">
+                    <div class="card-slider-track">
+                      <div class="card-slide-item active" data-index="0" data-img="../images/PPL_2/Mengawas ASTS 1.jpeg" data-caption="Pengawasan ketertiban ruang ujian Asesmen Sumatif Tengah Semester (ASTS) berbasis perangkat digital.">
+                        <img src="../images/PPL_2/Mengawas ASTS 1.jpeg" alt="Mengawas ASTS 1" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="1" data-img="../images/PPL_2/Mengawas ASTS 2.jpeg" data-caption="Pemantauan integritas pengerjaan soal dan asistensi kendala teknis aplikasi CBT bagi peserta ujian.">
+                        <img src="../images/PPL_2/Mengawas ASTS 2.jpeg" alt="Mengawas ASTS 2" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="slider-bottom-controls">
+                    <div class="slider-dots-bar">
+                      <span class="slider-dot active" data-index="0" title="Foto 1"></span><span class="slider-dot" data-index="1" title="Foto 2"></span>
+                    </div>
+                    <div class="zoom-indicator"><i class="fa-solid fa-expand"></i> Perbesar Foto</div>
+                  </div>
+                </div>
+
+                <div class="card-gallery-strip">
+                  <div class="card-gallery-thumb active" data-index="0" data-img="../images/PPL_2/Mengawas ASTS 1.jpeg" data-caption="Pengawasan ketertiban ruang ujian Asesmen Sumatif Tengah Semester (ASTS) berbasis perangkat digital.">
+                    <img src="../images/PPL_2/Mengawas ASTS 1.jpeg" alt="Mengawas ASTS 1" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="1" data-img="../images/PPL_2/Mengawas ASTS 2.jpeg" data-caption="Pemantauan integritas pengerjaan soal dan asistensi kendala teknis aplikasi CBT bagi peserta ujian.">
+                    <img src="../images/PPL_2/Mengawas ASTS 2.jpeg" alt="Mengawas ASTS 2" loading="lazy" />
+                  </div>
+                </div>
               </div>
 
+              <!-- Sisi Kanan: Konten Informasi -->
               <div class="card-body">
-                <div class="card-meta-line">
-                  <span><i class="fa-solid fa-location-dot"></i> Ruang Rapat &amp; Daring</span>
-                  <span><i class="fa-solid fa-calendar-days"></i> Fase Monev</span>
-                </div>
-
-                <h3 class="card-title">Evaluasi Perkembangan &amp; Review Capaian Projek</h3>
-
-                <p class="card-desc">
-                  Melaksanakan monitoring berkala (Monev) capaian, peninjauan fungsionalitas purwarupa sistem, dan evaluasi kendala lapangan bersama pihak sekolah serta DPL. Mengkaji umpan balik teknis pengguna untuk memastikan tahapan
-                  pengembangan platform berjalan tepat waktu, efisien, dan selaras dengan SOP sekolah.
-                </p>
-
-                <div class="card-specs">
-                  <div class="spec-row">
-                    <span class="spec-label">Kolaborator</span>
-                    <span class="spec-val">Dosen Pembimbing, Guru Pamong, &amp; Tim PPL</span>
+                <div>
+                  <div class="card-top-bar">
+                    <span class="badge-category administrasi"><i class="fa-solid fa-clipboard-check"></i> ASESMEN &amp; UJIAN</span>
+                    <span class="badge-index">#02</span>
                   </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Fokus Kerja</span>
-                    <span class="spec-val">Quality Assurance, Review UI/UX, Mitigasi Hambatan</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Output Utama</span>
-                    <span class="spec-val">Laporan Monev Berkala &amp; Draf Tindak Lanjut Sistem</span>
-                  </div>
-                </div>
 
-                <div class="card-tags">
-                  <span class="tag-chip"><i class="fa-solid fa-chart-line"></i> Monitoring Berkala</span>
-                  <span class="tag-chip"><i class="fa-solid fa-code-pull-request"></i> Iterasi Sistem</span>
-                  <span class="tag-chip"><i class="fa-solid fa-list-check"></i> Quality Control</span>
+                  <div class="card-meta-line">
+                    <span><i class="fa-solid fa-location-dot"></i> Ruang Ujian SMAN 4 Yogyakarta</span>
+                    <span><i class="fa-solid fa-calendar-days"></i> Periode ASTS Gasal</span>
+                  </div>
+
+                  <h3 class="card-title">Mengawas Asesmen Sumatif Tengah Semester (ASTS)</h3>
+
+                  <p class="card-desc">
+                    Menjalankan tugas resmi kepengawasan ruang pada agenda Asesmen Sumatif Tengah Semester (ASTS) Gasal di SMAN 4 Yogyakarta. <strong>Tanggung jawab utama:</strong> menegakkan tata tertib ujian berbasis komputer/gawai (CBT), verifikasi presensi peserta dan kartu ujian, pembagian token asesmen, pemantauan ketertiban ruangan, mitigasi kendala teknis gawai siswa secara cepat, serta pengesahan Berita Acara Ujian demi menegakkan integritas akademik.
+                  </p>
+
+                  <div class="card-specs">
+                    <div class="spec-row">
+                      <span class="spec-label">Sistem Ujian</span>
+                      <span class="spec-val">Asesmen Digital Berbasis Komputer &amp; Gawai (CBT)</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Peran</span>
+                      <span class="spec-val">Pengawas Ruang Ujian &amp; Troubleshooting Teknis CBT</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Output Utama</span>
+                      <span class="spec-val">Berita Acara Ujian, Presensi Peserta, &amp; Integritas Asesmen</span>
+                    </div>
+                  </div>
+
+                  <div class="card-tags">
+                    <span class="tag-chip"><i class="fa-solid fa-shield-halved"></i> Integritas Ujian</span>
+                    <span class="tag-chip"><i class="fa-solid fa-desktop"></i> Ujian Digital CBT</span>
+                    <span class="tag-chip"><i class="fa-solid fa-file-signature"></i> Berita Acara</span>
+                    <span class="tag-chip"><i class="fa-solid fa-users-viewfinder"></i> Pengawasan Ruang</span>
+                  </div>
                 </div>
 
                 <div class="card-footer">
                   <div class="status-pill"><i class="fa-solid fa-circle-check"></i> Terlaksana &amp; Tervalidasi</div>
                   <button
                     class="btn-view-doc"
-                    data-img="../Images/rekanppl.jpeg"
-                    data-title="Evaluasi Perkembangan Projek Kepemimpinan"
-                    data-desc="Sesi peninjauan progres berkala implementasi projek digitalisasi fasilitas sekolah bersama Dosen Pembimbing dan tim guru pamong."
+                    data-img="../images/PPL_2/Mengawas ASTS 1.jpeg"
+                    data-title="Pengawas Ruang Ujian ASTS Gasal"
+                    data-desc="Dokumentasi pengawasan Asesmen Sumatif Tengah Semester (ASTS) di SMAN 4 Yogyakarta guna menegakkan kejujuran dan ketertiban asesmen digital."
                   >
-                    <i class="fa-solid fa-expand"></i> Dokumentasi
+                    <i class="fa-solid fa-expand"></i> Buka Galeri (2 Foto)
                   </button>
                 </div>
               </div>
             </article>
 
             <!-- =========================================
-                 KEGIATAN 3: Pelatihan / Workshop Projek Kepemimpinan
+                 KEGIATAN 3: Projek Kepemimpinan
                  ========================================= -->
-            <article class="activity-card reveal" data-category="projek" data-tilt data-tilt-max="6" data-tilt-glare="true" data-tilt-max-glare="0.12">
-              <div class="card-media-wrapper">
-                <span class="badge-category projek"><i class="fa-solid fa-crown"></i> PROJEK KEPEMIMPINAN</span>
-                <span class="badge-index">#03</span>
+            <article class="activity-card reveal" data-category="projek" data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.08">
+              <!-- Sisi Kiri: Visual & Galeri Foto -->
+              <div class="card-visual-column">
+                <div class="visual-terminal-bar">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="terminal-filename">~/non-mengajar/03_projek_kepemimpinan.jpg</span>
+                  <span class="gallery-counter-tag"><i class="fa-solid fa-images"></i> <span class="counter-curr">1</span>/<span class="counter-total">5</span> Foto</span>
+                </div>
 
-                <img
-                  src="../Images/foto_bersama.jpeg"
-                  alt="Pelatihan dan Workshop Projek Kepemimpinan SMAN 4 Yogyakarta"
-                  class="object-cover"
-                  loading="lazy"
-                  onerror="
-                    this.onerror = null;
-                    this.src = '../Images/pelepasan ppl.jpeg';
-                  "
-                />
-                <div class="card-media-overlay"></div>
-                <div class="zoom-indicator"><i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Foto</div>
+                <div class="card-media-wrapper">
+                  <button class="slide-nav-btn prev-btn" aria-label="Foto Sebelumnya" title="Foto Sebelumnya">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+                  <button class="slide-nav-btn next-btn" aria-label="Foto Berikutnya" title="Foto Berikutnya">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+
+                  <div class="card-slider-track-container">
+                    <div class="card-slider-track">
+                      <div class="card-slide-item active" data-index="0" data-img="../images/PPL_2/Projek 1.jpeg" data-caption="Koordinasi awal, observasi diagnostik kebutuhan sarana sekolah, dan perumusan ide Projek Kepemimpinan.">
+                        <img src="../images/PPL_2/Projek 1.jpeg" alt="Projek 1" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="1" data-img="../images/PPL_2/Projek 2.jpeg" data-caption="Sesi bimbingan intensif dan pemaparan draf rencana kerja projek bersama Dosen Pembimbing Lapangan dan guru pamong.">
+                        <img src="../images/PPL_2/Projek 2.jpeg" alt="Projek 2" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="2" data-img="../images/PPL_2/Projek 3.jpeg" data-caption="Implementasi nyata, sosialisasi, dan diseminasi sistem projek kepada dewan guru serta tenaga kependidikan SMAN 4.">
+                        <img src="../images/PPL_2/Projek 3.jpeg" alt="Projek 3" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="3" data-img="../images/PPL_2/Projek 4.jpeg" data-caption="Pendampingan praktis dan uji fungsi alur sistem bersama perwakilan pengguna di laboratorium komputer.">
+                        <img src="../images/PPL_2/Projek 4.jpeg" alt="Projek 4" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="4" data-img="../images/PPL_2/Projek 5.jpeg" data-caption="Monitoring berkala, refleksi hasil implementasi projek kepemimpinan, dan dokumentasi penutupan kegiatan.">
+                        <img src="../images/PPL_2/Projek 5.jpeg" alt="Projek 5" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="slider-bottom-controls">
+                    <div class="slider-dots-bar">
+                      <span class="slider-dot active" data-index="0" title="Foto 1"></span><span class="slider-dot" data-index="1" title="Foto 2"></span><span class="slider-dot" data-index="2" title="Foto 3"></span><span class="slider-dot" data-index="3" title="Foto 4"></span><span class="slider-dot" data-index="4" title="Foto 5"></span>
+                    </div>
+                    <div class="zoom-indicator"><i class="fa-solid fa-expand"></i> Perbesar Foto</div>
+                  </div>
+                </div>
+
+                <div class="card-gallery-strip">
+                  <div class="card-gallery-thumb active" data-index="0" data-img="../images/PPL_2/Projek 1.jpeg" data-caption="Koordinasi awal, observasi diagnostik kebutuhan sarana sekolah, dan perumusan ide Projek Kepemimpinan.">
+                    <img src="../images/PPL_2/Projek 1.jpeg" alt="Projek 1" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="1" data-img="../images/PPL_2/Projek 2.jpeg" data-caption="Sesi bimbingan intensif dan pemaparan draf rencana kerja projek bersama Dosen Pembimbing Lapangan dan guru pamong.">
+                    <img src="../images/PPL_2/Projek 2.jpeg" alt="Projek 2" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="2" data-img="../images/PPL_2/Projek 3.jpeg" data-caption="Implementasi nyata, sosialisasi, dan diseminasi sistem projek kepada dewan guru serta tenaga kependidikan SMAN 4.">
+                    <img src="../images/PPL_2/Projek 3.jpeg" alt="Projek 3" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="3" data-img="../images/PPL_2/Projek 4.jpeg" data-caption="Pendampingan praktis dan uji fungsi alur sistem bersama perwakilan pengguna di laboratorium komputer.">
+                    <img src="../images/PPL_2/Projek 4.jpeg" alt="Projek 4" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="4" data-img="../images/PPL_2/Projek 5.jpeg" data-caption="Monitoring berkala, refleksi hasil implementasi projek kepemimpinan, dan dokumentasi penutupan kegiatan.">
+                    <img src="../images/PPL_2/Projek 5.jpeg" alt="Projek 5" loading="lazy" />
+                  </div>
+                </div>
               </div>
 
+              <!-- Sisi Kanan: Konten Informasi -->
               <div class="card-body">
-                <div class="card-meta-line">
-                  <span><i class="fa-solid fa-location-dot"></i> Lab Komputer SMAN 4 Yogyakarta</span>
-                  <span><i class="fa-solid fa-calendar-days"></i> Fase Diseminasi</span>
-                </div>
-
-                <h3 class="card-title">Pelatihan &amp; Diseminasi Projek bagi Guru dan Karyawan</h3>
-
-                <p class="card-desc">
-                  Menyelenggarakan workshop pelatihan dan diseminasi implementasi platform digital kepada bapak/ibu guru dan tenaga kependidikan SMAN 4 Yogyakarta. Memberikan panduan praktis alur input data, pelaporan kendala sarpras
-                  real-time, dan reservasi ruangan guna mewujudkan birokrasi sekolah yang tangkas dan paperless.
-                </p>
-
-                <div class="card-specs">
-                  <div class="spec-row">
-                    <span class="spec-label">Sasaran</span>
-                    <span class="spec-val">Dewan Guru &amp; Tenaga Kependidikan SMAN 4 Yogyakarta</span>
+                <div>
+                  <div class="card-top-bar">
+                    <span class="badge-category projek"><i class="fa-solid fa-crown"></i> PROJEK KEPEMIMPINAN</span>
+                    <span class="badge-index">#03</span>
                   </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Peran</span>
-                    <span class="spec-val">Narasumber Teknis &amp; Fasilitator Pendampingan</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Output Utama</span>
-                    <span class="spec-val">Modul Panduan Pengguna &amp; Adopsi Digital Fasilitas</span>
-                  </div>
-                </div>
 
-                <div class="card-tags">
-                  <span class="tag-chip"><i class="fa-solid fa-chalkboard-user"></i> Bimbingan Teknis</span>
-                  <span class="tag-chip"><i class="fa-solid fa-bullhorn"></i> Diseminasi Inovasi</span>
-                  <span class="tag-chip"><i class="fa-solid fa-users"></i> Literasi Digital Staf</span>
+                  <div class="card-meta-line">
+                    <span><i class="fa-solid fa-location-dot"></i> Ruang Rapat &amp; Lab Komputer SMAN 4</span>
+                    <span><i class="fa-solid fa-calendar-days"></i> Siklus Inisiasi s.d. Refleksi</span>
+                  </div>
+
+                  <h3 class="card-title">Projek Kepemimpinan: Transformasi Inovatif Bersama Sekolah Mitra</h3>
+
+                  <p class="card-desc">
+                    Menggagas dan merealisasikan mata kuliah Projek Kepemimpinan PPG Prajabatan yang berorientasi pada pemecahan masalah nyata sarana prasarana di SMAN 4 Yogyakarta. <strong>Tahapan pelaksanaan:</strong> asesmen diagnostik kebutuhan sarana sekolah, koordinasi terpadu bersama DPL UNY &amp; pimpinan sekolah, workshop pelatihan digitalisasi sistem bagi guru dan staf, pendampingan uji fungsi di lab komputer, serta penyusunan laporan monev dampak keberlanjutan.
+                  </p>
+
+                  <div class="card-specs">
+                    <div class="spec-row">
+                      <span class="spec-label">Kolaborator</span>
+                      <span class="spec-val">DPL UNY, Guru Pamong, &amp; Manajemen SMAN 4 Yogyakarta</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Fokus Utama</span>
+                      <span class="spec-val">Teacher Leadership, Needs Assessment, Tata Kelola Fasilitas</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Output Utama</span>
+                      <span class="spec-val">Proposal Program, Modul Panduan, &amp; Laporan Capaian Projek</span>
+                    </div>
+                  </div>
+
+                  <div class="card-tags">
+                    <span class="tag-chip"><i class="fa-solid fa-crown"></i> Kepemimpinan Guru</span>
+                    <span class="tag-chip"><i class="fa-solid fa-diagram-project"></i> Manajemen Projek</span>
+                    <span class="tag-chip"><i class="fa-solid fa-chalkboard-user"></i> Pelatihan Guru</span>
+                    <span class="tag-chip"><i class="fa-solid fa-handshake"></i> Sinergi DPL &amp; Mitra</span>
+                  </div>
                 </div>
 
                 <div class="card-footer">
                   <div class="status-pill"><i class="fa-solid fa-circle-check"></i> Terlaksana &amp; Tervalidasi</div>
                   <button
                     class="btn-view-doc"
-                    data-img="../Images/foto_bersama.jpeg"
-                    data-title="Pelatihan &amp; Diseminasi Projek Kepemimpinan"
-                    data-desc="Dokumentasi sesi workshop operasional sistem manajemen fasilitas bersama jajaran guru dan tenaga kependidikan SMAN 4 Yogyakarta."
+                    data-img="../images/PPL_2/Projek 1.jpeg"
+                    data-title="Projek Kepemimpinan PPG Prajabatan"
+                    data-desc="Dokumentasi lengkap siklus pelaksanaan Projek Kepemimpinan mahasiswa PPG Prajabatan di SMAN 4 Yogyakarta mulai dari koordinasi, workshop, hingga monev."
                   >
-                    <i class="fa-solid fa-expand"></i> Dokumentasi
+                    <i class="fa-solid fa-expand"></i> Buka Galeri (5 Foto)
                   </button>
                 </div>
               </div>
             </article>
 
             <!-- =========================================
-                 KEGIATAN 4: Piket Kantor & Administrasi Sekolah
+                 KEGIATAN 4: Panitia Lomba 17 Agustus
                  ========================================= -->
-            <article class="activity-card reveal" data-category="administrasi" data-tilt data-tilt-max="6" data-tilt-glare="true" data-tilt-max-glare="0.12">
-              <div class="card-media-wrapper">
-                <span class="badge-category administrasi"><i class="fa-solid fa-clipboard-check"></i> ADMINISTRASI</span>
-                <span class="badge-index">#04</span>
-
-                <img
-                  src="../Images/pelepasan ppl.jpeg"
-                  alt="Piket Kantor dan Administrasi Sekolah SMAN 4 Yogyakarta"
-                  class="object-cover"
-                  loading="lazy"
-                  onerror="
-                    this.onerror = null;
-                    this.src = '../Images/rekanppl.jpeg';
-                  "
-                />
-                <div class="card-media-overlay"></div>
-                <div class="zoom-indicator"><i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Foto</div>
-              </div>
-
-              <div class="card-body">
-                <div class="card-meta-line">
-                  <span><i class="fa-solid fa-location-dot"></i> Lobby, R. Guru &amp; Tata Usaha</span>
-                  <span><i class="fa-solid fa-calendar-days"></i> Rutin Terjadwal</span>
+            <article class="activity-card reveal" data-category="sekolah" data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.08">
+              <!-- Sisi Kiri: Visual & Galeri Foto -->
+              <div class="card-visual-column">
+                <div class="visual-terminal-bar">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="terminal-filename">~/non-mengajar/04_panitia_17_agustus.jpg</span>
+                  <span class="gallery-counter-tag"><i class="fa-solid fa-images"></i> <span class="counter-curr">1</span>/<span class="counter-total">3</span> Foto</span>
                 </div>
 
-                <h3 class="card-title">Piket Kantor, Pelayanan Tamu, &amp; Administrasi Sekolah</h3>
-
-                <p class="card-desc">
-                  Berpartisipasi aktif dalam operasional sekolah melalui penugasan piket harian. Bertanggung jawab melayani tamu kedinasan instansi, mengelola pencatatan keterlambatan dan perizinan siswa, mendistribusikan surat
-                  masuk/keluar, serta membantu tata tertib lingkungan sekolah sebagai bagian kompetensi manajerial guru.
-                </p>
-
-                <div class="card-specs">
-                  <div class="spec-row">
-                    <span class="spec-label">Unit Kerja</span>
-                    <span class="spec-val">Tim Piket Guru, Tata Usaha, &amp; Kesiswaan</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Ruang Lingkup</span>
-                    <span class="spec-val">Layanan Tamu Dinas, Presensi Siswa, Arsip Surat</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Output Utama</span>
-                    <span class="spec-val">Buku Agenda Tamu, Rekap Izin Siswa, &amp; Jurnal Piket</span>
-                  </div>
-                </div>
-
-                <div class="card-tags">
-                  <span class="tag-chip"><i class="fa-solid fa-bell-concierge"></i> Layanan Kedinasan</span>
-                  <span class="tag-chip"><i class="fa-solid fa-user-clock"></i> Presensi Siswa</span>
-                  <span class="tag-chip"><i class="fa-solid fa-folder-open"></i> Tata Kelola TU</span>
-                </div>
-
-                <div class="card-footer">
-                  <div class="status-pill"><i class="fa-solid fa-circle-check"></i> Terlaksana &amp; Tervalidasi</div>
-                  <button
-                    class="btn-view-doc"
-                    data-img="../Images/pelepasan ppl.jpeg"
-                    data-title="Piket Kantor &amp; Administrasi Sekolah"
-                    data-desc="Pelaksanaan piket harian di lobby dan ruang tata usaha SMAN 4 Yogyakarta untuk mendukung kelancaran operasional birokrasi sekolah."
-                  >
-                    <i class="fa-solid fa-expand"></i> Dokumentasi
+                <div class="card-media-wrapper">
+                  <button class="slide-nav-btn prev-btn" aria-label="Foto Sebelumnya" title="Foto Sebelumnya">
+                    <i class="fa-solid fa-chevron-left"></i>
                   </button>
+                  <button class="slide-nav-btn next-btn" aria-label="Foto Berikutnya" title="Foto Berikutnya">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+
+                  <div class="card-slider-track-container">
+                    <div class="card-slider-track">
+                      <div class="card-slide-item active" data-index="0" data-img="../images/PPL_2/Panitia Lomba 1.jpeg" data-caption="Koordinasi briefing kepanitiaan bersama tim kesiswaan dan pengurus OSIS/MPK sebelum perlombaan dimulai.">
+                        <img src="../images/PPL_2/Panitia Lomba 1.jpeg" alt="Panitia Lomba 1" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="1" data-img="../images/PPL_2/Panitia Lomba 2.jpeg" data-caption="Pelaksanaan dan pendampingan perlombaan ketangkasan serta kekompakan antarkelas di lapangan sekolah.">
+                        <img src="../images/PPL_2/Panitia Lomba 2.jpeg" alt="Panitia Lomba 2" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="2" data-img="../images/PPL_2/Panitia Lomba 3.jpeg" data-caption="Penjurian lomba, penertiban sportivitas peserta, dan rekapitulasi skor juara Semarak Kemerdekaan RI ke-79.">
+                        <img src="../images/PPL_2/Panitia Lomba 3.jpeg" alt="Panitia Lomba 3" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="slider-bottom-controls">
+                    <div class="slider-dots-bar">
+                      <span class="slider-dot active" data-index="0" title="Foto 1"></span><span class="slider-dot" data-index="1" title="Foto 2"></span><span class="slider-dot" data-index="2" title="Foto 3"></span>
+                    </div>
+                    <div class="zoom-indicator"><i class="fa-solid fa-expand"></i> Perbesar Foto</div>
+                  </div>
+                </div>
+
+                <div class="card-gallery-strip">
+                  <div class="card-gallery-thumb active" data-index="0" data-img="../images/PPL_2/Panitia Lomba 1.jpeg" data-caption="Koordinasi briefing kepanitiaan bersama tim kesiswaan dan pengurus OSIS/MPK sebelum perlombaan dimulai.">
+                    <img src="../images/PPL_2/Panitia Lomba 1.jpeg" alt="Panitia Lomba 1" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="1" data-img="../images/PPL_2/Panitia Lomba 2.jpeg" data-caption="Pelaksanaan dan pendampingan perlombaan ketangkasan serta kekompakan antarkelas di lapangan sekolah.">
+                    <img src="../images/PPL_2/Panitia Lomba 2.jpeg" alt="Panitia Lomba 2" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="2" data-img="../images/PPL_2/Panitia Lomba 3.jpeg" data-caption="Penjurian lomba, penertiban sportivitas peserta, dan rekapitulasi skor juara Semarak Kemerdekaan RI ke-79.">
+                    <img src="../images/PPL_2/Panitia Lomba 3.jpeg" alt="Panitia Lomba 3" loading="lazy" />
+                  </div>
                 </div>
               </div>
-            </article>
 
-            <!-- =========================================
-                 KEGIATAN 5: Panitia Semarak HUT RI Ke-79
-                 ========================================= -->
-            <article class="activity-card reveal" data-category="sekolah" data-tilt data-tilt-max="6" data-tilt-glare="true" data-tilt-max-glare="0.12">
-              <div class="card-media-wrapper">
-                <span class="badge-category sekolah"><i class="fa-solid fa-school"></i> KEGIATAN SEKOLAH</span>
-                <span class="badge-index">#05</span>
-
-                <img
-                  src="../Images/patbheboys.jpeg"
-                  alt="Kepanitiaan Semarak HUT RI Ke-79 SMAN 4 Yogyakarta"
-                  class="object-cover"
-                  loading="lazy"
-                  onerror="
-                    this.onerror = null;
-                    this.src = '../Images/praktik1.jpeg';
-                  "
-                />
-                <div class="card-media-overlay"></div>
-                <div class="zoom-indicator"><i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Foto</div>
-              </div>
-
+              <!-- Sisi Kanan: Konten Informasi -->
               <div class="card-body">
-                <div class="card-meta-line">
-                  <span><i class="fa-solid fa-location-dot"></i> Lapangan &amp; Aula SMAN 4 Yogyakarta</span>
-                  <span><i class="fa-solid fa-calendar-days"></i> Peringatan Nasional</span>
-                </div>
-
-                <h3 class="card-title">Kepanitiaan Semarak Peringatan HUT RI Ke-79</h3>
-
-                <p class="card-desc">
-                  Berkolaborasi bersama pembina OSIS, pengurus OSIS/MPK, dan dewan guru dalam kepanitiaan Semarak Kemerdekaan RI ke-79 di SMAN 4 Yogyakarta. Mengoordinasikan rancangan teknis perlombaan edukatif, manajemen logistik, serta
-                  penegakan sportivitas antarsiswa guna memupuk karakter nasionalisme dan kekeluargaan.
-                </p>
-
-                <div class="card-specs">
-                  <div class="spec-row">
-                    <span class="spec-label">Kolaborator</span>
-                    <span class="spec-val">Pembina OSIS, OSIS/MPK, &amp; Tim Kesiswaan</span>
+                <div>
+                  <div class="card-top-bar">
+                    <span class="badge-category sekolah"><i class="fa-solid fa-school"></i> KEGIATAN SEKOLAH</span>
+                    <span class="badge-index">#04</span>
                   </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Peran</span>
-                    <span class="spec-val">Panitia Pendamping &amp; Koordinator Lapangan Lomba</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Output Utama</span>
-                    <span class="spec-val">Rangkaian Acara Semarak 17-an &amp; Dokumentasi Lomba</span>
-                  </div>
-                </div>
 
-                <div class="card-tags">
-                  <span class="tag-chip"><i class="fa-solid fa-flag"></i> Nasionalisme</span>
-                  <span class="tag-chip"><i class="fa-solid fa-people-carry-box"></i> Sinergi OSIS/MPK</span>
-                  <span class="tag-chip"><i class="fa-solid fa-trophy"></i> Manajemen Acara</span>
+                  <div class="card-meta-line">
+                    <span><i class="fa-solid fa-location-dot"></i> Lapangan &amp; Lingkungan SMAN 4</span>
+                    <span><i class="fa-solid fa-calendar-days"></i> Semarak Kemerdekaan RI Ke-79</span>
+                  </div>
+
+                  <h3 class="card-title">Panitia Lomba 17 Agustus: Peringatan Semarak Kemerdekaan RI Ke-79</h3>
+
+                  <p class="card-desc">
+                    Berperan aktif sebagai panitia pendamping dan pengarah teknis bersama dewan guru, pembina kesiswaan, serta pengurus OSIS/MPK SMAN 4 Yogyakarta dalam menyelenggarakan perlombaan Semarak HUT Kemerdekaan RI ke-79. <strong>Peran strategis:</strong> perancangan aneka lomba edukatif &amp; ketangkasan, penyiapan logistik sarana lapangan, penjurian objektif antarkelas, pengawalan sportivitas, serta penguatan karakter kebangsaan dan kekeluargaan seluruh siswa.
+                  </p>
+
+                  <div class="card-specs">
+                    <div class="spec-row">
+                      <span class="spec-label">Kolaborator</span>
+                      <span class="spec-val">Pembina Kesiswaan, OSIS/MPK, &amp; Dewan Guru SMAN 4</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Peran</span>
+                      <span class="spec-val">Panitia Pendamping, Juri Perlombaan, &amp; Koordinator Lapangan</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Output Utama</span>
+                      <span class="spec-val">Rangkaian Acara Semarak 17-an, Rekap Juara, &amp; Evaluasi Acara</span>
+                    </div>
+                  </div>
+
+                  <div class="card-tags">
+                    <span class="tag-chip"><i class="fa-solid fa-flag"></i> Nasionalisme</span>
+                    <span class="tag-chip"><i class="fa-solid fa-people-carry-box"></i> Sinergi OSIS/MPK</span>
+                    <span class="tag-chip"><i class="fa-solid fa-trophy"></i> Manajemen Acara</span>
+                    <span class="tag-chip"><i class="fa-solid fa-heart"></i> Karakter Siswa</span>
+                  </div>
                 </div>
 
                 <div class="card-footer">
                   <div class="status-pill"><i class="fa-solid fa-circle-check"></i> Terlaksana &amp; Tervalidasi</div>
                   <button
                     class="btn-view-doc"
-                    data-img="../Images/patbheboys.jpeg"
+                    data-img="../images/PPL_2/Panitia Lomba 1.jpeg"
                     data-title="Kepanitiaan Semarak HUT RI Ke-79"
-                    data-desc="Dokumentasi kebersamaan kepanitiaan bersama OSIS dan siswa SMAN 4 Yogyakarta dalam menyukseskan perlombaan kemerdekaan."
+                    data-desc="Dokumentasi kebersamaan kepanitiaan bersama jajaran guru dan pengurus OSIS/MPK SMAN 4 Yogyakarta dalam menyukseskan aneka perlombaan kemerdekaan."
                   >
-                    <i class="fa-solid fa-expand"></i> Dokumentasi
+                    <i class="fa-solid fa-expand"></i> Buka Galeri (3 Foto)
                   </button>
                 </div>
               </div>
             </article>
 
             <!-- =========================================
-                 KEGIATAN 6: Pengawas Ujian ASTS
+                 KEGIATAN 5: Persiapan Lomba Inovasi Pelayanan Publik DIY
                  ========================================= -->
-            <article class="activity-card reveal" data-category="administrasi" data-tilt data-tilt-max="6" data-tilt-glare="true" data-tilt-max-glare="0.12">
-              <div class="card-media-wrapper">
-                <span class="badge-category administrasi"><i class="fa-solid fa-clipboard-check"></i> ASESMEN &amp; UJIAN</span>
-                <span class="badge-index">#06</span>
+            <article class="activity-card reveal" data-category="sekolah" data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.08">
+              <!-- Sisi Kiri: Visual & Galeri Foto -->
+              <div class="card-visual-column">
+                <div class="visual-terminal-bar">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="terminal-filename">~/non-mengajar/05_lomba_inovasi_diy.jpg</span>
+                  <span class="gallery-counter-tag"><i class="fa-solid fa-images"></i> <span class="counter-curr">1</span>/<span class="counter-total">4</span> Foto</span>
+                </div>
 
-                <img
-                  src="../Images/mengawas ujian.jpeg"
-                  alt="Pengawas Ujian Asesmen Sumatif Tengah Semester ASTS"
-                  class="object-cover"
-                  loading="lazy"
-                  onerror="
-                    this.onerror = null;
-                    this.src = '../Images/bimbingan_dpl.jpeg';
-                  "
-                />
-                <div class="card-media-overlay"></div>
-                <div class="zoom-indicator"><i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Foto</div>
+                <div class="card-media-wrapper">
+                  <button class="slide-nav-btn prev-btn" aria-label="Foto Sebelumnya" title="Foto Sebelumnya">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+                  <button class="slide-nav-btn next-btn" aria-label="Foto Berikutnya" title="Foto Berikutnya">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+
+                  <div class="card-slider-track-container">
+                    <div class="card-slider-track">
+                      <div class="card-slide-item active" data-index="0" data-img="../images/PPL_2/Lomba Inovasi 1.jpeg" data-caption="Diskusi telaah instrumen penilaian dan perumusan gagasan inovasi pelayanan publik tingkat Pemda DIY.">
+                        <img src="../images/PPL_2/Lomba Inovasi 1.jpeg" alt="Lomba Inovasi 1" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="1" data-img="../images/PPL_2/Lomba Inovasi 2.jpeg" data-caption="Penyusunan naskah proposal inovasi, kurasi data dukung bukti fisik, dan digitalisasi dokumen portofolio.">
+                        <img src="../images/PPL_2/Lomba Inovasi 2.jpeg" alt="Lomba Inovasi 2" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="2" data-img="../images/PPL_2/Lomba Inovasi 3.jpeg" data-caption="Perancangan bahan tayang presentasi multimedia dan infografis keunggulan layanan pendidikan SMAN 4.">
+                        <img src="../images/PPL_2/Lomba Inovasi 3.jpeg" alt="Lomba Inovasi 3" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="3" data-img="../images/PPL_2/Lomba Inovasi 4.jpeg" data-caption="Review komprehensif proposal bersama pimpinan sekolah dan simulasi pemaparan inovasi pelayanan publik.">
+                        <img src="../images/PPL_2/Lomba Inovasi 4.jpeg" alt="Lomba Inovasi 4" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="slider-bottom-controls">
+                    <div class="slider-dots-bar">
+                      <span class="slider-dot active" data-index="0" title="Foto 1"></span><span class="slider-dot" data-index="1" title="Foto 2"></span><span class="slider-dot" data-index="2" title="Foto 3"></span><span class="slider-dot" data-index="3" title="Foto 4"></span>
+                    </div>
+                    <div class="zoom-indicator"><i class="fa-solid fa-expand"></i> Perbesar Foto</div>
+                  </div>
+                </div>
+
+                <div class="card-gallery-strip">
+                  <div class="card-gallery-thumb active" data-index="0" data-img="../images/PPL_2/Lomba Inovasi 1.jpeg" data-caption="Diskusi telaah instrumen penilaian dan perumusan gagasan inovasi pelayanan publik tingkat Pemda DIY.">
+                    <img src="../images/PPL_2/Lomba Inovasi 1.jpeg" alt="Lomba Inovasi 1" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="1" data-img="../images/PPL_2/Lomba Inovasi 2.jpeg" data-caption="Penyusunan naskah proposal inovasi, kurasi data dukung bukti fisik, dan digitalisasi dokumen portofolio.">
+                    <img src="../images/PPL_2/Lomba Inovasi 2.jpeg" alt="Lomba Inovasi 2" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="2" data-img="../images/PPL_2/Lomba Inovasi 3.jpeg" data-caption="Perancangan bahan tayang presentasi multimedia dan infografis keunggulan layanan pendidikan SMAN 4.">
+                    <img src="../images/PPL_2/Lomba Inovasi 3.jpeg" alt="Lomba Inovasi 3" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="3" data-img="../images/PPL_2/Lomba Inovasi 4.jpeg" data-caption="Review komprehensif proposal bersama pimpinan sekolah dan simulasi pemaparan inovasi pelayanan publik.">
+                    <img src="../images/PPL_2/Lomba Inovasi 4.jpeg" alt="Lomba Inovasi 4" loading="lazy" />
+                  </div>
+                </div>
               </div>
 
+              <!-- Sisi Kanan: Konten Informasi -->
               <div class="card-body">
-                <div class="card-meta-line">
-                  <span><i class="fa-solid fa-location-dot"></i> Ruang Ujian SMAN 4 Yogyakarta</span>
-                  <span><i class="fa-solid fa-calendar-days"></i> Asesmen Kurikulum</span>
-                </div>
-
-                <h3 class="card-title">Pengawas Ujian Asesmen Sumatif Tengah Semester (ASTS)</h3>
-
-                <p class="card-desc">
-                  Menjalankan tugas pengawasan ruang ujian pada Asesmen Sumatif Tengah Semester (ASTS) berbasis digital. Menegakkan tata tertib pengawasan, memverifikasi presensi kehadiran siswa, memitigasi kendala teknis gawai secara
-                  tanggap, serta menjamin iklim asesmen yang tertib, jujur, kondusif, dan berintegritas tinggi.
-                </p>
-
-                <div class="card-specs">
-                  <div class="spec-row">
-                    <span class="spec-label">Sistem Ujian</span>
-                    <span class="spec-val">Asesmen Digital Berbasis Komputer &amp; Gawai (CBT)</span>
+                <div>
+                  <div class="card-top-bar">
+                    <span class="badge-category sekolah"><i class="fa-solid fa-school"></i> KOMPETISI PEMDA DIY</span>
+                    <span class="badge-index">#05</span>
                   </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Peran</span>
-                    <span class="spec-val">Pengawas Ruang Ujian &amp; Fasilitator Teknis CBT</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Output Utama</span>
-                    <span class="spec-val">Berita Acara Ujian, Presensi Siswa, &amp; Integritas Asesmen</span>
-                  </div>
-                </div>
 
-                <div class="card-tags">
-                  <span class="tag-chip"><i class="fa-solid fa-shield-halved"></i> Integritas Asesmen</span>
-                  <span class="tag-chip"><i class="fa-solid fa-desktop"></i> Ujian Digital CBT</span>
-                  <span class="tag-chip"><i class="fa-solid fa-file-signature"></i> Berita Acara Ujian</span>
+                  <div class="card-meta-line">
+                    <span><i class="fa-solid fa-location-dot"></i> Ruang Manajemen &amp; Lab SMAN 4</span>
+                    <span><i class="fa-solid fa-calendar-days"></i> Kompetisi Inovasi Pemda DIY</span>
+                  </div>
+
+                  <h3 class="card-title">Persiapan Lomba Inovasi Pelayanan Publik Tingkat DIY</h3>
+
+                  <p class="card-desc">
+                    Dipercaya masuk ke dalam tim asistensi teknis dan konseptual SMAN 4 Yogyakarta dalam rangka partisipasi pada ajang Kompetisi Inovasi Pelayanan Publik Pemda DIY. <strong>Fokus kontribusi:</strong> pembedahan instrumen regulasi kriteria lomba, penyusunan naskah proposal inovasi layanan sekolah, kurasi data dukung bukti fisik, perancangan media tayang presentasi multimedia, serta simulasi pemaparan di hadapan pimpinan sekolah.
+                  </p>
+
+                  <div class="card-specs">
+                    <div class="spec-row">
+                      <span class="spec-label">Penyelenggara</span>
+                      <span class="spec-val">Pemerintah Daerah Istimewa Yogyakarta (Pemda DIY)</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Peran</span>
+                      <span class="spec-val">Tim Asistensi Teknis &amp; Penyusun Portofolio Digital</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Output Utama</span>
+                      <span class="spec-val">Draf Proposal Inovasi, Bahan Paparan, &amp; Kurasi Bukti Fisik</span>
+                    </div>
+                  </div>
+
+                  <div class="card-tags">
+                    <span class="tag-chip"><i class="fa-solid fa-lightbulb"></i> Inovasi Layanan</span>
+                    <span class="tag-chip"><i class="fa-solid fa-landmark"></i> Pemda DIY</span>
+                    <span class="tag-chip"><i class="fa-solid fa-file-lines"></i> Proposal Kompetisi</span>
+                    <span class="tag-chip"><i class="fa-solid fa-award"></i> Akuntabilitas Publik</span>
+                  </div>
                 </div>
 
                 <div class="card-footer">
                   <div class="status-pill"><i class="fa-solid fa-circle-check"></i> Terlaksana &amp; Tervalidasi</div>
                   <button
                     class="btn-view-doc"
-                    data-img="../Images/mengawas ujian.jpeg"
-                    data-title="Pengawas Ujian Asesmen Sumatif Tengah Semester (ASTS)"
-                    data-desc="Dokumentasi pelaksanaan pengawasan ruang ujian Asesmen Sumatif Tengah Semester di SMAN 4 Yogyakarta guna memastikan ketertiban dan kejujuran akademik."
+                    data-img="../images/PPL_2/Lomba Inovasi 1.jpeg"
+                    data-title="Persiapan Lomba Inovasi Pelayanan Publik DIY"
+                    data-desc="Dokumentasi proses asistensi teknis, perumusan proposal, dan kurasi portofolio inovasi pelayanan publik SMAN 4 Yogyakarta untuk diajukan ke Pemda DIY."
                   >
-                    <i class="fa-solid fa-expand"></i> Dokumentasi
+                    <i class="fa-solid fa-expand"></i> Buka Galeri (4 Foto)
                   </button>
                 </div>
               </div>
             </article>
 
             <!-- =========================================
-                 KEGIATAN 7: Pendampingan Lomba Inovasi Pemda DIY
+                 KEGIATAN 6: Persiapan TKA
                  ========================================= -->
-            <article class="activity-card reveal" data-category="sekolah" data-tilt data-tilt-max="6" data-tilt-glare="true" data-tilt-max-glare="0.12">
-              <div class="card-media-wrapper">
-                <span class="badge-category sekolah"><i class="fa-solid fa-school"></i> KEGIATAN SEKOLAH</span>
-                <span class="badge-index">#07</span>
+            <article class="activity-card reveal" data-category="administrasi" data-tilt data-tilt-max="4" data-tilt-glare="true" data-tilt-max-glare="0.08">
+              <!-- Sisi Kiri: Visual & Galeri Foto -->
+              <div class="card-visual-column">
+                <div class="visual-terminal-bar">
+                  <div class="terminal-dots">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                  </div>
+                  <span class="terminal-filename">~/non-mengajar/06_persiapan_tka.jpg</span>
+                  <span class="gallery-counter-tag"><i class="fa-solid fa-images"></i> <span class="counter-curr">1</span>/<span class="counter-total">4</span> Foto</span>
+                </div>
 
-                <img
-                  src="../Images/praktik1.jpeg"
-                  alt="Pendampingan Lomba Inovasi Pelayanan Publik Pemda DIY"
-                  class="object-cover"
-                  loading="lazy"
-                  onerror="
-                    this.onerror = null;
-                    this.src = '../Images/bimbingan_dpl.jpeg';
-                  "
-                />
-                <div class="card-media-overlay"></div>
-                <div class="zoom-indicator"><i class="fa-solid fa-magnifying-glass-plus"></i> Lihat Foto</div>
+                <div class="card-media-wrapper">
+                  <button class="slide-nav-btn prev-btn" aria-label="Foto Sebelumnya" title="Foto Sebelumnya">
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </button>
+                  <button class="slide-nav-btn next-btn" aria-label="Foto Berikutnya" title="Foto Berikutnya">
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </button>
+
+                  <div class="card-slider-track-container">
+                    <div class="card-slider-track">
+                      <div class="card-slide-item active" data-index="0" data-img="../images/PPL_2/Persiapan TKA 1.jpeg" data-caption="Pengecekan fisik perangkat komputer, konfigurasi jaringan LAN, dan stabilitas bandwidth di laboratorium komputer.">
+                        <img src="../images/PPL_2/Persiapan TKA 1.jpeg" alt="Persiapan TKA 1" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="1" data-img="../images/PPL_2/Persiapan TKA 2.jpeg" data-caption="Instalasi, verifikasi kesiapan aplikasi client ujian aman CBT, dan sinkronisasi server lokal.">
+                        <img src="../images/PPL_2/Persiapan TKA 2.jpeg" alt="Persiapan TKA 2" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="2" data-img="../images/PPL_2/Persiapan TKA 3.jpeg" data-caption="Penataan nomor meja, sterilisasi ruang lab ujian, dan penyiapan kartu akses login peserta tes.">
+                        <img src="../images/PPL_2/Persiapan TKA 3.jpeg" alt="Persiapan TKA 3" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                      <div class="card-slide-item" data-index="3" data-img="../images/PPL_2/Persiapan TKA 4.jpeg" data-caption="Pelaksanaan gladi bersih simulasi sistem asesmen TKA bersama siswa guna memastikan kesiapan operasional.">
+                        <img src="../images/PPL_2/Persiapan TKA 4.jpeg" alt="Persiapan TKA 4" loading="lazy" />
+                        <div class="card-media-overlay"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="slider-bottom-controls">
+                    <div class="slider-dots-bar">
+                      <span class="slider-dot active" data-index="0" title="Foto 1"></span><span class="slider-dot" data-index="1" title="Foto 2"></span><span class="slider-dot" data-index="2" title="Foto 3"></span><span class="slider-dot" data-index="3" title="Foto 4"></span>
+                    </div>
+                    <div class="zoom-indicator"><i class="fa-solid fa-expand"></i> Perbesar Foto</div>
+                  </div>
+                </div>
+
+                <div class="card-gallery-strip">
+                  <div class="card-gallery-thumb active" data-index="0" data-img="../images/PPL_2/Persiapan TKA 1.jpeg" data-caption="Pengecekan fisik perangkat komputer, konfigurasi jaringan LAN, dan stabilitas bandwidth di laboratorium komputer.">
+                    <img src="../images/PPL_2/Persiapan TKA 1.jpeg" alt="Persiapan TKA 1" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="1" data-img="../images/PPL_2/Persiapan TKA 2.jpeg" data-caption="Instalasi, verifikasi kesiapan aplikasi client ujian aman CBT, dan sinkronisasi server lokal.">
+                    <img src="../images/PPL_2/Persiapan TKA 2.jpeg" alt="Persiapan TKA 2" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="2" data-img="../images/PPL_2/Persiapan TKA 3.jpeg" data-caption="Penataan nomor meja, sterilisasi ruang lab ujian, dan penyiapan kartu akses login peserta tes.">
+                    <img src="../images/PPL_2/Persiapan TKA 3.jpeg" alt="Persiapan TKA 3" loading="lazy" />
+                  </div>
+                  <div class="card-gallery-thumb" data-index="3" data-img="../images/PPL_2/Persiapan TKA 4.jpeg" data-caption="Pelaksanaan gladi bersih simulasi sistem asesmen TKA bersama siswa guna memastikan kesiapan operasional.">
+                    <img src="../images/PPL_2/Persiapan TKA 4.jpeg" alt="Persiapan TKA 4" loading="lazy" />
+                  </div>
+                </div>
               </div>
 
+              <!-- Sisi Kanan: Konten Informasi -->
               <div class="card-body">
-                <div class="card-meta-line">
-                  <span><i class="fa-solid fa-location-dot"></i> R. Manajemen SMAN 4 Yogyakarta</span>
-                  <span><i class="fa-solid fa-calendar-days"></i> Kompetisi Publik</span>
-                </div>
-
-                <h3 class="card-title">Pendampingan Lomba Inovasi Pelayanan Publik Pemda DIY</h3>
-
-                <p class="card-desc">
-                  Mengasistensi tim sekolah dalam persiapan dokumen dan portofolio digital untuk Kompetisi Inovasi Pelayanan Publik tingkat Pemda DIY. Membantu penyusunan narasi proposal inovasi, kurasi data dukung bukti fisik, serta
-                  pembuatan media paparan presentasi yang merepresentasikan keunggulan layanan pendidikan SMAN 4 Yogyakarta.
-                </p>
-
-                <div class="card-specs">
-                  <div class="spec-row">
-                    <span class="spec-label">Penyelenggara</span>
-                    <span class="spec-val">Pemerintah Daerah Istimewa Yogyakarta (Pemda DIY)</span>
+                <div>
+                  <div class="card-top-bar">
+                    <span class="badge-category administrasi"><i class="fa-solid fa-clipboard-check"></i> ASESMEN &amp; UJIAN</span>
+                    <span class="badge-index">#06</span>
                   </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Peran</span>
-                    <span class="spec-val">Tim Asistensi Teknis &amp; Penyusun Portofolio Digital</span>
-                  </div>
-                  <div class="spec-row">
-                    <span class="spec-label">Output Utama</span>
-                    <span class="spec-val">Draf Proposal Inovasi, Bahan Tayang, &amp; Data Dukung</span>
-                  </div>
-                </div>
 
-                <div class="card-tags">
-                  <span class="tag-chip"><i class="fa-solid fa-lightbulb"></i> Inovasi Pelayanan Publik</span>
-                  <span class="tag-chip"><i class="fa-solid fa-file-lines"></i> Proposal Kompetisi</span>
-                  <span class="tag-chip"><i class="fa-solid fa-award"></i> Daya Saing Sekolah</span>
+                  <div class="card-meta-line">
+                    <span><i class="fa-solid fa-location-dot"></i> Laboratorium Komputer SMAN 4 Yogyakarta</span>
+                    <span><i class="fa-solid fa-calendar-days"></i> Pra-Pelaksanaan Asesmen</span>
+                  </div>
+
+                  <h3 class="card-title">Persiapan TKA: Infrastruktur IT, Konfigurasi CBT, &amp; Gladi Bersih</h3>
+
+                  <p class="card-desc">
+                    Berperan strategis dalam tim teknis persiapan pelaksanaan Tes Kemampuan Akademik (TKA) di laboratorium komputer SMAN 4 Yogyakarta. <strong>Ruang lingkup kerja:</strong> pengecekan perangkat PC client dan koneksi LAN/Wi-Fi, instalasi sistem peramban ujian aman (CBT Safe Exam Browser), penyiapan kartu akses login peserta, sterilisasi ruang lab, dan pendampingan gladi bersih simulasi sistem bersama siswa.
+                  </p>
+
+                  <div class="card-specs">
+                    <div class="spec-row">
+                      <span class="spec-label">Unit Kerja</span>
+                      <span class="spec-val">Tim IT / Laboran, Panitia TKA, &amp; Kurikulum SMAN 4</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Fokus Aksi</span>
+                      <span class="spec-val">Kesiapan Lab Komputer, Konfigurasi CBT Client, Simulasi Siswa</span>
+                    </div>
+                    <div class="spec-row">
+                      <span class="spec-label">Output Utama</span>
+                      <span class="spec-val">Lab IT Siap Pakai, Kartu Akses Peserta, &amp; Berita Acara Gladi</span>
+                    </div>
+                  </div>
+
+                  <div class="card-tags">
+                    <span class="tag-chip"><i class="fa-solid fa-network-wired"></i> Infrastruktur Lab IT</span>
+                    <span class="tag-chip"><i class="fa-solid fa-server"></i> Konfigurasi Server CBT</span>
+                    <span class="tag-chip"><i class="fa-solid fa-id-card"></i> Kartu Login Peserta</span>
+                    <span class="tag-chip"><i class="fa-solid fa-circle-play"></i> Gladi Bersih TKA</span>
+                  </div>
                 </div>
 
                 <div class="card-footer">
                   <div class="status-pill"><i class="fa-solid fa-circle-check"></i> Terlaksana &amp; Tervalidasi</div>
                   <button
                     class="btn-view-doc"
-                    data-img="../Images/praktik1.jpeg"
-                    data-title="Pendampingan Lomba Inovasi Pelayanan Publik Pemda DIY"
-                    data-desc="Dokumentasi proses asistensi dan penyusunan portofolio digital inovasi pelayanan pendidikan SMAN 4 Yogyakarta untuk diajukan ke Pemda DIY."
+                    data-img="../images/PPL_2/Persiapan TKA 1.jpeg"
+                    data-title="Persiapan Tes Kemampuan Akademik (TKA)"
+                    data-desc="Dokumentasi persiapan teknis laboratorium komputer, konfigurasi sistem ujian digital, dan gladi bersih simulasi TKA di SMAN 4 Yogyakarta."
                   >
-                    <i class="fa-solid fa-expand"></i> Dokumentasi
+                    <i class="fa-solid fa-expand"></i> Buka Galeri (4 Foto)
                   </button>
                 </div>
               </div>
@@ -2139,7 +2652,9 @@
           </button>
         </div>
         <div class="lightbox-image-box">
+          <button class="lightbox-nav-btn prev" id="lightbox-prev-btn" aria-label="Foto Sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
           <img src="" alt="Pratinjau Dokumentasi" id="lightbox-img" />
+          <button class="lightbox-nav-btn next" id="lightbox-next-btn" aria-label="Foto Selanjutnya"><i class="fa-solid fa-chevron-right"></i></button>
         </div>
         <div class="lightbox-caption" id="lightbox-desc"></div>
       </div>
@@ -2289,7 +2804,7 @@
             const cardCategory = card.dataset.category;
 
             if (filterValue === "all" || cardCategory === filterValue) {
-              card.style.display = "flex";
+              card.style.display = "grid";
               setTimeout(() => {
                 card.style.opacity = "1";
                 card.style.transform = "translateY(0) scale(1)";
@@ -2305,18 +2820,48 @@
         });
       });
 
-      /* Lightbox Modal Logic */
+      /* =========================================
+         LIGHTBOX & MULTI-PHOTO GALLERY LOGIC
+         ========================================= */
       const lightboxModal = document.getElementById("lightbox-modal");
       const lightboxImg = document.getElementById("lightbox-img");
       const lightboxTitle = document.getElementById("lightbox-title");
       const lightboxDesc = document.getElementById("lightbox-desc");
       const lightboxCloseBtn = document.getElementById("lightbox-close-btn");
+      const lightboxPrevBtn = document.getElementById("lightbox-prev-btn");
+      const lightboxNextBtn = document.getElementById("lightbox-next-btn");
 
-      function openLightbox(imgSrc, title, desc) {
+      let currentGalleryItems = [];
+      let currentGalleryIndex = 0;
+      let currentGalleryBaseTitle = "";
+
+      function updateLightboxView() {
+        if (!currentGalleryItems || currentGalleryItems.length === 0) return;
+        const item = currentGalleryItems[currentGalleryIndex];
+        lightboxImg.src = item.img;
+        const countText = currentGalleryItems.length > 1
+          ? ` <span style="font-size:12px;opacity:0.75;font-weight:normal;margin-left:8px;">(${currentGalleryIndex + 1}/${currentGalleryItems.length})</span>`
+          : "";
+        lightboxTitle.innerHTML = `<i class="fa-solid fa-camera"></i> ${currentGalleryBaseTitle}${countText}`;
+        lightboxDesc.textContent = item.desc;
+
+        if (lightboxPrevBtn && lightboxNextBtn) {
+          if (currentGalleryItems.length <= 1) {
+            lightboxPrevBtn.style.display = "none";
+            lightboxNextBtn.style.display = "none";
+          } else {
+            lightboxPrevBtn.style.display = "flex";
+            lightboxNextBtn.style.display = "flex";
+          }
+        }
+      }
+
+      function openLightboxGallery(galleryItems, startIndex, baseTitle) {
         if (!lightboxModal) return;
-        lightboxImg.src = imgSrc;
-        lightboxTitle.innerHTML = `<i class="fa-solid fa-camera"></i> ${title}`;
-        lightboxDesc.textContent = desc;
+        currentGalleryItems = galleryItems;
+        currentGalleryIndex = startIndex >= 0 && startIndex < galleryItems.length ? startIndex : 0;
+        currentGalleryBaseTitle = baseTitle;
+        updateLightboxView();
         lightboxModal.classList.add("active");
         document.body.style.overflow = "hidden";
       }
@@ -2327,42 +2872,297 @@
         document.body.style.overflow = "";
       }
 
-      document.querySelectorAll(".btn-view-doc").forEach((btn) => {
-        btn.addEventListener("click", (e) => {
-          e.stopPropagation();
-          const imgSrc = btn.dataset.img;
-          const title = btn.dataset.title;
-          const desc = btn.dataset.desc;
-          openLightbox(imgSrc, title, desc);
-        });
-      });
-
-      document.querySelectorAll(".card-media-wrapper").forEach((media) => {
-        media.addEventListener("click", () => {
-          const card = media.closest(".activity-card");
-          const btn = card.querySelector(".btn-view-doc");
-          if (btn) {
-            openLightbox(btn.dataset.img, btn.dataset.title, btn.dataset.desc);
-          }
-        });
-      });
-
-      if (lightboxCloseBtn) {
-        lightboxCloseBtn.addEventListener("click", closeLightbox);
+      function prevLightboxImage() {
+        if (!currentGalleryItems || currentGalleryItems.length <= 1) return;
+        currentGalleryIndex = (currentGalleryIndex - 1 + currentGalleryItems.length) % currentGalleryItems.length;
+        updateLightboxView();
       }
+
+      function nextLightboxImage() {
+        if (!currentGalleryItems || currentGalleryItems.length <= 1) return;
+        currentGalleryIndex = (currentGalleryIndex + 1) % currentGalleryItems.length;
+        updateLightboxView();
+      }
+
+      if (lightboxPrevBtn) lightboxPrevBtn.addEventListener("click", prevLightboxImage);
+      if (lightboxNextBtn) lightboxNextBtn.addEventListener("click", nextLightboxImage);
+      if (lightboxCloseBtn) lightboxCloseBtn.addEventListener("click", closeLightbox);
 
       if (lightboxModal) {
         lightboxModal.addEventListener("click", (e) => {
-          if (e.target === lightboxModal) {
-            closeLightbox();
-          }
+          if (e.target === lightboxModal) closeLightbox();
         });
       }
 
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeLightbox();
+        if (!lightboxModal || !lightboxModal.classList.contains("active")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") prevLightboxImage();
+        if (e.key === "ArrowRight") nextLightboxImage();
+      });
+
+      // Touch swipe navigation for Lightbox Modal
+      let lbTouchStartX = 0;
+      let lbTouchStartY = 0;
+      if (lightboxModal) {
+        lightboxModal.addEventListener("touchstart", (e) => {
+          if (e.touches.length > 0) {
+            lbTouchStartX = e.touches[0].clientX;
+            lbTouchStartY = e.touches[0].clientY;
+          }
+        }, { passive: true });
+
+        lightboxModal.addEventListener("touchend", (e) => {
+          if (e.changedTouches.length > 0) {
+            const diffX = e.changedTouches[0].clientX - lbTouchStartX;
+            const diffY = e.changedTouches[0].clientY - lbTouchStartY;
+            if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+              if (diffX < 0) nextLightboxImage();
+              else prevLightboxImage();
+            }
+          }
+        }, { passive: true });
+      }
+
+      /* =========================================
+         INTERACTIVE CARD PHOTO SLIDERS
+         ========================================= */
+      function getCardGallery(card) {
+        const thumbs = card.querySelectorAll(".card-gallery-thumb");
+        const items = [];
+        let activeIdx = 0;
+
+        thumbs.forEach((thumb, idx) => {
+          if (thumb.classList.contains("active")) activeIdx = idx;
+          items.push({
+            img: thumb.dataset.img,
+            desc: thumb.dataset.caption || card.querySelector(".card-title")?.textContent.trim() || "Dokumentasi Kegiatan"
+          });
+        });
+
+        if (items.length === 0) {
+          const slides = card.querySelectorAll(".card-slide-item");
+          slides.forEach((slide, idx) => {
+            if (slide.classList.contains("active")) activeIdx = idx;
+            items.push({
+              img: slide.dataset.img,
+              desc: slide.dataset.caption || card.querySelector(".card-title")?.textContent.trim() || "Dokumentasi Kegiatan"
+            });
+          });
         }
+
+        return { items, activeIdx };
+      }
+
+      function initCardSliders() {
+        document.querySelectorAll(".activity-card").forEach((card) => {
+          const track = card.querySelector(".card-slider-track");
+          if (!track) return;
+
+          const trackContainer = card.querySelector(".card-slider-track-container");
+          const slides = card.querySelectorAll(".card-slide-item");
+          const totalSlides = slides.length;
+          if (totalSlides === 0) return;
+
+          const prevBtn = card.querySelector(".slide-nav-btn.prev-btn");
+          const nextBtn = card.querySelector(".slide-nav-btn.next-btn");
+          const dots = card.querySelectorAll(".slider-dot");
+          const thumbs = card.querySelectorAll(".card-gallery-thumb");
+          const counterCurr = card.querySelector(".counter-curr");
+          const filenameEl = card.querySelector(".terminal-filename");
+          const zoomBtn = card.querySelector(".zoom-indicator");
+          const viewDocBtn = card.querySelector(".btn-view-doc");
+
+          let currentIndex = 0;
+          let isDragging = false;
+          let dragStartX = 0;
+          let draggedDistance = 0;
+
+          function goToSlide(index, animate = true) {
+            if (index < 0) {
+              currentIndex = totalSlides - 1;
+            } else if (index >= totalSlides) {
+              currentIndex = 0;
+            } else {
+              currentIndex = index;
+            }
+
+            if (!animate) {
+              track.style.transition = "none";
+            } else {
+              track.style.transition = "transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)";
+            }
+
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+            slides.forEach((s, idx) => {
+              s.classList.toggle("active", idx === currentIndex);
+            });
+
+            dots.forEach((dot, idx) => {
+              dot.classList.toggle("active", idx === currentIndex);
+            });
+
+            thumbs.forEach((th, idx) => {
+              const isActive = idx === currentIndex;
+              th.classList.toggle("active", isActive);
+              if (isActive) {
+                th.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+              }
+            });
+
+            if (counterCurr) {
+              counterCurr.textContent = currentIndex + 1;
+            }
+
+            const activeSlide = slides[currentIndex];
+            if (activeSlide && filenameEl) {
+              const imgSrc = activeSlide.dataset.img || "";
+              const baseName = imgSrc.split("/").pop() || "";
+              if (baseName) {
+                filenameEl.textContent = `~/non-mengajar/${decodeURIComponent(baseName)}`;
+              }
+            }
+
+            if (viewDocBtn && activeSlide) {
+              viewDocBtn.dataset.img = activeSlide.dataset.img || "";
+              if (activeSlide.dataset.caption) {
+                viewDocBtn.dataset.desc = activeSlide.dataset.caption;
+              }
+            }
+          }
+
+          // Prev / Next button listeners
+          if (prevBtn) {
+            prevBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              goToSlide(currentIndex - 1);
+            });
+          }
+
+          if (nextBtn) {
+            nextBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              goToSlide(currentIndex + 1);
+            });
+          }
+
+          // Dots listeners
+          dots.forEach((dot, idx) => {
+            dot.addEventListener("click", (e) => {
+              e.stopPropagation();
+              goToSlide(idx);
+            });
+          });
+
+          // Thumbnails listeners
+          thumbs.forEach((thumb, idx) => {
+            thumb.addEventListener("click", (e) => {
+              e.stopPropagation();
+              goToSlide(idx);
+            });
+          });
+
+          // Touch swipe support (Mobile / Tablet)
+          let touchStartX = 0;
+          let touchStartY = 0;
+          let touchEndX = 0;
+          let touchEndY = 0;
+
+          if (trackContainer) {
+            trackContainer.addEventListener("touchstart", (e) => {
+              if (e.touches.length > 0) {
+                touchStartX = e.touches[0].clientX;
+                touchStartY = e.touches[0].clientY;
+              }
+            }, { passive: true });
+
+            trackContainer.addEventListener("touchend", (e) => {
+              if (e.changedTouches.length > 0) {
+                touchEndX = e.changedTouches[0].clientX;
+                touchEndY = e.changedTouches[0].clientY;
+                const diffX = touchEndX - touchStartX;
+                const diffY = touchEndY - touchStartY;
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 35) {
+                  if (diffX < 0) {
+                    goToSlide(currentIndex + 1);
+                  } else {
+                    goToSlide(currentIndex - 1);
+                  }
+                }
+              }
+            }, { passive: true });
+
+            // Mouse drag support (Desktop)
+            trackContainer.addEventListener("mousedown", (e) => {
+              if (e.button !== 0) return;
+              isDragging = true;
+              dragStartX = e.clientX;
+              draggedDistance = 0;
+              track.style.transition = "none";
+            });
+
+            window.addEventListener("mousemove", (e) => {
+              if (!isDragging) return;
+              const currentX = e.clientX;
+              draggedDistance = currentX - dragStartX;
+              const containerWidth = trackContainer.offsetWidth || 1;
+              const percentDiff = (draggedDistance / containerWidth) * 100;
+              const baseOffset = -(currentIndex * 100);
+              track.style.transform = `translateX(${baseOffset + percentDiff}%)`;
+            });
+
+            window.addEventListener("mouseup", (e) => {
+              if (!isDragging) return;
+              isDragging = false;
+              track.style.transition = "transform 0.45s cubic-bezier(0.22, 1, 0.36, 1)";
+              if (Math.abs(draggedDistance) > 40) {
+                if (draggedDistance < 0) {
+                  goToSlide(currentIndex + 1);
+                } else {
+                  goToSlide(currentIndex - 1);
+                }
+              } else {
+                goToSlide(currentIndex);
+              }
+            });
+
+            // Click on slide opens full Lightbox
+            trackContainer.addEventListener("click", (e) => {
+              if (Math.abs(draggedDistance) > 10) return;
+              const { items } = getCardGallery(card);
+              const title = card.querySelector(".card-title")?.textContent.trim() || "Dokumentasi Kegiatan";
+              openLightboxGallery(items, currentIndex, title);
+            });
+          }
+
+          if (zoomBtn) {
+            zoomBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              const { items } = getCardGallery(card);
+              const title = card.querySelector(".card-title")?.textContent.trim() || "Dokumentasi Kegiatan";
+              openLightboxGallery(items, currentIndex, title);
+            });
+          }
+
+          // Initialize first slide state
+          goToSlide(0, false);
+        });
+      }
+
+      // Initialize all sliders on DOM ready
+      initCardSliders();
+
+      // Card action button to open lightbox
+      document.querySelectorAll(".btn-view-doc").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const card = btn.closest(".activity-card");
+          if (!card) return;
+          const { items, activeIdx } = getCardGallery(card);
+          const title = btn.dataset.title || card.querySelector(".card-title")?.textContent.trim() || "Dokumentasi Kegiatan";
+          openLightboxGallery(items, activeIdx, title);
+        });
       });
 
       /* ==========================================
@@ -2373,7 +3173,7 @@
       const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
       function attachCursorHover(scope = document) {
-        const interactables = scope.querySelectorAll("a, button, .social-btn, .nav-links li, .activity-card, .filter-btn, .btn-view-doc, .card-media-wrapper, .stat-card, .framework-card");
+        const interactables = scope.querySelectorAll("a, button, .social-btn, .nav-links li, .activity-card, .filter-btn, .btn-view-doc, .card-media-wrapper, .card-slider-track-container, .slide-nav-btn, .slider-dot, .zoom-indicator, .stat-card, .framework-card, .card-gallery-thumb, .lightbox-nav-btn");
 
         interactables.forEach((el) => {
           if (el.dataset.cursorAttached === "true") return;
