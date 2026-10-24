@@ -395,11 +395,19 @@
         transition: width 0.3s ease;
         box-shadow: 0 0 8px var(--primary);
       }
-      .nav-links a:hover {
+      .nav-links a:hover,
+      .nav-links a.active {
         color: var(--white);
       }
-      .nav-links > li > a:hover::after {
+      .nav-links > li > a:hover::after,
+      .nav-links > li > a.active::after {
         width: 100%;
+      }
+      .dropbtn.active {
+        color: var(--white);
+      }
+      .dropbtn.active .arrow {
+        color: var(--primary);
       }
 
       .dropdown {
@@ -459,7 +467,8 @@
       .dropdown-content li a::after {
         display: none;
       }
-      .dropdown-content li a:hover {
+      .dropdown-content li a:hover,
+      .dropdown-content li a.active {
         background: rgba(0, 240, 255, 0.08);
         color: var(--primary);
         padding-left: 30px;
@@ -1556,7 +1565,7 @@
             </li>
 
             <li class="dropdown">
-              <a href="#dokumen" class="dropbtn">Jejak PPL 2 <span class="arrow">&#9662;</span></a>
+              <a href="#dokumen" class="dropbtn active">Jejak PPL 2 <span class="arrow">&#9662;</span></a>
               <ul class="dropdown-content">
                 <li>
                   <a href="rancangan.html"><i class="fa-solid fa-clipboard-list"></i> Rancangan Pembelajaran</a>
@@ -1568,7 +1577,7 @@
                   <a href="media.html"><i class="fa-solid fa-photo-film"></i> Media Pembelajaran</a>
                 </li>
                 <li>
-                  <a href="video.html"><i class="fa-solid fa-video"></i> Video Praktik Mengajar</a>
+                  <a href="video.html" class="active"><i class="fa-solid fa-video"></i> Video Praktik Mengajar</a>
                 </li>
                 <li>
                   <a href="non-mengajar.html"><i class="fa-solid fa-people-group"></i> Kegiatan Non-Mengajar</a>
@@ -1625,7 +1634,7 @@
                 <div class="siklus-number-badge">01</div>
                 <div class="siklus-titles">
                   <span class="siklus-label">SIKLUS 1 &bull; UTS</span>
-                  <span class="siklus-name">Algoritma Standar: Searching dan Sorting</span>
+                  <span class="siklus-name">Sistem Operasi: Arsitektur Von-Neumann dan I-P-O</span>
                 </div>
               </div>
 
@@ -1637,15 +1646,15 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/video/uts_siklus_1_searching_sorting.mp4</div>
+                  <div class="terminal-title">~/video/uts_siklus_1_sistem_operasi.mp4</div>
                   <div class="terminal-status">LIVE &bull; DRIVE</div>
                 </div>
 
                 <div class="video-container-16-9">
-                  <!-- Video Google Drive Siklus 1: Searching dan Sorting -->
+                  <!-- Video Google Drive Siklus 1: Sistem Operasi (Arsitektur Von-Neumann & I-P-O) -->
                   <iframe
                     src="https://drive.google.com/file/d/12GRnLeOlotF0LqKz12U1x64oDJk0JRp0/preview"
-                    title="Video Praktik Mengajar UTS Siklus 1 — Algoritma Standar: Searching dan Sorting"
+                    title="Video Praktik Mengajar UTS Siklus 1 — Sistem Operasi: Arsitektur Von-Neumann dan I-P-O"
                     allow="autoplay; encrypted-media; picture-in-picture"
                     allowfullscreen
                     loading="lazy"
@@ -1683,11 +1692,10 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Video direkam pada <strong>Kelas X-5 SMAN 4 Yogyakarta</strong> (Rabu, 19 Agustus 2026, jam ke-3–4) dengan materi <strong>Algoritma Standar: Searching dan Sorting</strong>.</p>
+                    <p>Video direkam pada <strong>Kelas X-5 SMAN 4 Yogyakarta</strong> (Rabu, 19 Agustus 2026, jam ke-3–4) dengan materi <strong>Sistem Operasi: Arsitektur Von-Neumann dan I-P-O</strong>.</p>
                     <p>
                       Tujuan praktik: mengamati bagaimana murid
-                      <em>mengonstruksi pemahaman konsep pencarian data (linear &amp; binary search)</em> serta pengurutan data (bubble, selection, insertion sort) melalui simulasi kartu interaktif dan diskusi kelompok berorientasi
-                      computational thinking.
+                      <em>mengonstruksi pemahaman konsep arsitektur komputer Von-Neumann (CPU, Memori, I/O)</em> serta dinamika alur Input - Proses - Output melalui simulasi interaktif alur instruksi dan diskusi kelompok berorientasi computational thinking.
                     </p>
                   </div>
                 </div>

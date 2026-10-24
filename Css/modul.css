@@ -359,11 +359,19 @@ header {
   transition: width 0.3s ease;
   box-shadow: 0 0 8px var(--primary);
 }
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
   color: var(--white);
 }
-.nav-links > li > a:hover::after {
+.nav-links > li > a:hover::after,
+.nav-links > li > a.active::after {
   width: 100%;
+}
+.dropbtn.active {
+  color: var(--white);
+}
+.dropbtn.active .arrow {
+  color: var(--primary);
 }
 
 .dropdown {
@@ -423,7 +431,8 @@ header {
 .dropdown-content li a::after {
   display: none;
 }
-.dropdown-content li a:hover {
+.dropdown-content li a:hover,
+.dropdown-content li a.active {
   background: rgba(0, 240, 255, 0.08);
   color: var(--primary);
   padding-left: 30px;

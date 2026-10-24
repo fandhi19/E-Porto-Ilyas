@@ -396,11 +396,19 @@
         transition: width 0.3s ease;
         box-shadow: 0 0 8px var(--primary);
       }
-      .nav-links a:hover {
+      .nav-links a:hover,
+      .nav-links a.active {
         color: var(--white);
       }
-      .nav-links > li > a:hover::after {
+      .nav-links > li > a:hover::after,
+      .nav-links > li > a.active::after {
         width: 100%;
+      }
+      .dropbtn.active {
+        color: var(--white);
+      }
+      .dropbtn.active .arrow {
+        color: var(--primary);
       }
 
       .dropdown {
@@ -460,7 +468,8 @@
       .dropdown-content li a::after {
         display: none;
       }
-      .dropdown-content li a:hover {
+      .dropdown-content li a:hover,
+      .dropdown-content li a.active {
         background: rgba(0, 240, 255, 0.08);
         color: var(--primary);
         padding-left: 30px;
@@ -1495,13 +1504,13 @@
             </li>
 
             <li class="dropdown">
-              <a href="#dokumen" class="dropbtn">Jejak PPL 2 <span class="arrow">&#9662;</span></a>
+              <a href="#dokumen" class="dropbtn active">Jejak PPL 2 <span class="arrow">&#9662;</span></a>
               <ul class="dropdown-content">
                 <li>
                   <a href="rancangan.html"><i class="fa-solid fa-clipboard-list"></i> Rancangan Pembelajaran</a>
                 </li>
                 <li>
-                  <a href="materi.html"><i class="fa-solid fa-book"></i> Materi Pembelajaran</a>
+                  <a href="materi.html" class="active"><i class="fa-solid fa-book"></i> Materi Pembelajaran</a>
                 </li>
                 <li>
                   <a href="media.html"><i class="fa-solid fa-photo-film"></i> Media Pembelajaran</a>
@@ -1564,7 +1573,7 @@
                 <div class="siklus-number-badge">01</div>
                 <div class="siklus-titles">
                   <span class="siklus-label">SIKLUS 1 &bull; UTS</span>
-                  <span class="siklus-name">Algoritma Standar: Searching dan Sorting</span>
+                  <span class="siklus-name">Sistem Operasi: Arsitektur Von-Neumann dan I-P-O</span>
                 </div>
               </div>
 
@@ -1576,13 +1585,13 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/materi/uts_siklus_1_searching_sorting.pdf</div>
+                  <div class="terminal-title">~/materi/uts_siklus_1_sistem_operasi.pdf</div>
                   <div class="terminal-status">ONLINE</div>
                 </div>
 
                 <div class="pdf-container">
                   <!-- PDF Materi Siklus 1 -->
-                  <iframe src="../Dokumen/PPL_2/Materi Siklus 1.pdf" class="cyber-pdf-frame" title="Materi Pembelajaran UTS Siklus 1 — Algoritma Standar: Searching dan Sorting"></iframe>
+                  <iframe src="../Dokumen/PPL_2/Materi Siklus 1.pdf" class="cyber-pdf-frame" title="Materi Pembelajaran UTS Siklus 1 — Sistem Operasi: Arsitektur Von-Neumann dan I-P-O"></iframe>
                 </div>
 
                 <div class="terminal-footer">
@@ -1617,10 +1626,10 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      Materi ajar ini dirancang untuk peserta didik <strong>Fase E (Kelas X) SMAN 4 Yogyakarta</strong> dengan fokus materi <strong>Algoritma Standar: Searching (Linear &amp; Binary Search) dan Sorting (Bubble, Insertion, &amp; Selection Sort)</strong>.
+                      Materi ajar ini dirancang untuk peserta didik <strong>Fase E (Kelas X) SMAN 4 Yogyakarta</strong> dengan fokus materi <strong>Sistem Operasi: Arsitektur Von-Neumann dan I-P-O</strong>.
                     </p>
                     <p>
-                      Tujuan pembelajaran: murid mampu menganalisis mekanisme kerja pencarian dan pengurutan data, mengonstruksi pemahaman logika algoritma melalui studi kasus interaktif, serta mengevaluasi efisiensi komparasi langkah algoritma.
+                      Tujuan pembelajaran: murid mampu menganalisis mekanisme kerja arsitektur Von-Neumann (CPU, Control Unit, ALU, Bus, Memori) dan dinamika alur Input - Proses - Output (I-P-O), memahami peran sistem operasi dalam manajemen proses dan perangkat, serta mengonstruksi pemahaman logika kerja komputer secara komprehensif.
                     </p>
                   </div>
                 </div>
@@ -1638,8 +1647,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> bahan ajar dilengkapi visualisasi infografis alur komparasi data bertahap; contoh kasus relevan dengan kehidupan sehari-hari (pencarian buku perpustakaan &amp; pengurutan presensi); mudah dipelajari mandiri.</p>
-                    <p><strong>Kekurangan:</strong> kompleksitas pemahaman algoritma Binary Search dan Insertion Sort memerlukan latihan repetitif; alokasi waktu penelusuran logika (*dry run table*) cukup menyita waktu.</p>
+                    <p><strong>Kelebihan:</strong> bahan ajar menyajikan analogi konkrit dan diagram blok arsitektur Von-Neumann yang jelas; visualisasi alur siklus instruksi (Fetch, Decode, Execute) mempermudah pemahaman cara kerja CPU dan sistem operasi.</p>
+                    <p><strong>Kekurangan:</strong> interaksi teknis antar-register dan siklus bus data memerlukan pendampingan visual interaktif agar murid tidak merasa kewalahan dengan konsep abstrak perangkat keras tingkat rendah.</p>
                   </div>
                 </div>
 
@@ -1656,8 +1665,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Materi mengadopsi pilar <strong>Computational Thinking (Wing, 2006)</strong> — dekomposisi masalah, pengenalan pola keterurutan, abstraksi representasi data, dan perancangan langkah algoritma sistematis.</p>
-                    <p>Didukung teori belajar <strong>Konstruktivisme Kognitif (Bruner)</strong> yang memfasilitasi penemuan konsep secara aktif melalui representasi enaktif (peragaan simulasi fisik) ke simbolik.</p>
+                    <p>Materi mengadopsi pilar <strong>Sistem Komputer &amp; Computational Thinking (Wing, 2006)</strong> — mencakup dekomposisi struktur fungsional sistem komputer, pengenalan pola alur data bus, dan abstraksi model komputasi Von-Neumann.</p>
+                    <p>Didukung teori belajar <strong>Konstruktivisme Kognitif (Bruner)</strong> yang memfasilitasi penemuan konsep secara aktif melalui representasi enaktif (peragaan simulasi fisik I-P-O) ke simbolik.</p>
                   </div>
                 </div>
               </div>

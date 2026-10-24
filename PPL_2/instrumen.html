@@ -395,11 +395,19 @@
         transition: width 0.3s ease;
         box-shadow: 0 0 8px var(--primary);
       }
-      .nav-links a:hover {
+      .nav-links a:hover,
+      .nav-links a.active {
         color: var(--white);
       }
-      .nav-links > li > a:hover::after {
+      .nav-links > li > a:hover::after,
+      .nav-links > li > a.active::after {
         width: 100%;
+      }
+      .dropbtn.active {
+        color: var(--white);
+      }
+      .dropbtn.active .arrow {
+        color: var(--primary);
       }
 
       .dropdown {
@@ -459,7 +467,8 @@
       .dropdown-content li a::after {
         display: none;
       }
-      .dropdown-content li a:hover {
+      .dropdown-content li a:hover,
+      .dropdown-content li a.active {
         background: rgba(0, 240, 255, 0.08);
         color: var(--primary);
         padding-left: 30px;
@@ -1499,7 +1508,7 @@
             </li>
 
             <li class="dropdown">
-              <a href="#dokumen" class="dropbtn">Jejak PPL 2 <span class="arrow">&#9662;</span></a>
+              <a href="#dokumen" class="dropbtn active">Jejak PPL 2 <span class="arrow">&#9662;</span></a>
               <ul class="dropdown-content">
                 <li>
                   <a href="rancangan.html"><i class="fa-solid fa-clipboard-list"></i> Rancangan Pembelajaran</a>
@@ -1573,7 +1582,7 @@
                 <div class="siklus-number-badge">01</div>
                 <div class="siklus-titles">
                   <span class="siklus-label">SIKLUS 1 &bull; UTS</span>
-                  <span class="siklus-name">Algoritma Standar: Searching dan Sorting</span>
+                  <span class="siklus-name">Sistem Operasi: Arsitektur Von-Neumann dan I-P-O</span>
                 </div>
               </div>
 
@@ -1590,7 +1599,7 @@
                 </div>
 
                 <div class="pdf-container">
-                  <iframe src="../Dokumen/PPL_2/Instrumen Siklus 1.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen UTS Siklus 1 — Algoritma Standar Searching &amp; Sorting"></iframe>
+                  <iframe src="../Dokumen/PPL_2/Instrumen Siklus 1.pdf" class="cyber-pdf-frame" title="Instrumen Asesmen UTS Siklus 1 — Sistem Operasi: Arsitektur Von-Neumann dan I-P-O"></iframe>
                 </div>
 
                 <div class="terminal-footer">
@@ -1622,10 +1631,10 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Instrumen sumatif tengah semester (UTS) dan lembar asesmen observasi terstruktur digunakan untuk mengukur capaian <strong>Algoritma Standar: Searching &amp; Sorting</strong> pada Fase E.</p>
+                    <p>Instrumen sumatif tengah semester (UTS) dan lembar asesmen observasi terstruktur digunakan untuk mengukur capaian <strong>Sistem Operasi: Arsitektur Von-Neumann dan I-P-O</strong> pada Fase E.</p>
                     <p>
                       Tujuan: memetakan tingkat pemahaman murid secara
-                      <strong>kuantitatif</strong> (tes kognitif logika penelusuran &amp; tracing table) dan <strong>kualitatif</strong> (unjuk kerja peraga simulasi), serta mengidentifikasi kesiapan remedial &amp; pengayaan.
+                      <strong>kuantitatif</strong> (tes kognitif komponen arsitektur komputer, siklus I-P-O, fungsi CU/ALU/RAM) dan <strong>kualitatif</strong> (unjuk kerja simulasi alur instruksi data), serta mengidentifikasi kesiapan remedial &amp; pengayaan.
                     </p>
                   </div>
                 </div>
@@ -1643,8 +1652,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> rubrik terstruktur mencakup kesiapan pedagogik, ketepatan peragaan alur kartu acak, dan evaluasi objektif butir tes bergradasi (mudah, sedang, sukar).</p>
-                    <p><strong>Kekurangan:</strong> butir soal analisis perbandingan kompleksitas komputasi (Big O notation) masih memerlukan representasi grafis tambahan agar lebih mudah dipahami siswa pemula.</p>
+                    <p><strong>Kelebihan:</strong> rubrik terstruktur mencakup kesiapan pedagogik, ketepatan identifikasi fungsi blok Von-Neumann, dan evaluasi objektif butir tes bergradasi (mudah, sedang, sukar) seputar sistem operasi.</p>
+                    <p><strong>Kekurangan:</strong> butir soal analisis siklus instruksi (Fetch-Decode-Execute) memerlukan representasi diagramatik kontekstual agar lebih mudah dipahami siswa pemula.</p>
                   </div>
                 </div>
 
@@ -1661,8 +1670,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Mengacu pada <strong>Authentic Assessment (Wiggins, 1990)</strong> dan <strong>Bloom's Revised Taxonomy</strong> — menyelaraskan dimensi kognitif C2–C4 dengan penilaian performa nyata penelusuran algoritma.</p>
-                    <p>Diperkuat prinsip <strong>Assessment for Learning (Black &amp; Wiliam)</strong> — umpan balik komprehensif menjadi poros perbaikan pemahaman algoritma siswa secara adaptif.</p>
+                    <p>Mengacu pada <strong>Authentic Assessment (Wiggins, 1990)</strong> dan <strong>Bloom's Revised Taxonomy</strong> — menyelaraskan dimensi kognitif C2–C4 dengan penilaian performa nyata pemahaman sistem komputer.</p>
+                    <p>Diperkuat prinsip <strong>Assessment for Learning (Black &amp; Wiliam)</strong> — umpan balik komprehensif menjadi poros perbaikan pemahaman sistem operasi dan arsitektur komputer siswa secara adaptif.</p>
                   </div>
                 </div>
               </div>

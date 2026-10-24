@@ -396,11 +396,19 @@
         transition: width 0.3s ease;
         box-shadow: 0 0 8px var(--primary);
       }
-      .nav-links a:hover {
+      .nav-links a:hover,
+      .nav-links a.active {
         color: var(--white);
       }
-      .nav-links > li > a:hover::after {
+      .nav-links > li > a:hover::after,
+      .nav-links > li > a.active::after {
         width: 100%;
+      }
+      .dropbtn.active {
+        color: var(--white);
+      }
+      .dropbtn.active .arrow {
+        color: var(--primary);
       }
 
       .dropdown {
@@ -460,7 +468,8 @@
       .dropdown-content li a::after {
         display: none;
       }
-      .dropdown-content li a:hover {
+      .dropdown-content li a:hover,
+      .dropdown-content li a.active {
         background: rgba(0, 240, 255, 0.08);
         color: var(--primary);
         padding-left: 30px;
@@ -1495,10 +1504,10 @@
             </li>
 
             <li class="dropdown">
-              <a href="#dokumen" class="dropbtn">Jejak PPL 2 <span class="arrow">&#9662;</span></a>
+              <a href="#dokumen" class="dropbtn active">Jejak PPL 2 <span class="arrow">&#9662;</span></a>
               <ul class="dropdown-content">
                 <li>
-                  <a href="rancangan.html"><i class="fa-solid fa-clipboard-list"></i> Rancangan Pembelajaran</a>
+                  <a href="rancangan.html" class="active"><i class="fa-solid fa-clipboard-list"></i> Rancangan Pembelajaran</a>
                 </li>
                 <li>
                   <a href="materi.html"><i class="fa-solid fa-book"></i> Materi Pembelajaran</a>
@@ -1565,7 +1574,7 @@
                 <div class="siklus-number-badge">01</div>
                 <div class="siklus-titles">
                   <span class="siklus-label">SIKLUS 1 &bull; UTS</span>
-                  <span class="siklus-name">Algoritma Standar: Searching dan Sorting</span>
+                  <span class="siklus-name">Sistem Operasi: Arsitektur Von-Neumann dan I-P-O</span>
                 </div>
               </div>
 
@@ -1577,13 +1586,13 @@
                     <span class="dot yellow"></span>
                     <span class="dot green"></span>
                   </div>
-                  <div class="terminal-title">~/ppl_2/uts_siklus_1_searching_sorting.pdf</div>
+                  <div class="terminal-title">~/ppl_2/uts_siklus_1_sistem_operasi.pdf</div>
                   <div class="terminal-status">ONLINE</div>
                 </div>
 
                 <div class="pdf-container">
                   <!-- PDF Modul Ajar Siklus 1 -->
-                  <iframe src="../Dokumen/PPL_2/Modul Siklus 1.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UTS Siklus 1 — Algoritma Standar: Searching dan Sorting"></iframe>
+                  <iframe src="../Dokumen/PPL_2/Modul Siklus 1.pdf" class="cyber-pdf-frame" title="Rancangan Pembelajaran UTS Siklus 1 — Sistem Operasi: Arsitektur Von-Neumann dan I-P-O"></iframe>
                 </div>
 
                 <div class="terminal-footer">
@@ -1617,10 +1626,10 @@
                   </div>
                   <div class="card-body">
                     <p>
-                      Rancangan dikembangkan untuk <strong>Fase E (Kelas X) SMAN 4 Yogyakarta</strong> dengan fokus materi <strong>Algoritma Standar: Searching (Linear &amp; Binary Search) dan Sorting (Bubble, Insertion, &amp; Selection Sort)</strong>.
+                      Rancangan dikembangkan untuk <strong>Fase E (Kelas X) SMAN 4 Yogyakarta</strong> dengan fokus materi <strong>Sistem Operasi: Arsitektur Von-Neumann dan I-P-O</strong>.
                     </p>
                     <p>
-                      Tujuan utama: murid mampu memahami mekanisme pencarian dan pengurutan data, mengimplementasikan langkah-langkah logika algoritma pemilahan data, serta menganalisis efisiensi komparasi algoritma dalam konteks pemecahan masalah komputasional secara terstruktur.
+                      Tujuan utama: murid mampu memahami prinsip dasar arsitektur komputer (Control Unit, ALU, Register, Memori Utama/RAM) dan mekanisme siklus kerja komputer melalui model Input - Proses - Output (I-P-O), membedakan fungsi komponen perangkat keras dan sistem operasi dalam mengeksekusi instruksi data secara logis dan terstruktur.
                     </p>
                   </div>
                 </div>
@@ -1638,8 +1647,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p><strong>Kelebihan:</strong> pendekatan simulasi interaktif (unplugged kartu data &amp; digital) mempermudah visualisasi proses algoritma yang abstrak; asesmen formatif terstruktur menggunakan LKPD studi kasus; melatih pemikiran logis prosedural sejak awal.</p>
-                    <p><strong>Kekurangan:</strong> alokasi waktu membutuhkan manajemen ketat saat membandingkan kompleksitas beberapa metode sorting sekaligus; variasi kecepatan pemahaman logika antar murid memerlukan scaffolding diferensiasi bertahap.</p>
+                    <p><strong>Kelebihan:</strong> pendekatan simulasi interaktif alur kerja CPU dan visualisasi siklus I-P-O mempermudah pemahaman konsep abstrak arsitektur komputer; dilengkapi lembar aktivitas eksplorasi komponen sistem operasi dan perangkat komputer nyata.</p>
+                    <p><strong>Kekurangan:</strong> kompleksitas alur interaksi register, bus, dan memori memerlukan visualisasi bertahap; murid dengan latar belakang non-teknis membutuhkan analogi konkrit agar tidak mengalami kebingungan terminologi perangkat keras dan sistem operasi.</p>
                   </div>
                 </div>
 
@@ -1656,8 +1665,8 @@
                     </div>
                   </div>
                   <div class="card-body">
-                    <p>Menerapkan kerangka <strong>Computational Thinking (Wing, 2006)</strong> — mencakup dekomposisi masalah, pengenalan pola perbandingan nilai, abstraksi data, dan perancangan algoritma berurut.</p>
-                    <p>Didukung teori <strong>Konstruktivisme Kognitif (Bruner)</strong> melalui tahapan <em>enactive, iconic, and symbolic</em> saat mempraktikkan proses pencarian dan pengurutan data.</p>
+                    <p>Menerapkan kerangka <strong>Sistem Komputer &amp; Computational Thinking (Wing, 2006)</strong> — berfokus pada dekomposisi komponen arsitektur Von-Neumann dan abstraksi alur eksekusi instruksi data sistem operasi.</p>
+                    <p>Didukung teori <strong>Konstruktivisme Kognitif (Bruner)</strong> melalui tahapan <em>enactive</em> (simulasi alur I-P-O di kelas), <em>iconic</em> (diagram blok Von-Neumann), dan <em>symbolic</em> (analisis fungsi komponen sistem komputer).</p>
                   </div>
                 </div>
               </div>
